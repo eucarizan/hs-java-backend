@@ -28,7 +28,7 @@ The track includes Java fundamentals, basic algorithms, and all must-haves for c
 - learn how to interact with members of the team working under the same project.
 
 ### Projects
-1. [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/ChattyBot.md)
+1. [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md)
 
 ### Topics
 `Code organization` `Essentials` `Backend` `Algorithms and structures` `SQL and Databases` `Basics` `System administration and DevOps` `Additional instruments` `Errorless code` `JVM` `Working with data` `Java internals` `Dev tools` `Frontend` `Math`
