@@ -1,5 +1,5 @@
 # Simple Chatty Bot (Java)
-
+![output](output.gif)
 - [Simple Chatty Bot (Java)](#simple-chatty-bot-java)
   - [Learning Outcomes](#learning-outcomes)
   - [About](#about)
