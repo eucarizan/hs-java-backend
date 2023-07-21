@@ -12,6 +12,10 @@
       - [Description](#description-1)
       - [Objective](#objective-1)
       - [Example](#example-1)
+    - [3: Guess the age](#3-guess-the-age)
+      - [Description](#description-2)
+      - [Objective](#objective-2)
+      - [Example](#example-2)
 
 ## Learning Outcomes
 Get to know the basic syntax of Java and write a simple program using variables, conditions, loops, and methods.
@@ -30,7 +34,7 @@ In this project, you will develop step by step a simple bot that will help you s
 For the first stage, you will write a bot who displays a greeting, its name, and the date of its creation. First impressions count!
 
 Your program should print the following lines:
-```java
+```console
 Hello! My name is {botName}.
 I was created in {birthYear}.
 ```
@@ -39,12 +43,10 @@ Instead of `{botName}`, print any name you choose and replace `{birthYear}` with
 
 #### Example
 Output
-```java
+```console
 Hello! My name is Aid.
 I was created in 2020.
 ```
-
-You can change the text if you want but print exactly two lines.
 
 Next, we will use Aid and 2020 as your bot's name and its birth year, but you can change it if you need to.
 
@@ -56,7 +58,7 @@ The greeting part is great, but chatbots are also supposed to interact with a us
 In this stage, you will introduce yourself to the bot so that it can greet you by your name.
 
 Your program should print the following lines:
-```java
+```console
 Hello! My name is Aid.
 I was created in 2020.
 Please, remind me your name.
@@ -72,7 +74,7 @@ The greater-than symbol followed by a space (`> `) represents the user input. No
 
 **Example 1:** _a dialogue with the bot_
 
-```java
+```console
 Hello! My name is Aid.
 I was created in 2020.
 Please, remind me your name.
@@ -80,4 +82,50 @@ Please, remind me your name.
 What a great name you have, Max!
 ```
 
-Use the provided template to simplify your work. You can change the text but not the number of printed lines.
+### 3: Guess the age
+#### Description
+Keep improving your bot by developing new skills for it. We suggest a simple guessing game that will predict the age of a user.
+
+It's based on a simple math trick. First, take a look at this formula:
+```
+age = (remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105
+```
+
+The numbers `remainder3`, `remainder5`, and `remainder7` are the remainders of the division of `age` by 3, 5, and 7 respectively.
+
+It turns out that for each number ranging from _0_ to _104_, the calculation will result in the number itself.
+This perfectly fits the ordinary age range, doesn't it? Ask the user for the remainders and use them to guess the age!
+
+#### Objective
+In this stage, you will introduce yourself to the bot. It will greet you by your name and then try to guess your age using arithmetic operations.
+
+Your program should print the following lines:
+```console
+Hello! My name is Aid.
+I was created in 2020.
+Please, remind me your name.
+What a great name you have, Max!
+Let me guess your age.
+Enter remainders of dividing your age by 3, 5 and 7.
+Your age is {yourAge}; that's a good time to start programming!
+Read three numbers from the standard input. Assume that all the numbers will be given on separate lines.
+```
+Instead of `{yourAge}`, the bot will print the age determined according to the special formula discussed above.
+
+#### Example
+The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
+
+**Example 1:** _a dialogue with the bot_
+```console
+Hello! My name is Aid.
+I was created in 2020.
+Please, remind me your name.
+> Max
+What a great name you have, Max!
+Let me guess your age.
+Enter remainders of dividing your age by 3, 5 and 7.
+> 1
+> 2
+> 1
+Your age is 22; that's a good time to start programming!
+```
