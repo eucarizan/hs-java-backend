@@ -5,25 +5,25 @@
   - [About](#about)
   - [Stages](#stages)
     - [1: Chatty Bot welcomes you](#1-chatty-bot-welcomes-you)
-      - [Description](#description)
-      - [Objective](#objective)
-      - [Example](#example)
+      - [1.1 Description](#11-description)
+      - [1.2 Objective](#12-objective)
+      - [1.3 Example](#13-example)
     - [2: Print your name](#2-print-your-name)
-      - [Description](#description-1)
-      - [Objective](#objective-1)
-      - [Example](#example-1)
+      - [2.1 Description](#21-description)
+      - [2.2 Objective](#22-objective)
+      - [2.3 Example](#23-example)
     - [3: Guess the age](#3-guess-the-age)
-      - [Description](#description-2)
-      - [Objective](#objective-2)
-      - [Example](#example-2)
+      - [3.1 Description](#31-description)
+      - [3.2 Objective](#32-objective)
+      - [3.3 Example](#33-example)
     - [4: Learning numbers](#4-learning-numbers)
-      - [Description](#description-3)
-      - [Objective](#objective-3)
-      - [Example](#example-3)
+      - [4.1 Description](#41-description)
+      - [4.2 Objective](#42-objective)
+      - [4.3 Example](#43-example)
     - [5: Multiple Choice](#5-multiple-choice)
-      - [Description](#description-4)
-      - [Objective](#objective-4)
-      - [Example](#example-4)
+      - [5.1 Description](#51-description)
+      - [5.2 Objective](#52-objective)
+      - [5.3 Example](#53-example)
 
 ## Learning Outcomes
 Get to know the basic syntax of Java and write a simple program using variables, conditions, loops, and methods.
@@ -33,12 +33,12 @@ Here, at the beginning of your programmer’s path, creating a simple console ch
 
 ## Stages
 ### 1: Chatty Bot welcomes you
-#### Description
+#### 1.1 Description
 Digital personal assistants help people to drive cars, plan their day, buy something online. In a sense, they are simplified versions of artificial intelligence with whom you can talk.
 
 In this project, you will develop step by step a simple bot that will help you study programming.
 
-#### Objective
+#### 1.2 Objective
 For the first stage, you will write a bot who displays a greeting, its name, and the date of its creation. First impressions count!
 
 Your program should print the following lines:
@@ -49,7 +49,7 @@ I was created in {birthYear}.
 
 Instead of `{botName}`, print any name you choose and replace `{birthYear}` with the current year (four digits).
 
-#### Example
+#### 1.3 Example
 Output
 ```console
 Hello! My name is Aid.
@@ -59,10 +59,10 @@ I was created in 2020.
 Next, we will use Aid and 2020 as your bot's name and its birth year, but you can change it if you need to.
 
 ### 2: Print your name
-#### Description
+#### 2.1 Description
 The greeting part is great, but chatbots are also supposed to interact with a user. It's time to implement this functionality.
 
-#### Objective
+#### 2.2 Objective
 In this stage, you will introduce yourself to the bot so that it can greet you by your name.
 
 Your program should print the following lines:
@@ -77,7 +77,7 @@ You may change the name and the creation year of your bot if you want.
 
 Instead of `{yourName}`, the bot must print your name entered from the standard input.
 
-#### Example
+#### 2.3 Example
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 **Example 1:** _a dialogue with the bot_
@@ -91,7 +91,7 @@ What a great name you have, Max!
 ```
 
 ### 3: Guess the age
-#### Description
+#### 3.1 Description
 Keep improving your bot by developing new skills for it. We suggest a simple guessing game that will predict the age of a user.
 
 It's based on a simple math trick. First, take a look at this formula:
@@ -104,7 +104,7 @@ The numbers `remainder3`, `remainder5`, and `remainder7` are the remainders of t
 It turns out that for each number ranging from _0_ to _104_, the calculation will result in the number itself.
 This perfectly fits the ordinary age range, doesn't it? Ask the user for the remainders and use them to guess the age!
 
-#### Objective
+#### 3.2 Objective
 In this stage, you will introduce yourself to the bot. It will greet you by your name and then try to guess your age using arithmetic operations.
 
 Your program should print the following lines:
@@ -120,7 +120,7 @@ Read three numbers from the standard input. Assume that all the numbers will be 
 ```
 Instead of `{yourAge}`, the bot will print the age determined according to the special formula discussed above.
 
-#### Example
+#### 3.3 Example
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 **Example 1:** _a dialogue with the bot_
@@ -139,13 +139,13 @@ Your age is 22; that's a good time to start programming!
 ```
 
 ### 4: Learning numbers
-#### Description
+#### 4.1 Description
 Now you will teach your bot to count. It's going to become an expert in numbers!
 
-#### Objective
+#### 4.2 Objective
 In this stage, you will program the bot to count from 0 to any positive number users enter.
 
-#### Example
+#### 4.3 Example
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 **Example 1:** _a dialogue with the bot_
@@ -175,12 +175,12 @@ Completed, have a nice day!
 **Note:** each number starts with a new line, and after a number, the bot should print the exclamation mark.
 
 ### 5: Multiple Choice
-#### Description
+#### 5.1 Description
 At the final stage, you will improve your simple bot so that it can give you a test and check your answers.
 The test should be a multiple-choice quiz about programming with any number of options.
 Your bot has to repeat the test until you answer correctly and congratulate you upon completion.
 
-#### Objective
+#### 5.2 Objective
 Your bot can ask anything you want, but there are two rules for your output:
 
 - the line with the test should end with the question mark character;
@@ -193,7 +193,7 @@ Please, try again.
 
 The program should stop on the correct answer and print `Congratulations, have a nice day!` at the end.
 
-#### Example
+#### 5.3 Example
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 **Example 1:** _a dialogue with the bot_

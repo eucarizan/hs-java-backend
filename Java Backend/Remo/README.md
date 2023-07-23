@@ -5,20 +5,23 @@
   - [About](#about)
   - [Stages](#stages)
     - [1: Global settings](#1-global-settings)
-      - [Description](#description)
-      - [Objectives](#objectives)
+      - [1.1 Description](#11-description)
+      - [1.2 Objectives](#12-objectives)
     - [2: Initialize](#2-initialize)
-      - [Description](#description-1)
-      - [Objectives](#objectives-1)
+      - [2.1 Description](#21-description)
+      - [2.2 Objectives](#22-objectives)
     - [3: Create files](#3-create-files)
-      - [Description](#description-2)
-      - [Objectives](#objectives-2)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
     - [4: Ignore it](#4-ignore-it)
-      - [Description](#description-3)
-      - [Objectives](#objectives-3)
+      - [4.1 Description](#41-description)
+      - [4.2 Objectives](#42-objectives)
     - [5: Commit](#5-commit)
-      - [Description](#description-4)
-      - [Objectives](#objectives-4)
+      - [5.1 Description](#51-description)
+      - [5.2 Objectives](#52-objectives)
+    - [6: Push](#6-push)
+      - [6.1 Description](#61-description)
+      - [6.2 Objectives](#62-objectives)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -28,7 +31,7 @@ Remote is a git repository to store and exchange changes. It is a store that all
 
 ## Stages
 ### 1: Global settings
-#### Description
+#### 1.1 Description
 When you install the `Git` utility on your system, the first thing you need to do is to define the global variables. They can be defined with a `git config` command followed by `--global` option, a `variable name`, and a `value`. This means every git repository created on your system after that will have these variables pre-defined. Below you will find a simple usage of the command. To learn more about it, you can follow the link [git configuration][git config] for official documentation.
 
 ```console
@@ -37,14 +40,14 @@ git config --global <variable name> <value>
 
 The `config` command without a value will show you the value of the variable.
 
-#### Objectives
+#### 1.2 Objectives
 - Define a global variable with the name `user.name` and with the value `hyper`;
 - Define a global variable with the name `user.email` and with the value `hyperskill@hyperskill.org`;
 - Define a global variable with the name `init.defaultBranch` and with the value `main`;
 - Use the `config` command to view the user email.
 
 ### 2: Initialize
-#### Description
+#### 2.1 Description
 Create an empty repository and add `remote` for it. You can use the command below to add a remote.
 
 ```console
@@ -53,13 +56,13 @@ git remote add <name for the remote> <remote URL>
 
 The name of the remote can be anything. But, it is a convention to use `origin`.
 
-#### Objectives
+#### 2.2 Objectives
 Let's break this task into a few steps:
 - In the current working directory, initialize an empty `Git` repository;
 - Add `remote` to your repository, with the name `origin` and with the URL `file:///tmp/git-bare`.
 
 ### 3: Create files
-#### Description
+#### 3.1 Description
 An empty repository doesn't make much sense. Let's add some files to work with.
 
 There is a Bash command called `echo`. This command in Bash is used to display a line of text/string that is passed as an argument. But with the help of the `echo` command you can create files with content in it or add content to an existing file. In this project stage, you will do both.
@@ -72,28 +75,37 @@ Now there is another file with the name `.env`. Add the following text to it `PA
 
 You can use .env files to store environmental variables, like URLs, API keys, and secrets.
 
-#### Objectives
+#### 3.2 Objectives
 - Create the first file;
 - Add content to the second file.
 
 ### 4: Ignore it
-#### Description
+#### 4.1 Description
 It is essential not to commit/push uncalled-for files or files containing secrets. Mainly when you work with public repositories. Hopefully, there is a way to avoid it. You can add file and directory names to the `.gitignore`, and they will not be committed or pushed. In the last stage, you have added a secret line to a _.env_ file. Now add the _.env_ file to the `.gitignore`:
 
 ```
 You can use "git status --help" command to see available options and get help.
 ```
 
-#### Objectives
+#### 4.2 Objectives
 - Add a _.env_ file to `.gitignore`;
 - Use the `git status` command with the suitable option to list the ignored files.
 
 ### 5: Commit
-#### Description
+#### 5.1 Description
 In this stage, make your first commit. First, add the files to the staging area and commit them afterward. Your commit message should be `Initial commit`.
 
-#### Objectives
+#### 5.2 Objectives
 - Stage your files;
 - Commit the changes with a message.
+
+### 6: Push
+#### 6.1 Description
+In the second stage of the project, you've defined a remote. Now, you can push your changes to it. While pushing your changes, don't forget the `-u` or the `--set-upstream` option in your first attempt. Now, any future push/pull attempt will target the upstream branch automatically.
+
+If you do not set the upstream, with any push/pull attempt you need to define the name of the **remote**, and the name of the **branch** explicitly.
+
+#### 6.2 Objectives
+- Push your changes to the remote
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
