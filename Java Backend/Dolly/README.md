@@ -8,6 +8,10 @@
       - [1.1 Description](#11-description)
       - [1.2 Objectives](#12-objectives)
       - [1.3 Solution](#13-solution)
+    - [2: List the content](#2-list-the-content)
+      - [2.1 Description](#21-description)
+      - [2.2 Objectives](#22-objectives)
+      - [2.3 Solution](#23-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -32,3 +36,17 @@ While working on this project, you will use a few Bash commands in addition to G
 >git clone file:///tmp/dolly
 ```
 
+### 2: List the content
+#### 2.1 Description
+In the previous stage, you cloned the project repository from a remote repo to the local directory `dolly`. Now, change the directory to it and list the content.
+
+#### 2.2 Objectives
+Let's break this task into several steps:
+- Change the directory to `dolly`;
+- List the files and directories inside `dolly`.
+
+#### 2.3 Solution
+```console
+>cd dolly
+>ls
+```
