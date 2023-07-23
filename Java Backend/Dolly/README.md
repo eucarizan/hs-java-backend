@@ -16,6 +16,10 @@
       - [3.1 Description](#31-description)
       - [3.2 Objectives](#32-objectives)
       - [3.3 Solution](#33-solution)
+    - [4: Let's see what's inside](#4-lets-see-whats-inside)
+      - [4.1 Description](#41-description)
+      - [4.2 Objective](#42-objective)
+      - [4.3 Solution](#43-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -87,4 +91,22 @@ Solution 3.3.3:
 ```console
 >git checkout -b dev-mul
 >git branch -a
+```
+
+### 4: Let's see what's inside
+#### 4.1 Description
+Your project branches can be seen in the code snippet. Right now, you work on the `dev-mul` branch, marked with an asterisk.
+```
+* dev-mul
+main
+```
+
+As you remember, there are two files in your project. You will modify one of them in the next stage. But first, study the content. As you might guess, the file name is _main.py_.
+
+#### 4.2 Objective
+- Use the `cat` command to view the content of the file mentioned in the Description stage;
+
+#### 4.3 Solution
+```console
+>cat main.py
 ```
