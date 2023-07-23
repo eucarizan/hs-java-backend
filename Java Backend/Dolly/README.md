@@ -24,6 +24,10 @@
       - [5.1 Description](#51-description)
       - [5.2 Objectives](#52-objectives)
       - [5.3 Solution](#53-solution)
+    - [6: Stage and commit](#6-stage-and-commit)
+      - [6.1 Description](#61-description)
+      - [6.2 Objectives](#62-objectives)
+      - [6.3 Solution](#63-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -151,4 +155,19 @@ Solution 5.3.2:
 >echo -e "def mul(num1, num2):\n    return num1 * num2" >> main.py
 >cat main.py
 >git status
+```
+
+### 6: Stage and commit
+#### 6.1 Description
+You have modified one of your files in the last stage. Now, commit the changes with a nice commit message.
+
+#### 6.2 Objectives
+Let's break this task into several steps:
+- Add the modified file to the staging area;
+- Commit your changes with the commit message: `New function multiplication`.
+
+#### 6.3 Solution
+```console
+>git add .
+>git commit -m "New function multiplication"
 ```
