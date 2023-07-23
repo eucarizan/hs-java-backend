@@ -16,6 +16,9 @@
     - [4: Ignore it](#4-ignore-it)
       - [Description](#description-3)
       - [Objectives](#objectives-3)
+    - [5: Commit](#5-commit)
+      - [Description](#description-4)
+      - [Objectives](#objectives-4)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -84,5 +87,13 @@ You can use "git status --help" command to see available options and get help.
 #### Objectives
 - Add a _.env_ file to `.gitignore`;
 - Use the `git status` command with the suitable option to list the ignored files.
+
+### 5: Commit
+#### Description
+In this stage, make your first commit. First, add the files to the staging area and commit them afterward. Your commit message should be `Initial commit`.
+
+#### Objectives
+- Stage your files;
+- Commit the changes with a message.
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
