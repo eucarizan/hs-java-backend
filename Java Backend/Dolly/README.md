@@ -70,7 +70,7 @@ Let's break this task into several steps:
 - List the files and directories inside `dolly`.
 
 #### 2.3 Solution
-```console
+```shell
 >cd dolly
 >ls
 ```
@@ -91,20 +91,20 @@ Let's break this task into several steps:
 
 #### 3.3 Solution
 Solution 3.3.1:
-```console
+```shell
 >git branch dev-mul
 >git checkout dev-mul
 >git branch --list
 ```
 
 Solution 3.3.2:
-```console
+```shell
 >git checkout -b dev-mul
 >git branch --list
 ```
 
 Solution 3.3.3:
-```console
+```shell
 >git checkout -b dev-mul
 >git branch -a
 ```
@@ -123,7 +123,7 @@ As you remember, there are two files in your project. You will modify one of the
 - Use the `cat` command to view the content of the file mentioned in the Description stage;
 
 #### 4.3 Solution
-```console
+```shell
 >cat main.py
 ```
 
@@ -151,7 +151,7 @@ Let's break this tasks into several steps:
 
 #### 5.3 Solution
 Solution 5.3.1:
-```console
+```shell
 >echo "def mul(num1, num2):" >> main.py
 >echo "    return num1 * num2" >> main.py
 >cat main.py
@@ -159,7 +159,7 @@ Solution 5.3.1:
 ```
 
 Solution 5.3.2:
-```console
+```shell
 >echo -e "def mul(num1, num2):\n    return num1 * num2" >> main.py
 >cat main.py
 >git status
@@ -175,7 +175,7 @@ Let's break this task into several steps:
 - Commit your changes with the commit message: `New function multiplication`.
 
 #### 6.3 Solution
-```console
+```shell
 >git add .
 >git commit -m "New function multiplication"
 ```
@@ -191,7 +191,7 @@ Let's break this task into several steps:
 - Delete the `dev-mul` branch.
 
 #### 7.3 Solution
-```console
+```shell
 >git checkout main
 >git merge dev-mul
 >git branch -d dev-mul
@@ -209,7 +209,7 @@ Let's break this task into several steps:
 Use the `git diff HEAD~` command to view the changes between the previous and last commit.
 
 #### 8.3 Solution
-```console
+```shell
 >git diff HEAD~
 >git push
 ```

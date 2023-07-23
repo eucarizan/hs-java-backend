@@ -44,7 +44,7 @@ Remote is a git repository to store and exchange changes. It is a store that all
 #### 1.1 Description
 When you install the `Git` utility on your system, the first thing you need to do is to define the global variables. They can be defined with a `git config` command followed by `--global` option, a `variable name`, and a `value`. This means every git repository created on your system after that will have these variables pre-defined. Below you will find a simple usage of the command. To learn more about it, you can follow the link [git configuration][git config] for official documentation.
 
-```console
+```shell
 git config --global <variable name> <value>
 ```
 
@@ -57,7 +57,7 @@ The `config` command without a value will show you the value of the variable.
 - Use the `config` command to view the user email.
 
 #### 1.3 Solution
-```console
+```shell
 >git config --global user.name hyper
 >git config --global user.email hyperskill@hyperskill.org
 >git config --global init.defaultBranch main
@@ -68,7 +68,7 @@ The `config` command without a value will show you the value of the variable.
 #### 2.1 Description
 Create an empty repository and add `remote` for it. You can use the command below to add a remote.
 
-```console
+```shell
 >git remote add <name for the remote> <remote URL>
 ```
 
@@ -80,7 +80,7 @@ Let's break this task into a few steps:
 - Add `remote` to your repository, with the name `origin` and with the URL `file:///tmp/git-bare`.
 
 #### 2.3 Solution
-```console
+```shell
 >git init
 >git remote add origin file:///tmp/git-bare
 ```
@@ -104,7 +104,7 @@ You can use .env files to store environmental variables, like URLs, API keys, an
 - Add content to the second file.
 
 #### 3.3 Solution
-```console
+```shell
 >echo "print('Hello world')" > main.py
 >echo "PASSWORD=Ax?bu75+33" >> .env
 ```
@@ -122,7 +122,7 @@ You can use "git status --help" command to see available options and get help.
 - Use the `git status` command with the suitable option to list the ignored files.
 
 #### 4.3 Solution
-```console
+```shell
 >echo ".env" >> .gitignore
 >git status --ignored
 ```
@@ -136,7 +136,7 @@ In this stage, make your first commit. First, add the files to the staging area 
 - Commit the changes with a message.
 
 #### 5.3 Solution
-```console
+```shell
 >git add .
 >git commit -m "Initial commit"
 ```
@@ -151,7 +151,7 @@ If you do not set the upstream, with any push/pull attempt you need to define th
 - Push your changes to the remote.
 
 #### 6.3 Solution
-```console
+```shell
 >git push -u origin main
 ```
 
@@ -163,7 +163,7 @@ In this project, you have created only one remote branch. In a production enviro
 - List your remotes.
 
 #### 7.3 Solution
-```console
+```shell
 >git remote --verbose
 ```
 
