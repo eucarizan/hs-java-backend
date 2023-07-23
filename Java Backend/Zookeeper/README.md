@@ -1,4 +1,5 @@
 # Zookeeper (Java)
+![output](output.gif)
 
 - [Zookeeper (Java)](#zookeeper-java)
   - [Learning outcomes](#learning-outcomes)
@@ -16,6 +17,10 @@
       - [3.1 Description](#31-description)
       - [3.2 Objectives](#32-objectives)
       - [3.3 Examples](#33-examples)
+    - [4: Sustainable care \<3](#4-sustainable-care-3)
+      - [4.1 Description](#41-description)
+      - [4.2 Objectives](#42-objectives)
+      - [4.3 Examples](#43-examples)
 
 ## Learning outcomes
 This project is aimed at our beginners. It helps you understand some syntax basics and learn how to work with variables, data storage types such as arrays, and while loops.
@@ -27,7 +32,8 @@ This short code challenge can help the local zoo look after its denizens. You wi
 ### 1: Rush into print
 #### 1.1 Description
 ```
-You need Java 17 to complete this project since it uses Text Blocks feature that is not present in Java 11. Remember to choose Java 17 when opening the project in the IDE.
+You need Java 17 to complete this project since it uses Text Blocks feature that is not present in Java 11.
+Remember to choose Java 17 when opening the project in the IDE.
 ```
 
 There are many animals in the zoo, and all of them need care. The animals must be fed, cleaned, surrounded by their kin, and kept happy. That is a difficult task for our large zoo, so one of your employers has suggested a more convinient way to keep track of everything. She wants to be able to pull up a video feed of any animal in the zoo with the help of a program. Being able to check on each habitat would help the zookeepers take care of our furry friends more efficiently!
@@ -97,8 +103,8 @@ You've reached the end of the program. To check another habitat, please restart 
 #### 3.3 Examples
 The greater-than symbol followed by a space(`> `) represents the user input. Notice that it's not part of the input.
 
-Example 3.3.1
-```shell
+**Example 3.3.1**
+```console
 Please enter the number of the habitat you would like to view: > 5
 
 Switching on the camera in the rabbit habitat...
@@ -126,7 +132,7 @@ It looks like we will soon have more rabbits!
 You've reached the end of the program. To check another habitat, please restart the watcher.
 ```
 
-Example 3.3.2
+**Example 3.3.2**
 ```console
 Please enter the number of the habitat you would like to view: > 4
 
@@ -145,4 +151,59 @@ _________________               _________________
 This bat looks like it's doing fine.
 ---
 You've reached the end of the program. To check another habitat, please restart the watcher.
+```
+
+### 4: Sustainable care <3
+#### 4.1 Description
+Now it's time to make our project user-friendly. In this final stage, you'll make your software ready for the zoo staff to use. Your program should understand the habitat numbers, show the animals, and be able to work continuously without having to be restarted.
+
+#### 4.2 Objectives
+Your tasks at this point:
+1. Your program should repeat the behavior from the previous stage, bot now in a loop.
+2. Do not forget to include an exit opportunity: inputting `exit` should end the program.
+3. When the program is done running, it should print: `See you later!`
+
+#### 4.3 Examples
+The greater-than symbol followed by a space(`> `) represents the user input. Notice that it's not part of the input.
+
+The final version of the program should run like this:
+
+**Example 4.3.1**
+```console
+Please enter the number of the habitat you would like to view: > 3
+
+Switching on the camera in the goose habitat...
+
+                                    _
+                                ,-"" "".
+                              ,'  ____  `.
+                            ,'  ,'    `.  `._
+   (`.         _..--.._   ,'  ,'        \    \
+  (`-.\    .-""        ""'   /          (  d _b
+ (`._  `-"" ,._             (            `-(   \
+ <_  `     (  <`<            \              `-._\
+  <`-       (__< <           :
+   (__        (_<_<          ;
+    `------------------------------------------
+The goose is staring intently at you... Maybe it's time to change the channel?
+Please enter the number of the habitat you would like to view: > 1
+
+Switching on the camera in the lion habitat...
+                                               ,w.
+                                             ,YWMMw  ,M  ,
+                        _.---.._   __..---._.'MMMMMw,wMWmW,
+                   _.-""        '''           YP"WMMMMMMMMMb,
+                .-' __.'                   .'     MMMMW^WMMMM;
+    _,        .'.-'"; `,       /`     .--""      :MMM[==MWMW^;
+ ,mM^"     ,-'.'   /   ;      ;      /   ,       MMMMb_wMW"  @\
+,MM:.    .'.-'   .'     ;     `\    ;     `,     MMMMMMMW `"=./`-,
+WMMm__,-'.'     /      _.\      F'''-+,,   ;_,_.dMMMMMMMM[,_ / `=_}
+"^MP__.-'    ,-' _.--""   `-,   ;       \  ; ;MMMMMMMMMMW^``; __|
+           /   .'            ; ;         )  )`{  \ `"^W^`,   \  :
+          /  .'             /  (       .'  /     Ww._     `.  `"
+         /  Y,              `,  `-,=,_{   ;      MMMP`""-,  `-._.-,
+        (--, )                `,_ / `) \/"")      ^"      `-, -;"\:
+The lion is roaring!
+Please enter the number of the habitat you would like to view: > exit
+See you later!
 ```

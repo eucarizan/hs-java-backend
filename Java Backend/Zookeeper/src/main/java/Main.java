@@ -123,22 +123,32 @@ public class Main {
             (" ~----( ~   Y.  )
             It looks like we will soon have more rabbits!""";
 
-        System.out.println("Please enter the number of the habitat you would like to view: > ");
+        String[] animals = {camel, lion, deer, goose, bat, rabbit};
+
+
+        System.out.print("Please enter the number of the habitat you would like to view: > ");
         Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
+        String input = scanner.nextLine();
 
         String out = "";
-        switch (num) {
-            case 0 -> out = camel;
-            case 1 -> out = lion;
-            case 2 -> out = deer;
-            case 3 -> out = goose;
-            case 4 -> out = bat;
-            case 5 -> out = rabbit;
+
+        while (!input.equals("exit")) {
+            int num = Integer.parseInt(input);
+
+            switch (num) {
+                case 0 -> out = animals[0];
+                case 1 -> out = animals[1];
+                case 2 -> out = animals[2];
+                case 3 -> out = animals[3];
+                case 4 -> out = animals[4];
+                case 5 -> out = animals[5];
+            }
+
+            System.out.println(out);
+            System.out.print("Please enter the number of the habitat you would like to view: > ");
+            input = scanner.nextLine();
         }
 
-        System.out.println(out);
-        System.out.println("---\n" +
-                "You've reached the end of the program. To check another habitat, please restart the watcher.");
+        System.out.println("See you later!");
     }
 }
