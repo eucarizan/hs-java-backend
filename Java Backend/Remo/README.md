@@ -13,6 +13,9 @@
     - [3: Create files](#3-create-files)
       - [Description](#description-2)
       - [Objectives](#objectives-2)
+    - [4: Ignore it](#4-ignore-it)
+      - [Description](#description-3)
+      - [Objectives](#objectives-3)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -69,5 +72,17 @@ You can use .env files to store environmental variables, like URLs, API keys, an
 #### Objectives
 - Create the first file;
 - Add content to the second file.
+
+### 4: Ignore it
+#### Description
+It is essential not to commit/push uncalled-for files or files containing secrets. Mainly when you work with public repositories. Hopefully, there is a way to avoid it. You can add file and directory names to the `.gitignore`, and they will not be committed or pushed. In the last stage, you have added a secret line to a _.env_ file. Now add the _.env_ file to the `.gitignore`:
+
+```
+You can use "git status --help" command to see available options and get help.
+```
+
+#### Objectives
+- Add a _.env_ file to `.gitignore`;
+- Use the `git status` command with the suitable option to list the ignored files.
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
