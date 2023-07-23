@@ -32,6 +32,10 @@
       - [7.1 Description](#71-description)
       - [7.2 Objectives](#72-objectives)
       - [7.3 Solution](#73-solution)
+    - [8: Push](#8-push)
+      - [8.1 Description](#81-description)
+      - [8.2 Objectives](#82-objectives)
+      - [8.3 Solution](#83-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -191,4 +195,21 @@ Let's break this task into several steps:
 >git checkout main
 >git merge dev-mul
 >git branch -d dev-mul
+```
+
+### 8: Push
+#### 8.1 Description
+There's one step left. To share the changes with your team, you need to push them to the remote branch. But before doing it, take a look at the changes you've made.
+
+#### 8.2 Objectives
+Let's break this task into several steps:
+- With the help of the Git `diff` commaind, view the changes between the previous and the last commit.
+- Push the changes to the remote;
+
+Use the `git diff HEAD~` command to view the changes between the previous and last commit.
+
+#### 8.3 Solution
+```console
+>git diff HEAD~
+>git push
 ```
