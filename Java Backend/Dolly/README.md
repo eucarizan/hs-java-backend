@@ -20,6 +20,10 @@
       - [4.1 Description](#41-description)
       - [4.2 Objective](#42-objective)
       - [4.3 Solution](#43-solution)
+    - [5: A new function](#5-a-new-function)
+      - [5.1 Description](#51-description)
+      - [5.2 Objectives](#52-objectives)
+      - [5.3 Solution](#53-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -109,4 +113,42 @@ As you remember, there are two files in your project. You will modify one of the
 #### 4.3 Solution
 ```console
 >cat main.py
+```
+
+### 5: A new function
+#### 5.1 Description
+The current content of the _main.py_ can be seen in the code snippet. Follow the instructions to modify the file's content.
+
+```python
+def add(num1, num2):
+    return num1 + num2
+```
+
+Now, add another function to _main.py_. There are two lines of code in the code snippet below. Add them to the file.
+
+```python
+def mul(num1, num2):
+    return num1 * num2
+```
+
+#### 5.2 Objectives
+Let's break this tasks into several steps:
+- Add the lines to the file using `echo` command;
+- View the content of the file;
+- Use the Git `status` command to display the current state of your working directory.
+
+#### 5.3 Solution
+Solution 5.3.1:
+```console
+>echo "def mul(num1, num2):" >> main.py
+>echo "    return num1 * num2" >> main.py
+>cat main.py
+>git status
+```
+
+Solution 5.3.2:
+```console
+>echo -e "def mul(num1, num2):\n    return num1 * num2" >> main.py
+>cat main.py
+>git status
 ```
