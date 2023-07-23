@@ -22,6 +22,9 @@
     - [6: Push](#6-push)
       - [6.1 Description](#61-description)
       - [6.2 Objectives](#62-objectives)
+    - [7: Remotes](#7-remotes)
+      - [7.1 Description](#71-description)
+      - [Objectives](#objectives)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -106,6 +109,13 @@ In the second stage of the project, you've defined a remote. Now, you can push y
 If you do not set the upstream, with any push/pull attempt you need to define the name of the **remote**, and the name of the **branch** explicitly.
 
 #### 6.2 Objectives
-- Push your changes to the remote
+- Push your changes to the remote.
+
+### 7: Remotes
+#### 7.1 Description
+In this project, you have created only one remote branch. In a production environment, there could be more than one branch. But there are ways to list them easily. Now, your task is to list your remotes. To accomplish that, use the `remote` command with the `--verbose` option.
+
+#### Objectives
+- List your remotes.
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
