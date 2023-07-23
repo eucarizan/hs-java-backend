@@ -7,6 +7,9 @@
     - [1: Global settings](#1-global-settings)
       - [Description](#description)
       - [Objectives](#objectives)
+    - [2: Initialize](#2-initialize)
+      - [Description](#description-1)
+      - [Objectives](#objectives-1)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -30,5 +33,21 @@ The `config` command without a value will show you the value of the variable.
 - Define a global variable with the name `user.email` and with the value `hyperskill@hyperskill.org`;
 - Define a global variable with the name `init.defaultBranch` and with the value `main`;
 - Use the `config` command to view the user email.
+
+### 2: Initialize
+#### Description
+Create an empty repository and add `remote` for it. You can use the command below to add a remote.
+
+```console
+git remote add <name for the remote> <remote URL>
+```
+
+The name of the remote can be anything. But, it is a convention to use `origin`.
+
+#### Objectives
+Let's break this task into a few steps:
+- In the current working directory, initialize an empty `Git` repository;
+- Add `remote` to your repository, with the name `origin` and with the URL `file:///tmp/git-bare`.
+
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
