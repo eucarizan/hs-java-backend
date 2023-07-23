@@ -56,7 +56,7 @@ While working on this project, you will use a few Bash commands in addition to G
 - Use the suitable Git command to clone the repository
 
 #### 1.3 Solution
-```console
+```shell
 >git clone file:///tmp/dolly
 ```
 
