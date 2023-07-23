@@ -28,6 +28,10 @@
       - [6.1 Description](#61-description)
       - [6.2 Objectives](#62-objectives)
       - [6.3 Solution](#63-solution)
+    - [7: Merge](#7-merge)
+      - [7.1 Description](#71-description)
+      - [7.2 Objectives](#72-objectives)
+      - [7.3 Solution](#73-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -170,4 +174,21 @@ Let's break this task into several steps:
 ```console
 >git add .
 >git commit -m "New function multiplication"
+```
+
+### 7: Merge
+#### 7.1 Description
+You're done with the `dev-mul` branch. Now, merge the changes to the `main` branch.
+
+#### 7.2 Objectives
+Let's break this task into several steps:
+- Check out the `main` branch;
+- Merge the changes from the `dev-mul` branch;
+- Delete the `dev-mul` branch.
+
+#### 7.3 Solution
+```console
+>git checkout main
+>git merge dev-mul
+>git branch -d dev-mul
 ```
