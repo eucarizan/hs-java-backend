@@ -10,6 +10,9 @@
     - [2: Initialize](#2-initialize)
       - [Description](#description-1)
       - [Objectives](#objectives-1)
+    - [3: Create files](#3-create-files)
+      - [Description](#description-2)
+      - [Objectives](#objectives-2)
 
 ## Learning Outcomes
 Learn the basic git commands. Initialize a repository, stage your changes, and do commits. Study how to "ignore" unnecessary files.
@@ -49,5 +52,22 @@ Let's break this task into a few steps:
 - In the current working directory, initialize an empty `Git` repository;
 - Add `remote` to your repository, with the name `origin` and with the URL `file:///tmp/git-bare`.
 
+### 3: Create files
+#### Description
+An empty repository doesn't make much sense. Let's add some files to work with.
+
+There is a Bash command called `echo`. This command in Bash is used to display a line of text/string that is passed as an argument. But with the help of the `echo` command you can create files with content in it or add content to an existing file. In this project stage, you will do both.
+
+First, create a Python file with the name `main.py` and with the following content `print('Hello world')`. If there is an existing file with the same name, overwrite it and replace the file's content.
+
+If you run this file in an environment where Python is installed, it will print `Hello world` to the standard output. But this is just some information; your task is not to run this file.
+
+Now there is another file with the name `.env`. Add the following text to it `PASSWORD=Ax?bu75+33`. But be aware, don't delete the existing file; add the content to it.
+
+You can use .env files to store environmental variables, like URLs, API keys, and secrets.
+
+#### Objectives
+- Create the first file;
+- Add content to the second file.
 
 [git config]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
