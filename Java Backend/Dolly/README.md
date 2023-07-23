@@ -12,6 +12,10 @@
       - [2.1 Description](#21-description)
       - [2.2 Objectives](#22-objectives)
       - [2.3 Solution](#23-solution)
+    - [3: A new Branch](#3-a-new-branch)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Solution](#33-solution)
 
 ## Learning Outcomes
 Learn how to use main git commands, including cloning, creation of branches, merging, and pushing changes to a remote depository.
@@ -49,4 +53,38 @@ Let's break this task into several steps:
 ```console
 >cd dolly
 >ls
+```
+
+### 3: A new Branch
+#### 3.1 Description
+You've discovered the project files; they are included below. Before working on the project files, create a new local branch.
+```
++-- dolly
+|    +-- main.py
+|    +-- readme.md
+```
+
+#### 3.2 Objectives
+Let's break this task into several steps:
+- Create a branch with the name `dev-mul` and checkout to it;
+- Use the Git `branch` command to see the available and current branches.
+
+#### 3.3 Solution
+Solution 3.3.1:
+```console
+>git branch dev-mul
+>git checkout dev-mul
+>git branch --list
+```
+
+Solution 3.3.2:
+```console
+>git checkout -b dev-mul
+>git branch --list
+```
+
+Solution 3.3.3:
+```console
+>git checkout -b dev-mul
+>git branch -a
 ```
