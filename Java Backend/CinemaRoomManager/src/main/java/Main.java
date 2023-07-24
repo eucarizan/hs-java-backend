@@ -1,36 +1,87 @@
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+    static String[][] cinema;
+    static int rows;
+    static int seats;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String cinema = """
-                Cinema:
-                  1 2 3 4 5 6 7 8
-                1 S S S S S S S S
-                2 S S S S S S S S
-                3 S S S S S S S S
-                4 S S S S S S S S
-                5 S S S S S S S S
-                6 S S S S S S S S
-                7 S S S S S S S S
-                """;
+        int capacity = generateCinema();
+        printCinema();
+        getSeatNumber(capacity);
+    }
 
-//        System.out.println(cinema);
-        System.out.printf("Enter the number of rows:%n> ");
-        int rows = scanner.nextInt();
-        System.out.printf("Enter the number of seats in each row:%n> ");
-        int seats = scanner.nextInt();
-        int capacity = rows * seats;
+    private static int generateCinema() {
+        System.out.printf("Enter the number of rows:%n");
+        rows = scanner.nextInt();
+        System.out.printf("Enter the number of seats in each row:%n");
+        seats = scanner.nextInt();
+        cinema = new String[rows+1][seats+1];
 
+        for (int i = 0; i <= rows; i++) {
+            for (int j = 0; j <= seats; j++) {
+                cinema[i][j] = "  ";
+            }
+        }
+
+        for (int i = 0, j = 1; j <= seats; j++) {
+            cinema[i][j] = j + " ";
+        }
+
+        for (int i = 1, j = 0; i <= rows; i++) {
+            cinema[i][j] = i + " ";
+        }
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= seats; j++) {
+                cinema[i][j] = "S ";
+            }
+        }
+
+        return rows * seats;
+    }
+
+    private static void printCinema() {
+        System.out.println("\nCinema:");
+        for (String[] strings : cinema) {
+            for (String string : strings) {
+                System.out.print(string);
+            }
+            System.out.println();
+        }
+    }
+
+    private static void getSeatNumber(int capacity) {
+        System.out.printf("%nEnter a row number:%n");
+        int row = scanner.nextInt();
+        System.out.printf("Enter a seat number in that row:%n");
+        int seat = scanner.nextInt();
+        cinema[row][seat] = "B ";
+
+        printTicketPrice(capacity, row, seat);
+        printCinema();
+    }
+
+    private static void printTicketPrice(int capacity, int row, int seat) {
         int ticketPrice = 10;
-        int income = 0;
+//        int income;
+
+//        if (capacity > 60) {
+//            int firstHalf = rows/2;
+//            int secondHalf = rows-firstHalf;
+//            income = seats * ((firstHalf * ticketPrice) + (secondHalf  * 8));
+//        } else {
+//            income = capacity * ticketPrice;
+//        }
+
         if (capacity > 60) {
             int firstHalf = rows/2;
-            int secondHalf = rows-firstHalf;
-            income = seats * ((firstHalf * ticketPrice) + (secondHalf  * 8));
-        } else {
-            income = capacity * ticketPrice;
+            if (row > firstHalf) {
+                ticketPrice = 8;
+            }
         }
-        System.out.printf("Total income: %n$%d", income);
+
+        System.out.printf("%nTicket price: $%d%n", ticketPrice);
     }
 }
