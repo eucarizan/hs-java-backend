@@ -6,6 +6,11 @@ public class Cinema {
     static int rows;
     static int seats;
     static int capacity;
+    static int ticketsBought;
+    static int totalIncome;
+    static int currentIncome;
+
+    static final int MAX_CAPACITY = 60;
 
     public static void main(String[] args) {
         generateCinema();
@@ -13,10 +18,10 @@ public class Cinema {
         int choice = getChoice();
 
         while (choice != 0) {
-            if (choice == 1) {
-                printCinema();
-            } else if (choice == 2) {
-                buyTicket();
+            switch (choice) {
+                case 1 -> printCinema();
+                case 2 -> buyTicket();
+                case 3 -> getStatistics();
             }
             choice = getChoice();
         }
@@ -37,6 +42,7 @@ public class Cinema {
         }
 
         fillBorder();
+        getTotalIncome();
     }
 
     private static void printCinema() {
@@ -50,35 +56,54 @@ public class Cinema {
     }
 
     private static void buyTicket() {
-        System.out.printf("%nEnter a row number:%n");
-        int row = scanner.nextInt();
-        System.out.printf("Enter a seat number in that row:%n");
-        int seat = scanner.nextInt();
+        boolean seatChosen = false;
+        int row = 0, seat = 0;
+
+        while(!seatChosen) {
+            System.out.printf("%nEnter a row number:%n");
+            row = scanner.nextInt();
+            System.out.printf("Enter a seat number in that row:%n");
+            seat = scanner.nextInt();
+
+            seatChosen = checkSeat(row, seat);
+        }
+
         cinema[row][seat] = "B ";
+        ticketsBought++;
 
         printTicketPrice(row, seat);
     }
 
+    private static boolean checkSeat(int row, int seat) {
+        boolean isInbound = row > 0 && row <= rows && seat > 0 && seat <= seats;
+
+        if (!isInbound) {
+            System.out.println("\nWrong input!");
+            return false;
+        }
+
+        boolean isSeatTaken = cinema[row][seat].contains("B");
+
+        if (isSeatTaken) {
+            System.out.println("\nThat ticket has already been purchased!");
+        }
+
+        return !isSeatTaken;
+    }
+
     private static void printTicketPrice(int row, int seat) {
         int ticketPrice = 10;
-//        int income;
 
-//        if (capacity > 60) {
-//            int firstHalf = rows/2;
-//            int secondHalf = rows-firstHalf;
-//            income = seats * ((firstHalf * ticketPrice) + (secondHalf  * 8));
-//        } else {
-//            income = capacity * ticketPrice;
-//        }
-
-        if (capacity > 60) {
+        if (capacity > MAX_CAPACITY) {
             int firstHalf = rows/2;
             if (row > firstHalf) {
                 ticketPrice = 8;
             }
         }
 
-        System.out.printf("Ticket price: $%d%n", ticketPrice);
+        currentIncome+=ticketPrice;
+
+        System.out.printf("%nTicket price: $%d%n", ticketPrice);
     }
 
     private static void fillBorder() {
@@ -94,7 +119,27 @@ public class Cinema {
     }
 
     private static int getChoice() {
-        System.out.println("\n1. Show the seats\n2. Buy a ticket\n0.Exit");
+        System.out.println("\n1. Show the seats\n2. Buy a ticket\n3. Statistics\n0. Exit");
         return scanner.nextInt();
+    }
+
+    private static void getStatistics() {
+//        double divisor = ticketsBought == 0 ? 1.0 : ticketsBought;
+        System.out.printf("%nNumber of purchased tickets: %d%n" +
+                "Percentage: %.2f%%%n" +
+                "Current income: $%d%n" +
+                "Total income: $%d%n",
+                ticketsBought, (ticketsBought * 100.0 / capacity), currentIncome, totalIncome);
+    }
+
+    private static void getTotalIncome() {
+        if (capacity > MAX_CAPACITY) {
+            int firstHalf = rows/2;
+            int secondHalf = rows - firstHalf;
+            totalIncome += firstHalf * seats * 10;
+            totalIncome += secondHalf * seats * 8;
+        } else {
+            totalIncome += capacity * 10;
+        }
     }
 }
