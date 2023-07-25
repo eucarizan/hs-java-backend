@@ -1,45 +1,42 @@
 import java.util.Scanner;
 
-public class Main {
+public class Cinema {
     static Scanner scanner = new Scanner(System.in);
     static String[][] cinema;
     static int rows;
     static int seats;
+    static int capacity;
 
     public static void main(String[] args) {
-        int capacity = generateCinema();
-        printCinema();
-        getSeatNumber(capacity);
+        generateCinema();
+
+        int choice = getChoice();
+
+        while (choice != 0) {
+            if (choice == 1) {
+                printCinema();
+            } else if (choice == 2) {
+                buyTicket();
+            }
+            choice = getChoice();
+        }
     }
 
-    private static int generateCinema() {
+    private static void generateCinema() {
         System.out.printf("Enter the number of rows:%n");
         rows = scanner.nextInt();
         System.out.printf("Enter the number of seats in each row:%n");
         seats = scanner.nextInt();
+        capacity = seats * rows;
         cinema = new String[rows+1][seats+1];
 
         for (int i = 0; i <= rows; i++) {
             for (int j = 0; j <= seats; j++) {
-                cinema[i][j] = "  ";
-            }
-        }
-
-        for (int i = 0, j = 1; j <= seats; j++) {
-            cinema[i][j] = j + " ";
-        }
-
-        for (int i = 1, j = 0; i <= rows; i++) {
-            cinema[i][j] = i + " ";
-        }
-
-        for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= seats; j++) {
                 cinema[i][j] = "S ";
             }
         }
 
-        return rows * seats;
+        fillBorder();
     }
 
     private static void printCinema() {
@@ -52,18 +49,17 @@ public class Main {
         }
     }
 
-    private static void getSeatNumber(int capacity) {
+    private static void buyTicket() {
         System.out.printf("%nEnter a row number:%n");
         int row = scanner.nextInt();
         System.out.printf("Enter a seat number in that row:%n");
         int seat = scanner.nextInt();
         cinema[row][seat] = "B ";
 
-        printTicketPrice(capacity, row, seat);
-        printCinema();
+        printTicketPrice(row, seat);
     }
 
-    private static void printTicketPrice(int capacity, int row, int seat) {
+    private static void printTicketPrice(int row, int seat) {
         int ticketPrice = 10;
 //        int income;
 
@@ -82,6 +78,23 @@ public class Main {
             }
         }
 
-        System.out.printf("%nTicket price: $%d%n", ticketPrice);
+        System.out.printf("Ticket price: $%d%n", ticketPrice);
+    }
+
+    private static void fillBorder() {
+        cinema[0][0] = "  ";
+
+        for (int i = 0, j = 1; j <= seats; j++) {
+            cinema[i][j] = j + " ";
+        }
+
+        for (int i = 1, j = 0; i <= rows; i++) {
+            cinema[i][j] = i + " ";
+        }
+    }
+
+    private static int getChoice() {
+        System.out.println("\n1. Show the seats\n2. Buy a ticket\n0.Exit");
+        return scanner.nextInt();
     }
 }
