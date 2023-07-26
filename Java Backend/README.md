@@ -1,11 +1,19 @@
 # Java Backend Developer Track
 - [Java Backend Developer Track](#java-backend-developer-track)
+    - [Projects](#projects)
     - [Track Overview](#track-overview)
     - [Learnings](#learnings)
-    - [Projects](#projects)
     - [Topics](#topics)
 
 Become a Java Backend Developer and unlock the world of web application development with Spring Boot! Master Java fundamentals, object-oriented programming, and data storage.
+
+### Projects
+1. [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md)
+2. [Remo](./Remo/README.md)
+3. [Dolly](./Dolly/README.md)
+4. [Zookeeper (Java)](./Zookeeper/README.md)
+5. [Cinema Room Manager](./CinemaRoomManager/README.md)
+6. [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md)
 
 ### Track Overview
 - 160 hours for all learning activities
@@ -26,13 +34,6 @@ The track includes Java fundamentals, basic algorithms, and all must-haves for c
 - investigate the basic algorithms that will help you to solve different tasks;
 - learn how to work with Gradle, IDE, the command line, Git, and many more;
 - learn how to interact with members of the team working under the same project.
-
-### Projects
-1. [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md)
-2. [Remo](./Remo/README.md)
-3. [Dolly](./Dolly/README.md)
-4. [Zookeeper (Java)](./Zookeeper/README.md)
-5. [Cinema Room Manager](./CinemaRoomManager/README.md)
 
 ### Topics
 `Code organization` `Essentials` `Backend` `Algorithms and structures` `SQL and Databases` `Basics` `System administration and DevOps` `Additional instruments` `Errorless code` `JVM` `Working with data` `Java internals` `Dev tools` `Frontend` `Math`
