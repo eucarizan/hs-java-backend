@@ -8,12 +8,37 @@
 Become a Java Backend Developer and unlock the world of web application development with Spring Boot! Master Java fundamentals, object-oriented programming, and data storage.
 
 ### Projects
-1. [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md)
-2. [Remo](./Remo/README.md)
-3. [Dolly](./Dolly/README.md)
-4. [Zookeeper (Java)](./Zookeeper/README.md)
-5. [Cinema Room Manager](./CinemaRoomManager/README.md)
-6. [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md)
+- Easy
+  - [x] [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md) `⭐4.4` `3hr`
+  - [x] [Remo](./Remo/README.md) `⭐3.9` `2hr`
+  - [x] [Dolly](./Dolly/README.md) `⭐4.2` `2 hr`
+  - [x] [Zookeeper (Java)](./Zookeeper/README.md) `⭐4.2` `4 hr`
+  - [x] [Cinema Room Manager](./CinemaRoomManager/README.md) `⭐4.3` `9 hr`
+  - [ ] [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md) `⭐4.0` `13 hr`
+  - [ ] [Amazing Numbers](./README.md) `⭐4.0` `18 hr`
+  - [ ] [Bulls and Cows](./README.md) `⭐4.2` `12 hr`
+  - [ ] [Chuck Norris Cipher Encoder (Java)](./README.md) `⭐4.1` `11 hr`
+- Medium
+  - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`
+  - [ ] [Desktop Connect Four](./README.md) `⭐4.4` `23 hr`
+  - [ ] [Coffee Machine (Java)](./README.md) `⭐4.4` `12 hr`
+  - [ ] [Simple Search Engine (Java)](./README.md) `⭐4.4` `21 hr`
+  - [ ] [Flashcards (Java)](./README.md) `⭐4.3` `21 hr`
+  - [ ] [Minesweeper (Java)](./README.md) `⭐4.3` `20 hr`
+  - [ ] [Smart Calculator (Java)](./README.md) `⭐4.3` `24 hr`
+  - [ ] [Number Base Converter (Java)](./README.md) `⭐4.2` `21 hr`
+  - [ ] [Budget Manager](./README.md) `⭐4.0` `22 hr`
+  - [ ] [Music Advisor](./README.md) `⭐3.9` `24 hr`
+  - [ ] [Traffic Light (Java)](./README.md) `⭐3.9` `15 hr`
+- Hard
+  - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
+  - [ ] [Meal Planner (Java)](./README.md) `⭐` ` hr`
+  - [ ] [Cinema Room REST Service (Java)](./README.md) `⭐4.3` `33 hr`
+  - [ ] [Sorting Tool (Java)](./README.md) `⭐4.1` `27 hr`
+  - [ ] [Car Sharing](./README.md) `⭐3.9` `30 hr`
+- Challenging
+  - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
+  - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
 
 ### Track Overview
 - 160 hours for all learning activities

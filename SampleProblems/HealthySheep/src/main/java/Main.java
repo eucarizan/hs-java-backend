@@ -2,19 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int minSleep = scanner.nextInt();
-        int maxSleep = scanner.nextInt();
-        int sleep = scanner.nextInt();
+        try (Scanner scanner = new Scanner(System.in)) {
+            int minSleep = scanner.nextInt();
+            int maxSleep = scanner.nextInt();
+            int sleep = scanner.nextInt();
 
-        if (sleep >= minSleep) {
-            if (sleep > maxSleep) {
-                System.out.println("Excess");
+            if (sleep >= minSleep) {
+                if (sleep > maxSleep) {
+                    System.out.println("Excess");
+                } else {
+                    System.out.println("Normal");
+                }
             } else {
-                System.out.println("Normal");
+                System.out.println("Deficiency");
             }
-        } else {
-            System.out.println("Deficiency");
         }
     }
 }
