@@ -8,6 +8,10 @@
       - [1.1 Description](#11-description)
       - [1.2 Objectives](#12-objectives)
       - [1.3 Example](#13-example)
+    - [2: Equalizing chances](#2-equalizing-chances)
+      - [2.1 Description](#21-description)
+      - [2.2 Objectives](#22-objectives)
+      - [2.3 Example](#23-example)
 
 ## Learning Outcomes
 A playable Rock-Paper-Scissors game, with a Player vs. Computer mode. Practice using arrays, the Random class, formatted strings, and algorithms.
@@ -42,13 +46,53 @@ Your program should:
 #### 1.3 Example
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
-**Example 1:**
+**Example 1.1:**
 ```console
 > scissors
 Sorry, but the computer chose rock
 ```
 
-**Example 2:**
+**Example 1.2:**
+```console
+> paper
+Sorry, but the computer chose scissors
+```
+
+### 2: Equalizing chances
+#### 2.1 Description
+Well, now let's do something more tangible. Nobody wants to play the game where you always lose. We can use the power of the `Random` class to make the game a bit more challenging.
+
+Write a program that reads input from users, chooses a random option, and then says who won: a user or the computer.
+There are a few examples below to provide the output for any outcome (`<option>` is the option chosen by your program):
+
+Loss: `Sorry, but the computer chose <option>`;
+Draw: `There is a draw (<option>)`;
+Win: `Well done. The computer chose <option> and failed`;
+
+#### 2.2 Objectives
+Your program should:
+
+- Read the user input that includes an option;
+- Choose a random option;
+- Compare the options and determine the winner;
+- Output one of the lines above depending on the result of the game.
+
+#### 2.3 Example
+The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
+
+**Example 2.1:**
+```console
+> rock
+Well done. The computer chose scissors and failed
+```
+
+**Example 2.2:**
+```console
+> scissors
+There is a draw (scissors)
+```
+
+**Example 2.3:**
 ```console
 > paper
 Sorry, but the computer chose scissors
