@@ -8,7 +8,7 @@ public class Main {
         StringBuilder response = new StringBuilder();
 
         String msgLoss = "Sorry, but the computer chose %s";
-        String msgDraw = "There is a draw %s";
+        String msgDraw = "There is a draw (%s)";
         String msgWin = "Well done. The computer chose %s and failed";
 
         String user = scanner.nextLine();
@@ -20,21 +20,11 @@ public class Main {
         boolean scissorsRock = user.equals(hands[1]) && compHand.equals(hands[2]);
         boolean rockPaper = user.equals(hands[2]) && compHand.equals(hands[0]);
 
-        // draw
-        boolean paperPaper = user.equals(hands[0]) && compHand.equals(hands[0]);
-        boolean scissorsScissors = user.equals(hands[1]) && compHand.equals(hands[1]);
-        boolean rockRock = user.equals(hands[2]) && compHand.equals(hands[2]);
-
-        // computer loss
-        boolean paperRock = user.equals(hands[0]) && compHand.equals(hands[2]);
-        boolean scissorsPaper = user.equals(hands[1]) && compHand.equals(hands[0]);
-        boolean rockScissors = user.equals(hands[2]) && compHand.equals(hands[1]);
-
         if (paperScissors || scissorsRock || rockPaper) {
             response.append(String.format(msgLoss, compHand));
-        } else if (paperPaper || scissorsScissors || rockRock) {
+        } else if (user.equals(compHand)) {
             response.append(String.format(msgDraw, compHand));
-        } else if (paperRock || scissorsPaper || rockScissors) {
+        } else {
             response.append(String.format(msgWin, compHand));
         }
 
