@@ -32,7 +32,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Traffic Light (Java)](./README.md) `⭐3.9` `15 hr`
 - Hard
   - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
-  - [ ] [Meal Planner (Java)](./README.md) `⭐` ` hr`
+  - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `24 hr`
   - [ ] [Cinema Room REST Service (Java)](./README.md) `⭐4.3` `33 hr`
   - [ ] [Sorting Tool (Java)](./README.md) `⭐4.1` `27 hr`
   - [ ] [Car Sharing](./README.md) `⭐3.9` `30 hr`

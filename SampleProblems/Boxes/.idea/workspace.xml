@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0da4259-2177-4624-8b8b-e233dfda86f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Java Backend/RockPaperScissors/rating.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Java Backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java Backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CompositeNumber/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CompositeNumber/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java Backend/RockPaperScissors/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java Backend/RockPaperScissors/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java Backend/RockPaperScissors/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java Backend/RockPaperScissors/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
