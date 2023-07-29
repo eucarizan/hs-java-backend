@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="888b8db9-d522-4d3d-a8f6-29a3bbbb77ad" name="Changes" comment="">
+    <list default="true" id="a0da4259-2177-4624-8b8b-e233dfda86f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../Java Backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java Backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CompositeNumber/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CompositeNumber/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,29 +23,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  "associatedIndex": 6
 }]]></component>
-  <component name="ProjectId" id="2TAyuB8Dh3baBAVSYCqmDf06IyZ" />
+  <component name="ProjectId" id="2TCpm369vvlp4Ue22ErnbTYw1AB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="888b8db9-d522-4d3d-a8f6-29a3bbbb77ad" name="Changes" comment="" />
-      <created>1690500401510</created>
+      <changelist id="a0da4259-2177-4624-8b8b-e233dfda86f5" name="Changes" comment="" />
+      <created>1690557075084</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1690500401510</updated>
+      <updated>1690557075084</updated>
     </task>
     <servers />
   </component>
