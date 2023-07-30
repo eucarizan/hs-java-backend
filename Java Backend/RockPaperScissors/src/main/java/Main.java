@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,10 +8,11 @@ public class Main {
     static final String msgLoss = "Sorry, but the computer chose %s";
     static final String msgDraw = "There is a draw (%s)";
     static final String msgWin = "Well done. The computer chose %s and failed";
-    static final String[] hands = {"paper", "scissors", "rock"};
-
+    static String[] hands = {"rock", "paper", "scissors"};
+    static int half = 1;
     static String playerName;
     static int rating = 0;
+    static final Random random = new Random();
 
     public static void main(String[] args) throws FileNotFoundException {
         play();
@@ -20,16 +22,19 @@ public class Main {
         try (Scanner scanner = new Scanner(System.in)) {
             getPlayerName(scanner);
             setPlayerRating();
+            setOptions(scanner);
 
-            String userHand = scanner.nextLine();
+            String userHand = scanner.next();
 
             while (!userHand.equals("!exit")) {
-                switch (userHand) {
-                    case "rock", "paper", "scissors" -> getResult(userHand);
-                    case "!rating" -> System.out.println("Your rating: " + rating);
-                    default -> System.out.println("Invalid input");
+                if (Arrays.asList(hands).contains(userHand)) {
+                    getResult(userHand);
+                } else if ("!rating".equals(userHand)) {
+                    System.out.println("Your rating: " + rating);
+                } else {
+                    System.out.println("Invalid input");
                 }
-                userHand = scanner.nextLine();
+                userHand = scanner.next();
             }
         }
         System.out.println("Bye!");
@@ -38,21 +43,22 @@ public class Main {
     private static void getResult(String userHand) {
         StringBuilder response = new StringBuilder();
 
-        Random random = new Random();
-        String compHand = hands[random.nextInt(3)];
+        int compHandIdx = random.nextInt(hands.length);
+        String compHand = hands[compHandIdx];
 
-        // computer win
-        boolean paperScissors = userHand.equals(hands[0]) && compHand.equals(hands[1]);
-        boolean scissorsRock = userHand.equals(hands[1]) && compHand.equals(hands[2]);
-        boolean rockPaper = userHand.equals(hands[2]) && compHand.equals(hands[0]);
-
-        if (paperScissors || scissorsRock || rockPaper) {
-            response.append(getResultMsg("loss", compHand));
-        } else if (userHand.equals(compHand)) {
+        if (userHand.equals(compHand)) {
             response.append(getResultMsg("draw", compHand));
         } else {
-            response.append(getResultMsg("win", compHand));
+            int userHandIdx = getUserHandIdx(userHand);
+            boolean compWin = isComputerWin(compHandIdx, userHandIdx);
+
+            if (compWin) {
+                response.append(getResultMsg("loss", compHand));
+            } else {
+                response.append(getResultMsg("win", compHand));
+            }
         }
+
 
         System.out.println(response);
     }
@@ -99,5 +105,42 @@ public class Main {
         if (!playerInFile) {
             rating = 0;
         }
+    }
+
+    private static void setOptions(Scanner scanner) {
+        String input = scanner.nextLine();
+        // rock,gun,lightning,devil,dragon,water,air,paper,sponge,wolf,tree,human,snake,scissors,fire
+
+        if (!"".equals(input)) {
+            hands = input.split(",");
+        }
+
+        half = hands.length / 2;
+        System.out.println("Okay, let's start");
+    }
+
+    private static int getUserHandIdx(String userHand) {
+        int idx = 0;
+
+        for (int i = 0; i < hands.length; i++) {
+            if (hands[i].equals(userHand)) {
+                idx = i;
+                break;
+            }
+        }
+
+        return idx;
+    }
+
+    private static boolean isComputerWin(int compHandIdx, int userHandIdx) {
+        int startIdx = userHandIdx;
+        if (userHandIdx + half > hands.length - 1) {
+            startIdx = 0;
+        }
+
+        boolean lowerBound = compHandIdx >= startIdx + 1;
+        boolean upperBound = compHandIdx <= startIdx + half;
+
+        return lowerBound && upperBound;
     }
 }
