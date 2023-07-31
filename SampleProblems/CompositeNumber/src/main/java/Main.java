@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        final long number= scanner.nextInt();
-        System.out.println(isComposite(number));
+        try (Scanner scanner = new Scanner(System.in)) {
+            final long number= scanner.nextInt();
+            System.out.println(isComposite(number));
+        }
     }
 
     private static boolean isComposite(long number) {

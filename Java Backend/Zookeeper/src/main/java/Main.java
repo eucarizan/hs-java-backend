@@ -127,28 +127,30 @@ public class Main {
 
 
         System.out.print("Please enter the number of the habitat you would like to view: > ");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-
-        String out = "";
-
-        while (!input.equals("exit")) {
-            int num = Integer.parseInt(input);
-
-            switch (num) {
-                case 0 -> out = animals[0];
-                case 1 -> out = animals[1];
-                case 2 -> out = animals[2];
-                case 3 -> out = animals[3];
-                case 4 -> out = animals[4];
-                case 5 -> out = animals[5];
+        
+        try (Scanner scanner = new Scanner(System.in)) {
+            String input = scanner.nextLine();
+    
+            String out = "";
+    
+            while (!input.equals("exit")) {
+                int num = Integer.parseInt(input);
+    
+                switch (num) {
+                    case 0 -> out = animals[0];
+                    case 1 -> out = animals[1];
+                    case 2 -> out = animals[2];
+                    case 3 -> out = animals[3];
+                    case 4 -> out = animals[4];
+                    case 5 -> out = animals[5];
+                }
+    
+                System.out.println(out);
+                System.out.print("Please enter the number of the habitat you would like to view: > ");
+                input = scanner.nextLine();
             }
-
-            System.out.println(out);
-            System.out.print("Please enter the number of the habitat you would like to view: > ");
-            input = scanner.nextLine();
+    
+            System.out.println("See you later!");
         }
-
-        System.out.println("See you later!");
     }
 }

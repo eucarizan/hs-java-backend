@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        System.out.println(sign(n));
+        try (Scanner scanner = new Scanner(System.in)) {
+            int n = scanner.nextInt();
+            System.out.println(sign(n));
+        } 
     }
 
     private static int sign(int number) {

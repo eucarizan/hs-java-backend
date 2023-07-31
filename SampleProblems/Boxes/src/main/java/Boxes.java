@@ -16,9 +16,10 @@ public class Boxes {
     }
 
     private static void setBoxVolume(int[] box) {
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < box.length; i++) {
-            box[i] = scanner.nextInt();
+        try (Scanner scanner = new Scanner(System.in)) {
+            for (int i = 0; i < box.length; i++) {
+                box[i] = scanner.nextInt();
+            }
         }
     }
 

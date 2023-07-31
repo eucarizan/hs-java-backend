@@ -8,3 +8,5 @@
 - [composite number](./README.md)
 - [number sign](./README.md)
 - [boxes](./Boxes/README.md)
+- [clock simulation](./ClockSimulation/README.md)
+- [individual taxes](./IndividualTaxes/README.md)
