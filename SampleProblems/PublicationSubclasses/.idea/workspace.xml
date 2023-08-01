@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4962bb8-321b-41f1-afa0-2cdff39dc4f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../IndividualTaxes/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Java Backend/Zookeeper/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java Backend/Zookeeper/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Boxes/src/main/java/Boxes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Boxes/src/main/java/Boxes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CompositeNumber/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CompositeNumber/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IndividualTaxes/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../IndividualTaxes/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NumberSign/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NumberSign/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

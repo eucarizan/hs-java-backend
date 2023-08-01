@@ -22,7 +22,7 @@ class Publication {
 
     public final String getInfo() {
         // write your code here
-        return getType() + getDetails();
+        return getType() + getDetails() + ": " + title;
     }
 
     public String getType() {
@@ -30,7 +30,7 @@ class Publication {
     }
 
     public String getDetails() {
-        return ": " + title;
+        return "";
     }
 
 }
@@ -52,7 +52,7 @@ class Newspaper extends Publication {
 
     @Override
     public String getDetails() {
-        return " (source - " + source + ")" + super.getDetails();
+        return " (source - " + source + ")";
     }
 }
 
@@ -73,7 +73,7 @@ class Article extends Publication {
 
     @Override
     public String getDetails() {
-        return " (author - " + author + ")" + super.getDetails();
+        return " (author - " + author + ")";
     }
 }
 
@@ -94,6 +94,6 @@ class Announcement extends Publication {
 
     @Override
     public String getDetails() {
-        return " (days to expire - " + daysToExpire + ")" + super.getDetails();
+        return " (days to expire - " + daysToExpire + ")";
     }
 }

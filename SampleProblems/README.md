@@ -10,3 +10,4 @@
 - [boxes](./Boxes/README.md)
 - [clock simulation](./ClockSimulation/README.md)
 - [individual taxes](./IndividualTaxes/README.md)
+- [publication subclasses](./PublicationSubclasses/)
