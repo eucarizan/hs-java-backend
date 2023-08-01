@@ -10,4 +10,5 @@
 - [boxes](./Boxes/README.md)
 - [clock simulation](./ClockSimulation/README.md)
 - [individual taxes](./IndividualTaxes/README.md)
-- [publication subclasses](./PublicationSubclasses/)
+- [publication subclasses](./PublicationSubclasses/README.md)
+- [int binary operation](./IntBinaryOperation/README.md)
