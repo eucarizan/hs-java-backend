@@ -12,3 +12,5 @@
 - [individual taxes](./IndividualTaxes/README.md)
 - [publication subclasses](./PublicationSubclasses/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
+- [similar date](./SimilarDate/README.md)
+- [same time](./SameTime/README.md)
