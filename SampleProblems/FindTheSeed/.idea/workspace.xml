@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3c651f8-6504-4140-b7ca-091df85c44bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cf2f21f1-b19c-4044-92d5-0d728aeb8240" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../SameTime/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SameTime/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +26,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
+  "associatedIndex": 7
 }]]></component>
-  <component name="ProjectId" id="2TOYxMUenoDVW0TlSWkkxS2yl0m" />
+  <component name="ProjectId" id="2TQlABmZ9rCV0UCwxYPuY56rVde" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,18 +37,34 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f3c651f8-6504-4140-b7ca-091df85c44bb" name="Changes" comment="" />
-      <created>1690915840762</created>
+      <changelist id="cf2f21f1-b19c-4044-92d5-0d728aeb8240" name="Changes" comment="" />
+      <created>1690983041024</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1690915840762</updated>
+      <updated>1690983041024</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>4</line>
+          <properties class="Main" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

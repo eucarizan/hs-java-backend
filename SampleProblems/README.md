@@ -14,3 +14,4 @@
 - [int binary operation](./IntBinaryOperation/README.md)
 - [similar date](./SimilarDate/README.md)
 - [same time](./SameTime/README.md)
+- [find the seed](./FindTheSeed/README.md)
