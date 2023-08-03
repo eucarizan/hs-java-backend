@@ -6,6 +6,7 @@ public class SampleMain {
     static String[] resultLine = { "draw", "loss", "loss", "loss", "win", "win", "win" };
     static String[][] results = new String[length][length];
 
+    @SuppressWarnings("unused")
     private static void createResultMatrix() {
         for (int i = 0; i < length; i++) {
             for (int j = i, k = 0; k < length; j++, k++) {
@@ -20,7 +21,8 @@ public class SampleMain {
             System.out.println(String.join(" ", resultsLine));
         }
     }
-
+    
+    @SuppressWarnings("unused")
     private static void createResultLine() {
         resultLine[0] = "draw";
 
