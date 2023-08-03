@@ -14,9 +14,9 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [x] [Dolly](./Dolly/README.md) `⭐4.2` `2 hr`
   - [x] [Zookeeper (Java)](./Zookeeper/README.md) `⭐4.2` `4 hr`
   - [x] [Cinema Room Manager](./CinemaRoomManager/README.md) `⭐4.3` `9 hr`
-  - [ ] [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md) `⭐4.0` `13 hr`
-  - [ ] [Amazing Numbers](./README.md) `⭐4.0` `18 hr`
+  - [x] [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md) `⭐4.0` `13 hr`
   - [ ] [Bulls and Cows](./README.md) `⭐4.2` `12 hr`
+  - [ ] [Amazing Numbers](./README.md) `⭐4.0` `18 hr`
   - [ ] [Chuck Norris Cipher Encoder (Java)](./README.md) `⭐4.1` `11 hr`
 - Medium
   - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`

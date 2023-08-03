@@ -12,7 +12,10 @@ public class Main {
     static int half = 1;
     static String playerName;
     static int rating = 0;
+    static int length = 0;
     static final Random random = new Random();
+    static String[][] results;
+    static String[] resultLine;
 
     public static void main(String[] args) throws FileNotFoundException {
         play();
@@ -43,23 +46,18 @@ public class Main {
     private static void getResult(String userHand) {
         StringBuilder response = new StringBuilder();
 
-        int compHandIdx = random.nextInt(hands.length);
+        int compHandIdx = random.nextInt(length);
         String compHand = hands[compHandIdx];
+        String result = "";
 
         if (userHand.equals(compHand)) {
-            response.append(getResultMsg("draw", compHand));
+            result += "draw";
         } else {
             int userHandIdx = getUserHandIdx(userHand);
-            boolean compWin = isComputerWin(compHandIdx, userHandIdx);
-
-            if (compWin) {
-                response.append(getResultMsg("loss", compHand));
-            } else {
-                response.append(getResultMsg("win", compHand));
-            }
+            result += results[userHandIdx][compHandIdx];
         }
 
-
+        response.append(getResultMsg(result, compHand));
         System.out.println(response);
     }
 
@@ -113,9 +111,18 @@ public class Main {
 
         if (!"".equals(input)) {
             hands = input.split(",");
+            half = hands.length / 2;
+            length = hands.length;
+        } else {
+            half = 1;
+            length = 3;
         }
 
-        half = hands.length / 2;
+        results = new String[length][length];
+        resultLine = new String[length];
+        setResultLine();
+        setResults();
+
         System.out.println("Okay, let's start");
     }
 
@@ -132,15 +139,26 @@ public class Main {
         return idx;
     }
 
-    private static boolean isComputerWin(int compHandIdx, int userHandIdx) {
-        int startIdx = userHandIdx;
-        if (userHandIdx + half > hands.length - 1) {
-            startIdx = 0;
+    private static void setResultLine() {
+        resultLine[0] = "draw";
+
+        for (int i = 1; i <= half; i++) {
+            resultLine[i] = "loss";
         }
 
-        boolean lowerBound = compHandIdx >= startIdx + 1;
-        boolean upperBound = compHandIdx <= startIdx + half;
+        for (int i = half + 1; i < length; i++) {
+            resultLine[i] = "win";
+        }
+    }
 
-        return lowerBound && upperBound;
+    private static void setResults() {
+        for (int i = 0; i < length; i++) {
+            for (int j = i, k = 0; k < length; j++, k++) {
+                if (j >= length) {
+                    j = 0;
+                }
+                results[i][j] = resultLine[k];
+            }
+        }
     }
 }
