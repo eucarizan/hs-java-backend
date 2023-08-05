@@ -1,27 +1,39 @@
 # Hyperskill Sample Problems
 
 ## Problems
-- [healthy sheep](./HealthySheep/README.md)
-- [interval](./Interval/README.md)
-- [natural number squares](./NaturalNumbersSquares/README.md)
-- [size of parts](./SizeOfParts/README.md)
-- [composite number](./README.md)
-- [number sign](./README.md)
 - [boxes](./Boxes/README.md)
 - [clock simulation](./ClockSimulation/README.md)
-- [individual taxes](./IndividualTaxes/README.md)
-- [publication subclasses](./PublicationSubclasses/README.md)
-- [int binary operation](./IntBinaryOperation/README.md)
-- [similar date](./SimilarDate/README.md)
-- [same time](./SameTime/README.md)
-- [find the seed](./FindTheSeed/README.md)
+- [composite number](./README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
+- [find the seed](./FindTheSeed/README.md)
+- [healthy sheep](./HealthySheep/README.md)
+- [individual taxes](./IndividualTaxes/README.md)
+- [int binary operation](./IntBinaryOperation/README.md)
+- [interval](./Interval/README.md)
 - [last day of month](./LastDayOfMonth/README.md)
 - [mutable geometric shapes](./MutableGeometricShapes/README.md)
+- [natural number squares](./NaturalNumbersSquares/README.md)
+- [number sign](./README.md)
+- [publication subclasses](./PublicationSubclasses/README.md)
+- [same time](./SameTime/README.md)
+- [similar date](./SimilarDate/README.md)
+- [size of parts](./SizeOfParts/README.md)
 
 <!--
 TODO:
 - [ ] add topics to each sample problems
 - [ ] arrange into alphabetical order
-  - [ ] keep a list by time added
+  - [x] keep a list by time added
+- [ ] make it testable
+  - [ ] create a class for the main program
+  - [ ] create unit tests
  -->
+
+<!--
+problems by time added
+healthy sheep; interval; natural numbers squares; size of parts;
+composite number; number sign; boxes; clock simulation;
+individual taxes; publication subclasses; int binary operation;
+similar date; same time; find the seed; dont be late again;
+last day of month; mutable geometric shapes;
+-->
