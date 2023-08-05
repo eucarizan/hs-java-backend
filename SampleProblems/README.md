@@ -16,3 +16,12 @@
 - [same time](./SameTime/README.md)
 - [find the seed](./FindTheSeed/README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
+- [last day of month](./LastDayOfMonth/README.md)
+- [mutable geometric shapes](./MutableGeometricShapes/README.md)
+
+<!--
+TODO:
+- [ ] add topics to each sample problems
+- [ ] arrange into alphabetical order
+  - [ ] keep a list by time added
+ -->

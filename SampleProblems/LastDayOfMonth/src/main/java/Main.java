@@ -6,21 +6,21 @@ public class Main {
         try (Scanner scanner = new Scanner(System.in)) {
             int year = scanner.nextInt();
             int days = scanner.nextInt();
-            final int daysMinusOne = days - 1;
-            final int january = 1;
-            final int dayOne = 1;
+            LocalDate date = LocalDate.ofYearDay(year, days);
 
-            LocalDate monthStart = LocalDate.of(year, january, dayOne).plusDays(daysMinusOne);
-
-            System.out.println(monthStart.lengthOfMonth() == monthStart.getDayOfMonth());
+            System.out.println(date.lengthOfMonth() == date.getDayOfMonth());
 
             System.out.println();
-            System.out.println(monthStart);
-            System.out.println("date " + monthStart.getDayOfMonth());
-            System.out.println("date check: " + monthStart.getMonth() + " " + monthStart.lengthOfMonth());
-            LocalDate monthEnd = monthStart.plusDays(monthStart.lengthOfMonth()-1);
+            System.out.println(date);
+            System.out.printf("day (%d) of month (%s)%n",date.getDayOfMonth(), date.getMonth());
+            System.out.printf("month (%s) has length of (%d)%n" , date.getMonth(), date.lengthOfMonth());
 
 
         }
     }
 }
+/*
+sample cases:
+2017 59
+feb 28
+ */
