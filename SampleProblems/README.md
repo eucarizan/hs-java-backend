@@ -18,6 +18,7 @@
 - [same time](./SameTime/README.md)
 - [similar date](./SimilarDate/README.md)
 - [size of parts](./SizeOfParts/README.md)
+- [static factory for time](./StaticFactoryForTime/README.md)
 
 <!--
 TODO:
@@ -35,5 +36,6 @@ healthy sheep; interval; natural numbers squares; size of parts;
 composite number; number sign; boxes; clock simulation;
 individual taxes; publication subclasses; int binary operation;
 similar date; same time; find the seed; dont be late again;
-last day of month; mutable geometric shapes;
+last day of month; mutable geometric shapes; static factory for time;
+
 -->
