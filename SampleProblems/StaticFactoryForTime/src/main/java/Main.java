@@ -7,18 +7,39 @@ class Time {
 
     public static Time noon() {
         // write your code here;
+        Time time = new Time();
+        time.hour = 12;
+        time.minute = 0;
+        time.second = 0;
+        return time;
     }
 
     public static Time midnight() {
         // write your code here;
+        Time time = new Time();
+        time.hour = 0;
+        time.minute = 0;
+        time.second = 0;
+        return time;
     }
 
     public static Time ofSecond(long seconds) {
+        Time time = new Time();
+        int tmp = (int) (seconds / 3600);
+        time.hour = tmp > 23 ? (tmp % 24) : tmp;
+        time.minute = (int) ((seconds % 3600) / 60);
+        time.second = (int) (seconds % 60);
+        return time;
         // write your code here;
     }
 
     public static Time of(int hour, int minute, int second) {
         // write your code here;
+        Time time = new Time();
+        time.hour = hour;
+        time.minute = minute;
+        time.second = second;
+        return time;
     }
 }
 
