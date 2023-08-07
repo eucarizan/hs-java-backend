@@ -24,6 +24,7 @@
 - [similar date](./SimilarDate/README.md)
 - [size of parts](./SizeOfParts/README.md)
 - [static factory for time](./StaticFactoryForTime/README.md)
+- [template method](./TemplateMethod/README.md)
 
 <!--
 TODO:
@@ -43,5 +44,5 @@ individual taxes; publication subclasses; int binary operation;
 similar date; same time; find the seed; dont be late again;
 last day of month; mutable geometric shapes; static factory for time;
 lambda seven args; remote control; max and min; career;
-motor static factory;
+motor static factory; template method;
 -->
