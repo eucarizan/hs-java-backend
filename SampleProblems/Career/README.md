@@ -12,6 +12,7 @@ Your task is to implement the abstract class `Career` with a template method cal
 Make the classes `Engineer` and `DataScientist` inherit from the `Career` class and implement the methods according to the console output.
 
 ## Hint
+Define abstract method work and override it in child classes. don't forget extends child classes from Career.
 
 ## Examples
 **Sample Input 1:**

@@ -4,9 +4,17 @@ abstract class Career {
 
     public void execute() {
         // write your code here ...
+        dream();
+
+        plan();
+
+        study();
+
+        work();
     }
 
     // write your code here ...
+    public abstract void work();
 
     // Do not change the code below
     public void dream() {
@@ -22,12 +30,20 @@ abstract class Career {
     }
 }
 
-class Engineer {
+class Engineer extends Career {
     // write your code here ...
+    @Override
+    public void work() {
+        System.out.println("Work as a Full Stack Engineer");
+    }
 }
 
-class DataScientist {
+class DataScientist extends Career {
     // write your code here ...
+    @Override
+    public void work() {
+        System.out.println("Work as a Data Scientist");
+    }
 }
 
 public class Main {
