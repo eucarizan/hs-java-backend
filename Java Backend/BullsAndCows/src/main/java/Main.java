@@ -6,14 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-//            String guess = scanner.nextLine();
-//            count(guess);
             int length = scanner.nextInt();
-            createSecretNumber(length);
-//            while (length != 0) {
-//                createSecretNumber(length);
-//                length = scanner.nextInt();
-//            }
+            createStringSecretNumber(length);
         }
     }
 
@@ -57,44 +51,36 @@ public class Main {
         System.out.println(strOut.append(String.format(". The secret code is %s.", secretNumber)));
     }
 
-    private static void createSecretNumber(int length) {
-        final long pseudoRandomNumber = System.nanoTime();
-
-        final long[] lowerBound = { 1, 10, 100, 1_000, 10_000, 100_000, 1_000_000, 10_000_000, 100_000_000, 1_000_000_000 };
-        final long[] upperBound = { 9, 99, 999, 9_999, 99_999, 999_999, 9_999_999, 99_999_999, 999_999_999, 9_999_999_999L };
-        final Random random = new Random(pseudoRandomNumber);
-        final int index = length - 1;
-
+    private static void createStringSecretNumber(int length) {
         if (length > 10) {
             System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough unique digits.");
             return;
         }
 
-        long num = random.nextLong(lowerBound[index], upperBound[index]);
-        char digit0 = String.valueOf(num).charAt(0);
+        StringBuilder result = new StringBuilder();
+        String str = "";
 
-        while (digit0 == '0' || isDistinct(num, length)) {
-            num = random.nextLong(lowerBound[index], upperBound[index]);
-            digit0 = String.valueOf(num).charAt(0);
+        while (str.length() < length) {
+            str = createResult(str, length);
         }
 
-        System.out.println("The random secret number is " + num);
+        result.append(str);
+
+        System.out.println(result);
     }
 
-    private static boolean isDistinct(long num, int length) {
-        String number = String.valueOf(num);
-        int count = 0;
+    private static String createResult(String result, int length) {
+        StringBuilder output = new StringBuilder(result);
+        long pseudoRandomNumber = System.nanoTime();
+        String temp = String.valueOf(Long.parseLong(new StringBuilder(String.valueOf(pseudoRandomNumber)).reverse().toString()));
 
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = i + 1; j < length; j++) {
-                if (number.charAt(i) == number.charAt(j)) {
-                    count++;
-                    break;
-                }
+        for (int i = 0; i < temp.length() && output.length() < length; i++) {
+            char ch = temp.charAt(i);
+            if (!output.toString().contains(String.valueOf(ch))) {
+                output.append(temp.charAt(i));
             }
-            if (count > 0) break;
         }
 
-        return count != 0;
+        return output.toString();
     }
 }
