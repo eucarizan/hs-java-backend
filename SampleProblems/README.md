@@ -10,6 +10,7 @@
 - [individual taxes](./IndividualTaxes/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
 - [interval](./Interval/README.md)
+- [lambda seven args](./LambdaSevenArgs/README.md)
 - [last day of month](./LastDayOfMonth/README.md)
 - [mutable geometric shapes](./MutableGeometricShapes/README.md)
 - [natural number squares](./NaturalNumbersSquares/README.md)
@@ -19,6 +20,8 @@
 - [similar date](./SimilarDate/README.md)
 - [size of parts](./SizeOfParts/README.md)
 - [static factory for time](./StaticFactoryForTime/README.md)
+- [remote control](./RemoteControl/README.md)
+<!-- - [max and min] -->
 
 <!--
 TODO:
@@ -37,5 +40,5 @@ composite number; number sign; boxes; clock simulation;
 individual taxes; publication subclasses; int binary operation;
 similar date; same time; find the seed; dont be late again;
 last day of month; mutable geometric shapes; static factory for time;
-
+lambda seven args; remote control; max and min;
 -->
