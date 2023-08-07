@@ -1,11 +1,13 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Finder {
+class Finder {
 
-    private FindingStrategy strategy;
+    private final FindingStrategy strategy;
 
     public Finder(FindingStrategy strategy) {
         // write your code here
+        this.strategy = strategy;
     }
 
     /**
@@ -13,6 +15,7 @@ public class Finder {
      */
     public int find(int[] numbers) {
         // write your code here
+        return this.strategy.getResult(numbers);
     }
 }
 
@@ -26,22 +29,26 @@ interface FindingStrategy {
 }
 
 class MaxFindingStrategy implements FindingStrategy {
-
+    @Override
     public int getResult(int[] numbers) {
         // write your code here
+        return Arrays.stream(numbers)
+                .max()
+                .orElse(Integer.MIN_VALUE);
     }
 }
 
 class MinFindingStrategy implements FindingStrategy {
-
+    @Override
     public int getResult(int[] numbers) {
         // write your code here
+        return Arrays
+                .stream(numbers)
+                .min()
+                .orElse(Integer.MAX_VALUE);
     }
 }
-
-/* Do not change code below */
 public class Main {
-
     public static void main(String[] args) {
 
         final Scanner scanner = new Scanner(System.in);
@@ -63,14 +70,10 @@ public class Main {
         Finder finder = null;
 
         switch (type) {
-            case "MIN":
-                finder = new Finder(new MinFindingStrategy());
-                break;
-            case "MAX":
-                finder = new Finder(new MaxFindingStrategy());
-                break;
-            default:
-                break;
+            case "MIN" -> finder = new Finder(new MinFindingStrategy());
+            case "MAX" -> finder = new Finder(new MaxFindingStrategy());
+            default -> {
+            }
         }
 
         if (finder == null) {
