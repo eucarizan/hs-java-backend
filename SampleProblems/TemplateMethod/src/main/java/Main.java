@@ -7,6 +7,10 @@ abstract class Meal {
      */
     public void doMeal() {
         // write your code here ...
+        prepareIngredients();
+        cook();
+        eat();
+        cleanUp();
     }
 
     public abstract void prepareIngredients();
