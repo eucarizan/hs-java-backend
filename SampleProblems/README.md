@@ -21,7 +21,7 @@
 - [size of parts](./SizeOfParts/README.md)
 - [static factory for time](./StaticFactoryForTime/README.md)
 - [remote control](./RemoteControl/README.md)
-<!-- - [max and min] -->
+- [max and min](./MaxAndMin/README.md)
 
 <!--
 TODO:
