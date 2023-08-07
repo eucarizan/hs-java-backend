@@ -1,14 +1,19 @@
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 class Time {
     int hour;
     int minute;
     int second;
+    static final int ONE_DAY = 24;
+    static final Predicate<Integer> VALID_HOUR = s -> s >= 0 && s < ONE_DAY;
+    static final int SIXTY = 60;
 
     public static Time noon() {
         // write your code here;
+        final int twelve = 12;
         Time time = new Time();
-        time.hour = 12;
+        time.hour = twelve;
         time.minute = 0;
         time.second = 0;
         return time;
@@ -24,21 +29,29 @@ class Time {
     }
 
     public static Time ofSecond(long seconds) {
+        final int secondsToHour = 3600;
+
         Time time = new Time();
-        int tmp = (int) (seconds / 3600);
-        time.hour = tmp > 23 ? (tmp % 24) : tmp;
-        time.minute = (int) ((seconds % 3600) / 60);
-        time.second = (int) (seconds % 60);
+        int tmp = (int) (seconds / secondsToHour);
+        time.hour = VALID_HOUR.test(tmp) ? tmp : (tmp % ONE_DAY);
+        time.minute = (int) ((seconds % secondsToHour) / SIXTY);
+        time.second = (int) (seconds % SIXTY);
         return time;
         // write your code here;
     }
 
     public static Time of(int hour, int minute, int second) {
         // write your code here;
+        Predicate<Integer> validTime = t -> t >= 0 && t < SIXTY;
         Time time = new Time();
-        time.hour = hour;
-        time.minute = minute;
+
+        if (VALID_HOUR.negate().test(hour) || validTime.negate().test(minute) || validTime.negate().test(second)) {
+            return null;
+        }
+
         time.second = second;
+        time.minute = minute;
+        time.hour = hour;
         return time;
     }
 }
@@ -62,12 +75,11 @@ public class Main {
                 default -> null;
             };
 
-            if (time == null) {
-                System.out.println(time);
+            if (time != null) {
+                System.out.printf("%s %s %s", time.hour, time.minute, time.second);
             } else {
-                System.out.printf("%s %s %s", time.hour, time. minute, time.second);
+                System.out.println((Object) null);
             }
         }
     }
-
 }
