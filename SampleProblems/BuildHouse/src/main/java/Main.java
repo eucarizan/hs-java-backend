@@ -21,6 +21,23 @@ public class Main {
 abstract class House {
 
     // write your code here ...
+    public void build() {
+        chooseLocation();
+        placeFoundations();
+        placeWalls();
+        placeWindows();
+        placeDoors();
+        placeRoofs();
+        connectElectricity();
+    }
+
+    public abstract void placeFoundations();
+
+    public abstract void placeWalls();
+
+    public abstract void placeWindows();
+
+    public abstract void placeDoors();
 
     // Do not change the code below
     public void chooseLocation() {
@@ -36,8 +53,26 @@ abstract class House {
     }
 }
 
-class Wooden {
-    // write your code here ...
+class Wooden extends House {
+    @Override
+    public void placeFoundations() {
+        System.out.println("Place a wooden foundation");
+    }
+
+    @Override
+    public void placeWalls() {
+        System.out.println("Place wooden walls");
+    }
+
+    @Override
+    public void placeWindows() {
+        System.out.println("Place wooden windows");
+    }
+
+    @Override
+    public void placeDoors() {
+        System.out.println("Place wooden doors");
+    }
 }
 
 // Do not change the code below
