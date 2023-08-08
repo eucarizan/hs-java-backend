@@ -2,6 +2,7 @@
 
 ## Problems
 - [boxes](./Boxes/README.md)
+- [build house](./BuildHouse/README.md)
 - [career](./Career/README.md)
 - [clock simulation](./ClockSimulation/README.md)
 - [composite number](./README.md)
@@ -44,5 +45,5 @@ individual taxes; publication subclasses; int binary operation;
 similar date; same time; find the seed; dont be late again;
 last day of month; mutable geometric shapes; static factory for time;
 lambda seven args; remote control; max and min; career;
-motor static factory; template method;
+motor static factory; template method; build house;
 -->
