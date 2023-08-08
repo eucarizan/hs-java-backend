@@ -19,6 +19,10 @@
       - [4.1 Description](#41-description)
       - [4.2 Objectives](#42-objectives)
       - [4.3 Examples](#43-examples)
+    - [5: Improve the code generator](#5-improve-the-code-generator)
+      - [5.1 Description](#51-description)
+      - [5.2 Objective](#52-objective)
+      - [5.3 Examples](#53-examples)
 
 ## Learning outcomes
 Learn how to use integer arithmetic, generate random numbers, store data in data structures, and handle errors.
@@ -198,6 +202,32 @@ In this stage, your program should:
 4. If the secret code has been guessed, the program stops; otherwise, return to the second step.
 
 #### 4.3 Examples
+The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
+
+```console
+Please, enter the secret code's length:
+> 4
+Okay, let's start a game!
+Turn 1:
+> 1234
+Grade: 1 bull and 1 cow
+Turn 2:
+> 7354
+Grade: 2 bulls and 1 cow
+Turn 3:
+> 9374
+Grade: 4 bulls
+Congratulations! You guessed the secret code.
+```
+
+### 5: Improve the code generator
+#### 5.1 Description
+The algorithm suggested for generating the secret code in the previous stage was really a “reinvention of the wheel”. Java already has the tools for generating random numbers! Research some common pseudo-random generation methods such as `Math.random()` and other methods from the `Random` class. Choose the method you like and use it to rewrite the secret code generation.
+
+#### 5.2 Objective
+In this stage, rewrite the secret code generator using a suitable Java method.
+
+#### 5.3 Examples
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 ```console
