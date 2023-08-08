@@ -15,6 +15,10 @@
       - [3.1 Description](#31-description)
       - [3.2 Objectives](#32-objectives)
       - [3.3 Examples](#33-examples)
+    - [4: Game time!](#4-game-time)
+      - [4.1 Description](#41-description)
+      - [4.2 Objectives](#42-objectives)
+      - [4.3 Examples](#43-examples)
 
 ## Learning outcomes
 Learn how to use integer arithmetic, generate random numbers, store data in data structures, and handle errors.
@@ -178,3 +182,37 @@ The random secret number is 5213.
 > 11
 Error: can't generate a secret number with length of 11 because there aren't enough unique digits.
 ```
+
+### 4: Game time!
+#### 4.1 Description
+In this stage, you should combine all the previous parts into a simple playable version of the "Bulls and Cows" game. First, prompt the player to input the length of the secret code. The length will determine the difficulty level for the current game session. The program should generate a secret code of the given length. Remember that it should consist of unique numbers.
+
+Then, the game starts and the program prompts the player to guess the code. When the player inputs a number, the program should grade it in bulls and cows. The game goes on until the code is guessed, that is, until the number of bulls is equal to the number of digits in the code. When the game ends, the program should finish its execution.
+
+#### 4.2 Objectives
+In this stage, your program should:
+
+1. Ask for the length of the secret code and then generate the code.
+2. Wait for the user input.
+3. Grade the guessing attempt in bulls and cows.
+4. If the secret code has been guessed, the program stops; otherwise, return to the second step.
+
+#### 4.3 Examples
+The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
+
+```console
+Please, enter the secret code's length:
+> 4
+Okay, let's start a game!
+Turn 1:
+> 1234
+Grade: 1 bull and 1 cow
+Turn 2:
+> 7354
+Grade: 2 bulls and 1 cow
+Turn 3:
+> 9374
+Grade: 4 bulls
+Congratulations! You guessed the secret code.
+```
+
