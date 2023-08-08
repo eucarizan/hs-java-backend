@@ -26,6 +26,7 @@
 - [size of parts](./SizeOfParts/README.md)
 - [static factory for time](./StaticFactoryForTime/README.md)
 - [template method](./TemplateMethod/README.md)
+- [template method 2](./TemplateMethod2/README.md)
 
 <!--
 TODO:
@@ -46,4 +47,5 @@ similar date; same time; find the seed; dont be late again;
 last day of month; mutable geometric shapes; static factory for time;
 lambda seven args; remote control; max and min; career;
 motor static factory; template method; build house;
+template method 2;
 -->
