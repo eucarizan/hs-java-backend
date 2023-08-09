@@ -8,6 +8,7 @@
 - [composite number](./README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
 - [find the seed](./FindTheSeed/README.md)
+- [floor space of room](./FloorSpaceOfRoom/README.md)
 - [healthy sheep](./HealthySheep/README.md)
 - [individual taxes](./IndividualTaxes/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
@@ -49,5 +50,6 @@ similar date; same time; find the seed; dont be late again;
 last day of month; mutable geometric shapes; static factory for time;
 lambda seven args; remote control; max and min; career;
 motor static factory; template method; build house;
-template method 2; social networks;
+template method 2; social networks; floor space of room;
+
 -->
