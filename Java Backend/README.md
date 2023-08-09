@@ -7,6 +7,8 @@
 
 Become a Java Backend Developer and unlock the world of web application development with Spring Boot! Master Java fundamentals, object-oriented programming, and data storage.
 
+<!-- move each project to its own repository -->
+
 ### Projects
 - Easy
   - [x] [Simple Chatty Bot (Java)](./ChattyBot/ChattyBot/README.md) `⭐4.4` `3hr`
