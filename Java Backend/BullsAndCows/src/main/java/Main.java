@@ -9,21 +9,44 @@ public class Main {
             final int MAX_LENGTH = 36;
 
             // #1 get length of secret code
-            // if length > 36 and if length < 1 repeat #1
-            // TODO-01 invalid number
+            // #1.1 if length > 36 and if length < 1 repeat #1
+            // #1.2 invalid number "abc 0 -7"
             int length = 0;
+            String input = "";
 
             do {
                 System.out.println("Input the length of the secret code:");
-                length = Integer.parseInt(scanner.nextLine());
-            } while (length < 0 || length > MAX_LENGTH);
+                try {
+                    input = scanner.nextLine();
+                    length = Integer.parseInt(input);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: \"" + input + "\" isn't a valid number.");
+                    return;
+                }
+
+                if (length > MAX_LENGTH) {
+                    System.out.println("Error: maximum number of possible symbols in the code is 36 (0-9, a-z).");
+                    return;
+                }
+            } while (length < 0);
+            // } while (length < 0 || length > MAX_LENGTH);
 
             // #2 get number of possible characters (chars)
             // TODO-02 #2.1 if chars < length repeat #2
-            // TODO-02 #2.1.1 "Error: it's not possible to generate a code with a length of (length) with (chars < length) unique symbols."
+            // #2.1.1 "Error: it's not possible to generate a code with a length of (length) with (chars < length) unique symbols."
             int chars = 0;
             System.out.println("Input the number of possible symbols in the code:");
             chars = Integer.parseInt(scanner.nextLine());
+
+            if (chars < length) {
+                System.out.printf("Error: it's not possible to generate a code with a length of %d with %d unique symbols.%n", length, chars);
+                return;
+            }
+
+            if (chars > MAX_LENGTH) {
+                System.out.println("Error: maximum number of possible symbols in the code is 36 (0-9, a-z).");
+                return;
+            }
 
             // #3 generate secret code, print secret code using `*`, print which characters were used to generate secret code
             // #3.2 print secret code using `*`
