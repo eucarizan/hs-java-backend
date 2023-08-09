@@ -1,6 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
+- [backward indexes](./BackwardIndexes/README.md)
 - [boxes](./Boxes/README.md)
 - [build house](./BuildHouse/README.md)
 - [career](./Career/README.md)
@@ -34,9 +35,9 @@
 <!--
 TODO:
 - [ ] add topics to each sample problems
-- [ ] arrange into alphabetical order
+- [x] arrange into alphabetical order
   - [x] keep a list by time added
-- [ ] make it testable
+- [ ] make it testable TDD
   - [ ] create a class for the main program
   - [ ] create unit tests
  -->
@@ -51,5 +52,5 @@ last day of month; mutable geometric shapes; static factory for time;
 lambda seven args; remote control; max and min; career;
 motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
-
+backward indexes;
 -->
