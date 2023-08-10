@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ class ChainOfResponsibilityDemo {
         String digest = "";
         try {
             final MessageDigest md5 = MessageDigest.getInstance("MD5");
-            final byte[] digestBytes = md5.digest(req.getData().getBytes("UTF-8"));
+            final byte[] digestBytes = md5.digest(req.getData().getBytes(StandardCharsets.UTF_8));
             digest = new String(Base64.getEncoder().encode(digestBytes));
         } catch (Exception ignored) {
             System.out.println("An error occurred");
@@ -32,11 +33,13 @@ class ChainOfResponsibilityDemo {
             new Request(String.format("<request>%s</request>", req.getData()));
 
     /**
-     * It should represents a chain of responsibility combined from another handlers.
+     * It should represent a chain of responsibility combined from another handlers.
      * The format: commonRequestHandler = handler1.setSuccessor(handler2.setSuccessor(...))
      * The combining method setSuccessor may have another name
      */
-    static RequestHandler commonRequestHandler = // !!! write a combination of existing handlers here
+    // !!! write a combination of existing handlers here
+    static RequestHandler commonRequestHandler = request ->  wrapInTransactionTag
+            .setSuccessor(createDigest.setSuccessor(wrapInRequestTag)).handle(request);
 
     /**
      * It represents a handler and has two methods: one for handling requests and other for combining handlers
@@ -46,10 +49,14 @@ class ChainOfResponsibilityDemo {
 
         // !!! write a method handle that accept request and returns new request here
         // it allows to use lambda expressions for creating handlers below
+        Request handle(Request request);
 
         // !!! write a default method for combining this and other handler single one
-        // the order of execution may be any but you need to consider it when composing handlers
+        // the order of execution may be any, but you need to consider it when composing handlers
         // the method may have any name
+        default RequestHandler setSuccessor(RequestHandler requestHandler) {
+            return request -> requestHandler.handle(this.handle(request));
+        }
     }
 
     /**
@@ -69,6 +76,7 @@ class ChainOfResponsibilityDemo {
     }
 
     // Don't change the code below
+    @SuppressWarnings("RedundantThrows")
     public static void main(String[] args) throws Exception {
 
         final Scanner scanner = new Scanner(System.in);
