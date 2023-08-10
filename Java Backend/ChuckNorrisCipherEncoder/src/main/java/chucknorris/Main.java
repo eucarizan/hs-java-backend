@@ -8,20 +8,71 @@ public class Main {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Input string:");
             String input = scanner.nextLine();
-            String[] chars = input.split("");
-            String binaryStr = "";
-
-            if (!input.isEmpty()) {
-                binaryStr = stringToBinary(chars);
-            }
-
-            System.out.println("The result:");
-
-            binaryToZero(binaryStr);
+            // encode(input);
+            decode(input);
         }
     }
 
-    private static void binaryToZero(String binaryStr) {
+    private static void decode(String input) {
+        String[] chars = input.split(" ");
+        String binaryString = "";
+
+        if (!input.isEmpty()) {
+            binaryString = binaryToString(chars);
+        }
+
+        System.out.println("The result:");
+        decodeBinary(binaryString);
+    }
+
+    private static void encode(String input) {
+        String[] chars = input.split("");
+        String binaryStr = "";
+
+        if (!input.isEmpty()) {
+            binaryStr = stringToBinary(chars);
+        }
+
+        System.out.println("The result:");
+        encodeBinary(binaryStr);
+    }
+
+    private static String stringToBinary(String[] input) {
+        StringBuilder str = new StringBuilder();
+        Arrays.stream(input)
+                .forEach(s -> {
+                    String digits = Integer.toBinaryString(s.charAt(0));
+                    str.append(String.format("%07d", Integer.parseInt(digits)));
+                });
+
+        return str.toString();
+    }
+
+    private static String binaryToString(String[] chars) {
+        StringBuilder str = new StringBuilder();
+
+        for (int i = 0, j = 1; i <= chars.length - 2; i += 2, j += 2) {
+            if ("00".equals(chars[i])) {
+                str.append("0".repeat(Math.max(0, chars[j].length())));
+            } else {
+                str.append("1".repeat(Math.max(0, chars[j].length())));
+            }
+        }
+
+        return str.toString();
+    }
+
+    private static void decodeBinary(String binaryString) {
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < binaryString.length(); i += 7) {
+            String str = binaryString.substring(i, i + 7);
+            output.append((char) Integer.parseInt(str, 2));
+        }
+
+        System.out.println(output);
+    }
+
+    private static void encodeBinary(String binaryStr) {
         StringBuilder output = new StringBuilder();
         int count = 1;
         char ch = ' ';
@@ -37,14 +88,14 @@ public class Main {
                 }
             }
             i += count;
-            output.append(chuckCipher(ch, count));
+            output.append(chuckCipherEncode(ch, count));
             count = 1;
         }
 
-        System.out.println(output);
+        System.out.println(output.toString().trim());
     }
 
-    private static String chuckCipher(char ch, int count) {
+    private static String chuckCipherEncode(char ch, int count) {
         StringBuilder chuck = new StringBuilder();
         if (ch == '1') {
             chuck.append("0 ");
@@ -56,16 +107,5 @@ public class Main {
         chuck.append(" ");
 
         return chuck.toString();
-    }
-
-    private static String stringToBinary(String[] input) {
-        StringBuilder str = new StringBuilder();
-        Arrays.stream(input)
-                .forEach(s -> {
-                    String digits = Integer.toBinaryString(s.charAt(0));
-                    str.append(String.format("%07d", Integer.parseInt(digits)));
-                });
-
-        return str.toString();
     }
 }
