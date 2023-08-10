@@ -3,13 +3,32 @@ package chucknorris;
 import java.util.Arrays;
 import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Input string:");
-            String input = scanner.nextLine();
-            // encode(input);
-            decode(input);
+            System.out.println("Please input operation (encode/decode/exit):");
+            String command = scanner.nextLine();
+
+
+            while (!"exit".equals(command)) {
+                switch (command) {
+                    case "encode" -> {
+                        System.out.println("Input string:");
+                        String input = scanner.nextLine();
+                        encode(input);
+                    }
+                    case "decode" -> {
+                        System.out.println("Input string:");
+                        String input = scanner.nextLine();
+                        decode(input);
+                    }
+                    default -> {
+                        System.out.println("There is no " + command + " operation");
+                    }
+                }
+            }
+            System.out.println("Bye!");
         }
     }
 
@@ -75,7 +94,7 @@ public class Main {
     private static void encodeBinary(String binaryStr) {
         StringBuilder output = new StringBuilder();
         int count = 1;
-        char ch = ' ';
+        char ch;
         for (int i = 0; i < binaryStr.length();) {
             ch = binaryStr.charAt(i);
 
