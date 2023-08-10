@@ -25,17 +25,21 @@ public class Main {
         StringBuilder output = new StringBuilder();
         int count = 1;
         char ch = ' ';
-        for (int i = 0; i < binaryStr.length() - 1; i++) {
+        for (int i = 0; i < binaryStr.length();) {
             ch = binaryStr.charAt(i);
 
-            if (ch == binaryStr.charAt(i + 1)) {
-                count++;
-            } else {
-                output.append(chuckCipher(ch, count));
-                count = 1;
+            for (int j = i + 1; j < binaryStr.length(); j++) {
+                char ch2 = binaryStr.charAt(j);
+                if (ch == ch2) {
+                    count++;
+                } else {
+                    break;
+                }
             }
+            i += count;
+            output.append(chuckCipher(ch, count));
+            count = 1;
         }
-        output.append(chuckCipher(ch, count));
 
         System.out.println(output);
     }
@@ -59,7 +63,7 @@ public class Main {
         Arrays.stream(input)
                 .forEach(s -> {
                     String digits = Integer.toBinaryString(s.charAt(0));
-                    str.append(digits);
+                    str.append(String.format("%07d", Integer.parseInt(digits)));
                 });
 
         return str.toString();
