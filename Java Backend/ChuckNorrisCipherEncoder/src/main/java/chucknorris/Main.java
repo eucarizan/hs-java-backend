@@ -17,16 +17,18 @@ public class Main {
                         System.out.println("Input string:");
                         String input = scanner.nextLine();
                         encode(input);
+                        System.out.println();
                     }
                     case "decode" -> {
-                        System.out.println("Input string:");
+                        System.out.println("Input encoded string:");
                         String input = scanner.nextLine();
                         decode(input);
+                        System.out.println();
                     }
-                    default -> {
-                        System.out.println("There is no " + command + " operation");
-                    }
+                    default -> System.out.println("There is no '" + command + "' operation\n");
                 }
+                System.out.println("Please input operation (encode/decode/exit):");
+                command = scanner.nextLine();
             }
             System.out.println("Bye!");
         }
@@ -40,8 +42,15 @@ public class Main {
             binaryString = binaryToString(chars);
         }
 
-        System.out.println("The result:");
-        decodeBinary(binaryString);
+        if (binaryString.length() % 7 != 0) {
+            System.out.println("Encoded string is not valid");
+            return;
+        }
+
+        if (!binaryString.isEmpty()) {
+            System.out.println("Decoded string:");
+            decodeBinary(binaryString);
+        }
     }
 
     private static void encode(String input) {
@@ -52,7 +61,7 @@ public class Main {
             binaryStr = stringToBinary(chars);
         }
 
-        System.out.println("The result:");
+        System.out.println("Encoded string:");
         encodeBinary(binaryStr);
     }
 
@@ -73,8 +82,12 @@ public class Main {
         for (int i = 0, j = 1; i <= chars.length - 2; i += 2, j += 2) {
             if ("00".equals(chars[i])) {
                 str.append("0".repeat(Math.max(0, chars[j].length())));
-            } else {
+            } else if ("0".equals(chars[i])) {
                 str.append("1".repeat(Math.max(0, chars[j].length())));
+            } else {
+                str.setLength(0);
+                System.out.println("Encoded string is not valid");
+                return "";
             }
         }
 
@@ -95,7 +108,7 @@ public class Main {
         StringBuilder output = new StringBuilder();
         int count = 1;
         char ch;
-        for (int i = 0; i < binaryStr.length();) {
+        for (int i = 0; i < binaryStr.length(); ) {
             ch = binaryStr.charAt(i);
 
             for (int j = i + 1; j < binaryStr.length(); j++) {

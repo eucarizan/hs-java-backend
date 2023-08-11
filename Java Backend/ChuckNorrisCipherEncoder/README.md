@@ -233,9 +233,9 @@ In this stage, your program should:
 Please input operation `(encode/decode/exit)`:
 2. If user inputs `encode` as the desired operation, the program should print `Input string:` to the output, read a line and output two lines — `Encoded string:` followed by the encoded string;
 3. If user inputs `decode` as the desired operation, the program should print `Input encoded string:` to the output, read a line and output two lines — `Decoded string:` followed by the actual decoded string;
-4. If user inputs `exit` as the desired operation, the program should say Bye! and finish its execution.
+4. If user inputs `exit` as the desired operation, the program should say `Bye!` and finish its execution.
 
-The program should be looped to terminate only if the user inputs `exit` as an operation. Otherwise, it should continue asking users Please input operation (encode/decode/exit): after each iteration.
+The program should be looped to terminate only if the user inputs `exit` as an operation. Otherwise, it should continue asking users `Please input operation (encode/decode/exit):` after each iteration.
 
 Also, let's prevent some incorrect input.
 
