@@ -31,3 +31,8 @@ true
 ```
 false
 ```
+
+## Tags
+- collections
+- collections framework
+- list interface
