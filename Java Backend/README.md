@@ -64,3 +64,7 @@ The track includes Java fundamentals, basic algorithms, and all must-haves for c
 
 ### Topics
 `Code organization` `Essentials` `Backend` `Algorithms and structures` `SQL and Databases` `Basics` `System administration and DevOps` `Additional instruments` `Errorless code` `JVM` `Working with data` `Java internals` `Dev tools` `Frontend` `Math`
+
+<!-- <details>
+<summary>Track Overview</summary>
+</details> -->
