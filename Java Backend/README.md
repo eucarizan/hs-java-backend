@@ -19,7 +19,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [x] [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md) `⭐4.0` `13 hr`
   - [x] [Bulls and Cows](./BullsAndCows/README.md) `⭐4.2` `12 hr`
   - [x] [Chuck Norris Cipher Encoder (Java)](./ChuckNorrisCipherEncoder/README.md) `⭐4.1` `11 hr`
-  - [ ] [Amazing Numbers](./README.md) `⭐4.0` `18 hr`
+  - [ ] [Amazing Numbers](./AmazingNumbers/README.md) `⭐4.0` `18 hr`
 - Medium
   - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`
   - [ ] [Desktop Connect Four](./README.md) `⭐4.4` `23 hr`
