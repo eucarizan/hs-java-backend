@@ -1,18 +1,28 @@
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Enter a natural number:");
-            int num = scanner.nextInt();
+            System.out.println("Welcome to Amazing Numbers!");
+            System.out.println("\nSupported requests:\n- enter a natural number to know its properties;\n- enter 0 to exit.");
 
-            if (num < 1) {
-                System.out.println("This number is not natural");
-            } else {
-                Number number = new Number(num);
-                System.out.println(number);
-            }
+            long num = -1;
+
+            do {
+                System.out.print("\nEnter a request: ");
+                num = scanner.nextLong();
+
+                System.out.println();
+
+                if (num >= 1) {
+                    Number number = new Number(num);
+                    System.out.println(number);
+                } else if (num < 0) {
+                    System.out.println("The first parameter should be a natural number or zero");
+                }
+            } while (num != 0);
+
+            System.out.println("Goodbye!");
         }
     }
 }
@@ -20,14 +30,14 @@ public class Main {
 @SuppressWarnings("unused")
 class Number {
 
-    int number;
+    long number;
 
-    public Number(int number) {
+    public Number(long number) {
         this.number = number;
     }
 
     private boolean isBuzz() {
-        int digit = number % 10;
+        long digit = number % 10;
 
         return number % 7 == 0 || digit == 7;
     }
@@ -37,7 +47,7 @@ class Number {
     }
 
     private boolean isDuckWhile() {
-        int n = number;
+        long n = number;
         boolean duck = false;
         while (n > 0) {
             if (n % 10 == 0) {
@@ -68,12 +78,21 @@ class Number {
         return str.substring(ind);
     }
 
+    private boolean isPalindrome() {
+        String str = String.valueOf(number);
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+
+        return str.contentEquals(sb);
+    }
+
     @Override
     public String toString() {
         return "Properties of " + number +
                 "\neven: " + isEven() +
                 "\nodd: " + !isEven() +
                 "\nbuzz: " + isBuzz() +
-                "\nduck: " + isDuck();
+                "\nduck: " + isDuck() +
+                "\npalindromic: " + isPalindrome();
     }
 }
