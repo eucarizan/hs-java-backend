@@ -8,6 +8,7 @@
 - [chain of responsibilty](./ChainOfResponsibility/README.md)
 - [clock simulation](./ClockSimulation/README.md)
 - [composite number](./README.md)
+- [count value occurrences](./CountValueOccurrences/README.md)
 - [discjunct all](./DisjunctAll/README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
 - [find the seed](./FindTheSeed/README.md)
@@ -55,4 +56,5 @@ lambda seven args; remote control; max and min; career;
 motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
+count value occurrences;
 -->
