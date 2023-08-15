@@ -11,6 +11,7 @@
 - [composite number](./README.md)
 - [compression algorithm](./CompressionAlgorithm/README.md)
 - [count value occurrences](./CountValueOccurrences/README.md)
+- [create optional value](./CreateOptionalValue/README.md)
 - [discjunct all](./DisjunctAll/README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
 - [find the seed](./FindTheSeed/README.md)
@@ -67,5 +68,6 @@ backward indexes; chain of responsibility; disjunct all;
 count value occurrences; compression algorithm; rockstar games;
 managing a process; triangle; lucky ticket;
 gold mining (bigdecimal); average (bigdecimal);
-multiplication (bigdecimal); 
+multiplication (bigdecimal); create optional value;
+
 -->
