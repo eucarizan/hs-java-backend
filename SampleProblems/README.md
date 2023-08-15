@@ -27,6 +27,7 @@
 - [number sign](./README.md)
 - [publication subclasses](./PublicationSubclasses/README.md)
 - [remote control](./RemoteControl/README.md)
+- [rockstar games](./RockstarGames/README.md)
 - [same time](./SameTime/README.md)
 - [similar date](./SimilarDate/README.md)
 - [size of parts](./SizeOfParts/README.md)
@@ -57,5 +58,5 @@ lambda seven args; remote control; max and min; career;
 motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
-count value occurrences; compression algorithm;
+count value occurrences; compression algorithm; rockstar games;
 -->
