@@ -1,6 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
+- [average](./Average/README.md)
 - [backward indexes](./BackwardIndexes/README.md)
 - [boxes](./Boxes/README.md)
 - [build house](./BuildHouse/README.md)
@@ -63,6 +64,6 @@ motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
 count value occurrences; compression algorithm; rockstar games;
-managing a process; triangle; lucky ticket; gold mining;
-
+managing a process; triangle; lucky ticket;
+gold mining (bigdecimal); average (bigdecimal); 
 -->
