@@ -16,6 +16,7 @@ class ValueProvider {
             java.util.Scanner scanner = new java.util.Scanner(System.in);
             String input = scanner.next();
             inputOpt = "null".equals(input) ? Optional.empty() : Optional.of(input);
+            scanner.close();
         }
 
         return inputOpt;
