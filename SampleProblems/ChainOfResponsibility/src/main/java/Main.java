@@ -86,5 +86,6 @@ class ChainOfResponsibilityDemo {
         final Request notCompletedRequest = new Request(requestData);
 
         System.out.println(commonRequestHandler.handle(notCompletedRequest).getData());
+        scanner.close();
     }
 }

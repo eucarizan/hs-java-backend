@@ -17,6 +17,7 @@ class InputStringReader {
         // implement
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         String input = scanner.nextLine();
+        scanner.close();
         if ("empty".equals(input)) {
             return Optional.ofNullable(null);
         }

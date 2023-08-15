@@ -29,6 +29,7 @@ public class Main {
                 System.out.println(output);
             }
         });
+        scanner.close();
     }
 
     public static void startLongProcess(Callback callback) {

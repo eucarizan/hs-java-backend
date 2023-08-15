@@ -33,5 +33,6 @@ public class Main {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Exception");
         }
+        scanner.close();
     }
 }
