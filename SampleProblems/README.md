@@ -7,6 +7,7 @@
 - [build house](./BuildHouse/README.md)
 - [career](./Career/README.md)
 - [chain of responsibilty](./ChainOfResponsibility/README.md)
+- [check optional value](./CheckOptionalValue/README.md)
 - [clock simulation](./ClockSimulation/README.md)
 - [composite number](./README.md)
 - [compression algorithm](./CompressionAlgorithm/README.md)
@@ -69,5 +70,5 @@ count value occurrences; compression algorithm; rockstar games;
 managing a process; triangle; lucky ticket;
 gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
-
+check optional value; 
 -->
