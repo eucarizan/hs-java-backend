@@ -26,6 +26,7 @@
 - [interval](./Interval/README.md)
 - [lambda seven args](./LambdaSevenArgs/README.md)
 - [last day of month](./LastDayOfMonth/README.md)
+- [leaderboard](./Leaderboard/README.md)
 - [lucky ticket](./LuckyTicket/README.md)
 - [managing a process](./ManagingProcess/README.md)
 - [max and min](./MaxAndMin/README.md)
@@ -74,4 +75,5 @@ gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
 implement comparing by additional fields;
+
 -->
