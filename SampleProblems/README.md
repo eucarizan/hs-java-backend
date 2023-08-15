@@ -20,6 +20,7 @@
 - [interval](./Interval/README.md)
 - [lambda seven args](./LambdaSevenArgs/README.md)
 - [last day of month](./LastDayOfMonth/README.md)
+- [managing a process](./ManagingProcess/README.md)
 - [max and min](./MaxAndMin/README.md)
 - [motor static factory](./MotorStaticFactory/README.md)
 - [mutable geometric shapes](./MutableGeometricShapes/README.md)
@@ -59,4 +60,5 @@ motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
 count value occurrences; compression algorithm; rockstar games;
+managing a process;
 -->
