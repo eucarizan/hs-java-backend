@@ -20,6 +20,7 @@
 - [gold mining](./GoldMining/README.md)
 - [healthy sheep](./HealthySheep/README.md)
 - [implement compare to](./ImplementCompareToMethod/README.md)
+- [implement comparing by additional fields](./ImplementComparingByAdditionalFields/README.md)
 - [individual taxes](./IndividualTaxes/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
 - [interval](./Interval/README.md)
@@ -72,4 +73,5 @@ managing a process; triangle; lucky ticket;
 gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
+implement comparing by additional fields;
 -->
