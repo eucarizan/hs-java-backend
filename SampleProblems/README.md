@@ -14,6 +14,7 @@
 - [dont be late again](./DontBeLateAgain/README.md)
 - [find the seed](./FindTheSeed/README.md)
 - [floor space of room](./FloorSpaceOfRoom/README.md)
+- [gold mining](./GoldMining/README.md)
 - [healthy sheep](./HealthySheep/README.md)
 - [individual taxes](./IndividualTaxes/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
@@ -62,5 +63,6 @@ motor static factory; template method; build house;
 template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
 count value occurrences; compression algorithm; rockstar games;
-managing a process; triangle; lucky ticket;
+managing a process; triangle; lucky ticket; gold mining;
+
 -->
