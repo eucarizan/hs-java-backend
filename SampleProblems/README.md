@@ -26,6 +26,7 @@
 - [managing a process](./ManagingProcess/README.md)
 - [max and min](./MaxAndMin/README.md)
 - [motor static factory](./MotorStaticFactory/README.md)
+- [multiplication](./Multiplication/README.md)
 - [mutable geometric shapes](./MutableGeometricShapes/README.md)
 - [natural number squares](./NaturalNumbersSquares/README.md)
 - [number sign](./README.md)
@@ -65,5 +66,6 @@ template method 2; social networks; floor space of room;
 backward indexes; chain of responsibility; disjunct all;
 count value occurrences; compression algorithm; rockstar games;
 managing a process; triangle; lucky ticket;
-gold mining (bigdecimal); average (bigdecimal); 
+gold mining (bigdecimal); average (bigdecimal);
+multiplication (bigdecimal); 
 -->
