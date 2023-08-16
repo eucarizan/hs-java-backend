@@ -47,6 +47,7 @@
 - [template method 2](./TemplateMethod2/README.md)
 - [test password](./TestPassword/README.md)
 - [triangle](./Triangle/README.md)
+- [triples](./Triples/README.md)
 
 <!--
 TODO:
