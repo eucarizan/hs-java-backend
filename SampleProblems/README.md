@@ -34,7 +34,7 @@
 - [multiplication](./Multiplication/README.md)
 - [mutable geometric shapes](./MutableGeometricShapes/README.md)
 - [natural number squares](./NaturalNumbersSquares/README.md)
-- [number sign](./README.md)
+- [number sign](./NumberSign/README.md)
 - [publication subclasses](./PublicationSubclasses/README.md)
 - [remote control](./RemoteControl/README.md)
 - [rockstar games](./RockstarGames/README.md)
@@ -75,6 +75,6 @@ managing a process; triangle; lucky ticket;
 gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
-implement comparing by additional fields;
+implement comparing by additional fields; triples;
 
 -->
