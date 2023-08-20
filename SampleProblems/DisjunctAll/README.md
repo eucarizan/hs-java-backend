@@ -1,4 +1,6 @@
 # Disjunct all
+
+## Description
 It is time to learn how to perform operations on predicates, just like in mathematical logic!
 
 Write the `disjunctAll` method that accepts a list of `IntPredicate` objects and returns a single `IntPredicate`. The result predicate is a **disjunction** of all input predicates.
@@ -7,3 +9,7 @@ Write the `disjunctAll` method that accepts a list of `IntPredicate` objects and
 
 If the input list is empty, the resulted predicate must return `false` for any integer value **(always false predicate)**.
 
+## Tags
+- functional programming
+- functions
+- function composition

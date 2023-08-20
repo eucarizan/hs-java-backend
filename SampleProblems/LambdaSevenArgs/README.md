@@ -17,3 +17,8 @@ The lambda has to many strings arguments.
 ```console
 THELAMBDAHASTOMANYSTRINGSARGUMENTS.
 ```
+
+## Tags
+- functional programming
+- functions
+- functional interfaces

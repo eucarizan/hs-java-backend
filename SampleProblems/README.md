@@ -1,60 +1,60 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|#
--|-|-
-[average](./Average/README.md)|bigdecimal|
-[backward indexes](./BackwardIndexes/README.md)|collections, list|
-[boxes](./Boxes/README.md)||7
-[build house](./BuildHouse/README.md)||
-[card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)||
-[career](./Career/README.md)||
-[chain of responsibilty](./ChainOfResponsibility/README.md)||
-[check optional value](./CheckOptionalValue/README.md)||
-[check the clock time](./CheckTheClockTime/README.md)|regular expressions, string matches||
-[clock simulation](./ClockSimulation/README.md)||8
-[composite number](./README.md)||5
-[compression algorithm](./CompressionAlgorithm/README.md)||
-[count value occurrences](./CountValueOccurrences/README.md)||
-[create optional value](./CreateOptionalValue/README.md)||
-[discjunct all](./DisjunctAll/README.md)||
-[dont be late again](./DontBeLateAgain/README.md)||
-[find the nearest number](./FindNearestNumber/README.md)||
-[find the seed](./FindTheSeed/README.md)||
-[floor space of room](./FloorSpaceOfRoom/README.md)||
-[gold mining](./GoldMining/README.md)||
-[healthy sheep](./HealthySheep/README.md)||1
-[implement compare to](./ImplementCompareToMethod/README.md)||
-[implement comparing by additional fields](./ImplementComparingByAdditionalFields/README.md)||
-[individual taxes](./IndividualTaxes/README.md)||9
-[int binary operation](./IntBinaryOperation/README.md)||
-[interval](./Interval/README.md)||2
-[in the middle of a word](./InTheMiddleOfWord/README.md)||
-[lambda seven args](./LambdaSevenArgs/README.md)||
-[last day of month](./LastDayOfMonth/README.md)||
-[leaderboard](./Leaderboard/README.md)||
-[lucky ticket](./LuckyTicket/README.md)||
-[managing a process](./ManagingProcess/README.md)||
-[max and min](./MaxAndMin/README.md)||
-[motor static factory](./MotorStaticFactory/README.md)||
-[multiplication](./Multiplication/README.md)||
-[mutable geometric shapes](./MutableGeometricShapes/README.md)||
-[natural number squares](./NaturalNumbersSquares/README.md)||3
-[number sign](./NumberSign/README.md)||6
-[publication subclasses](./PublicationSubclasses/README.md)||10
-[remote control](./RemoteControl/README.md)||
-[rockstar games](./RockstarGames/README.md)||
-[safe password](./SafePassword/README.md)||
-[same time](./SameTime/README.md)||
-[similar date](./SimilarDate/README.md)||
-[size of parts](./SizeOfParts/README.md)||4
-[social networks](./SocialNetworks/README.md)||
-[static factory for time](./StaticFactoryForTime/README.md)||
-[template method](./TemplateMethod/README.md)||
-[template method 2](./TemplateMethod2/README.md)||
-[test password](./TestPassword/README.md)||
-[triangle](./Triangle/README.md)||
-[triples](./Triples/README.md)||
+problem|topic|count(52)
+:-:|:-:|:-:
+[average](./Average/README.md)|big decimal|39
+[backward indexes](./BackwardIndexes/README.md)|collections, list|29
+[boxes](./Boxes/README.md)|arrays|7
+[build house](./BuildHouse/README.md)|design patterns, behavioral patterns, template method|26
+[card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
+[career](./Career/README.md)|design patters, behavioral patterns, template method|22
+[chain of responsibilty](./ChainOfResponsibility/README.md)|functions, function composition|30
+[check optional value](./CheckOptionalValue/README.md)|functions, optional|42
+[check the clock time](./CheckTheClockTime/README.md)|regular expressions, string matches|52
+[clock simulation](./ClockSimulation/README.md)|oop, instance methods|8
+[composite number](./CompositeNumber/README.md)|methods, declaring a method|5
+[compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
+[count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
+[create optional value](./CreateOptionalValue/README.md)|functions, optional|41
+[disjunct all](./DisjunctAll/README.md)|functions, function composition|31
+[dont be late again](./DontBeLateAgain/README.md)|date and time, comparing dates and time|15
+[find the nearest number](./FindNearestNumber/README.md)|collections, arraylist|46
+[find the seed](./FindTheSeed/README.md)|random|14
+[floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
+[gold mining](./GoldMining/README.md)|big decimal|38
+[healthy sheep](./HealthySheep/README.md)|conditional statement, control flow statements|1
+[implement compare to](./ImplementCompareToMethod/README.md)|interfaces and abstract classes, comparable|43
+[implement comparing by additional fields](./ImplementComparingByAdditionalFields/README.md)|interfaces and abstract classes, comparable|44
+[individual taxes](./IndividualTaxes/README.md)|arrays|9
+[int binary operation](./IntBinaryOperation/README.md)|interfaces and abstract classes, abstract class|11
+[interval](./Interval/README.md)|conditional statement, control flow statements|2
+[in the middle of a word](./InTheMiddleOfWord/README.md)|regular expressions, patterns and matchers|47
+[lambda seven args](./LambdaSevenArgs/README.md)|functions, functional interfaces|19
+[last day of month](./LastDayOfMonth/README.md)|date and time, localdate|16
+[leaderboard](./Leaderboard/README.md)|interfaces and abstract classes, comparable|51
+[lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
+[managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
+[max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
+[motor static factory](./MotorStaticFactory/README.md)|design patterns, creational patterns, static factory idiom|23
+[multiplication](./Multiplication/README.md)|big decimal|40
+[mutable geometric shapes](./MutableGeometricShapes/README.md)|interfaces and abstract classes, interface|17
+[natural number squares](./NaturalNumbersSquares/README.md)|control flow statements, while, do-while|3
+[number sign](./NumberSign/README.md)|methods, declaring a method|6
+[publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
+[remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
+[rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
+[safe password](./SafePassword/README.md)|regular expressions, string matches|49
+[same time](./SameTime/README.md)|date and time, localtime|13
+[similar date](./SimilarDate/README.md)|date and time, localdate|12
+[size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
+[social networks](./SocialNetworks/README.md)|design patterns, behavioral patterns, template method|27
+[static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
+[template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
+[template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
+[test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
+[triangle](./Triangle/README.md)|control flow statements, conditional statement|36
+[triples](./Triples/README.md)|arrays|45
 
 <!--
 TODO:
@@ -68,22 +68,5 @@ TODO:
 
 <!--
 problems by time added
-healthy sheep; interval; natural numbers squares; size of parts;
-composite number; number sign; boxes; clock simulation;
-individual taxes; publication subclasses; int binary operation;
-similar date; same time; find the seed; dont be late again;
-last day of month; mutable geometric shapes; static factory for time;
-lambda seven args; remote control; max and min; career;
-motor static factory; template method; build house;
-template method 2; social networks; floor space of room;
-backward indexes; chain of responsibility; disjunct all;
-count value occurrences; compression algorithm; rockstar games;
-managing a process; triangle; lucky ticket;
-gold mining (bigdecimal); average (bigdecimal);
-multiplication (bigdecimal); create optional value;
-check optional value; implement compare to;
-implement comparing by additional fields; triples;
-find the nearest number; in the middle of word;
-card name validation and identification; safe password;
-
+git log --grep="sample problems added" --oneline --reverse
 -->

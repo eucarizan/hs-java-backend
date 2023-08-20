@@ -5,3 +5,8 @@ Select all statements that are equal and represent the date 2017-11-11 (year-mon
 
 ## Task 2
 Select all correct ways to create an instance of `LocalDate` that represents 2nd January 2018.
+
+## Tags
+- essential standard classes
+- date and time
+- localdate

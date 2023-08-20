@@ -23,3 +23,8 @@ Note:
 
 You must not read or output something in this problem. Just implement the static factory methods.
 
+## Tags
+- code organization
+- design patterns
+- creational patterns
+- encapsulating object creation

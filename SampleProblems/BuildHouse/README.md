@@ -47,3 +47,9 @@ Place wooden doors
 Place metal sheet roofs
 Connect the house to the electrical grid
 ```
+
+## Tags
+- code organization
+- design patterns
+- behavioral patterns
+- template method

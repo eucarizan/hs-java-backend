@@ -45,3 +45,4 @@ Work as a Data Scientist
 - design patters
 - behavioral patterns
 - code organization
+- template method

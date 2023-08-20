@@ -8,8 +8,8 @@ Here is the correspondence between the passed type and the class of the motor: `
 Do not change the provided code of the motor classes.
 
 ## Tags
-- Design Patterns
-- Creational patterns
-- Static factory idiom
+- design patterns
+- creational patterns
+- static factory idiom
 
 [//]: # (failed test: P P-MOTOR-4000 4000)

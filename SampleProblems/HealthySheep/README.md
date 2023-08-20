@@ -3,7 +3,7 @@
 ## Description
 Ann watched a health TV program and learned that oversleeping is as bad for your health as not getting enough sleep. She decided to follow TV recommendations and keep track of how many hours she spends sleeping.
 
-You are **given** three numbers: _A_, _B_ and _H_. According to TV, one should sleep at least _A_ hours per day, but no more than _B_ house. _H_ is how many hours Ann sleeps. 
+You are **given** three numbers: _A_, _B_ and _H_. According to TV, one should sleep at least _A_ hours per day, but no more than _B_ house. _H_ is how many hours Ann sleeps.
 
 ## Task
 If Ann sleeps than _A_ hours, print "Deficiency".
@@ -53,3 +53,7 @@ Excess
 ```console
 Deficiency
 ```
+
+## Tags
+- control flow statements
+- conditional statement

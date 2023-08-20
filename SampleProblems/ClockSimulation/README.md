@@ -25,3 +25,9 @@ clock.minutes = 59;
 
 clock.next(); // the time is 11:00
 ```
+
+## Tags
+- oop
+- classes and objects
+- classes and members
+- instance methods

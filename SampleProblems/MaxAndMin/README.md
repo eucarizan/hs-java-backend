@@ -13,3 +13,9 @@ If the array is empty, the `Main` should return `Integer.MAX_VALUE` in case of f
 
 ## Hints
 - Tests 1-5 check `MinFindingStrategy`, tests 6-10 check `MaxFindingStrategy`. Do not forget to check your solution when the passed array has the size 0 or 1.
+
+## Tags
+- code organization
+- design patterns
+- behavioral patterns
+- strategy

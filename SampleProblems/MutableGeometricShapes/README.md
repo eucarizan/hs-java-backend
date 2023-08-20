@@ -28,3 +28,9 @@ circle.scale(2.2f);
 
 ((Circle) circle).getRadius();
 ```
+
+## Tags
+- oop
+- class hierarchies
+- interfaces and abstract classes
+- interface

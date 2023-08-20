@@ -74,3 +74,7 @@ triangle
 ```
 3.897114317029974
 ```
+
+# Tags
+- control flow statements
+- switch statement

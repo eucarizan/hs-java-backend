@@ -44,3 +44,8 @@ Note: be careful not to lose fractional parts while performing your calculations
 ```console
 1
 ```
+
+## Tags
+- working with data
+- arrays
+- iterating over arrays

@@ -54,3 +54,8 @@ Box 1 > Box 2
 ```console
 Incompatible
 ```
+
+## Tags
+- working with data
+- arrays
+- iterating over arrays

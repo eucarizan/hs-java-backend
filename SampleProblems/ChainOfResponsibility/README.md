@@ -64,3 +64,9 @@ Further, you can read how the requests should be created. Keep in mind, all hand
 So, if you have a request data as shown in stage 0, the algorithm should generate the result as shown in stage 3.
 
 > Note, each stage is already implemented for you in a specific `RequestHandler`.
+
+## Tags
+- code organization
+- functional programming
+- functions
+- function composition

@@ -31,3 +31,7 @@ Read an integer number N form the input and print all the squares of positive in
 ```console
 1
 ```
+
+## Tags
+- control flow statments
+- the while and do-while loops

@@ -1,6 +1,5 @@
 # Publication and its subclasses
 
-
 ## Description
 You are given four classes — `Publication`, `Newspaper`, `Article` and `Announcement`. You need to override the methods `getType()` and `getDetails()` in classes inherited from the class Publication.
 
@@ -46,3 +45,9 @@ Announcement; Will sell a house; 30
 ```
 Announcement (days to expire - 30): Will sell a house
 ```
+
+## Tags
+- oop
+- class hierarchies
+- overriding methods
+- polymorphism

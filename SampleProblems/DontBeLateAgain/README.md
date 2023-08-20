@@ -28,3 +28,8 @@ Bonus 20:20
 Tastyday
 Bonus
 ```
+
+## Tags
+- essential standard classes
+- date and time
+- comparing dates and time

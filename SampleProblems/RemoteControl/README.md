@@ -24,3 +24,8 @@ Channel was changed to 7
 Channel was changed to 12
 Turning off the TV
 ```
+
+## Tags
+- design patterns
+- behavioral patterns
+- command

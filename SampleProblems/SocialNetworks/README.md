@@ -34,3 +34,8 @@ Log into Facebook
 Post: Hello, Facebook!
 Log out of Facebook
 ```
+
+## Tags
+- design patterns
+- behavioral patterns
+- template method

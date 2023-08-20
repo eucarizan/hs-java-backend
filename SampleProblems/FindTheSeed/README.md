@@ -50,3 +50,8 @@ Your task is to output 2 numbers: a seed and its maximum. If there are some seed
 0
 999
 ```
+
+## Tags
+- essential standard classes
+- standard classes for computations
+- random
