@@ -25,6 +25,7 @@
 - [individual taxes](./IndividualTaxes/README.md)
 - [int binary operation](./IntBinaryOperation/README.md)
 - [interval](./Interval/README.md)
+- [in the middle of a word](./InTheMiddleOfWord/README.md)
 - [lambda seven args](./LambdaSevenArgs/README.md)
 - [last day of month](./LastDayOfMonth/README.md)
 - [leaderboard](./Leaderboard/README.md)
@@ -77,4 +78,5 @@ gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
 implement comparing by additional fields; triples;
+find the nearest number; in the middle of word;
 -->
