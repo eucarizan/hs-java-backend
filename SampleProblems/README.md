@@ -5,6 +5,7 @@
 - [backward indexes](./BackwardIndexes/README.md)
 - [boxes](./Boxes/README.md)
 - [build house](./BuildHouse/README.md)
+- [card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)
 - [career](./Career/README.md)
 - [chain of responsibilty](./ChainOfResponsibility/README.md)
 - [check optional value](./CheckOptionalValue/README.md)
@@ -79,4 +80,5 @@ multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
 implement comparing by additional fields; triples;
 find the nearest number; in the middle of word;
+card name validation and identification; 
 -->
