@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count(52)
+problem|topic|count (54)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -10,8 +10,10 @@ problem|topic|count(52)
 [card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
 [career](./Career/README.md)|design patters, behavioral patterns, template method|22
 [chain of responsibilty](./ChainOfResponsibility/README.md)|functions, function composition|30
+[check ip address](./CheckIPAddress/README.md)|regular expressions, string matches|54
 [check optional value](./CheckOptionalValue/README.md)|functions, optional|42
 [check the clock time](./CheckTheClockTime/README.md)|regular expressions, string matches|52
+[check the date](./CheckTheDate/README.md)|regular expressions, string matchees|53
 [clock simulation](./ClockSimulation/README.md)|oop, instance methods|8
 [composite number](./CompositeNumber/README.md)|methods, declaring a method|5
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
