@@ -41,6 +41,7 @@
 - [publication subclasses](./PublicationSubclasses/README.md)
 - [remote control](./RemoteControl/README.md)
 - [rockstar games](./RockstarGames/README.md)
+- [safe password](./SafePassword/README.md)
 - [same time](./SameTime/README.md)
 - [similar date](./SimilarDate/README.md)
 - [size of parts](./SizeOfParts/README.md)
@@ -80,5 +81,6 @@ multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
 implement comparing by additional fields; triples;
 find the nearest number; in the middle of word;
-card name validation and identification; 
+card name validation and identification; safe password;
+
 -->
