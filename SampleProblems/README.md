@@ -15,6 +15,7 @@
 - [create optional value](./CreateOptionalValue/README.md)
 - [discjunct all](./DisjunctAll/README.md)
 - [dont be late again](./DontBeLateAgain/README.md)
+- [find the nearest number](./FindNearestNumber/README.md)
 - [find the seed](./FindTheSeed/README.md)
 - [floor space of room](./FloorSpaceOfRoom/README.md)
 - [gold mining](./GoldMining/README.md)
@@ -76,5 +77,4 @@ gold mining (bigdecimal); average (bigdecimal);
 multiplication (bigdecimal); create optional value;
 check optional value; implement compare to;
 implement comparing by additional fields; triples;
-
 -->

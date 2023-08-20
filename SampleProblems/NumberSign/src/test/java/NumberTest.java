@@ -33,7 +33,7 @@ public class NumberTest {
 
     @ParameterizedTest(name = "{0} is {1} (1 - positive, -1 - negative)")
     @CsvSource({"11, 1", "1, 1", "0, 0", "-3, -1"})
-    public void testIntCompare(int number, int expected) {
+    public void whenNumberGivenThenExpectNumberSign(int number, int expected) {
         assertEquals(expected, Number.intCompare(number));
     }
 }
