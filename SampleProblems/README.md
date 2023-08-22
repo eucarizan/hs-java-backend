@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (58)
+problem|topic|count (59)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -21,6 +21,7 @@ problem|topic|count (58)
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
 [disjunct all](./DisjunctAll/README.md)|functions, function composition|31
+[diplaying pairs](./DisplayingPairs/README.md)|collections framework, the map interface|59
 [dont be late again](./DontBeLateAgain/README.md)|date and time, comparing dates and time|15
 [extracting big numbers from a text](./ExtractBigNumbersFromText/README.md)|regular expressions, patterns and matchers|56
 [find all passwords](./FindAllPasswords/README.md)|regular expressions, patterns and matchers|55
