@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (57)
+problem|topic|count (58)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -51,6 +51,7 @@ problem|topic|count (57)
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
 [same time](./SameTime/README.md)|date and time, localtime|13
+[sherlock homes and the mystery of anagrams](./SherlockHolmesAnagrams/README.md)|collections, the map interface|58
 [similar date](./SimilarDate/README.md)|date and time, localdate|12
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
 [social networks](./SocialNetworks/README.md)|design patterns, behavioral patterns, template method|27
