@@ -1,10 +1,11 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (63)
+problem|topic|count (64)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
+[bitwise and integers](./BitwiseAndIntegers/README.md)|debugging|64
 [boxes](./Boxes/README.md)|arrays|7
 [build house](./BuildHouse/README.md)|design patterns, behavioral patterns, template method|26
 [card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
