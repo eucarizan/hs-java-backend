@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (64)
+problem|topic|count (65)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -22,6 +22,7 @@ problem|topic|count (64)
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
+[dinosaurs and plants](./DinosaursAndPlants/README.md)|jdbc, jdbc transactions|65
 [disjunct all](./DisjunctAll/README.md)|functions, function composition|31
 [diplaying pairs](./DisplayingPairs/README.md)|collections framework, the map interface|59
 [divisors finding](./DivisorsFinding/README.md)|debugging|62
