@@ -24,5 +24,5 @@ public class Messages {
                 .reversed()
                 .thenComparing(Message::getFrom)
         );
-    } 
+    }
 }

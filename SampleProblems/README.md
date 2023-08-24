@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (67)
+problem|topic|count (68)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -63,6 +63,7 @@ problem|topic|count (67)
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
 [social networks](./SocialNetworks/README.md)|design patterns, behavioral patterns, template method|27
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
+[sort users](./SortUsers/README.md)|collections, comparator|68
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
