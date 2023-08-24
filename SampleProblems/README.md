@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (71)
+problem|topic|count (72)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -49,6 +49,7 @@ problem|topic|count (71)
 [messages comparator](./MessagesComparator/README.md)|collections, comparator|67
 [most valuable items](./MostValuableItems/README.md)|collections, comparator|69
 [motor static factory](./MotorStaticFactory/README.md)|design patterns, creational patterns, static factory idiom|23
+[multiple fields](./MultipleFields/README.md)|collections, comparator|72
 [multiplication](./Multiplication/README.md)|big decimal|40
 [mutable geometric shapes](./MutableGeometricShapes/README.md)|interfaces and abstract classes, interface|17
 [natural number squares](./NaturalNumbersSquares/README.md)|control flow statements, while, do-while|3
