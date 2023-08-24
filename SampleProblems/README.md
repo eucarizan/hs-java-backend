@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (70)
+problem|topic|count (71)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -57,6 +57,7 @@ problem|topic|count (70)
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
+[reverse sorting](./ReverseSorting/README.md)|collctions, comparator|71
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
 [same time](./SameTime/README.md)|date and time, localtime|13
