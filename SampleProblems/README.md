@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (65)
+problem|topic|count (66)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -51,6 +51,7 @@ problem|topic|count (65)
 [mutable geometric shapes](./MutableGeometricShapes/README.md)|interfaces and abstract classes, interface|17
 [natural number squares](./NaturalNumbersSquares/README.md)|control flow statements, while, do-while|3
 [number sign](./NumberSign/README.md)|methods, declaring a method|6
+[proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
