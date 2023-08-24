@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (66)
+problem|topic|count (67)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -46,6 +46,7 @@ problem|topic|count (66)
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 [managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
 [max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
+[messages comparator](./MessagesComparator/README.md)|collections, comparator|67
 [motor static factory](./MotorStaticFactory/README.md)|design patterns, creational patterns, static factory idiom|23
 [multiplication](./Multiplication/README.md)|big decimal|40
 [mutable geometric shapes](./MutableGeometricShapes/README.md)|interfaces and abstract classes, interface|17
