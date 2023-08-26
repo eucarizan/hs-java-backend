@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (73)
+problem|topic|count (74)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -19,6 +19,7 @@ problem|topic|count (73)
 [composite number](./CompositeNumber/README.md)|methods, declaring a method|5
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
 [counting words](./CountingWords/README.md)|collectoins, the map interface|60
+[count passwords](./CountPasswords/README.md)|functional programming, functional streams|74
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
