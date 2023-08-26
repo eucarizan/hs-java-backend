@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (75)
+problem|topic|count (76)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -58,6 +58,7 @@ problem|topic|count (75)
 [natural number squares](./NaturalNumbersSquares/README.md)|control flow statements, while, do-while|3
 [number sign](./NumberSign/README.md)|methods, declaring a method|6
 [odd and even](./OddAndEven/README.md)|collections, comparator|70
+[print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
