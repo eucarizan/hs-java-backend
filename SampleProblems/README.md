@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (72)
+problem|topic|count (73)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -43,6 +43,7 @@ problem|topic|count (72)
 [lambda seven args](./LambdaSevenArgs/README.md)|functions, functional interfaces|19
 [last day of month](./LastDayOfMonth/README.md)|date and time, localdate|16
 [leaderboard](./Leaderboard/README.md)|interfaces and abstract classes, comparable|51
+[long ranges](./LongRanges/README.md)|functional programming, functional streams|73
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 [managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
 [max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
