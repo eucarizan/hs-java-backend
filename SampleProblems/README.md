@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (74)
+problem|topic|count (75)
 :-:|:-:|:-:
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -30,6 +30,7 @@ problem|topic|count (74)
 [dont be late again](./DontBeLateAgain/README.md)|date and time, comparing dates and time|15
 [extracting big numbers from a text](./ExtractBigNumbersFromText/README.md)|regular expressions, patterns and matchers|56
 [find all passwords](./FindAllPasswords/README.md)|regular expressions, patterns and matchers|55
+[finding max and min elemtents](./FindingMaxAndMinElements/README.md)|functional programming, functional streams|75
 [find the nearest number](./FindNearestNumber/README.md)|collections, arraylist|46
 [find the seed](./FindTheSeed/README.md)|random|14
 [floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
