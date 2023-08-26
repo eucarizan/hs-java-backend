@@ -1,8 +1,9 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (76)
+problem|topic|count (77)
 :-:|:-:|:-:
+[a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
 [bitwise and integers](./BitwiseAndIntegers/README.md)|debugging|64
