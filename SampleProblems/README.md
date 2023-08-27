@@ -1,11 +1,12 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (78)
+problem|topic|count (79)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
+[bad words detecting](./BadWordsDetecting/README.md)|functional programming, stream filtering|79
 [bitwise and integers](./BitwiseAndIntegers/README.md)|debugging|64
 [boxes](./Boxes/README.md)|arrays|7
 [build house](./BuildHouse/README.md)|design patterns, behavioral patterns, template method|26
