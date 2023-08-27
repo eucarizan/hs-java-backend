@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (79)
+problem|topic|count (80)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -13,6 +13,7 @@ problem|topic|count (79)
 [card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
 [career](./Career/README.md)|design patters, behavioral patterns, template method|22
 [chain of responsibilty](./ChainOfResponsibility/README.md)|functions, function composition|30
+[check if prime](./CheckIfPrime/README.md)|functional programming, stream filtering|80
 [check ip address](./CheckIPAddress/README.md)|regular expressions, string matches|54
 [check optional value](./CheckOptionalValue/README.md)|functions, optional|42
 [check the clock time](./CheckTheClockTime/README.md)|regular expressions, string matches|52
