@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (77)
+problem|topic|count (78)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -24,6 +24,7 @@ problem|topic|count (77)
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
+[cycles and iterations](./CyclesAndIterations/README.md)|erroless code, debugging|78
 [dinosaurs and plants](./DinosaursAndPlants/README.md)|jdbc, jdbc transactions|65
 [disjunct all](./DisjunctAll/README.md)|functions, function composition|31
 [diplaying pairs](./DisplayingPairs/README.md)|collections framework, the map interface|59
