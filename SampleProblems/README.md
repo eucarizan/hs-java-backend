@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (86)
+problem|topic|count (87)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -81,6 +81,7 @@ problem|topic|count (86)
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
 [social networks](./SocialNetworks/README.md)|design patterns, behavioral patterns, template method|27
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
+[sorting absolute values](./SortingAbsoluteValues/README.md)|functional programming, map and flatmap|87
 [sort users](./SortUsers/README.md)|collections, comparator|68
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
