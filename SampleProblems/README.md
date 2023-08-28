@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (87)
+problem|topic|count (88)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -24,6 +24,7 @@ problem|topic|count (87)
 [counting words](./CountingWords/README.md)|collectoins, the map interface|60
 [count passwords](./CountPasswords/README.md)|functional programming, functional streams|74
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
+[count words without repetitions](./CountWordsWithoutRepetitions/README.md)|functional programming, map and flatmap|88
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
 [cycles and iterations](./CyclesAndIterations/README.md)|erroless code, debugging|78
