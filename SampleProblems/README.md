@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (83)
+problem|topic|count (84)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -52,6 +52,7 @@ problem|topic|count (83)
 [long ranges](./LongRanges/README.md)|functional programming, functional streams|73
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 [managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
+[mapping countries](./MappingCountries/README.md)|functional programming, map and flatmap|84
 [match list and numbers](./MatchListAndNumbers/README.md)|functional programming, map and flatmap|83
 [max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
 [messages comparator](./MessagesComparator/README.md)|collections, comparator|67
