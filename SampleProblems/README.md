@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (85)
+problem|topic|count (86)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -56,6 +56,7 @@ problem|topic|count (85)
 [mapping countries again](./MappingCountriesAgain/README.md)|functional programming, map and flatmap|85
 [match list and numbers](./MatchListAndNumbers/README.md)|functional programming, map and flatmap|83
 [max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
+[maximum absolute value](./MaximumAbsoluteValue/README.md)|functional programming, map and flatmap|86
 [messages comparator](./MessagesComparator/README.md)|collections, comparator|67
 [most valuable items](./MostValuableItems/README.md)|collections, comparator|69
 [motor static factory](./MotorStaticFactory/README.md)|design patterns, creational patterns, static factory idiom|23
