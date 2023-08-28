@@ -5,6 +5,27 @@ You have two `IntStream`'s. The first stream contains even numbers and the secon
 
 >You need to return a prepared `IntStream` from a template method, not a list of integers. Pay attention to the method template. Do not change the signature of this method.
 
+## Example
+Sample Input 1:
+```console
+1 2 3 4
+```
+
+Sample Output 1:
+```console
+[]
+```
+
+Sample Input 2:
+```console
+30 75 60 90
+```
+
+Sample Output 2:
+```console
+[75, 90]
+```
+
 ## Tags
 - functional programming
 - functional streams

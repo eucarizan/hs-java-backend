@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (81)
+problem|topic|count (82)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -63,6 +63,7 @@ problem|topic|count (81)
 [numbers filtering](./NumbersFiltering/README.md)|functional programming, stream filtering|81
 [number sign](./NumberSign/README.md)|methods, declaring a method|6
 [odd and even](./OddAndEven/README.md)|collections, comparator|70
+[omitting long strings](./OmittingLongStrings/README.md)|functional programming, stream filtering|82
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
