@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (90)
+problem|topic|count (91)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -89,7 +89,7 @@ problem|topic|count (90)
 [sort users](./SortUsers/README.md)|collections, comparator|68
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
-<!-- [sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91 90 -->
+[sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
@@ -113,7 +113,6 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-range quadratic sum
 sum of divisors
 how many date-time pairs match the range
  -->
