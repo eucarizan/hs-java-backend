@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (91)
+problem|topic|count (92)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -22,7 +22,7 @@ problem|topic|count (91)
 [clock simulation](./ClockSimulation/README.md)|oop, instance methods|8
 [composite number](./CompositeNumber/README.md)|methods, declaring a method|5
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
-<!-- [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92 91 -->
+[count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
 [counting words](./CountingWords/README.md)|collectoins, the map interface|60
 [count passwords](./CountPasswords/README.md)|functional programming, functional streams|74
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
@@ -113,6 +113,5 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-sum of divisors
 how many date-time pairs match the range
  -->
