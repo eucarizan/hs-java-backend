@@ -1,8 +1,9 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (92)
+problem|topic|count (93)
 :-:|:-:|:-:
+[ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
@@ -23,6 +24,7 @@ problem|topic|count (92)
 [composite number](./CompositeNumber/README.md)|methods, declaring a method|5
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
 [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
+<!-- [counting clicks](./CountingClicks/README.md)|functional programming, grouping collectors|100 99 -->
 [counting words](./CountingWords/README.md)|collectoins, the map interface|60
 [count passwords](./CountPasswords/README.md)|functional programming, functional streams|74
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
@@ -41,7 +43,9 @@ problem|topic|count (92)
 [find the nearest number](./FindNearestNumber/README.md)|collections, arraylist|46
 [find the seed](./FindTheSeed/README.md)|random|14
 [floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
+<!-- [generating cats](./GeneratingCats/README.md)|functional programming, infinite streams|101 100 -->
 [gold mining](./GoldMining/README.md)|big decimal|38
+<!-- [grouping collectors](./GroupingCollectors/README.md)|functional programming, grouping collectors, theory|96 95 -->
 [healthy sheep](./HealthySheep/README.md)|conditional statement, control flow statements|1
 [implement compare to](./ImplementCompareToMethod/README.md)|interfaces and abstract classes, comparable|43
 [implement comparing by additional fields](./ImplementComparingByAdditionalFields/README.md)|interfaces and abstract classes, comparable|44
@@ -71,7 +75,10 @@ problem|topic|count (92)
 [number sign](./NumberSign/README.md)|methods, declaring a method|6
 [odd and even](./OddAndEven/README.md)|collections, comparator|70
 [omitting long strings](./OmittingLongStrings/README.md)|functional programming, stream filtering|82
+<!-- [palindrome or not](./PalindromeOrNot/README.md)|functional programming, grouping collectors|98 97 -->
+<!-- [powers of two](./PowersOfTwo/README.md)|functional programming, infinite streams|102 101 -->
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
+<!-- [product of squares](./ProductOfSquares/README.md)|functioinal programming, collectors|95 94 -->
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90
@@ -80,6 +87,7 @@ problem|topic|count (92)
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
 [same time](./SameTime/README.md)|date and time, localtime|13
+<!-- [set average](./SetAverage/README.md)|functional programming, collectors|94 93 -->
 [sherlock homes and the mystery of anagrams](./SherlockHolmesAnagrams/README.md)|collections, the map interface|58
 [similar date](./SimilarDate/README.md)|date and time, localdate|12
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
@@ -90,9 +98,11 @@ problem|topic|count (92)
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
 [sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91
+<!-- [teeing collector](./TeeingCollector/README.md)|functional programming, grouping collectors|97 96 -->
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
+<!-- [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99 98 -->
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
 [triples](./Triples/README.md)|arrays|45
 
@@ -113,5 +123,17 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-how many date-time pairs match the range
+ascii art 93
+set average 94
+product of squares 95
+grouping collectors 96
+teeing collector 97
+palindrome or not 98 add test
+
+next day
+total sum of transactions by each account 99 create tests
+counting clicks 100 create test
+generating cats 101 create test
+powers of two 102
+ 103
  -->
