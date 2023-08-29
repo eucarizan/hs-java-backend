@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (94)
+problem|topic|count (95)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -78,7 +78,7 @@ problem|topic|count (94)
 <!-- [palindrome or not](./PalindromeOrNot/README.md)|functional programming, grouping collectors|98 97 -->
 <!-- [powers of two](./PowersOfTwo/README.md)|functional programming, infinite streams|102 101 -->
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
-<!-- [product of squares](./ProductOfSquares/README.md)|functioinal programming, collectors|95 94 -->
+[product of squares](./ProductOfSquares/README.md)|functioinal programming, collectors|95
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90
