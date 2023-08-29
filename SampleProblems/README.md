@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (93)
+problem|topic|count (94)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -87,7 +87,7 @@ problem|topic|count (93)
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
 [same time](./SameTime/README.md)|date and time, localtime|13
-<!-- [set average](./SetAverage/README.md)|functional programming, collectors|94 93 -->
+[set average](./SetAverage/README.md)|functional programming, collectors|94
 [sherlock homes and the mystery of anagrams](./SherlockHolmesAnagrams/README.md)|collections, the map interface|58
 [similar date](./SimilarDate/README.md)|date and time, localdate|12
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
@@ -123,8 +123,6 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-ascii art 93
-set average 94
 product of squares 95
 grouping collectors 96
 teeing collector 97
