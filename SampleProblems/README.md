@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (88)
+problem|topic|count (89)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -10,6 +10,7 @@ problem|topic|count (88)
 [bitwise and integers](./BitwiseAndIntegers/README.md)|debugging|64
 [boxes](./Boxes/README.md)|arrays|7
 [build house](./BuildHouse/README.md)|design patterns, behavioral patterns, template method|26
+[calculating factorials](./CalculatingFactorials/README.md)|functional programming, reduction methods|89
 [card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
 [career](./Career/README.md)|design patters, behavioral patterns, template method|22
 [chain of responsibilty](./ChainOfResponsibility/README.md)|functions, function composition|30
@@ -21,6 +22,7 @@ problem|topic|count (88)
 [clock simulation](./ClockSimulation/README.md)|oop, instance methods|8
 [composite number](./CompositeNumber/README.md)|methods, declaring a method|5
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
+<!-- [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92 91 -->
 [counting words](./CountingWords/README.md)|collectoins, the map interface|60
 [count passwords](./CountPasswords/README.md)|functional programming, functional streams|74
 [count value occurrences](./CountValueOccurrences/README.md)|collections, list|32
@@ -72,6 +74,7 @@ problem|topic|count (88)
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
+<!-- [range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90 89 -->
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
 [reverse sorting](./ReverseSorting/README.md)|collctions, comparator|71
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
@@ -86,6 +89,7 @@ problem|topic|count (88)
 [sort users](./SortUsers/README.md)|collections, comparator|68
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
+<!-- [sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91 90 -->
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
@@ -106,3 +110,11 @@ TODO:
 problems by time added
 git log --grep="sample problems added" --oneline --reverse
 -->
+
+<!--
+ORDER
+calculating factorials
+range quadratic sum
+sum of divisors
+how many date-time pairs match the range
+ -->
