@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (95)
+problem|topic|count (96)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -45,7 +45,7 @@ problem|topic|count (95)
 [floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
 <!-- [generating cats](./GeneratingCats/README.md)|functional programming, infinite streams|101 100 -->
 [gold mining](./GoldMining/README.md)|big decimal|38
-<!-- [grouping collectors](./GroupingCollectors/README.md)|functional programming, grouping collectors, theory|96 95 -->
+[grouping collectors](./GroupingCollectors/README.md)|functional programming, grouping collectors, theory|96
 [healthy sheep](./HealthySheep/README.md)|conditional statement, control flow statements|1
 [implement compare to](./ImplementCompareToMethod/README.md)|interfaces and abstract classes, comparable|43
 [implement comparing by additional fields](./ImplementComparingByAdditionalFields/README.md)|interfaces and abstract classes, comparable|44
@@ -123,7 +123,6 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-product of squares 95
 grouping collectors 96
 teeing collector 97
 palindrome or not 98 add test
