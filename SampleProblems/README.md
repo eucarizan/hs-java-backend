@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (96)
+problem|topic|count (97)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -98,7 +98,7 @@ problem|topic|count (96)
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
 [sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91
-<!-- [teeing collector](./TeeingCollector/README.md)|functional programming, grouping collectors|97 96 -->
+[teeing collector](./TeeingCollector/README.md)|functional programming, grouping collectors|97
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
@@ -123,8 +123,6 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-grouping collectors 96
-teeing collector 97
 palindrome or not 98 add test
 
 next day
