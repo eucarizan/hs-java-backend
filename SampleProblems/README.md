@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (89)
+problem|topic|count (90)
 :-:|:-:|:-:
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
 [average](./Average/README.md)|big decimal|39
@@ -74,7 +74,7 @@ problem|topic|count (89)
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
-<!-- [range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90 89 -->
+[range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
 [reverse sorting](./ReverseSorting/README.md)|collctions, comparator|71
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
@@ -113,7 +113,6 @@ git log --grep="sample problems added" --oneline --reverse
 
 <!--
 ORDER
-calculating factorials
 range quadratic sum
 sum of divisors
 how many date-time pairs match the range
