@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (98)
+problem|topic|count (99)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -102,7 +102,7 @@ problem|topic|count (98)
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
-<!-- [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99 98 -->
+[total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
 [triples](./Triples/README.md)|arrays|45
 
@@ -122,13 +122,15 @@ git log --grep="sample problems added" --oneline --reverse
 -->
 
 <!--
-ORDER
+in git
 palindrome or not 98 add test
 
-next day
+ORDER
 total sum of transactions by each account 99 create tests
 counting clicks 100 create test
 generating cats 101 create test
 powers of two 102
  103
+
+next day
  -->
