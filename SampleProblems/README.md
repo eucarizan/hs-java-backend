@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (101)
+problem|topic|count (102)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -76,7 +76,7 @@ problem|topic|count (101)
 [odd and even](./OddAndEven/README.md)|collections, comparator|70
 [omitting long strings](./OmittingLongStrings/README.md)|functional programming, stream filtering|82
 [palindrome or not](./PalindromeOrNot/README.md)|functional programming, grouping collectors|98
-<!-- [powers of two](./PowersOfTwo/README.md)|functional programming, infinite streams|102 101 -->
+[powers of two](./PowersOfTwo/README.md)|functional programming, infinite streams|102
 [print elements of a stream](./PrintElementsOfAStream/README.md)|functional programming, functional streams|76
 [product of squares](./ProductOfSquares/README.md)|functioinal programming, collectors|95
 [proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
@@ -127,9 +127,9 @@ palindrome or not 98
 total sum of transactions by each account 99 create tests
 counting clicks 100 create test
 generating cats 101 create test
+powers of two 102 create test
 
 ORDER
-powers of two 102
  103
 
 next day
