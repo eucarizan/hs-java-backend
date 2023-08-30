@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (100)
+problem|topic|count (101)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -43,7 +43,7 @@ problem|topic|count (100)
 [find the nearest number](./FindNearestNumber/README.md)|collections, arraylist|46
 [find the seed](./FindTheSeed/README.md)|random|14
 [floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
-<!-- [generating cats](./GeneratingCats/README.md)|functional programming, infinite streams|101 100 -->
+[generating cats](./GeneratingCats/README.md)|functional programming, infinite streams|101
 [gold mining](./GoldMining/README.md)|big decimal|38
 [grouping collectors](./GroupingCollectors/README.md)|functional programming, grouping collectors, theory|96
 [healthy sheep](./HealthySheep/README.md)|conditional statement, control flow statements|1
@@ -126,9 +126,9 @@ in git
 palindrome or not 98
 total sum of transactions by each account 99 create tests
 counting clicks 100 create test
+generating cats 101 create test
 
 ORDER
-generating cats 101 create test
 powers of two 102
  103
 
