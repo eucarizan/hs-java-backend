@@ -1,11 +1,11 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (103)
+problem|topic|count (104)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
-<!-- [a stream without zero](./AStreamWIthoutZero/README.md)|functional programming, infinite stream|104 -->
+[a stream without zero](./AStreamWIthoutZero/README.md)|functional programming, infinite stream|104
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
 [bad words detecting](./BadWordsDetecting/README.md)|functional programming, stream filtering|79
@@ -130,9 +130,9 @@ total sum of transactions by each account 99 create tests
 counting clicks 100 create test
 generating cats 101 create test
 powers of two 102 create test
+the average salary 103 create test
 
 ORDER
-the average salary 103
 a stream without zero 104
 
 next day
