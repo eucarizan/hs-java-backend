@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (106)
+problem|topic|count (107)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -105,6 +105,7 @@ problem|topic|count (106)
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
+[the address book](./TheAddressBook/README.md)|functional programming, optional|107
 [the average salary](./TheAverageSalary/README.md)|functional programming, streams of primitives|103
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
@@ -112,18 +113,8 @@ problem|topic|count (106)
 
 <!--
 TODO:
-- [ ] add topics to each sample problems
-- [x] arrange into alphabetical order
-  - [x] keep a list by time added
-- [ ] make it testable TDD
-  - [ ] create a class for the main program
-  - [ ] create unit tests
+- [ ] group by topics
  -->
-
-<!--
-problems by time added
-git log --grep="sample problems added" --oneline --reverse
--->
 
 <!--
 in git
@@ -133,11 +124,24 @@ counting clicks 100 create test
 generating cats 101 create test
 powers of two 102 create test
 the average salary 103 create test
-a stream without zero 104
-secret codes 105
-sorting and skipping numbers 106
+the addressbook 107
 
 ORDER
 
 next day
  -->
+
+<!--
+DONE:
+- [x] add topics to each sample problems
+- [x] arrange into alphabetical order
+  - [x] keep a list by time added
+- [X] make it testable TDD
+  - [X] create a class for the main program
+  - [X] create unit tests
+ -->
+
+<!--
+problems by time added
+git log --grep="sample problems added" --oneline --reverse
+-->
