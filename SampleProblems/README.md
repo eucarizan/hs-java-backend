@@ -101,12 +101,15 @@ problem|topic|count (107)
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
 [sum of divisors](./SumOfDivisors/README.md)|functional programming, reduction methods|91
+[sum of odd numbers](./SumOfOddNumbers/README.md)|functional programming, stream pipelines|108
 [teeing collector](./TeeingCollector/README.md)|functional programming, grouping collectors|97
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
 [the address book](./TheAddressBook/README.md)|functional programming, optional|107
 [the average salary](./TheAverageSalary/README.md)|functional programming, streams of primitives|103
+<!-- [total number of employee](./TotalNumberOfEmployees/README.md)|functional programming, stream pipelines|109 108 -->
+<!-- [total sum of cancelled transactions](./TotalSumCancelledTransactions/README.md)|functional programming, stream pipelines|110 109 -->
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
 [triples](./Triples/README.md)|arrays|45
@@ -124,11 +127,14 @@ counting clicks 100 create test
 generating cats 101 create test
 powers of two 102 create test
 the average salary 103 create test
-the addressbook 107
 
 ORDER
+sum of odd numbers 108
+total number of employees 109
+total sum of cancelled transactions 110
 
 next day
+
  -->
 
 <!--
