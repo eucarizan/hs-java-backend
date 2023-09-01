@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (105)
+problem|topic|count (106)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -96,6 +96,7 @@ problem|topic|count (105)
 [social networks](./SocialNetworks/README.md)|design patterns, behavioral patterns, template method|27
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
 [sorting absolute values](./SortingAbsoluteValues/README.md)|functional programming, map and flatmap|87
+[sorting and skipping numbers](./SortingAndSkippingNumbers/README.md)|functional programming, taking elements|106
 [sort users](./SortUsers/README.md)|collections, comparator|68
 [static factory for time](./StaticFactoryForTime/README.md)|design patterns, creational patterns, encapsulating object creation|18
 [string modifier](./StringModifier/README.md)|debugger|63
@@ -134,6 +135,7 @@ powers of two 102 create test
 the average salary 103 create test
 a stream without zero 104
 secret codes 105
+sorting and skipping numbers 106
 
 ORDER
 
