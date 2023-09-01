@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (107)
+problem|topic|count (109)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -108,7 +108,7 @@ problem|topic|count (107)
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
 [the address book](./TheAddressBook/README.md)|functional programming, optional|107
 [the average salary](./TheAverageSalary/README.md)|functional programming, streams of primitives|103
-<!-- [total number of employee](./TotalNumberOfEmployees/README.md)|functional programming, stream pipelines|109 108 -->
+[total number of employee](./TotalNumberOfEmployees/README.md)|functional programming, stream pipelines|109
 <!-- [total sum of cancelled transactions](./TotalSumCancelledTransactions/README.md)|functional programming, stream pipelines|110 109 -->
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
