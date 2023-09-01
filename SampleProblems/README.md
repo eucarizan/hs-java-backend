@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (104)
+problem|topic|count (105)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -88,6 +88,7 @@ problem|topic|count (104)
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
 [same time](./SameTime/README.md)|date and time, localtime|13
+[secret codes](./SecretCodes/README.md)|functional programming, taking elements|105
 [set average](./SetAverage/README.md)|functional programming, collectors|94
 [sherlock homes and the mystery of anagrams](./SherlockHolmesAnagrams/README.md)|collections, the map interface|58
 [similar date](./SimilarDate/README.md)|date and time, localdate|12
@@ -131,9 +132,10 @@ counting clicks 100 create test
 generating cats 101 create test
 powers of two 102 create test
 the average salary 103 create test
+a stream without zero 104
+secret codes 105
 
 ORDER
-a stream without zero 104
 
 next day
  -->
