@@ -1,10 +1,11 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (102)
+problem|topic|count (103)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
+<!-- [a stream without zero](./AStreamWIthoutZero/README.md)|functional programming, infinite stream|104 -->
 [average](./Average/README.md)|big decimal|39
 [backward indexes](./BackwardIndexes/README.md)|collections, list|29
 [bad words detecting](./BadWordsDetecting/README.md)|functional programming, stream filtering|79
@@ -102,6 +103,7 @@ problem|topic|count (102)
 [template method](./TemplateMethod/README.md)|design patterns, behavioral patterns, template method|24
 [template method v2](./TemplateMethod2/README.md)|design patterns, behavioral patterns, template method|25
 [test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
+[the average salary](./TheAverageSalary/README.md)|functional programming, streams of primitives|103
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
 [triples](./Triples/README.md)|arrays|45
@@ -130,7 +132,8 @@ generating cats 101 create test
 powers of two 102 create test
 
 ORDER
- 103
+the average salary 103
+a stream without zero 104
 
 next day
  -->
