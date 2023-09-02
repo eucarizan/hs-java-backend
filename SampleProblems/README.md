@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (114)
+problem|topic|count (115)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -58,7 +58,7 @@ problem|topic|count (114)
 [lambda seven args](./LambdaSevenArgs/README.md)|functions, functional interfaces|19
 [last day of month](./LastDayOfMonth/README.md)|date and time, localdate|16
 [leaderboard](./Leaderboard/README.md)|interfaces and abstract classes, comparable|51
-<!-- [logging to debug](./LoggingToDebug/README.md)|errorless code, logback|115 114 -->
+[logging to debug](./LoggingToDebug/README.md)|errorless code, logback|115
 [long ranges](./LongRanges/README.md)|functional programming, functional streams|73
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 [managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
@@ -137,7 +137,6 @@ powers of two 102 create test
 the average salary 103 create test
 
 ORDER
-detail manufacturing 114
 logging to debug 115
 movie 116
 

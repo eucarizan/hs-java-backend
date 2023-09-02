@@ -1,12 +1,4 @@
-# My GitHub README
-
-Welcome to my README!
-
-<div align="center">
-    <img src="example.svg" width="400" height="400" alt="css-in-readme">
-</div>
-
-<!-- # Sample Problems
+# Sample Problems
 
 ## Knowledge Map
 - basics
@@ -273,16 +265,6 @@ topic|descriptions|num
 :-:|:-:|:-:
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
 </div>
-
-<style>
-    .foo table td{
-        width: 50%;
-    }
-
-    .foo {
-        text-align: center;
-    }
-</style> -->
 
 <!-- [detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114 113 -->
 <!-- [movie](./Movie/README.md)|oop, multiple constructors|116 115 -->
