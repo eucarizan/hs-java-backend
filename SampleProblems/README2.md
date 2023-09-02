@@ -1,4 +1,12 @@
-# Sample Problems
+# My GitHub README
+
+Welcome to my README!
+
+<div align="center">
+    <img src="example.svg" width="400" height="400" alt="css-in-readme">
+</div>
+
+<!-- # Sample Problems
 
 ## Knowledge Map
 - basics
@@ -274,7 +282,7 @@ topic|descriptions|num
     .foo {
         text-align: center;
     }
-</style>
+</style> -->
 
 <!-- [detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114 113 -->
 <!-- [movie](./Movie/README.md)|oop, multiple constructors|116 115 -->

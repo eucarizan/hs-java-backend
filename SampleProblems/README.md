@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (113)
+problem|topic|count (114)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -33,7 +33,7 @@ problem|topic|count (113)
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
 [cycles and iterations](./CyclesAndIterations/README.md)|erroless code, debugging|78
-<!-- [detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114 113 -->
+[detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114
 [dinosaurs and plants](./DinosaursAndPlants/README.md)|jdbc, jdbc transactions|65
 [disjunct all](./DisjunctAll/README.md)|functions, function composition|31
 [diplaying pairs](./DisplayingPairs/README.md)|collections framework, the map interface|59
@@ -137,7 +137,6 @@ powers of two 102 create test
 the average salary 103 create test
 
 ORDER
-tricky submaps 113
 detail manufacturing 114
 logging to debug 115
 movie 116
