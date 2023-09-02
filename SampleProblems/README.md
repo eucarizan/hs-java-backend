@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (112)
+problem|topic|count (113)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -117,7 +117,7 @@ problem|topic|count (112)
 [total sum of cancelled transactions](./TotalSumCancelledTransactions/README.md)|functional programming, stream pipelines|110
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
-<!-- [tricky submaps](./TrickySubMaps/README.md)|collections framework, the map interface|113 112 -->
+[tricky submaps](./TrickySubMaps/README.md)|collections framework, the map interface|113
 [triples](./Triples/README.md)|arrays|45
 
 
@@ -137,7 +137,6 @@ powers of two 102 create test
 the average salary 103 create test
 
 ORDER
-maximum product of adjacent elements 112
 tricky submaps 113
 detail manufacturing 114
 logging to debug 115
