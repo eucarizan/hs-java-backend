@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (110)
+problem|topic|count (111)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -84,6 +84,7 @@ problem|topic|count (110)
 [publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
 [range quadratic sum](./RangeQuadraticSum/README.md)|functional programming, reduction methods|90
 [remote control](./RemoteControl/README.md)|design patterns, behavioral patterns, command|20
+[return empty string](./ReturnEmptyString/README.md)|errorless code, npe|111
 [reverse sorting](./ReverseSorting/README.md)|collctions, comparator|71
 [rockstar games](./RockstarGames/README.md)|design patterns, behavioral patterns, observer|34
 [safe password](./SafePassword/README.md)|regular expressions, string matches|49
@@ -129,9 +130,7 @@ powers of two 102 create test
 the average salary 103 create test
 
 ORDER
-sum of odd numbers 108
-total number of employees 109
-total sum of cancelled transactions 110
+return empty string 111
 
 next day
 
