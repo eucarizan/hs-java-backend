@@ -1,7 +1,7 @@
 # Hyperskill Sample Problems
 
 ## Problems
-problem|topic|count (111)
+problem|topic|count (112)
 :-:|:-:|:-:
 [ascii art](./ASCIIArt/README.md)|functional programming, collectors|93
 [a sorted stream](./ASortedStream/README.md)|functional programming, functional streams|77
@@ -33,6 +33,7 @@ problem|topic|count (111)
 [create optional value](./CreateOptionalValue/README.md)|functions, optional|41
 [creating a map](./CreatingATreeMap/README.md)|collections, the map interface|57
 [cycles and iterations](./CyclesAndIterations/README.md)|erroless code, debugging|78
+<!-- [detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114 113 -->
 [dinosaurs and plants](./DinosaursAndPlants/README.md)|jdbc, jdbc transactions|65
 [disjunct all](./DisjunctAll/README.md)|functions, function composition|31
 [diplaying pairs](./DisplayingPairs/README.md)|collections framework, the map interface|59
@@ -57,6 +58,7 @@ problem|topic|count (111)
 [lambda seven args](./LambdaSevenArgs/README.md)|functions, functional interfaces|19
 [last day of month](./LastDayOfMonth/README.md)|date and time, localdate|16
 [leaderboard](./Leaderboard/README.md)|interfaces and abstract classes, comparable|51
+<!-- [logging to debug](./LoggingToDebug/README.md)|errorless code, logback|115 114 -->
 [long ranges](./LongRanges/README.md)|functional programming, functional streams|73
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 [managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
@@ -65,9 +67,11 @@ problem|topic|count (111)
 [match list and numbers](./MatchListAndNumbers/README.md)|functional programming, map and flatmap|83
 [max and min](./MaxAndMin/README.md)|design patterns, behavioral patterns, strategy|21
 [maximum absolute value](./MaximumAbsoluteValue/README.md)|functional programming, map and flatmap|86
+[maximum product of adjacent elements](./MaximumProductOfAdjacentElements/README.md)|arrays|112
 [messages comparator](./MessagesComparator/README.md)|collections, comparator|67
 [most valuable items](./MostValuableItems/README.md)|collections, comparator|69
 [motor static factory](./MotorStaticFactory/README.md)|design patterns, creational patterns, static factory idiom|23
+<!-- [movie](./Movie/README.md)|oop, multiple constructors|116 115 -->
 [multiple fields](./MultipleFields/README.md)|collections, comparator|72
 [multiplication](./Multiplication/README.md)|big decimal|40
 [mutable geometric shapes](./MutableGeometricShapes/README.md)|interfaces and abstract classes, interface|17
@@ -113,7 +117,10 @@ problem|topic|count (111)
 [total sum of cancelled transactions](./TotalSumCancelledTransactions/README.md)|functional programming, stream pipelines|110
 [total sum of transactions by each account](./TransactionTotalSumAccounts/README.md)|functional programming, grouping collectors|99
 [triangle](./Triangle/README.md)|control flow statements, conditional statement|36
+<!-- [tricky submaps](./TrickySubMaps/README.md)|collections framework, the map interface|113 112 -->
 [triples](./Triples/README.md)|arrays|45
+
+
 
 <!--
 TODO:
@@ -130,10 +137,13 @@ powers of two 102 create test
 the average salary 103 create test
 
 ORDER
-return empty string 111
+maximum product of adjacent elements 112
+tricky submaps 113
+detail manufacturing 114
+logging to debug 115
+movie 116
 
 next day
-
  -->
 
 <!--
