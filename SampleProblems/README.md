@@ -1,7 +1,8 @@
 # Sample Problems
-- count (119)
+- count (120)
 
 ## Previously Solved (latest first)
+- [ternary operator](./TernaryOperator/README.md)
 - [filtering accounts](./FilteringAccounts/README.md)
 - [ten most frequent words](./TenMostFrequentWords/README.md)
 - [using streams many times](./UsingStreamsManyTimes/README.md)
@@ -89,6 +90,7 @@ topic|descriptions|num
 [disjunct all](./DisjunctAll/README.md)|function composition|31
 [lambda seven args](./LambdaSevenArgs/README.md)|functional interfaces|19
 [filtering accounts](./FilteringAccounts/README.md)|functional interfaces|119
+[ternary operator](./TernaryOperator/README.md)|functional interfaces|120
 [check optional value](./CheckOptionalValue/README.md)|optional|42
 [create optional value](./CreateOptionalValue/README.md)|optional|41
 [the address book](./TheAddressBook/README.md)|optional|107
