@@ -1,5 +1,12 @@
 # Sample Problems
-- count (117)
+- count (118)
+
+## Previously Solved (latest first)
+- [ten most frequent words](./TenMostFrequentWords/README.md)
+- [using streams many times](./UsingStreamsManyTimes/README.md)
+- [movie](./Movie/README.md)
+- [logging to debug](./LoggingToDebug/README.md)
+- [detail manufacturing](./DetailManufacturing/README.md)
 
 ## Knowledge Map
 - basics
@@ -122,6 +129,7 @@ topic|descriptions|num
 [secret codes](./SecretCodes/README.md)|taking elements|105
 [sorting and skipping numbers](./SortingAndSkippingNumbers/README.md)|taking elements|106
 [sum of odd numbers](./SumOfOddNumbers/README.md)|stream pipelines|108
+[ten most frequent words](./TenMostFrequentWords/README.md)|stream pipelines|118
 [total number of employee](./TotalNumberOfEmployees/README.md)|stream pipelines|109
 [total sum of cancelled transactions](./TotalSumCancelledTransactions/README.md)|stream pipelines|110
 [using streams many times](./UsingStreamsManyTimes/README.md)|stream pipelines|117
