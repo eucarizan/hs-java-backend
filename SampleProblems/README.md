@@ -1,13 +1,13 @@
 # Sample Problems
-- count (120)
+- count (121)
 
 ## Previously Solved (latest first)
+- [infinite number supplier](./InfiniteNumbersSupplier/README.md)
 - [ternary operator](./TernaryOperator/README.md)
 - [filtering accounts](./FilteringAccounts/README.md)
 - [ten most frequent words](./TenMostFrequentWords/README.md)
 - [using streams many times](./UsingStreamsManyTimes/README.md)
 - [movie](./Movie/README.md)
-- [logging to debug](./LoggingToDebug/README.md)
 
 ## Knowledge Map
 - basics
@@ -88,6 +88,7 @@ topic|descriptions|num
 :-:|:-:|:-:
 [chain of responsibilty](./ChainOfResponsibility/README.md)|function composition|30
 [disjunct all](./DisjunctAll/README.md)|function composition|31
+[infinite number supplier](./InfiniteNumbersSupplier/README.md)|functional interfaces|121
 [lambda seven args](./LambdaSevenArgs/README.md)|functional interfaces|19
 [filtering accounts](./FilteringAccounts/README.md)|functional interfaces|119
 [ternary operator](./TernaryOperator/README.md)|functional interfaces|120
