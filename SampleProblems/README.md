@@ -1,12 +1,12 @@
 # Sample Problems
-- count (118)
+- count (119)
 
 ## Previously Solved (latest first)
+- [filtering accounts](./FilteringAccounts/README.md)
 - [ten most frequent words](./TenMostFrequentWords/README.md)
 - [using streams many times](./UsingStreamsManyTimes/README.md)
 - [movie](./Movie/README.md)
 - [logging to debug](./LoggingToDebug/README.md)
-- [detail manufacturing](./DetailManufacturing/README.md)
 
 ## Knowledge Map
 - basics
@@ -88,6 +88,7 @@ topic|descriptions|num
 [chain of responsibilty](./ChainOfResponsibility/README.md)|function composition|30
 [disjunct all](./DisjunctAll/README.md)|function composition|31
 [lambda seven args](./LambdaSevenArgs/README.md)|functional interfaces|19
+[filtering accounts](./FilteringAccounts/README.md)|functional interfaces|119
 [check optional value](./CheckOptionalValue/README.md)|optional|42
 [create optional value](./CreateOptionalValue/README.md)|optional|41
 [the address book](./TheAddressBook/README.md)|optional|107
@@ -248,7 +249,6 @@ counting clicks 100 create test
 generating cats 101 create test
 powers of two 102 create test
 the average salary 103 create test
-movie 116
 
 ORDER
 
