@@ -1,14 +1,12 @@
 # Sample Problems
-- count (122)
+- count (123)
 
 ## Previously Solved (latest first)
-- [number parsing](./NumberParsing/README.md)
-- [infinite number supplier](./InfiniteNumbersSupplier/README.md)
-- [ternary operator](./TernaryOperator/README.md)
-- [filtering accounts](./FilteringAccounts/README.md)
-- [ten most frequent words](./TenMostFrequentWords/README.md)
-- [using streams many times](./UsingStreamsManyTimes/README.md)
-- [movie](./Movie/README.md)
+1. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
+2. [number parsing](./NumberParsing/README.md)
+3. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
+4. [ternary operator](./TernaryOperator/README.md)
+5. [filtering accounts](./FilteringAccounts/README.md)
 
 ## Knowledge Map
 - basics
@@ -238,6 +236,7 @@ topic|descriptions|num
 #### search algorithms
 topic|descriptions|num
 :-:|:-:|:-:
+[binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)|algorithms, array algorithms, search algorithms|123
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
 <hr>
 
