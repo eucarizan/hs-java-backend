@@ -1,12 +1,12 @@
 # Sample Problems
-- count (123)
+- count (124)
 
 ## Previously Solved (latest first)
-1. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
-2. [number parsing](./NumberParsing/README.md)
-3. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
-4. [ternary operator](./TernaryOperator/README.md)
-5. [filtering accounts](./FilteringAccounts/README.md)
+1. [approximate search](./ApproximateSearch/README.md)
+2. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
+3. [number parsing](./NumberParsing/README.md)
+4. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
+5. [ternary operator](./TernaryOperator/README.md)
 
 ## Knowledge Map
 - basics
@@ -236,6 +236,7 @@ topic|descriptions|num
 #### search algorithms
 topic|descriptions|num
 :-:|:-:|:-:
+[approximate search](./ApproximateSearch/README.md)|algorithms, array algorithms, search algorithms|124
 [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)|algorithms, array algorithms, search algorithms|123
 [sort and search](./SortAndSearch/README.md)|algorithms, array algorithms, search algorithms|61
 <hr>
