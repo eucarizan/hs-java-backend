@@ -1,7 +1,8 @@
 # Sample Problems
-- count (121)
+- count (122)
 
 ## Previously Solved (latest first)
+- [number parsing](./NumberParsing/README.md)
 - [infinite number supplier](./InfiniteNumbersSupplier/README.md)
 - [ternary operator](./TernaryOperator/README.md)
 - [filtering accounts](./FilteringAccounts/README.md)
@@ -223,14 +224,15 @@ topic|descriptions|num
 #### regular expressions
 topic|descriptions|num
 :-:|:-:|:-:
-[card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|regular expressions, string matches|48
-[check ip address](./CheckIPAddress/README.md)|regular expressions, string matches|54
-[check the clock time](./CheckTheClockTime/README.md)|regular expressions, string matches|52
-[check the date](./CheckTheDate/README.md)|regular expressions, string matchees|53
-[safe password](./SafePassword/README.md)|regular expressions, string matches|49
-[extracting big numbers from a text](./ExtractBigNumbersFromText/README.md)|regular expressions, patterns and matchers|56
-[find all passwords](./FindAllPasswords/README.md)|regular expressions, patterns and matchers|55
-[in the middle of a word](./InTheMiddleOfWord/README.md)|regular expressions, patterns and matchers|47
+[card name validation and identification](./CardNameValidationAndIdentificaiton/README.md)|string matches|48
+[check ip address](./CheckIPAddress/README.md)|string matches|54
+[check the clock time](./CheckTheClockTime/README.md)|string matches|52
+[check the date](./CheckTheDate/README.md)|string matchees|53
+[safe password](./SafePassword/README.md)|string matches|49
+[extracting big numbers from a text](./ExtractBigNumbersFromText/README.md)|patterns and matchers|56
+[find all passwords](./FindAllPasswords/README.md)|patterns and matchers|55
+[in the middle of a word](./InTheMiddleOfWord/README.md)|patterns and matchers|47
+[number parsing](./NumberParsing/README.md)|patterns and matchers|122
 <hr>
 
 #### search algorithms
