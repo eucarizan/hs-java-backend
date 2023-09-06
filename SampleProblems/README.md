@@ -1,12 +1,12 @@
 # Sample Problems
-- count (124)
+- count (125)
 
 ## Previously Solved (latest first)
-1. [approximate search](./ApproximateSearch/README.md)
-2. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
-3. [number parsing](./NumberParsing/README.md)
-4. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
-5. [ternary operator](./TernaryOperator/README.md)
+1. [the army of units](./TheArmyOfUnits/README.md)
+2. [approximate search](./ApproximateSearch/README.md)
+3. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
+4. [number parsing](./NumberParsing/README.md)
+5. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
 
 ## Knowledge Map
 - basics
@@ -40,9 +40,10 @@
 #### control flow statements
 topic|descriptions|num
 :-:|:-:|:-:
-[healthy sheep](./HealthySheep/README.md)|conditional statement, control flow statements|1
-[interval](./Interval/README.md)|conditional statement, control flow statements|2
-[triangle](./Triangle/README.md)|control flow statements, conditional statement|36
+[healthy sheep](./HealthySheep/README.md)|conditional statement|1
+[interval](./Interval/README.md)|conditional statement|2
+[the army of units](./TheArmyOfUnits/README.md)|conditional statement|125
+[triangle](./Triangle/README.md)|conditional statement|36
 [size of parts](./SizeOfParts/README.md)|control flow statements, the for-loop|4
 [natural number squares](./NaturalNumbersSquares/README.md)|control flow statements, while, do-while|3
 [floor space of room](./FloorSpaceOfRoom/README.md)|switch statement, control flow statements|28
@@ -54,6 +55,7 @@ topic|descriptions|num
 [compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
 [lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
 <hr>
+<!-- [parse url](./ParseUrl/README.md)|processing strings|126 -->
 
 #### methods
 topic|descriptions|num
