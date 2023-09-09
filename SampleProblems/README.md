@@ -1,12 +1,12 @@
 # Sample Problems
-- count (128)
+- count (129)
 
 ## Previously Solved (latest first)
-1. [subtracting hours adding minutes](./SubtractingHours/README.md)
-2. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
-3. [parse url](./ParseUrl/README.md)
-4. [the army of units](./TheArmyOfUnits/README.md)
-5. [approximate search](./ApproximateSearch/README.md)
+1. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
+2. [subtracting hours adding minutes](./SubtractingHours/README.md)
+3. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
+4. [parse url](./ParseUrl/README.md)
+5. [the army of units](./TheArmyOfUnits/README.md)
 
 ## Knowledge Map
 - basics
@@ -158,10 +158,11 @@ topic|descriptions|num
 #### arrays
 topic|descriptions|num
 :-:|:-:|:-:
-[boxes](./Boxes/README.md)|arrays|7
-[individual taxes](./IndividualTaxes/README.md)|arrays|9
-[maximum product of adjacent elements](./MaximumProductOfAdjacentElements/README.md)|arrays|112
-[triples](./Triples/README.md)|arrays|45
+[boxes](./Boxes/README.md)|iterating over arrays|7
+[individual taxes](./IndividualTaxes/README.md)|iterating over arrays|9
+[maximum product of adjacent elements](./MaximumProductOfAdjacentElements/README.md)|iterating over arrays|112
+[sum array elements greater than value](./SumArrayElementsGreaterThanValue/README.md)|iterating over arrays|129
+[triples](./Triples/README.md)|iterating over arrays|45
 <hr>
 
 #### collections
