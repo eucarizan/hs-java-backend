@@ -1,12 +1,12 @@
 # Sample Problems
-- count (127)
+- count (128)
 
 ## Previously Solved (latest first)
-1. [the army of units](./TheArmyOfUnits/README.md)
-2. [approximate search](./ApproximateSearch/README.md)
-3. [binary search count number of loops](./BinarySearchCountNumberOfLoops/README.md)
-4. [number parsing](./NumberParsing/README.md)
-5. [infinite number supplier](./InfiniteNumbersSupplier/README.md)
+1. [subtracting hours adding minutes](./SubtractingHours/README.md)
+2. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
+3. [parse url](./ParseUrl/README.md)
+4. [the army of units](./TheArmyOfUnits/README.md)
+5. [approximate search](./ApproximateSearch/README.md)
 
 ## Knowledge Map
 - basics
@@ -203,6 +203,7 @@ topic|descriptions|num
 [first and last day of month](./FirstAndLastDayOfMonth/README.md)|localdate|127
 [similar date](./SimilarDate/README.md)|localdate|12
 [same time](./SameTime/README.md)|localtime|13
+[subtracting hours adding minutes](./SubtractingHours/README.md)|localdatetime|128
 [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
 [dont be late again](./DontBeLateAgain/README.md)|comparing dates and time|15
 <hr>
