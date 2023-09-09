@@ -52,10 +52,10 @@ topic|descriptions|num
 #### strings
 topic|descriptions|num
 :-:|:-:|:-:
-[compression algorithm](./CompressionAlgorithm/README.md)|strings, processing strings|33
-[lucky ticket](./LuckyTicket/README.md)|strings, processing strings|37
+[compression algorithm](./CompressionAlgorithm/README.md)|processing strings|33
+[lucky ticket](./LuckyTicket/README.md)|processing strings|37
+[parse url](./ParseUrl/README.md)|processing strings|126
 <hr>
-<!-- [parse url](./ParseUrl/README.md)|processing strings|126 -->
 
 #### methods
 topic|descriptions|num
@@ -205,6 +205,7 @@ topic|descriptions|num
 [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
 [dont be late again](./DontBeLateAgain/README.md)|date and time, comparing dates and time|15
 <hr>
+<!-- [first and last day of month](./FirstAndLastDayOfMonth/README.md)|date and time, localdate|127 -->
 
 #### standard classes for computation
 topic|descriptions|num
