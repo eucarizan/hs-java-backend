@@ -1,5 +1,5 @@
 # Sample Problems
-- count (125)
+- count (127)
 
 ## Previously Solved (latest first)
 1. [the army of units](./TheArmyOfUnits/README.md)
@@ -199,13 +199,13 @@ topic|descriptions|num
 #### date and time
 topic|descriptions|num
 :-:|:-:|:-:
-[last day of month](./LastDayOfMonth/README.md)|date and time, localdate|16
-[similar date](./SimilarDate/README.md)|date and time, localdate|12
-[same time](./SameTime/README.md)|date and time, localtime|13
+[last day of month](./LastDayOfMonth/README.md)|localdate|16
+[first and last day of month](./FirstAndLastDayOfMonth/README.md)|localdate|127
+[similar date](./SimilarDate/README.md)|localdate|12
+[same time](./SameTime/README.md)|localtime|13
 [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
-[dont be late again](./DontBeLateAgain/README.md)|date and time, comparing dates and time|15
+[dont be late again](./DontBeLateAgain/README.md)|comparing dates and time|15
 <hr>
-<!-- [first and last day of month](./FirstAndLastDayOfMonth/README.md)|date and time, localdate|127 -->
 
 #### standard classes for computation
 topic|descriptions|num
