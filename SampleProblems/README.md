@@ -1,12 +1,12 @@
 # Sample Problems
-- count (134)
+- count (135)
 
 ## Previously Solved (latest first)
-1. [longest word](./LongestWord/README.md)
-2. [euphonious word](./EuphoniousWord/README.md)
-3. [days of week](./DaysOfWeek/README.md)
-4. [capture variables](./CaptureVariables/README.md)
-5. [avoid npe string](./AvoidNPEStrings/README.md)
+1. [palindrome](./Palindrome/README.md)
+2. [longest word](./LongestWord/README.md)
+3. [euphonious word](./EuphoniousWord/README.md)
+4. [days of week](./DaysOfWeek/README.md)
+5. [capture variables](./CaptureVariables/README.md)
 
 ## Knowledge Map
 - basics
@@ -56,6 +56,7 @@ topic|descriptions|num
 [euphonious word](./EuphoniousWord/README.md)|processing|133
 [lucky ticket](./LuckyTicket/README.md)|processing strings|37
 [longest word](./LongestWord/README.md)|processing strings|134
+[palindrome](./Palindrome/README.md)|processing strings|135
 [parse url](./ParseUrl/README.md)|processing strings|126
 <hr>
 
