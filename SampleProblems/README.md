@@ -1,12 +1,12 @@
 # Sample Problems
-- count (133)
+- count (134)
 
 ## Previously Solved (latest first)
-1. [euphonious word](./EuphoniousWord/README.md)
-2. [capture variables](./CaptureVariables/README.md)
-3. [avoid npe string](./AvoidNPEStrings/README.md)
-4. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
-5. [subtracting hours adding minutes](./SubtractingHours/README.md)
+1. [longest word](./LongestWord/README.md)
+2. [euphonious word](./EuphoniousWord/README.md)
+3. [days of week](./DaysOfWeek/README.md)
+4. [capture variables](./CaptureVariables/README.md)
+5. [avoid npe string](./AvoidNPEStrings/README.md)
 
 ## Knowledge Map
 - basics
@@ -55,6 +55,7 @@ topic|descriptions|num
 [compression algorithm](./CompressionAlgorithm/README.md)|processing strings|33
 [euphonious word](./EuphoniousWord/README.md)|processing|133
 [lucky ticket](./LuckyTicket/README.md)|processing strings|37
+[longest word](./LongestWord/README.md)|processing strings|134
 [parse url](./ParseUrl/README.md)|processing strings|126
 <hr>
 
