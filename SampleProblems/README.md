@@ -1,12 +1,12 @@
 # Sample Problems
-- count (129)
+- count (130)
 
 ## Previously Solved (latest first)
-1. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
-2. [subtracting hours adding minutes](./SubtractingHours/README.md)
-3. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
-4. [parse url](./ParseUrl/README.md)
-5. [the army of units](./TheArmyOfUnits/README.md)
+1. [avoid npe string](./AvoidNPEStrings/README.md)
+2. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
+3. [subtracting hours adding minutes](./SubtractingHours/README.md)
+4. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
+5. [parse url](./ParseUrl/README.md)
 
 ## Knowledge Map
 - basics
@@ -187,14 +187,15 @@ topic|descriptions|num
 #### errorless code
 topic|descriptions|num
 :-:|:-:|:-:
-[string modifier](./StringModifier/README.md)|errorless code, debugger|63
-[bitwise and integers](./BitwiseAndIntegers/README.md)|errorless code, debugging|64
-[cycles and iterations](./CyclesAndIterations/README.md)|errorless code, debugging|78
-[divisors finding](./DivisorsFinding/README.md)|errorless code, debugging|62
-[logging to debug](./LoggingToDebug/README.md)|errorless code, logback|115
-[proper arguments](./ProperArguments/README.md)|errorless code, mockito|66
-[return empty string](./ReturnEmptyString/README.md)|errorless code, npe|111
-[test password](./TestPassword/README.md)|testing tools and libraries, errorless code, parameterized test|50
+[string modifier](./StringModifier/README.md)|debugger|63
+[bitwise and integers](./BitwiseAndIntegers/README.md)|debugging|64
+[cycles and iterations](./CyclesAndIterations/README.md)|debugging|78
+[divisors finding](./DivisorsFinding/README.md)|debugging|62
+[avoid npe string](./AvoidNPEStrings/README.md)|exception handling, npe|130
+[logging to debug](./LoggingToDebug/README.md)|logback|115
+[proper arguments](./ProperArguments/README.md)|mockito|66
+[return empty string](./ReturnEmptyString/README.md)|npe|111
+[test password](./TestPassword/README.md)|testing tools and libraries, parameterized test|50
 <hr>
 
 #### date and time
