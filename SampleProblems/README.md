@@ -1,12 +1,12 @@
 # Sample Problems
-- count (130)
+- count (131)
 
 ## Previously Solved (latest first)
-1. [avoid npe string](./AvoidNPEStrings/README.md)
-2. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
-3. [subtracting hours adding minutes](./SubtractingHours/README.md)
-4. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
-5. [parse url](./ParseUrl/README.md)
+1. [capture variables](./CaptureVariables/README.md)
+2. [avoid npe string](./AvoidNPEStrings/README.md)
+3. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
+4. [subtracting hours adding minutes](./SubtractingHours/README.md)
+5. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
 
 ## Knowledge Map
 - basics
@@ -67,11 +67,12 @@ topic|descriptions|num
 #### object oriented programming
 topic|descriptions|num
 :-:|:-:|:-:
-[clock simulation](./ClockSimulation/README.md)|oop, instance methods|8
-[movie](./Movie/README.md)|oop, multiple constructors|116
-[managing a process](./ManagingProcess/README.md)|oop, nested classes, anonymous classes|35
-[publication subclasses](./PublicationSubclasses/README.md)|oop, overriding methods, polymorphism|10
-[detail manufacturing](./DetailManufacturing/README.md)|oop, static members|114
+[clock simulation](./ClockSimulation/README.md)|instance methods|8
+[movie](./Movie/README.md)|multiple constructors|116
+[capture variables](./CaptureVariables/README.md)|nested classes, anonymous classes|131
+[managing a process](./ManagingProcess/README.md)|nested classes, anonymous classes|35
+[publication subclasses](./PublicationSubclasses/README.md)|overriding methods, polymorphism|10
+[detail manufacturing](./DetailManufacturing/README.md)|static members|114
 <hr>
 
 #### class hierarchies, interfaces and abstract classes
