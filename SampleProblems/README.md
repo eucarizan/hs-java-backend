@@ -1,12 +1,12 @@
 # Sample Problems
-- count (131)
+- count (133)
 
 ## Previously Solved (latest first)
-1. [capture variables](./CaptureVariables/README.md)
-2. [avoid npe string](./AvoidNPEStrings/README.md)
-3. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
-4. [subtracting hours adding minutes](./SubtractingHours/README.md)
-5. [first and last day of month](./FirstAndLastDayOfMonth/README.md)
+1. [euphonious word](./EuphoniousWord/README.md)
+2. [capture variables](./CaptureVariables/README.md)
+3. [avoid npe string](./AvoidNPEStrings/README.md)
+4. [sum array elements greater than a value](./SumArrayElementsGreaterThanValue/README.md)
+5. [subtracting hours adding minutes](./SubtractingHours/README.md)
 
 ## Knowledge Map
 - basics
@@ -53,6 +53,7 @@ topic|descriptions|num
 topic|descriptions|num
 :-:|:-:|:-:
 [compression algorithm](./CompressionAlgorithm/README.md)|processing strings|33
+[euphonious word](./EuphoniousWord/README.md)|processing|133
 [lucky ticket](./LuckyTicket/README.md)|processing strings|37
 [parse url](./ParseUrl/README.md)|processing strings|126
 <hr>
