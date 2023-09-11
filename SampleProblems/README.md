@@ -71,6 +71,7 @@ topic|descriptions|num
 [movie](./Movie/README.md)|multiple constructors|116
 [capture variables](./CaptureVariables/README.md)|nested classes, anonymous classes|131
 [managing a process](./ManagingProcess/README.md)|nested classes, anonymous classes|35
+[days of week](./DaysOfWeek/README.md)|other concepts, enumerations|132
 [publication subclasses](./PublicationSubclasses/README.md)|overriding methods, polymorphism|10
 [detail manufacturing](./DetailManufacturing/README.md)|static members|114
 <hr>
