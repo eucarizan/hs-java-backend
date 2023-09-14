@@ -12,6 +12,7 @@ public class Main {
                     - enter two natural numbers to obtain the properties of the list:
                       * the first parameter represents a starting number;
                       * the second parameter shows how many consecutive numbers are to be processed;
+                    - two natural numbers and a property to search for;
                     - separate the parameters with one space;
                     - enter 0 to exit.""";
             System.out.println(options);
@@ -19,6 +20,7 @@ public class Main {
             long num = -1;
             long count = -1;
             boolean hasCount = false;
+            String property = "";
 
             do {
                 try {
@@ -34,29 +36,46 @@ public class Main {
 
                     num = Long.parseLong(strings[0]);
 
-                    if (strings.length > 1) {
-                        count = Long.parseLong(strings[1]);
-                        hasCount = true;
-                    }
-
-                    System.out.println();
-
-                    if (num >= 1 && !hasCount) {
+                    if (strings.length == 1 && num == 0) {
+                        System.out.println();
+                        break;
+                    } else if (num < 0) {
+                        System.out.println("\nThe first parameter should be a natural number or zero");
+                    } else if (strings.length == 1) {
                         Number number = new Number(num);
                         System.out.println(number);
-                    } else if (num < 0) {
-                        System.out.println("The first parameter should be a natural number or zero");
-                    } else if (hasCount && count < 0) {
-                        System.out.println("The second parameter should be a natural number");
-                    } else if (hasCount) {
-                        for (int i = 0; i < count; i++) {
-                            Number number = new Number(num + i);
-                            number.getProperties();
+                    } else {
+                        count = Long.parseLong(strings[1]);
+
+                        if (strings.length == 3) {
+                            property = strings[2].toLowerCase();
+                            if (!"evenoddbuzzduckpalindromicgapfulspy".contains(property)) {
+                                System.out.println("The property [" + property.toUpperCase() + "] is wrong.");
+                                System.out.println("Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD]");
+                            } else {
+                                // only numbers with indicated property should be printed
+                                int j = 0;
+                                for (int i = 0; i < count; i++) {
+                                    Number number = new Number(num + j++);
+                                    while (!number.hasProperty(property)) {
+                                        number = new Number(num + j++);
+                                    }
+                                    number.getProperties();
+                                }
+                            }
                         }
-                        hasCount = false;
+
+                        if (count < 0) {
+                            System.out.println("\nThe second parameter should be a natural number");
+                        } else if (property.isEmpty()) {
+                            for (int i = 0; i < count; i++) {
+                                Number number = new Number(num + i);
+                                number.getProperties();
+                            }
+                        }
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println(options);
+                    System.out.println("\nThe first parameter should be a natural number or zero");
                 }
             } while (num != 0);
 
@@ -69,9 +88,38 @@ public class Main {
 class Number {
 
     long number;
+    boolean buzz;
+    boolean duck;
+    boolean palindromic;
+    boolean gapful;
+    boolean spy;
+    boolean even;
+    boolean odd;
+
 
     public Number(long number) {
         this.number = number;
+        this.buzz = isBuzz();
+        this.duck = isDuck();
+        this.palindromic = isPalindromic();
+        this.gapful = isGapful();
+        this.spy = isSpy();
+        this.even = isEven();
+        this.odd = !isEven();
+    }
+
+    public boolean hasProperty(String property) {
+
+        return switch (property) {
+            case "buzz" -> buzz;
+            case "duck" -> duck;
+            case "palindromic" -> palindromic;
+            case "gapful" -> gapful;
+            case "spy" -> spy;
+            case "even" -> even;
+            case "odd" -> odd;
+            default -> false;
+        };
     }
 
     private boolean isBuzz() {
@@ -109,7 +157,7 @@ class Number {
         return str.substring(ind);
     }
 
-    private boolean isPalindrome() {
+    private boolean isPalindromic() {
         String str = String.valueOf(number);
         StringBuilder sb = new StringBuilder(str);
         sb.reverse();
@@ -128,29 +176,47 @@ class Number {
         return number % gap == 0;
     }
 
+    private boolean isSpy() {
+        long temp = number;
+        long sum = 0;
+        long product = 1;
+
+        while (temp > 0) {
+            sum += temp % 10;
+            product *= (long) ((double) temp % 10);
+            temp = temp / 10;
+        }
+
+        return sum == product;
+    }
+
     public void getProperties() {
         List<String> properties = new ArrayList<>();
 
-        if (isEven()) {
-            properties.add("even");
-        } else {
-            properties.add("odd");
-        }
-
-        if (isBuzz()) {
+        if (buzz) {
             properties.add("buzz");
         }
 
-        if (isDuck()) {
+        if (duck) {
             properties.add("duck");
         }
 
-        if (isPalindrome()) {
+        if (palindromic) {
             properties.add("palindromic");
         }
 
-        if (isGapful()) {
+        if (gapful) {
             properties.add("gapful");
+        }
+
+        if (spy) {
+            properties.add("spy");
+        }
+
+        if (even) {
+            properties.add("even");
+        } else {
+            properties.add("odd");
         }
 
         System.out.println(number + " is " + String.join(", ", properties));
@@ -159,11 +225,12 @@ class Number {
     @Override
     public String toString() {
         return "Properties of " + number +
-                "\neven: " + isEven() +
-                "\nodd: " + !isEven() +
-                "\nbuzz: " + isBuzz() +
-                "\nduck: " + isDuck() +
-                "\npalindromic: " + isPalindrome() +
-                "\ngapful: " + isGapful();
+                "\nbuzz: " + buzz +
+                "\nduck: " + duck +
+                "\npalindromic: " + palindromic +
+                "\ngapful: " + gapful +
+                "\nspy: " + spy +
+                "\neven: " + even +
+                "\nodd: " + odd;
     }
 }
