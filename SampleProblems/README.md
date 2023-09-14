@@ -1,12 +1,12 @@
 # Sample Problems
-- count (136)
+- count (137)
 
 ## Previously Solved (latest first)
-1. [piece of alphabet](./PieceOfAlphabet/README.md)
-2. [palindrome](./Palindrome/README.md)
-3. [longest word](./LongestWord/README.md)
-4. [euphonious word](./EuphoniousWord/README.md)
-5. [days of week](./DaysOfWeek/README.md)
+1. [ten days before](./TenDaysBefore/README.md)
+2. [piece of alphabet](./PieceOfAlphabet/README.md)
+3. [palindrome](./Palindrome/README.md)
+4. [longest word](./LongestWord/README.md)
+5. [euphonious word](./EuphoniousWord/README.md)
 
 ## Knowledge Map
 - basics
@@ -210,6 +210,7 @@ topic|descriptions|num
 [last day of month](./LastDayOfMonth/README.md)|localdate|16
 [first and last day of month](./FirstAndLastDayOfMonth/README.md)|localdate|127
 [similar date](./SimilarDate/README.md)|localdate|12
+[ten days before](./TenDaysBefore/README.md)|localdate|137
 [same time](./SameTime/README.md)|localtime|13
 [subtracting hours adding minutes](./SubtractingHours/README.md)|localdatetime|128
 [count date time range match](./CountDateTimeRangeMatch/README.md)|comparing dates and times|92
