@@ -574,7 +574,7 @@ There are no numbers with these properties.
 The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
 
 **Example 1:**
-```
+```console
 Welcome to Amazing Numbers!
 
 Supported requests:

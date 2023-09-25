@@ -8,6 +8,8 @@ public class Number {
     boolean palindromic;
     boolean gapful;
     boolean spy;
+    boolean square;
+    boolean sunny;
     boolean even;
     boolean odd;
 
@@ -19,6 +21,8 @@ public class Number {
         this.palindromic = isPalindromic();
         this.gapful = isGapful();
         this.spy = isSpy();
+        this.square = isSquare(number);
+        this.sunny = isSunny();
         this.even = isEven();
         this.odd = !isEven();
     }
@@ -31,6 +35,8 @@ public class Number {
             case "palindromic" -> palindromic;
             case "gapful" -> gapful;
             case "spy" -> spy;
+            case "square" -> square;
+            case "sunny" -> sunny;
             case "even" -> even;
             case "odd" -> odd;
             default -> false;
@@ -50,28 +56,6 @@ public class Number {
     private boolean isDuck() {
         String strN = String.valueOf(number);
         return strN.contains("0") && strN.lastIndexOf("0") > 0;
-    }
-
-    // unused
-    private boolean isDuckLong() {
-        String str = String.valueOf(number);
-        String num = removeLeadingZeros(str);
-
-        return num.contains("0");
-    }
-
-    // unused
-    private String removeLeadingZeros(String str) {
-        int ind = 0;
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (ch != '0') {
-                ind = i;
-                break;
-            }
-        }
-
-        return str.substring(ind);
     }
 
     private boolean isPalindromic() {
@@ -107,6 +91,20 @@ public class Number {
         return sum == product;
     }
 
+    private boolean isSunny() {
+        long temp = number + 1;
+
+        return isSquare(temp);
+    }
+
+    private boolean isSquare(long num) {
+        if (num >= 0) {
+            long temp = (long) (Math.sqrt(num) + 0.5);
+            return temp * temp == num;
+        }
+        return false;
+    }
+
     public String getProperties() {
         List<String> properties = new ArrayList<>();
 
@@ -130,15 +128,21 @@ public class Number {
             properties.add("spy");
         }
 
+        if (square) {
+            properties.add("square");
+        }
+
+        if (sunny) {
+            properties.add("sunny");
+        }
+
         if (even) {
             properties.add("even");
         } else {
             properties.add("odd");
         }
 
-//        System.out.println(number + " is " + String.join(", ", properties));
         return String.format("%5d is %s%n", number, String.join(", ", properties));
-//        return number + " is " + String.join(", ", properties) +"\n";
     }
 
     @Override
@@ -149,6 +153,8 @@ public class Number {
                 String.format("%n%11s: %s", "palindromic", palindromic) +
                 String.format("%n%11s: %s", "gapful", gapful) +
                 String.format("%n%11s: %s", "spy", spy) +
+                String.format("%n%11s: %s", "square", square) +
+                String.format("%n%11s: %s", "sunny", sunny) +
                 String.format("%n%11s: %s", "even", even) +
                 String.format("%n%11s: %s", "odd", odd) + "\n";
     }
