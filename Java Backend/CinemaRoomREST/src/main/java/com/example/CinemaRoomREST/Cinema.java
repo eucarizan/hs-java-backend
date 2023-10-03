@@ -30,30 +30,11 @@ public class Cinema {
         return totalRows;
     }
 
-    public void setTotalRows(int totalRows) {
-        this.totalRows = totalRows;
-    }
-
     public int getTotalColumns() {
         return totalColumns;
-    }
-
-    public void setTotalColumns(int totalColumns) {
-        this.totalColumns = totalColumns;
     }
 
     public List<Seat> getAvailableSeats() {
         return availableSeats;
     }
-
-    public void setAvailableSeats(List<Seat> availableSeats) {
-        this.availableSeats = availableSeats;
-    }
-
-    //    @Override
-//    public String toString() {
-//        return "{\n\"total_rows\":" + totalRows + "," +
-//                "\n\"total_columns\":" + totalColumns + "," +
-//                "\n\"available_seats\":" + seats + "\n}";
-//    }
 }

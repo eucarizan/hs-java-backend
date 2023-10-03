@@ -23,9 +23,9 @@ public class CinemaRoomControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(response.getBody());
-        int totalRows = documentContext.read("$.totalRows");
-        int totalColumns = documentContext.read("$.totalColumns");
-        int seats = documentContext.read("$.seats.length()");
+        int totalRows = documentContext.read("$.total_rows");
+        int totalColumns = documentContext.read("$.total_columns");
+        int seats = documentContext.read("$.available_seats.length()");
         assertThat(totalRows).isEqualTo(9);
         assertThat(totalColumns).isEqualTo(9);
         assertThat(seats).isEqualTo(81);
