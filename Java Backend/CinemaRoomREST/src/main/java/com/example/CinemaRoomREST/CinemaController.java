@@ -9,8 +9,8 @@ public class CinemaController {
     Cinema cinema = new Cinema();
 
     @GetMapping("/seats")
-    public String returnSeats() {
-        return cinema.toString();
+    public Cinema returnSeats() {
+        return cinema;
     }
 
 }

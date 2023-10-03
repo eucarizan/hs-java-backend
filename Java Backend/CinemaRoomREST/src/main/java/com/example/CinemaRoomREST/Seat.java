@@ -9,10 +9,26 @@ public class Seat {
         this.column = column;
     }
 
-    @Override
-    public String toString() {
-        return "\n\t{\n\t\"row\":" + row +
-                ",\n\t\"column\":" + column +
-                "\n\t}";
+    public int getRow() {
+        return row;
     }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    //    @Override
+//    public String toString() {
+//        return "\n\t{\n\t\"row\":" + row +
+//                ",\n\t\"column\":" + column +
+//                "\n\t}";
+//    }
 }
