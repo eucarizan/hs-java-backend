@@ -7,20 +7,19 @@ public class Seat {
     int row;
     int column;
     int price;
+    boolean available;
 
-    boolean bought;
-
-    public Seat(int row, int column, boolean bought) {
+    public Seat(int row, int column, boolean available) {
         this.row = row;
         this.column = column;
         this.price = row <= 4 ? 10 : 8;
-        this.bought = bought;
+        this.available = available;
     }
 
-    public Seat(@JsonProperty("row") int row, @JsonProperty("column") int column) {
-        this.row = row;
-        this.column = column;
-    }
+//    public Seat(@JsonProperty("row") int row, @JsonProperty("column") int column) {
+//        this.row = row;
+//        this.column = column;
+//    }
 
     public int getRow() {
         return row;
@@ -36,11 +35,11 @@ public class Seat {
 
     @JsonIgnore
     public boolean isAvailable() {
-        return bought;
+        return available;
     }
 
     public void setAvailable(boolean bought) {
-        this.bought = bought;
+        this.available = bought;
     }
 
 

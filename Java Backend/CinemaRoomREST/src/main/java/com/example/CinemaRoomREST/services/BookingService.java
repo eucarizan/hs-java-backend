@@ -33,15 +33,20 @@ public class BookingService {
                 .findFirst();
 
         if (seatOptional.isEmpty()) {
-            seatInfo = new ResponseEntity(Map.of("error", ErrorMsgs.OUT_OF_BOUNDS.toString()), HttpStatus.BAD_REQUEST);
+//            seatInfo = ResponseEntity.badRequest().body(ErrorMsgs.OUT_OF_BOUNDS.toString());
+            seatInfo = new ResponseEntity(Map.of("error", ErrorMsgs.OUT_OF_BOUNDS.toString()),
+                    HttpStatus.BAD_REQUEST);
         } else if (!seatOptional.get().isAvailable()) {
-            seatInfo = new ResponseEntity(Map.of("error", ErrorMsgs.NOT_AVAILABLE_TICKET.toString()), HttpStatus.BAD_REQUEST);
+            seatInfo = new ResponseEntity(Map.of("error", ErrorMsgs.NOT_AVAILABLE_TICKET.toString()),
+                    HttpStatus.BAD_REQUEST);
         } else {
             try {
-                seatInfo = new ResponseEntity(objectMapper.writeValueAsString(seatOptional.get()), HttpStatus.OK);
+                seatInfo = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
+                        .writeValueAsString(seatOptional.get()), HttpStatus.OK);
                 seatOptional.get().setAvailable(false);
             } catch (JsonProcessingException e) {
-                seatInfo = new ResponseEntity(Map.of("error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+                seatInfo = new ResponseEntity(Map.of("error", e.getMessage()),
+                        HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 

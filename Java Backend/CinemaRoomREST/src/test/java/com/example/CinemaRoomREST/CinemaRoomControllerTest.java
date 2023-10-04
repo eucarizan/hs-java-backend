@@ -1,5 +1,6 @@
 package com.example.CinemaRoomREST;
 
+import com.example.CinemaRoomREST.models.Seat;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,11 +25,62 @@ public class CinemaRoomControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(response.getBody());
-        int totalRows = documentContext.read("$.total_rows");
-        int totalColumns = documentContext.read("$.total_columns");
-        int seats = documentContext.read("$.available_seats.length()");
+        int totalRows = documentContext.read("$.rows");
+        int totalColumns = documentContext.read("$.columns");
+        int seats = documentContext.read("$.seats.length()");
         assertThat(totalRows).isEqualTo(9);
         assertThat(totalColumns).isEqualTo(9);
         assertThat(seats).isEqualTo(81);
+    }
+
+    @Test
+    void shouldHandleWrongRowNumber() {
+        Seat seat = new Seat(15, 4, true);
+        ResponseEntity<String> createResponse = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        DocumentContext documentContext = JsonPath.parse(createResponse.getBody());
+        String error = documentContext.read("$.error");
+        assertThat(error).isEqualTo("The number of a row or a column is out of bounds!");
+
+        Seat negativeSeat = new Seat(-1, -1, true);
+        ResponseEntity<String> createNegativeSeatResponse = restTemplate
+                .postForEntity("/purchase", negativeSeat, String.class);
+        assertThat(createNegativeSeatResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    @DirtiesContext
+    void shouldPurchaseATicket() {
+        Seat seat = new Seat(3, 4, true);
+        ResponseEntity<String> createResponse = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(createResponse.getBody());
+        int row = documentContext.read("$.row");
+        int col = documentContext.read("$.column");
+        int price = documentContext.read("$.price");
+        assertThat(row).isEqualTo(3);
+        assertThat(col).isEqualTo(4);
+        assertThat(price).isEqualTo(10);
+    }
+
+    @Test
+    @DirtiesContext
+    void shouldTicketShouldNotBePurchasedTwice() {
+        Seat seat = new Seat(1, 1, true);
+        ResponseEntity<String> purchaseResponse01 = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(purchaseResponse01.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        ResponseEntity<String> purchaseResponse02 = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(purchaseResponse02.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        DocumentContext documentContext = JsonPath.parse(purchaseResponse02.getBody());
+        String error = documentContext.read("$.error");
+        assertThat(error).isEqualTo("The ticket has been already purchased!");
     }
 }
