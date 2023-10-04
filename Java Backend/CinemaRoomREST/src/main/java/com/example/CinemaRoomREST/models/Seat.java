@@ -1,20 +1,25 @@
-package com.example.CinemaRoomREST;
+package com.example.CinemaRoomREST.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Seat {
     int row;
     int column;
     int price;
 
-    @JsonIgnore
     boolean bought;
 
-    public Seat(int row, int column) {
+    public Seat(int row, int column, boolean bought) {
         this.row = row;
         this.column = column;
         this.price = row <= 4 ? 10 : 8;
-        this.bought = false;
+        this.bought = bought;
+    }
+
+    public Seat(@JsonProperty("row") int row, @JsonProperty("column") int column) {
+        this.row = row;
+        this.column = column;
     }
 
     public int getRow() {
@@ -29,19 +34,14 @@ public class Seat {
         return price;
     }
 
-    public boolean isBought() {
+    @JsonIgnore
+    public boolean isAvailable() {
         return bought;
     }
 
-    public void setBought(boolean bought) {
+    public void setAvailable(boolean bought) {
         this.bought = bought;
     }
 
-    @Override
-    public String toString() {
-        return "{\n\t\"row\": " + row +
-                ",\n\t\"column\": " + column +
-                ",\n\t\"price\": " + price +
-                "\n}";
-    }
+
 }
