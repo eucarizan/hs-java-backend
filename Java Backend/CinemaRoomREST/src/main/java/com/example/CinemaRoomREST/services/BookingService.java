@@ -2,6 +2,7 @@ package com.example.CinemaRoomREST.services;
 
 import com.example.CinemaRoomREST.dictionary.ErrorMsgs;
 import com.example.CinemaRoomREST.dto.SeatDTO;
+import com.example.CinemaRoomREST.dto.StatsDTO;
 import com.example.CinemaRoomREST.dto.TicketDTO;
 import com.example.CinemaRoomREST.models.Cinema;
 import com.example.CinemaRoomREST.models.Seat;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Predicate;
 
 @Service
 public class BookingService {
@@ -88,6 +88,22 @@ public class BookingService {
         }
 
         return seatInfo;
+    }
+
+    public ResponseEntity<String> getStats(String password) {
+        if ("super_secret".equals(password)) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            ResponseEntity<String> cinemaStats;
+            StatsDTO statsDTO = new StatsDTO(cinema.getIncome(), cinema.getAvailableSeats(), cinema.getPurchased());
+            try {
+                cinemaStats = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
+                        .writeValueAsString(statsDTO), HttpStatus.OK);
+            } catch (JsonProcessingException e) {
+                cinemaStats = new ResponseEntity(Map.of("error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return cinemaStats;
+        }
+        return new ResponseEntity(Map.of("error", ErrorMsgs.WRONG_PASSWORD.toString()), HttpStatus.UNAUTHORIZED);
     }
 
 }

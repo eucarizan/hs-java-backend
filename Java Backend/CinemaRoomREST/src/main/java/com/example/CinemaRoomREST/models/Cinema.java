@@ -10,6 +10,8 @@ public class Cinema {
     final int rows = 9;
     final int columns = 9;
     Seat[] seats = new Seat[rows * columns];
+    int income = 0;
+    int purchased = 0;
 
     public Cinema() {
         if (seats[0] == null) {
@@ -40,5 +42,28 @@ public class Cinema {
 
     public Seat[] getSeats() {
         return Arrays.stream(seats).filter(Seat::isAvailable).toArray(Seat[]::new);
+    }
+
+    @JsonIgnore
+    public long getAvailableSeats() {
+        return Arrays.stream(seats).filter(Seat::isAvailable).count();
+    }
+
+    @JsonIgnore
+    public int getIncome() {
+        return income;
+    }
+
+    public void adjustIncome(int price) {
+        this.income += price;
+    }
+
+    @JsonIgnore
+    public int getPurchased() {
+        return purchased;
+    }
+
+    public void adjustPurchased(int increment) {
+        this.purchased += increment;
     }
 }

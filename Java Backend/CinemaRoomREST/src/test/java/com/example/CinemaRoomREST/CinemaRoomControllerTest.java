@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 
+import javax.print.Doc;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -72,7 +74,7 @@ public class CinemaRoomControllerTest {
 
     @Test
     @DirtiesContext
-    void shouldTicketShouldNotBePurchasedTwice() {
+    void ticketShouldNotBePurchasedTwice() {
         Seat seat = new Seat(1, 1, true);
         ResponseEntity<String> purchaseResponse01 = restTemplate
                 .postForEntity("/purchase", seat, String.class);
@@ -103,4 +105,55 @@ public class CinemaRoomControllerTest {
                 .postForEntity("/return", returnToken, String.class);
         assertThat(returnResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
+
+    @Test
+    @DirtiesContext
+    void shouldNotBeAbleToReturnTicketTwice() {
+        Seat seat = new Seat(5, 5, true);
+        ResponseEntity<String> purchaseResponse = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(purchaseResponse.getBody());
+        String token = documentContext.read("$.token");
+
+        Token returnToken = new Token(token);
+        ResponseEntity<String> returnResponse = restTemplate
+                .postForEntity("/return", returnToken, String.class);
+        assertThat(returnResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+
+        returnResponse = restTemplate
+                .postForEntity("/return", returnToken, String.class);
+        assertThat(returnResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        DocumentContext documentContext1 = JsonPath.parse(returnResponse.getBody());
+        String error = documentContext1.read("$.error");
+        assertThat(error).isEqualTo("Wrong token!");
+    }
+
+    @Test
+    void shouldShowStatsForManagersWithPassword() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/stats?password=super_secret", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(response.getBody());
+        int income = documentContext.read("$.income");
+        int available = documentContext.read("$.available");
+        int purchased = documentContext.read("$.purchased");
+        assertThat(income).isEqualTo(0);
+        assertThat(available).isEqualTo(81);
+        assertThat(purchased).isEqualTo(0);
+    }
+
+    @Test
+    void shouldNotShowStatsForWrongPassword() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/stats?password=super_secrets", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // TODO 01
+    }
+
+    // TODO 02 - check for purchase if stats will update
+    // TODO 03 - check for return if stats will update
+
 }

@@ -6,10 +6,7 @@ import com.example.CinemaRoomREST.models.Token;
 import com.example.CinemaRoomREST.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CinemaController {
@@ -34,5 +31,10 @@ public class CinemaController {
     @PostMapping("/return")
     public ResponseEntity<String> returnTicket(@RequestBody Token token) {
         return bookingService.returnTicket(token.getToken());
+    }
+
+    @GetMapping("/stats")
+    public ResponseEntity<String> getStats(@RequestParam String password) {
+        return bookingService.getStats(password);
     }
 }
