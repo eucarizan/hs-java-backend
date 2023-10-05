@@ -1,8 +1,11 @@
 package com.example.CinemaRoomREST.services;
 
 import com.example.CinemaRoomREST.dictionary.ErrorMsgs;
+import com.example.CinemaRoomREST.dto.SeatDTO;
+import com.example.CinemaRoomREST.dto.TicketDTO;
 import com.example.CinemaRoomREST.models.Cinema;
 import com.example.CinemaRoomREST.models.Seat;
+import com.example.CinemaRoomREST.models.Ticket;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 @Service
 public class BookingService {
@@ -41,9 +45,42 @@ public class BookingService {
                     HttpStatus.BAD_REQUEST);
         } else {
             try {
+                Seat seat = seatOptional.get();
+                seat.generateToken();
+                Ticket ticket = new Ticket(seat.getRow(), seat.getColumn(), seat.getPrice());
+                TicketDTO ticketDTO = new TicketDTO(seat.getToken(), ticket);
                 seatInfo = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
-                        .writeValueAsString(seatOptional.get()), HttpStatus.OK);
-                seatOptional.get().setAvailable(false);
+                        .writeValueAsString(ticketDTO), HttpStatus.OK);
+                seat.setAvailable(false);
+            } catch (JsonProcessingException e) {
+                seatInfo = new ResponseEntity(Map.of("error", e.getMessage()),
+                        HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        return seatInfo;
+    }
+
+    public ResponseEntity<String> returnTicket(String token) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResponseEntity<String> seatInfo;
+
+        Optional<Seat> seatOptional = Arrays.stream(cinema.getSeatsClone())
+                .filter(seat -> token.equals(seat.getToken()))
+                .findFirst();
+
+        if (seatOptional.isEmpty()) {
+            seatInfo = new ResponseEntity(Map.of("error", ErrorMsgs.WRONG_TOKEN.toString()),
+                    HttpStatus.BAD_REQUEST);
+        } else {
+            try {
+                Seat seat = seatOptional.get();
+                Ticket ticket = new Ticket(seat.getRow(), seat.getColumn(), seat.getPrice());
+                SeatDTO seatDTO = new SeatDTO(ticket);
+                seatInfo = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
+                        .writeValueAsString(seatDTO), HttpStatus.OK);
+                seat.setAvailable(true);
+                seat.resetToken();
             } catch (JsonProcessingException e) {
                 seatInfo = new ResponseEntity(Map.of("error", e.getMessage()),
                         HttpStatus.INTERNAL_SERVER_ERROR);

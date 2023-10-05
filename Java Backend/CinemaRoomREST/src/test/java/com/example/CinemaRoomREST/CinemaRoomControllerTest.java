@@ -1,6 +1,7 @@
 package com.example.CinemaRoomREST;
 
 import com.example.CinemaRoomREST.models.Seat;
+import com.example.CinemaRoomREST.models.Token;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.Test;
@@ -59,9 +60,11 @@ public class CinemaRoomControllerTest {
         assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(createResponse.getBody());
-        int row = documentContext.read("$.row");
-        int col = documentContext.read("$.column");
-        int price = documentContext.read("$.price");
+        String token = documentContext.read("$.token");
+        int row = documentContext.read("$.ticket.row");
+        int col = documentContext.read("$.ticket.column");
+        int price = documentContext.read("$.ticket.price");
+        assertThat(token).isNotBlank();
         assertThat(row).isEqualTo(3);
         assertThat(col).isEqualTo(4);
         assertThat(price).isEqualTo(10);
@@ -82,5 +85,22 @@ public class CinemaRoomControllerTest {
         DocumentContext documentContext = JsonPath.parse(purchaseResponse02.getBody());
         String error = documentContext.read("$.error");
         assertThat(error).isEqualTo("The ticket has been already purchased!");
+    }
+
+    @Test
+    @DirtiesContext
+    void shouldReturnBoughtTicket() {
+        Seat seat = new Seat(2, 2, true);
+        ResponseEntity<String> purchaseResponse = restTemplate
+                .postForEntity("/purchase", seat, String.class);
+        assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(purchaseResponse.getBody());
+        String token = documentContext.read("$.token");
+
+        Token returnToken = new Token(token);
+        ResponseEntity<String> returnResponse = restTemplate
+                .postForEntity("/return", returnToken, String.class);
+        assertThat(returnResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

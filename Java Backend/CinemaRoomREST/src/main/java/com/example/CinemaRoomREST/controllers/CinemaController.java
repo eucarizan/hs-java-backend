@@ -2,6 +2,7 @@ package com.example.CinemaRoomREST.controllers;
 
 import com.example.CinemaRoomREST.models.Cinema;
 import com.example.CinemaRoomREST.models.Seat;
+import com.example.CinemaRoomREST.models.Token;
 import com.example.CinemaRoomREST.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,10 @@ public class CinemaController {
     @PostMapping("/purchase")
     public ResponseEntity<String> purchaseSeat(@RequestBody Seat requestedSeat) {
         return bookingService.purchaseTicket(requestedSeat);
+    }
+
+    @PostMapping("/return")
+    public ResponseEntity<String> returnTicket(@RequestBody Token token) {
+        return bookingService.returnTicket(token.getToken());
     }
 }
