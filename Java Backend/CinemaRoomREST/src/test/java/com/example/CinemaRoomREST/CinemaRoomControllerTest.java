@@ -38,27 +38,21 @@ public class CinemaRoomControllerTest {
 
     @Test
     void shouldHandleWrongRowNumber() {
-        Seat seat = new Seat(15, 4, true);
-        ResponseEntity<String> createResponse = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> createResponse = getPostResponse(15, 4);
         assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
         DocumentContext documentContext = JsonPath.parse(createResponse.getBody());
         String error = documentContext.read("$.error");
         assertThat(error).isEqualTo("The number of a row or a column is out of bounds!");
 
-        Seat negativeSeat = new Seat(-1, -1, true);
-        ResponseEntity<String> createNegativeSeatResponse = restTemplate
-                .postForEntity("/purchase", negativeSeat, String.class);
+        ResponseEntity<String> createNegativeSeatResponse = getPostResponse(-1, -1);
         assertThat(createNegativeSeatResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
 
     @Test
     @DirtiesContext
     void shouldPurchaseATicket() {
-        Seat seat = new Seat(3, 4, true);
-        ResponseEntity<String> createResponse = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> createResponse = getPostResponse(3, 4);
         assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(createResponse.getBody());
@@ -75,13 +69,10 @@ public class CinemaRoomControllerTest {
     @Test
     @DirtiesContext
     void ticketShouldNotBePurchasedTwice() {
-        Seat seat = new Seat(1, 1, true);
-        ResponseEntity<String> purchaseResponse01 = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> purchaseResponse01 = getPostResponse(1, 1);
         assertThat(purchaseResponse01.getStatusCode()).isEqualTo(HttpStatus.OK);
 
-        ResponseEntity<String> purchaseResponse02 = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> purchaseResponse02 = getPostResponse(1, 1);
         assertThat(purchaseResponse02.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
         DocumentContext documentContext = JsonPath.parse(purchaseResponse02.getBody());
@@ -92,9 +83,7 @@ public class CinemaRoomControllerTest {
     @Test
     @DirtiesContext
     void shouldReturnBoughtTicket() {
-        Seat seat = new Seat(2, 2, true);
-        ResponseEntity<String> purchaseResponse = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> purchaseResponse = getPostResponse(2, 2);
         assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(purchaseResponse.getBody());
@@ -109,9 +98,7 @@ public class CinemaRoomControllerTest {
     @Test
     @DirtiesContext
     void shouldNotBeAbleToReturnTicketTwice() {
-        Seat seat = new Seat(5, 5, true);
-        ResponseEntity<String> purchaseResponse = restTemplate
-                .postForEntity("/purchase", seat, String.class);
+        ResponseEntity<String> purchaseResponse = getPostResponse(5, 5);
         assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(purchaseResponse.getBody());
@@ -147,13 +134,88 @@ public class CinemaRoomControllerTest {
     }
 
     @Test
-    void shouldNotShowStatsForWrongPassword() {
-        ResponseEntity<String> response = restTemplate.getForEntity("/stats?password=super_secrets", String.class);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        // TODO 01
+    void shouldReturnUnauthorizedWhenPasswordIsBlank() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/stats", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+
+        DocumentContext documentContext = JsonPath.parse(response.getBody());
+        String error = documentContext.read("$.error");
+        assertThat(error).isEqualTo("The password is wrong!");
     }
 
-    // TODO 02 - check for purchase if stats will update
-    // TODO 03 - check for return if stats will update
+    @Test
+    void shouldNotShowStatsForWrongPassword() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/stats?password=super_secrets", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+
+        DocumentContext documentContext = JsonPath.parse(response.getBody());
+        String error = documentContext.read("$.error");
+        assertThat(error).isEqualTo("The password is wrong!");
+    }
+
+    @Test
+    @DirtiesContext
+    void shouldUpdateStatsWhenTicketIsPurchased() {
+        ResponseEntity<String> purchaseResponse = getPostResponse(4, 4);
+        assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext purchaseDocumentContext = JsonPath.parse(purchaseResponse.getBody());
+        int price = purchaseDocumentContext.read("$.ticket.price");
+
+        ResponseEntity<String> statsResponse = restTemplate.getForEntity("/stats?password=super_secret", String.class);
+        assertThat(statsResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(statsResponse.getBody());
+        int income = documentContext.read("$.income");
+        int available = documentContext.read("$.available");
+        int purchased = documentContext.read("$.purchased");
+        assertThat(income).isEqualTo(price);
+        assertThat(available).isEqualTo(80);
+        assertThat(purchased).isEqualTo(1);
+    }
+
+    @Test
+    @DirtiesContext
+    void shouldUpdateStatsWhenTicketIsReturned() {
+        ResponseEntity<String> purchaseResponse = getPostResponse(3, 4);
+        assertThat(purchaseResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext purchaseDocumentContext = JsonPath.parse(purchaseResponse.getBody());
+        String token = purchaseDocumentContext.read("$.token");
+
+        ResponseEntity<String> statsResponse = restTemplate.getForEntity("/stats?password=super_secret", String.class);
+        assertThat(statsResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext = JsonPath.parse(statsResponse.getBody());
+        int income = documentContext.read("$.income");
+        int available = documentContext.read("$.available");
+        int purchased = documentContext.read("$.purchased");
+        assertThat(income).isEqualTo(10);
+        assertThat(available).isEqualTo(80);
+        assertThat(purchased).isEqualTo(1);
+
+        Token returnToken = new Token(token);
+        ResponseEntity<String> returnResponse = restTemplate
+                .postForEntity("/return", returnToken, String.class);
+        assertThat(returnResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        statsResponse = restTemplate.getForEntity("/stats?password=super_secret", String.class);
+        assertThat(statsResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        DocumentContext documentContext1 = JsonPath.parse(statsResponse.getBody());
+        int income1 = documentContext1.read("$.income");
+        int available1 = documentContext1.read("$.available");
+        int purchased1 = documentContext1.read("$.purchased");
+        assertThat(income1).isEqualTo(0);
+        assertThat(available1).isEqualTo(81);
+        assertThat(purchased1).isEqualTo(0);
+    }
+
+    private ResponseEntity<String> getPostResponse(int row, int col) {
+        Seat seat = new Seat(row, col, true);
+
+        return restTemplate
+                .postForEntity("/purchase", seat, String.class);
+    }
 
 }

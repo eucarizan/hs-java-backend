@@ -34,7 +34,7 @@ public class CinemaController {
     }
 
     @GetMapping("/stats")
-    public ResponseEntity<String> getStats(@RequestParam String password) {
+    public ResponseEntity<String> getStats(@RequestParam(required = false) String password) {
         return bookingService.getStats(password);
     }
 }

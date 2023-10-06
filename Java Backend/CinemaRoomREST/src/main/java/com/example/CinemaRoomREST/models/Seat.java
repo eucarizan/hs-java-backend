@@ -19,11 +19,6 @@ public class Seat {
         this.token = "";
     }
 
-//    public Seat(@JsonProperty("row") int row, @JsonProperty("column") int column) {
-//        this.row = row;
-//        this.column = column;
-//    }
-
     public int getRow() {
         return row;
     }

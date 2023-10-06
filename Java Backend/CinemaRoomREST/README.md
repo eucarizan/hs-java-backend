@@ -8,6 +8,18 @@
       - [1.1 Description](#11-description)
       - [1.2 Objectives](#12-objectives)
       - [1.3 Examples](#13-examples)
+    - [2. Take your seat](#2-take-your-seat)
+      - [2.1 Description](#21-description)
+      - [2.2 Objectives](#22-objectives)
+      - [2.3 Examples](#23-examples)
+    - [3. A change of plans](#3-a-change-of-plans)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Examples](#33-examples)
+    - [4. The statistics](#4-the-statistics)
+      - [4.1 Description](#41-description)
+      - [4.2 Objectives](#42-objectives)
+      - [4.3 Examples](#43-examples)
 
 ## Learning outcomes
 In this project, you will create a simple Spring REST service that will help you manage a small movie theater. It will handle HTTP requests in controllers, create services, and respond with JSON objects.
@@ -90,6 +102,7 @@ Note that the `available_seats` array contains 81 elements, as there are 81 seat
    ]
 }
 ```
+<hr>
 
 ### 2. Take your seat
 #### 2.1 Description
@@ -225,5 +238,156 @@ _Response body:_
     "error": "The number of a row or a column is out of bounds!"
 }
 ```
+<hr>
 
-<!-- ### 3 -->
+### 3. A change of plans
+#### 3.1 Description
+We live in a fast world, and our plans may change very quickly. Let's add the ability to refund a ticket if a customer can't come and watch a movie. We will use tokens to secure the ticket refund process.
+
+#### 3.2 Objectives
+Change the JSON response when a customer purchases a ticket by making a `POST` request to the `/purchase` endpoint. Turn it into the following format:
+```json
+{
+    "token": "00ae15f2-1ab6-4a02-a01f-07810b42c0ee",
+    "ticket": {
+        "row": 1,
+        "column": 1,
+        "price": 10
+    }
+}
+```
+
+We recommend using the `randomUUID()` method of the `UUID` class to generate tokens. Take a look at this [UUID Guide](https://www.baeldung.com/java-uuid) by Baeldung if you're interested in more detail.
+
+Implement the `/return` endpoint, which will handle `POST` requests and allow customers to refund their tickets.
+
+The request should have the `token` feature that identifies the ticket in the request body. Once you have the token, you need to identify the ticket it relates to and mark it as available. The response body should be as follows:
+```json
+{
+    "ticket": {
+        "row": 1,
+        "column": 1,
+        "price": 10
+    }
+}
+```
+
+The `ticket` should contain the information about the returned ticket.
+
+If you cannot identify the ticket by the token, make your program respond with a `400` status code and the following response body:
+```json
+{
+    "error": "Wrong token!"
+}
+```
+
+#### 3.3 Examples
+**Example 1:** *a correct `POST /purchase` request*
+
+*Request body:*
+```json
+{
+    "row": 3,
+    "column": 4
+}
+```
+
+*Response body:*
+```json
+{
+    "token": "e739267a-7031-4eed-a49c-65d8ac11f556",
+    "ticket": {
+        "row": 3,
+        "column": 4,
+        "price": 10
+    }
+}
+```
+
+**Example 2:** *`POST /return` with the correct token*
+
+`Request body:`
+```json
+{
+    "token": "e739267a-7031-4eed-a49c-65d8ac11f556"
+}
+```
+
+**Response body:**
+```json
+{
+    "ticket": {
+        "row": 1,
+        "column": 2,
+        "price": 10
+    }
+}
+```
+
+**Example 3:** *`POST /return` with an expired token*
+```json
+*Request body:*
+
+{
+    "token": "e739267a-7031-4eed-a49c-65d8ac11f556"
+}
+```
+
+*Response body:*
+```json
+{
+    "error": "Wrong token!"
+}
+```
+<hr>
+
+### 4. The statistics
+#### 4.1 Description
+Your REST service knows how to show available tickets, sell them, and make a refund. Let's add statistics available only to the theatre managers.
+
+#### 4.2 Objectives
+Implement the `/stats` endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a `password` key with a `super_secret` value, return the movie theatre statistics in the following format:
+
+```json
+{
+    "income": 0,
+    "available": 81,
+    "purchased": 0
+}
+```
+
+Take a look at the description of keys:
+
+- `income` — shows the total income of sold tickets.
+- `available` — shows how many seats are available.
+- `purchased` — shows how many tickets were purchased.
+
+If the parameters don't contain a password key or a wrong value has been passed, respond with a 401 status code. The response body should contain the following:
+
+```json
+{
+    "error": "The password is wrong!"
+}
+```
+
+#### 4.3 Examples
+**Example 1:** _a `GET /stats` request with no parameters_
+
+*Response body:*
+```json
+{
+    "error": "The password is wrong!"
+}
+```
+
+**Example 2:** *a `GET /stats` request with the correct password*
+
+*Response body:*
+```json
+{
+    "income": 30,
+    "available": 78,
+    "purchased": 3
+}
+```
+

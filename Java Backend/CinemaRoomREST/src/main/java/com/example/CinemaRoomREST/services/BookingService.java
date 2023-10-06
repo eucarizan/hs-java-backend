@@ -51,6 +51,8 @@ public class BookingService {
                 TicketDTO ticketDTO = new TicketDTO(seat.getToken(), ticket);
                 seatInfo = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
                         .writeValueAsString(ticketDTO), HttpStatus.OK);
+                cinema.adjustPurchased(1);
+                cinema.adjustIncome(seat.getPrice());
                 seat.setAvailable(false);
             } catch (JsonProcessingException e) {
                 seatInfo = new ResponseEntity(Map.of("error", e.getMessage()),
@@ -79,6 +81,8 @@ public class BookingService {
                 SeatDTO seatDTO = new SeatDTO(ticket);
                 seatInfo = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
                         .writeValueAsString(seatDTO), HttpStatus.OK);
+                cinema.adjustPurchased(-1);
+                cinema.adjustIncome(-1 * seat.getPrice());
                 seat.setAvailable(true);
                 seat.resetToken();
             } catch (JsonProcessingException e) {
@@ -91,19 +95,20 @@ public class BookingService {
     }
 
     public ResponseEntity<String> getStats(String password) {
-        if ("super_secret".equals(password)) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            ResponseEntity<String> cinemaStats;
-            StatsDTO statsDTO = new StatsDTO(cinema.getIncome(), cinema.getAvailableSeats(), cinema.getPurchased());
-            try {
-                cinemaStats = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
-                        .writeValueAsString(statsDTO), HttpStatus.OK);
-            } catch (JsonProcessingException e) {
-                cinemaStats = new ResponseEntity(Map.of("error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            return cinemaStats;
+        if (!"super_secret".equals(password)) {
+            return new ResponseEntity(Map.of("error", ErrorMsgs.WRONG_PASSWORD.toString()), HttpStatus.UNAUTHORIZED);
         }
-        return new ResponseEntity(Map.of("error", ErrorMsgs.WRONG_PASSWORD.toString()), HttpStatus.UNAUTHORIZED);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResponseEntity<String> cinemaStats;
+        StatsDTO statsDTO = new StatsDTO(cinema.getIncome(), cinema.getAvailableSeats(), cinema.getPurchased());
+        try {
+            cinemaStats = new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(statsDTO), HttpStatus.OK);
+        } catch (JsonProcessingException e) {
+            cinemaStats = new ResponseEntity(Map.of("error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return cinemaStats;
     }
 
 }
