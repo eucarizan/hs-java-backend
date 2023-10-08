@@ -325,8 +325,8 @@ If you cannot identify the ticket by the token, make your program respond with a
 ```
 
 **Example 3:** *`POST /return` with an expired token*
-```json
 *Request body:*
+```json
 
 {
     "token": "e739267a-7031-4eed-a49c-65d8ac11f556"

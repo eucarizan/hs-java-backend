@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Program {
     public static final String OPTIONS = """
             \nSupported requests:
@@ -13,6 +17,17 @@ public class Program {
     private static final String SECOND_PARAM_ERROR = "\nThe second parameter should be a natural number.\n";
     private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY]\n";
     public static final String GOODBYE = "\nGoodbye!";
+    private static final List<String> propertiesList = List.of(
+            "buzz",
+            "duck",
+            "palindromic",
+            "gapful",
+            "spy",
+            "square",
+            "sunny",
+            "even",
+            "odd"
+    );
 
     public static String processRequest(String request) {
         StringBuilder sb = new StringBuilder();
@@ -25,7 +40,7 @@ public class Program {
             try {
                 long num = Long.parseLong(strings[0]);
 
-                if (num == 0 /*&& strings.length == 1*/) {
+                if (num == 0) {
                     sb.append(GOODBYE);
                 } else if (num < 0) {
                     sb.append(FIRST_PARAM_ERROR);
@@ -47,7 +62,7 @@ public class Program {
         StringBuilder sb = new StringBuilder();
 
         long count = Long.parseLong(strings[1]);
-        String property1 = "";
+        String property = "";
 
         if (count <= 0) {
             sb.append(SECOND_PARAM_ERROR);
@@ -55,15 +70,17 @@ public class Program {
         }
 
         if (strings.length == 3) {
-            property1 = strings[2].toLowerCase();
-            sb.append(handleSingleProperty(num, count, property1));
-        } else if (strings.length == 4) {
-            property1 = strings[2].toLowerCase();
-            String property2 = strings[3].toLowerCase();
-            sb.append(handleRequestWithProperties(num, count, property1, property2));
+            property = strings[2].toLowerCase();
+            sb.append(handleSingleProperty(num, count, property));
+        } else if (strings.length > 3) {
+            List<String> properties = Arrays.
+                    stream(Arrays.copyOfRange(strings, 2, strings.length))
+                    .toList();
+            sb.append(handleRequestWithProperties(num, count, properties));
+            property = "not empty";
         }
 
-        if (property1.isEmpty()) {
+        if (property.isEmpty()) {
             sb.append(handleRange(num, count));
         }
 
@@ -73,15 +90,15 @@ public class Program {
     private static String handleSingleProperty(long num, long count, String property) {
         StringBuilder sb = new StringBuilder("\n");
 
-        if (propertyNotExists(property)) {
+        if (!propertiesList.contains(property)) {
             sb.append(String.format("The property [%s] is wrong.%n", property.toUpperCase()));
             sb.append(PROPERTIES_MSG);
             return sb.toString();
         }
-
-        for (int i = 0, j = 0; i < count; i++) {
+        int j = 0;
+        for (int i = 0; i < count; i++) {
             Number number = new Number(num + j++);
-            while (number.hasProperty(property)) {
+            while (!number.hasProperty(property)) {
                 number = new Number(num + j++);
             }
             sb.append(number.getProperties());
@@ -90,33 +107,37 @@ public class Program {
         return sb.toString();
     }
 
-    private static String handleRequestWithProperties(long num, long count, String prop1, String prop2) {
+    private static String handleRequestWithProperties(long num, long count, List<String> properties) {
         StringBuilder sb = new StringBuilder();
+        List<String> propertiesNotExist = new ArrayList<>();
+        boolean hasPropertyNotExist = false;
 
-        if (propertyNotExists(prop1)) {
-            if (propertyNotExists(prop2)) {
-                sb.append(String.format("%nThe properties [%s, %s] are wrong.", prop1.toUpperCase(), prop2.toUpperCase()));
+        for (String prop : properties) {
+            if (!propertiesList.contains(prop)) {
+                propertiesNotExist.add(prop.toUpperCase());
+                hasPropertyNotExist = true;
+            }
+        }
+
+        if (hasPropertyNotExist) {
+            sb.append("The properties [");
+            sb.append(String.join(", ", propertiesNotExist));
+            if (propertiesNotExist.size() > 1) {
+                sb.append("] are wrong.");
             } else {
-                sb.append(String.format("%nThe property [%s] is wrong.", prop1.toUpperCase()));
+                sb.append("] is wrong.");
             }
             sb.append(PROPERTIES_MSG);
-        } else if (propertyNotExists(prop2)) {
-            sb.append(String.format("%nThe property [%s] is wrong.", prop2.toUpperCase()));
-            sb.append(PROPERTIES_MSG);
         } else {
-            if (mutuallyExclusive(prop1, prop2)) {
-                sb.append(String.format("%nThe request contains mutually exclusive properties: [%s, %s]%n", prop1.toUpperCase(), prop2.toUpperCase()));
-                sb.append("There are no numbers with these properties.\n");
+            if (mutuallyExclusive(properties)) {
+                sb.append(hasMutuallyExclusiveProperty(properties));
                 return sb.toString();
             } else {
                 sb.append("\n");
                 int j = 0;
                 for (int i = 0; i < count; i++) {
                     Number number = new Number(num + j++);
-                    while (!number.hasProperty(prop1) && number.hasProperty(prop2) ||
-                            number.hasProperty(prop1) && !number.hasProperty(prop2) ||
-                            !number.hasProperty(prop1) && !number.hasProperty(prop2)
-                    ) {
+                    while (!numberDoesNotContain(properties, number)) {
                         number = new Number(num + j++);
                     }
                     sb.append(number.getProperties());
@@ -125,6 +146,16 @@ public class Program {
         }
 
         return sb.toString();
+    }
+
+    private static boolean numberDoesNotContain(List<String> properties, Number number) {
+        for (String prop : properties) {
+            if (!number.getPropertiesList().contains(prop)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static String handleRange(long num, long count) {
@@ -138,20 +169,28 @@ public class Program {
         return sb.toString();
     }
 
-    private static boolean propertyNotExists(String property) {
-        return !switch (property) {
-            case "even", "odd", "buzz", "duck", "palindromic",
-                    "gapful", "spy", "square", "sunny" -> true;
-            default -> false;
-        };
+    private static boolean mutuallyExclusive(List<String> properties) {
+
+        return properties.contains("even") && properties.contains("odd") ||
+                properties.contains("duck") && properties.contains("spy") ||
+                properties.contains("sunny") && properties.contains("square");
     }
 
-    private static boolean mutuallyExclusive(String prop1, String prop2) {
-        if ("even".equals(prop1) && "odd".equals(prop2) || "odd".equals(prop1) && "even".equals(prop2)) {
-            return true;
-        } else if ("duck".equals(prop1) && "spy".equals(prop2) || "spy".equals(prop1) && "duck".equals(prop2)) {
-            return true;
-        } else
-            return "sunny".equals(prop1) && "square".equals(prop2) || "square".equals(prop1) && "sunny".equals(prop2);
+    private static String hasMutuallyExclusiveProperty(List<String> properties) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("%nThe request contains mutually exclusive properties: ["));
+
+        if (properties.contains("even") && properties.contains("odd")) {
+            sb.append("EVEN, ODD");
+        } else if (properties.contains("duck") && properties.contains("spy")) {
+            sb.append("DUCK, SPY");
+        } else if (properties.contains("sunny") && properties.contains("square")) {
+            sb.append("SUNNY, SQUARE");
+        }
+
+        sb.append("]\nThere are no numbers with these properties.\n");
+
+        return sb.toString();
     }
 }

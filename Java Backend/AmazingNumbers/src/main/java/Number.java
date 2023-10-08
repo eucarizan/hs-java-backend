@@ -43,6 +43,45 @@ public class Number {
         };
     }
 
+    public List<String> getPropertiesList() {
+        List<String> list = new ArrayList<>();
+        if (buzz) {
+            list.add("buzz");
+        }
+
+        if (duck) {
+            list.add("duck");
+        }
+
+        if (palindromic) {
+            list.add("palindromic");
+        }
+
+        if (gapful) {
+            list.add("gapful");
+        }
+
+        if (spy) {
+            list.add("spy");
+        }
+
+        if (square) {
+            list.add("square");
+        }
+
+        if (sunny) {
+            list.add("sunny");
+        }
+
+        if (even) {
+            list.add("even");
+        } else {
+            list.add("odd");
+        }
+
+        return list;
+    }
+
     private boolean isBuzz() {
         long digit = number % 10;
 
