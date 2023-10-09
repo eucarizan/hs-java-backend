@@ -10,12 +10,11 @@ public class Program {
               * the first parameter represents a starting number;
               * the second parameter shows how many consecutive numbers are to be processed;
             - two natural numbers and a property to search for;
-            - two natural numbers and two properties to search for;
             - separate the parameters with one space;
             - enter 0 to exit.""";
     private static final String FIRST_PARAM_ERROR = "\nThe first parameter should be a natural number or zero.\n";
     private static final String SECOND_PARAM_ERROR = "\nThe second parameter should be a natural number.\n";
-    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, JUMPING, SQUARE, SUNNY]\n";
+    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING]\n";
     public static final String GOODBYE = "\nGoodbye!";
     private static final List<String> propertiesList = List.of(
             "buzz",
@@ -74,8 +73,7 @@ public class Program {
             property = strings[2].toLowerCase();
             sb.append(handleSingleProperty(num, count, property));
         } else if (strings.length > 3) {
-            List<String> properties = Arrays.
-                    stream(Arrays.copyOfRange(strings, 2, strings.length))
+            List<String> properties = Arrays.stream(Arrays.copyOfRange(strings, 2, strings.length))
                     .toList();
             sb.append(handleRequestWithProperties(num, count, properties));
             property = "not empty";
@@ -96,76 +94,51 @@ public class Program {
             sb.append(PROPERTIES_MSG);
             return sb.toString();
         }
-        int j = 0;
-        for (int i = 0; i < count; i++) {
-            Number number = new Number(num + j++);
-            while (!number.hasProperty(property)) {
-                number = new Number(num + j++);
-            }
-            sb.append(number.getProperties());
-        }
+
+        sb.append(getNumberWithProperties(num, count, List.of(property)));
 
         return sb.toString();
     }
 
     private static String handleRequestWithProperties(long num, long count, List<String> properties) {
         StringBuilder sb = new StringBuilder();
-        List<String> propertiesNotExist = new ArrayList<>();
-        boolean hasPropertyNotExist = false;
+        List<String> propertiesNotExist = checkForNotExistingProperty(properties);
 
-        for (String prop : properties) {
-            if (!propertiesList.contains(prop)) {
-                propertiesNotExist.add(prop.toUpperCase());
-                hasPropertyNotExist = true;
-            }
-        }
-
-        if (hasPropertyNotExist) {
-            sb.append("The properties [");
-            sb.append(String.join(", ", propertiesNotExist));
-            if (propertiesNotExist.size() > 1) {
-                sb.append("] are wrong.");
-            } else {
-                sb.append("] is wrong.");
-            }
-            sb.append(PROPERTIES_MSG);
+        if (!propertiesNotExist.isEmpty()) {
+            sb.append(handlePropertyNotExist(propertiesNotExist));
         } else {
             if (mutuallyExclusive(properties)) {
                 sb.append(hasMutuallyExclusiveProperty(properties));
                 return sb.toString();
             } else {
-                sb.append("\n");
-                int j = 0;
-                for (int i = 0; i < count; i++) {
-                    Number number = new Number(num + j++);
-                    while (!numberDoesNotContain(properties, number)) {
-                        number = new Number(num + j++);
-                    }
-                    sb.append(number.getProperties());
-                }
+                sb.append(getNumberWithProperties(num, count, properties));
             }
         }
 
         return sb.toString();
     }
 
-    private static boolean numberDoesNotContain(List<String> properties, Number number) {
+    private static List<String> checkForNotExistingProperty(List<String> properties) {
+        List<String> returnProps = new ArrayList<>();
         for (String prop : properties) {
-            if (!number.getPropertiesList().contains(prop)) {
-                return false;
+            if (!propertiesList.contains(prop)) {
+                returnProps.add(prop.toUpperCase());
             }
         }
 
-        return true;
+        return returnProps;
     }
 
-    private static String handleRange(long num, long count) {
-        StringBuilder sb = new StringBuilder("\n");
-
-        for (int i = 0; i < count; i++) {
-            Number number = new Number(num + i);
-            sb.append(number.getProperties());
+    private static String handlePropertyNotExist(List<String> propertiesNotExist) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("The properties [");
+        sb.append(String.join(", ", propertiesNotExist));
+        if (propertiesNotExist.size() > 1) {
+            sb.append("] are wrong.");
+        } else {
+            sb.append("] is wrong.");
         }
+        sb.append(PROPERTIES_MSG);
 
         return sb.toString();
     }
@@ -191,6 +164,42 @@ public class Program {
         }
 
         sb.append("]\nThere are no numbers with these properties.\n");
+
+        return sb.toString();
+    }
+
+    private static String getNumberWithProperties(long num, long count, List<String> properties) {
+        StringBuilder sb = new StringBuilder("\n");
+
+        int j = 0;
+        for (int i = 0; i < count; i++) {
+            Number number = new Number(num + j++);
+            while (!numberDoesNotContain(properties, number)) {
+                number = new Number(num + j++);
+            }
+            sb.append(number.getProperties());
+        }
+
+        return sb.toString();
+    }
+
+    private static boolean numberDoesNotContain(List<String> properties, Number number) {
+        for (String prop : properties) {
+            if (!number.getPropertiesList().contains(prop)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static String handleRange(long num, long count) {
+        StringBuilder sb = new StringBuilder("\n");
+
+        for (int i = 0; i < count; i++) {
+            Number number = new Number(num + i);
+            sb.append(number.getProperties());
+        }
 
         return sb.toString();
     }

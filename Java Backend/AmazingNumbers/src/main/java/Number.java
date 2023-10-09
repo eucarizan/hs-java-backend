@@ -29,22 +29,22 @@ public class Number {
         this.odd = !isEven();
     }
 
-    public boolean hasProperty(String property) {
-
-        return switch (property) {
-            case "buzz" -> buzz;
-            case "duck" -> duck;
-            case "palindromic" -> palindromic;
-            case "gapful" -> gapful;
-            case "spy" -> spy;
-            case "square" -> square;
-            case "sunny" -> sunny;
-            case "even" -> even;
-            case "odd" -> odd;
-            case "jumping" -> jumping;
-            default -> false;
-        };
-    }
+//    public boolean hasProperty(String property) {
+//
+//        return switch (property) {
+//            case "buzz" -> buzz;
+//            case "duck" -> duck;
+//            case "palindromic" -> palindromic;
+//            case "gapful" -> gapful;
+//            case "spy" -> spy;
+//            case "square" -> square;
+//            case "sunny" -> sunny;
+//            case "even" -> even;
+//            case "odd" -> odd;
+//            case "jumping" -> jumping;
+//            default -> false;
+//        };
+//    }
 
     public List<String> getPropertiesList() {
         List<String> list = new ArrayList<>();

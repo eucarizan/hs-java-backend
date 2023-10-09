@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ProgramTest {
+public class ProgramImpl7Test {
     @Test
     void testEmptyInput() {
         String expected = """
@@ -15,6 +15,7 @@ public class ProgramTest {
                 - two natural numbers and a property to search for;
                 - separate the parameters with one space;
                 - enter 0 to exit.""";
+        // - two natural numbers and two properties to search for;
 
         String output = Program.processRequest("").trim();
 
