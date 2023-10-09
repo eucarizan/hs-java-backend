@@ -12,6 +12,7 @@ public class Number {
     boolean sunny;
     boolean even;
     boolean odd;
+    boolean jumping;
 
 
     public Number(long number) {
@@ -23,6 +24,7 @@ public class Number {
         this.spy = isSpy();
         this.square = isSquare(number);
         this.sunny = isSunny();
+        this.jumping = isJumping();
         this.even = isEven();
         this.odd = !isEven();
     }
@@ -39,6 +41,7 @@ public class Number {
             case "sunny" -> sunny;
             case "even" -> even;
             case "odd" -> odd;
+            case "jumping" -> jumping;
             default -> false;
         };
     }
@@ -71,6 +74,10 @@ public class Number {
 
         if (sunny) {
             list.add("sunny");
+        }
+
+        if (jumping) {
+            list.add("jumping");
         }
 
         if (even) {
@@ -144,6 +151,27 @@ public class Number {
         return false;
     }
 
+    private boolean isJumping() {
+        long n = number % 10;
+        long temp = number / 10;
+
+        if (temp == 0) {
+            return true;
+        }
+
+        while (temp > 0) {
+            long m = temp % 10;
+            if (Math.abs(m - n) != 1) {
+                return false;
+            }
+
+            n = m;
+            temp /= 10;
+        }
+
+        return true;
+    }
+
     public String getProperties() {
         List<String> properties = new ArrayList<>();
 
@@ -175,6 +203,10 @@ public class Number {
             properties.add("sunny");
         }
 
+        if (jumping) {
+            properties.add("jumping");
+        }
+
         if (even) {
             properties.add("even");
         } else {
@@ -194,6 +226,7 @@ public class Number {
                 String.format("%n%11s: %s", "spy", spy) +
                 String.format("%n%11s: %s", "square", square) +
                 String.format("%n%11s: %s", "sunny", sunny) +
+                String.format("%n%11s: %s", "jumping", jumping) +
                 String.format("%n%11s: %s", "even", even) +
                 String.format("%n%11s: %s", "odd", odd) + "\n";
     }

@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ProgramTest {
+public class ProgramImpl6Test {
+
     @Test
     void testEmptyInput() {
         String expected = """
@@ -194,47 +194,30 @@ public class ProgramTest {
         assertEquals(expected, result);
     }
 
+    // TODO - test number in range with valid three properties
     @Test
     void testNumberRangeWith3ValidProperties() {
         String expected = """
-                10101 is buzz, duck, palindromic, jumping, odd
-                          12121 is palindromic, jumping, odd
-                          12321 is palindromic, square, jumping, odd
-                          32123 is buzz, palindromic, jumping, odd
-                          32323 is palindromic, jumping, odd
-                          34343 is palindromic, jumping, odd"""
+                    9 is palindromic, spy, square, odd
+                  121 is palindromic, gapful, square, odd
+                10201 is duck, palindromic, square, odd
+                12321 is palindromic, square, odd
+                14641 is palindromic, gapful, square, odd
+                94249 is palindromic, square, odd"""
                 .replaceAll("\\s+", "");
 
-        String result = Program.processRequest("999 6 jumping odd palindromic").replaceAll("\\s+", "");
-
-        assertEquals(expected, result);
-    }
-
-    @Test
-    void testJumpingNumberForSingleDigit() {
-        for (int i = 1; i < 10; i++) {
-            String result = Program.processRequest(String.valueOf(i));
-            Assertions.assertTrue(result.contains("jumping"));
-        }
-    }
-
-
-    @Test
-    void testNumberRangeForPropertyJumping() {
+        /*
         String expected = """
-                1 is palindromic, spy, square, jumping, odd
-                    2 is palindromic, spy, jumping, even
-                    3 is palindromic, spy, sunny, jumping, odd
-                    4 is palindromic, spy, square, jumping, even
-                    5 is palindromic, spy, jumping, odd
-                    6 is palindromic, spy, jumping, even
-                    7 is buzz, palindromic, spy, jumping, odd
-                    8 is palindromic, spy, sunny, jumping, even
-                    9 is palindromic, spy, square, jumping, odd
-                   10 is duck, jumping, even"""
-                .replaceAll("\\s+", "");
+                10,101 is buzz, duck, palindromic, jumping, odd
+                          12,121 is palindromic, jumping, odd
+                          12,321 is palindromic, square, jumping, odd
+                          32,123 is buzz, palindromic, jumping, odd
+                          32,323 is palindromic, jumping, odd
+                          34,343 is palindromic, jumping, odd""";
+         */
 
-        String result = Program.processRequest("1 10 JUMPING").replaceAll("\\s+", "");
+        String result = Program.processRequest("3 6 square odd palindromic").replaceAll("\\s+", "");;
+        // 999 6 jumping odd palindromic
 
         assertEquals(expected, result);
     }

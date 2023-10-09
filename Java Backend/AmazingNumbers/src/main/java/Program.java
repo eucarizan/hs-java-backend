@@ -15,7 +15,7 @@ public class Program {
             - enter 0 to exit.""";
     private static final String FIRST_PARAM_ERROR = "\nThe first parameter should be a natural number or zero.\n";
     private static final String SECOND_PARAM_ERROR = "\nThe second parameter should be a natural number.\n";
-    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY]\n";
+    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, JUMPING, SQUARE, SUNNY]\n";
     public static final String GOODBYE = "\nGoodbye!";
     private static final List<String> propertiesList = List.of(
             "buzz",
@@ -25,6 +25,7 @@ public class Program {
             "spy",
             "square",
             "sunny",
+            "jumping",
             "even",
             "odd"
     );
