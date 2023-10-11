@@ -29,23 +29,6 @@ public class Number {
         this.odd = !isEven();
     }
 
-//    public boolean hasProperty(String property) {
-//
-//        return switch (property) {
-//            case "buzz" -> buzz;
-//            case "duck" -> duck;
-//            case "palindromic" -> palindromic;
-//            case "gapful" -> gapful;
-//            case "spy" -> spy;
-//            case "square" -> square;
-//            case "sunny" -> sunny;
-//            case "even" -> even;
-//            case "odd" -> odd;
-//            case "jumping" -> jumping;
-//            default -> false;
-//        };
-//    }
-
     public List<String> getPropertiesList() {
         List<String> list = new ArrayList<>();
         if (buzz) {
@@ -171,6 +154,8 @@ public class Number {
 
         return true;
     }
+
+    // TODO - happy and sad - while (StringValueOf(num).length() > 1) if (startingNum == num) -> sad
 
     public String getProperties() {
         List<String> properties = new ArrayList<>();

@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProgramTest {
@@ -237,5 +239,42 @@ public class ProgramTest {
         String result = Program.processRequest("1 10 JUMPING").replaceAll("\\s+", "");
 
         assertEquals(expected, result);
+    }
+
+    @Test
+    void testNumberRangeWithExcludeProperty() {
+        List<String> list = List.of(
+                "-even, -odd",
+                "-even, even",
+                "-odd, odd",
+                "duck, spy",
+                "-duck, -spy",
+                "-duck, duck",
+                "-spy, spy",
+                "sunny, square",
+                "-sunny, -square",
+                "-sunny, sunny",
+                "-square, square",
+                "-buzz, buzz",
+                "-palindromic, palindromic",
+                "-gapful, gapful",
+                "-jumping, jumping"
+        );
+
+        for (String str : list) {
+            String[] parts = str.split(", ");
+            String expected = String.format("""
+                The request contains mutually exclusive properties: [%s, %s]
+                There are no numbers with these properties.""", parts[0].toUpperCase(), parts[1].toUpperCase())
+                    .replaceAll("\\s+", "")
+                    ;
+
+            String result = Program.processRequest(
+                    String.format("1 3 %s %s", parts[0], parts[1]))
+                    .replaceAll("\\s+", "")
+                    ;
+
+            assertEquals(expected, result);
+        }
     }
 }

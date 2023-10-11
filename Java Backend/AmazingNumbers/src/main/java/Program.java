@@ -121,6 +121,10 @@ public class Program {
     private static List<String> checkForNotExistingProperty(List<String> properties) {
         List<String> returnProps = new ArrayList<>();
         for (String prop : properties) {
+            if (prop.startsWith("-")) {
+                prop = prop.substring(1);
+            }
+
             if (!propertiesList.contains(prop)) {
                 returnProps.add(prop.toUpperCase());
             }
@@ -146,8 +150,21 @@ public class Program {
     private static boolean mutuallyExclusive(List<String> properties) {
 
         return properties.contains("even") && properties.contains("odd") ||
+                properties.contains("-even") && properties.contains("-odd") ||
+                properties.contains("-even") && properties.contains("even") ||
+                properties.contains("-odd") && properties.contains("odd") ||
                 properties.contains("duck") && properties.contains("spy") ||
-                properties.contains("sunny") && properties.contains("square");
+                properties.contains("-duck") && properties.contains("-spy") ||
+                properties.contains("-duck") && properties.contains("duck") ||
+                properties.contains("-spy") && properties.contains("spy") ||
+                properties.contains("sunny") && properties.contains("square") ||
+                properties.contains("-sunny") && properties.contains("-square") ||
+                properties.contains("-sunny") && properties.contains("sunny") ||
+                properties.contains("-square") && properties.contains("square") ||
+                properties.contains("-buzz") && properties.contains("buzz") ||
+                properties.contains("-palindromic") && properties.contains("palindromic") ||
+                properties.contains("-gapful") && properties.contains("gapful") ||
+                properties.contains("-jumping") && properties.contains("jumping");
     }
 
     private static String hasMutuallyExclusiveProperty(List<String> properties) {
@@ -157,10 +174,36 @@ public class Program {
 
         if (properties.contains("even") && properties.contains("odd")) {
             sb.append("EVEN, ODD");
+        } else if (properties.contains("-even") && properties.contains("-odd")) {
+            sb.append("-EVEN, -ODD");
+        } else if (properties.contains("-even") && properties.contains("even")) {
+            sb.append("-EVEN, EVEN");
+        }else if (properties.contains("-odd") && properties.contains("odd")) {
+            sb.append("-ODD, ODD");
         } else if (properties.contains("duck") && properties.contains("spy")) {
             sb.append("DUCK, SPY");
+        } else if (properties.contains("-duck") && properties.contains("-spy")) {
+            sb.append("-DUCK, -SPY");
+        } else if (properties.contains("-duck") && properties.contains("duck")) {
+            sb.append("-DUCK, DUCK");
+        } else if (properties.contains("-spy") && properties.contains("spy")) {
+            sb.append("-SPY, SPY");
         } else if (properties.contains("sunny") && properties.contains("square")) {
             sb.append("SUNNY, SQUARE");
+        } else if (properties.contains("-sunny") && properties.contains("-square")) {
+            sb.append("-SUNNY, -SQUARE");
+        } else if (properties.contains("-sunny") && properties.contains("sunny")) {
+            sb.append("-SUNNY, SUNNY");
+        } else if (properties.contains("-square") && properties.contains("square")) {
+            sb.append("-SQUARE, SQUARE");
+        } else if (properties.contains("-buzz") && properties.contains("buzz")) {
+            sb.append("-BUZZ, BUZZ");
+        } else if (properties.contains("-palindromic") && properties.contains("palindromic")) {
+            sb.append("-PALINDROMIC, PALINDROMIC");
+        } else if (properties.contains("-gapful") && properties.contains("gapful")) {
+            sb.append("-GAPFUL, GAPFUL");
+        } else if (properties.contains("-jumping") && properties.contains("jumping")) {
+            sb.append("-JUMPING, JUMPING");
         }
 
         sb.append("]\nThere are no numbers with these properties.\n");
@@ -171,10 +214,14 @@ public class Program {
     private static String getNumberWithProperties(long num, long count, List<String> properties) {
         StringBuilder sb = new StringBuilder("\n");
 
+        List<String> propertiesToInclude = getPropertiesList(true, properties);
+        List<String> propertiesNotToInclude = getPropertiesList(false, properties);
+
         int j = 0;
         for (int i = 0; i < count; i++) {
             Number number = new Number(num + j++);
-            while (!numberDoesNotContain(properties, number)) {
+            while (!numberDoesNotContain(propertiesToInclude, number) && numberDoesNotContain(propertiesNotToInclude, number)) {
+//            while(!numberDoesNotContain(properties, number)) {
                 number = new Number(num + j++);
             }
             sb.append(number.getProperties());
@@ -202,5 +249,19 @@ public class Program {
         }
 
         return sb.toString();
+    }
+
+    private static List<String> getPropertiesList(boolean include, List<String> properties) {
+        List<String> returnList = new ArrayList<>(properties);
+
+        if (include) {
+            return returnList.stream()
+                    .filter(s -> !s.startsWith("-"))
+                    .toList();
+        } else {
+            return returnList.stream()
+                    .filter(s -> s.startsWith("-"))
+                    .toList();
+        }
     }
 }
