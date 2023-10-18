@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class Program {
@@ -8,13 +9,14 @@ public class Program {
             - enter a natural number to know its properties;
             - enter two natural numbers to obtain the properties of the list:
               * the first parameter represents a starting number;
-              * the second parameter shows how many consecutive numbers are to be processed;
-            - two natural numbers and a property to search for;
+              * the second parameter shows how many consecutive numbers are to be printed;
+            - two natural numbers and properties to search for;
+            - a property preceded by minus must not be present in numbers;
             - separate the parameters with one space;
             - enter 0 to exit.""";
     private static final String FIRST_PARAM_ERROR = "\nThe first parameter should be a natural number or zero.\n";
     private static final String SECOND_PARAM_ERROR = "\nThe second parameter should be a natural number.\n";
-    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING]\n";
+    private static final String PROPERTIES_MSG = "\nAvailable properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]\n";
     public static final String GOODBYE = "\nGoodbye!";
     private static final List<String> propertiesList = List.of(
             "buzz",
@@ -25,6 +27,8 @@ public class Program {
             "square",
             "sunny",
             "jumping",
+            "happy",
+            "sad",
             "even",
             "odd"
     );
@@ -89,7 +93,7 @@ public class Program {
     private static String handleSingleProperty(long num, long count, String property) {
         StringBuilder sb = new StringBuilder("\n");
 
-        if (!propertiesList.contains(property)) {
+        if (!checkForNotExistingProperty(List.of(property)).isEmpty()) {
             sb.append(String.format("The property [%s] is wrong.%n", property.toUpperCase()));
             sb.append(PROPERTIES_MSG);
             return sb.toString();
@@ -178,7 +182,7 @@ public class Program {
             sb.append("-EVEN, -ODD");
         } else if (properties.contains("-even") && properties.contains("even")) {
             sb.append("-EVEN, EVEN");
-        }else if (properties.contains("-odd") && properties.contains("odd")) {
+        } else if (properties.contains("-odd") && properties.contains("odd")) {
             sb.append("-ODD, ODD");
         } else if (properties.contains("duck") && properties.contains("spy")) {
             sb.append("DUCK, SPY");
@@ -218,26 +222,23 @@ public class Program {
         List<String> propertiesNotToInclude = getPropertiesList(false, properties);
 
         int j = 0;
-        for (int i = 0; i < count; i++) {
-            Number number = new Number(num + j++);
-            while (!numberDoesNotContain(propertiesToInclude, number) && numberDoesNotContain(propertiesNotToInclude, number)) {
-//            while(!numberDoesNotContain(properties, number)) {
-                number = new Number(num + j++);
+        for (int i = 0; j < count; i++) {
+            Number number = new Number(num + i);
+            if (numberHasProperties(propertiesToInclude, number) && !numberHasNoProperties(propertiesNotToInclude, number)) {
+                sb.append(number.getProperties());
+                j++;
             }
-            sb.append(number.getProperties());
         }
 
         return sb.toString();
     }
 
-    private static boolean numberDoesNotContain(List<String> properties, Number number) {
-        for (String prop : properties) {
-            if (!number.getPropertiesList().contains(prop)) {
-                return false;
-            }
-        }
+    private static boolean numberHasProperties(List<String> properties, Number number) {
+        return new HashSet<>(number.getPropertiesList()).containsAll(properties);
+    }
 
-        return true;
+    private static boolean numberHasNoProperties(List<String> properties, Number number) {
+        return number.getPropertiesList().stream().anyMatch(properties::contains);
     }
 
     private static String handleRange(long num, long count) {
@@ -261,6 +262,7 @@ public class Program {
         } else {
             return returnList.stream()
                     .filter(s -> s.startsWith("-"))
+                    .map(s -> s.substring(1))
                     .toList();
         }
     }

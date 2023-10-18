@@ -13,6 +13,8 @@ public class Number {
     boolean even;
     boolean odd;
     boolean jumping;
+    boolean happy;
+    boolean sad;
 
 
     public Number(long number) {
@@ -25,8 +27,10 @@ public class Number {
         this.square = isSquare(number);
         this.sunny = isSunny();
         this.jumping = isJumping();
+        this.happy = isHappy();
+        this.sad = !happy;
         this.even = isEven();
-        this.odd = !isEven();
+        this.odd = !even;
     }
 
     public List<String> getPropertiesList() {
@@ -61,6 +65,12 @@ public class Number {
 
         if (jumping) {
             list.add("jumping");
+        }
+
+        if (happy) {
+            list.add("happy");
+        } else {
+            list.add("sad");
         }
 
         if (even) {
@@ -155,7 +165,32 @@ public class Number {
         return true;
     }
 
-    // TODO - happy and sad - while (StringValueOf(num).length() > 1) if (startingNum == num) -> sad
+    private boolean isHappy() {
+        long n = number;
+
+        if (n == 1 || n == 7) {
+            return true;
+        }
+
+        long sum = n, x = n;
+
+        while (sum > 9) {
+            sum = 0;
+
+            while (x > 0) {
+                long d = x % 10;
+                sum += d * d;
+                x /= 10;
+            }
+
+            if (sum == 1) {
+                return true;
+            }
+            x = sum;
+        }
+
+        return sum == 7;
+    }
 
     public String getProperties() {
         List<String> properties = new ArrayList<>();
@@ -192,6 +227,12 @@ public class Number {
             properties.add("jumping");
         }
 
+        if (happy) {
+            properties.add("happy");
+        } else {
+            properties.add("sad");
+        }
+
         if (even) {
             properties.add("even");
         } else {
@@ -212,6 +253,8 @@ public class Number {
                 String.format("%n%11s: %s", "square", square) +
                 String.format("%n%11s: %s", "sunny", sunny) +
                 String.format("%n%11s: %s", "jumping", jumping) +
+                String.format("%n%11s: %s", "happy", happy) +
+                String.format("%n%11s: %s", "sad", sad) +
                 String.format("%n%11s: %s", "even", even) +
                 String.format("%n%11s: %s", "odd", odd) + "\n";
     }

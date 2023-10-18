@@ -10,15 +10,18 @@ public class ProgramTest {
     void testEmptyInput() {
         String expected = """
                 Supported requests:
-                - enter a natural number to know its properties;
-                - enter two natural numbers to obtain the properties of the list:
-                  * the first parameter represents a starting number;
-                  * the second parameter shows how many consecutive numbers are to be processed;
-                - two natural numbers and a property to search for;
-                - separate the parameters with one space;
-                - enter 0 to exit.""";
+            - enter a natural number to know its properties;
+            - enter two natural numbers to obtain the properties of the list:
+              * the first parameter represents a starting number;
+              * the second parameter shows how many consecutive numbers are to be printed;
+            - two natural numbers and properties to search for;
+            - a property preceded by minus must not be present in numbers;
+            - separate the parameters with one space;
+            - enter 0 to exit."""
+                .replaceAll("\\s+", "");
 
-        String output = Program.processRequest("").trim();
+        String output = Program.processRequest("")
+                .replaceAll("\\s+", "");
 
         assertEquals(expected, output);
     }
@@ -56,6 +59,8 @@ public class ProgramTest {
                      square: true
                       sunny: false
                     jumping: true
+                      happy: true
+                        sad: false
                        even: false
                         odd: true"""
                 .replaceAll("\\s+", "");
@@ -68,13 +73,13 @@ public class ProgramTest {
     @Test
     void testRangeOfNumber() {
         String expected = """
-                9 is palindromic, spy, square, jumping, odd
-                   10 is duck, jumping, even
-                   11 is palindromic, odd
-                   12 is jumping, even
-                   13 is odd
-                   14 is buzz, even
-                   15 is sunny, odd"""
+                9 is palindromic, spy, square, jumping, sad, odd
+                   10 is duck, jumping, happy, even
+                   11 is palindromic, sad, odd
+                   12 is jumping, sad, even
+                   13 is happy, odd
+                   14 is buzz, sad, even
+                   15 is sunny, sad, odd"""
                 .replaceAll("\\s+", "");
 
         String output = Program.processRequest("9 7").replaceAll("\\s+", "");
@@ -104,7 +109,8 @@ public class ProgramTest {
     void testNumberWithInvalidProperty() {
         String expected = """
                 The property [DRAKE] is wrong.
-                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING]""".replaceAll("\\s+", "");
+                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]"""
+                .replaceAll("\\s+", "");
 
         String output = Program.processRequest("9 3 DRAKE").replaceAll("\\s+", "");
 
@@ -114,9 +120,9 @@ public class ProgramTest {
     @Test
     void testNumberRangeWithValidProperty() {
         String expected = """
-               10 is duck, jumping, even
-               20 is duck, even
-               30 is duck, even"""
+               10 is duck, jumping, happy, even
+               20 is duck, sad, even
+               30 is duck, sad, even"""
                 .replaceAll("\\s+", "");
 
         String output = Program.processRequest("9 3 duck").replaceAll("\\s+", "");
@@ -128,7 +134,7 @@ public class ProgramTest {
     void testNumberRangeWithValidAndInvalidProperty() {
         String expected = """
                 The properties [POLINDROMIC] is wrong.
-                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING]"""
+                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]"""
                 .replaceAll("\\s+", "");
 
         String output = Program.processRequest("1 2 sunny polindromic").replaceAll("\\s+", "");;
@@ -140,7 +146,7 @@ public class ProgramTest {
     void testNumberRangeWithTwoInvalidProperties() {
         String expected = """
                 The properties [BAZZ, POLINDROMIC] are wrong.
-                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING]"""
+                Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]"""
                 .replaceAll("\\s+", "");
 
         String result = Program.processRequest("1 2 bazz polindromic").replaceAll("\\s+", "");
@@ -187,8 +193,8 @@ public class ProgramTest {
     @Test
     void testNumberRangeWith2ValidProperties() {
         String expected = """
-               3 is palindromic, spy, sunny, jumping, odd
-               8 is palindromic, spy, sunny, jumping, even"""
+               3 is palindromic, spy, sunny, jumping, sad, odd
+               8 is palindromic, spy, sunny, jumping, sad, even"""
                 .replaceAll("\\s+", "");
 
         String result = Program.processRequest("1 2 sunny palindromic").replaceAll("\\s+", "");;
@@ -199,12 +205,12 @@ public class ProgramTest {
     @Test
     void testNumberRangeWith3ValidProperties() {
         String expected = """
-                10101 is buzz, duck, palindromic, jumping, odd
-                          12121 is palindromic, jumping, odd
-                          12321 is palindromic, square, jumping, odd
-                          32123 is buzz, palindromic, jumping, odd
-                          32323 is palindromic, jumping, odd
-                          34343 is palindromic, jumping, odd"""
+                10101 is buzz, duck, palindromic, jumping, sad, odd
+                12121 is palindromic, jumping, sad, odd
+                12321 is palindromic, square, jumping, happy, odd
+                32123 is buzz, palindromic, jumping, sad, odd
+                32323 is palindromic, jumping, sad, odd
+                34343 is palindromic, jumping, sad, odd"""
                 .replaceAll("\\s+", "");
 
         String result = Program.processRequest("999 6 jumping odd palindromic").replaceAll("\\s+", "");
@@ -224,16 +230,16 @@ public class ProgramTest {
     @Test
     void testNumberRangeForPropertyJumping() {
         String expected = """
-                1 is palindromic, spy, square, jumping, odd
-                    2 is palindromic, spy, jumping, even
-                    3 is palindromic, spy, sunny, jumping, odd
-                    4 is palindromic, spy, square, jumping, even
-                    5 is palindromic, spy, jumping, odd
-                    6 is palindromic, spy, jumping, even
-                    7 is buzz, palindromic, spy, jumping, odd
-                    8 is palindromic, spy, sunny, jumping, even
-                    9 is palindromic, spy, square, jumping, odd
-                   10 is duck, jumping, even"""
+                1 is palindromic, spy, square, jumping, happy, odd
+                    2 is palindromic, spy, jumping, sad, even
+                    3 is palindromic, spy, sunny, jumping, sad, odd
+                    4 is palindromic, spy, square, jumping, sad, even
+                    5 is palindromic, spy, jumping, sad, odd
+                    6 is palindromic, spy, jumping, sad, even
+                    7 is buzz, palindromic, spy, jumping, happy, odd
+                    8 is palindromic, spy, sunny, jumping, sad, even
+                    9 is palindromic, spy, square, jumping, sad, odd
+                   10 is duck, jumping, happy, even"""
                 .replaceAll("\\s+", "");
 
         String result = Program.processRequest("1 10 JUMPING").replaceAll("\\s+", "");
@@ -276,5 +282,61 @@ public class ProgramTest {
 
             assertEquals(expected, result);
         }
+    }
+
+    @Test
+    void testHappyNumber() {
+        String expected = """
+                1 is palindromic, spy, square, jumping, happy, odd
+                    7 is buzz, palindromic, spy, jumping, happy, odd
+                   10 is duck, jumping, happy, even
+                   13 is happy, odd
+                   19 is happy, odd"""
+                .replaceAll("\\s+", "");
+
+        String result = Program.processRequest("1 5 happy")
+                .replaceAll("\\s+", "");
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void test74() {
+        String expected = """
+                7 is buzz, palindromic, spy, jumping, happy, odd
+                  231 is buzz, gapful, spy, sad, odd
+                 1421 is buzz, spy, sad, odd
+                15211 is buzz, spy, happy, odd
+                21511 is buzz, spy, happy, odd
+                22211 is buzz, spy, sad, odd
+                31311 is buzz, spy, sad, odd
+                51121 is buzz, spy, happy, odd
+                112161 is buzz, spy, happy, odd
+                121611 is buzz, spy, happy, odd
+                216111 is buzz, gapful, spy, happy, odd
+                611121 is buzz, spy, happy, odd
+                1111127 is buzz, spy, sad, odd
+                1111217 is buzz, spy, sad, odd
+                1111271 is buzz, spy, sad, odd"""
+                .replaceAll("\\s+", "");
+
+        String result = Program.processRequest("1 15 odd spy -duck spy buzz")
+                .replaceAll("\\s+", "");
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void testMinusEven() {
+        String expected = """
+                1 is palindromic, spy, square, jumping, happy, odd
+                3 is palindromic, spy, sunny, jumping, sad, odd
+                5 is palindromic, spy, jumping, sad, odd"""
+                .replaceAll("\\s+", "");
+
+        String result = Program.processRequest("1 3 -EVEN")
+                .replaceAll("\\s+", "");
+
+        assertEquals(expected, result);
     }
 }
