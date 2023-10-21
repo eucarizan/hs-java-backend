@@ -14,9 +14,9 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/recipe")
-    public Recipe getRecipe() {
-        return recipeService.getRecipe();
+    @GetMapping("/recipe/{id}")
+    public Recipe getRecipe(@PathVariable int id) {
+        return recipeService.getRecipe(id);
     }
 
     @PostMapping("/recipe")

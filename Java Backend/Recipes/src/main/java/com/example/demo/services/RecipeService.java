@@ -2,25 +2,34 @@ package com.example.demo.services;
 
 import com.example.demo.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
-public class RecipeService {
+public class RecipeService implements CommandLineRunner {
 
-    @Autowired
-    private Recipe recipe;
+    private final List<Recipe> recipeList = new ArrayList<>();
 
-    public Recipe getRecipe() {
-        return recipe;
+    public Recipe getRecipe(int id) {
+        return recipeList.get(id - 1);
     }
 
     public Recipe createRecipe(Recipe recipe) {
-        this.recipe = Recipe.builder()
+        Recipe newRecipe = Recipe.builder()
                 .name(recipe.getName())
                 .description(recipe.getDescription())
                 .ingredients(recipe.getIngredients())
                 .directions(recipe.getDirections())
                 .build();
-        return this.recipe;
+        return newRecipe;
+    }
+
+    @Override
+    public void run(String... args) {
+        Recipe recipe = new Recipe();
+        recipeList.add(recipe);
     }
 }
