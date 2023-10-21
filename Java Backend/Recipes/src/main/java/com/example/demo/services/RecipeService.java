@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.exceptions.RecipeNotFoundException;
 import com.example.demo.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,9 @@ public class RecipeService implements CommandLineRunner {
     private final List<Recipe> recipeList = new ArrayList<>();
 
     public Recipe getRecipe(int id) {
+        if (id - 1 > recipeList.size()) {
+            throw new RecipeNotFoundException();
+        }
         return recipeList.get(id - 1);
     }
 
