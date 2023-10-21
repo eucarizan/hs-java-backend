@@ -2,6 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Recipe;
 import com.example.demo.services.RecipeService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,8 +21,8 @@ public class RecipeController {
         return recipeService.getRecipe(id);
     }
 
-    @PostMapping("/recipe")
-    public Recipe createRecipe(@RequestBody Recipe recipe) {
+    @PostMapping("/recipe/new")
+    public ResponseEntity<String> createRecipe(@RequestBody Recipe recipe) throws JsonProcessingException {
         return recipeService.createRecipe(recipe);
     }
 
