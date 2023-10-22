@@ -5,19 +5,18 @@ import com.example.demo.dtos.CreateRecipeDTO;
 import com.example.demo.exceptions.RecipeNotFoundException;
 import com.example.demo.models.Recipe;
 import com.example.demo.services.RecipeService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -47,7 +46,7 @@ public class RecipeControllerV2MockMvcTests {
                 .direction("Stir well")
                 .build();
 
-        when(recipeService.getRecipe(1)).thenReturn(mockRecipe);
+        when(recipeService.findById(1)).thenReturn(Optional.ofNullable(mockRecipe));
 
         RequestBuilder getRequest = get("/api/recipe/1");
 
@@ -69,7 +68,7 @@ public class RecipeControllerV2MockMvcTests {
     @Test
     @DisplayName("GET /api/recipe/999 returns 404 not found")
     void shouldNotFindRecipeWhenGivenInvalidID() throws Exception {
-        when(recipeService.getRecipe(999)).thenThrow(RecipeNotFoundException.class);
+        when(recipeService.findById(999)).thenThrow(RecipeNotFoundException.class);
 
         mockMvc.perform(get("/api/recipe/999"))
                 .andExpect(status().isNotFound());
@@ -86,20 +85,18 @@ public class RecipeControllerV2MockMvcTests {
                         "Works best if ice is added to punch bowl and soda's are very cold"))
                 .build();
 
-        ObjectMapper objectMapper = new ObjectMapper();
         CreateRecipeDTO recipeDTO = new CreateRecipeDTO(1);
 
-        when(recipeService.createRecipe(post)).thenReturn(new ResponseEntity<>(objectMapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(recipeDTO), HttpStatus.OK));
+        when(recipeService.createRecipe(post)).thenReturn(ResponseEntity.ok(recipeDTO));
 
         String json = String.format("""
-                {
-                    "name": "%s",
-                    "description": "%s",
-                    "ingredients": [%s],
-                    "directions": [%s]
-                }
-                """,
+                        {
+                            "name": "%s",
+                            "description": "%s",
+                            "ingredients": [%s],
+                            "directions": [%s]
+                        }
+                        """,
                 post.getName(),
                 post.getDescription(),
                 "\"Everclear\", \"Vodka\", \"Mountain Dew\", \"Surge\", \"Lemon juice\", \"Rum\"",

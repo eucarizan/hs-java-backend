@@ -1,8 +1,8 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dtos.CreateRecipeDTO;
 import com.example.demo.models.Recipe;
 import com.example.demo.services.RecipeService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +17,12 @@ public class RecipeController {
     }
 
     @GetMapping("/recipe/{id}")
-    public Recipe getRecipe(@PathVariable int id) {
-        return recipeService.getRecipe(id);
+    public ResponseEntity<Recipe> getRecipe(@PathVariable int id) {
+        return ResponseEntity.of(recipeService.findById(id));
     }
 
     @PostMapping("/recipe/new")
-    public ResponseEntity<String> createRecipe(@RequestBody Recipe recipe) throws JsonProcessingException {
+    public ResponseEntity<CreateRecipeDTO> createRecipe(@RequestBody Recipe recipe) {
         return recipeService.createRecipe(recipe);
     }
 
