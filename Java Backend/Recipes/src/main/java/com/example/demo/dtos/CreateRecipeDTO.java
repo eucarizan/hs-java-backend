@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class CreateRecipeDTO {
-    int id;
+    long id;
 
-    public CreateRecipeDTO(int id) {
+    public CreateRecipeDTO(long id) {
         this.id = id;
     }
 

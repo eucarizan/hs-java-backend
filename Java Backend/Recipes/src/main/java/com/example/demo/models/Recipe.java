@@ -1,5 +1,8 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
+@Entity
 public class Recipe {
+
+    @Id
+    @GeneratedValue()
+    Long id;
+
     @Builder.Default
     String name = "Fresh Mint Tea";
 
