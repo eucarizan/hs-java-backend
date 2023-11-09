@@ -3,6 +3,7 @@ package com.example.demo.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Component
 @Entity
+@Table
 public class Recipe {
 
     @Id
