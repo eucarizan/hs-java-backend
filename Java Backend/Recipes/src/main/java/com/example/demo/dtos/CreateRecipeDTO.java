@@ -1,8 +1,5 @@
 package com.example.demo.dtos;
 
-import lombok.Getter;
-
-@Getter
 public class CreateRecipeDTO {
     long id;
 
@@ -10,4 +7,7 @@ public class CreateRecipeDTO {
         this.id = id;
     }
 
+    public long getId() {
+        return id;
+    }
 }

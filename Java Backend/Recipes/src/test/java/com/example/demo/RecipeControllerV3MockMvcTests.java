@@ -97,8 +97,8 @@ public class RecipeControllerV3MockMvcTests {
                             "directions": [%s]
                         }
                         """,
-                post.name(),
-                post.description(),
+                post.getName(),
+                post.getDescription(),
                 "\"Everclear\", \"Vodka\", \"Mountain Dew\", \"Surge\", \"Lemon juice\", \"Rum\"",
                 "\"Mix all ingredients together\", \"Slowly and gently\", " +
                         "\"Works best if ice is added to punch bowl and soda's are very cold\"");

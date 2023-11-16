@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.dtos.CreateRecipeDTO;
 import com.example.demo.models.Recipe;
 import com.example.demo.services.RecipeService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipe/new")
-    public ResponseEntity<CreateRecipeDTO> createRecipe(@RequestBody Recipe recipe) {
+    public ResponseEntity<CreateRecipeDTO> createRecipe(@Valid @RequestBody Recipe recipe) {
         return recipeService.createRecipe(recipe);
     }
 

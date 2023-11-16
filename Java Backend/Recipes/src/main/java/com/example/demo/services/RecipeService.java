@@ -26,7 +26,7 @@ public class RecipeService {
     public ResponseEntity<CreateRecipeDTO> createRecipe(Recipe recipe) {
         Recipe savedRecipe = recipeRepository.save(recipe);
 
-        CreateRecipeDTO recipeDTO = new CreateRecipeDTO(savedRecipe.id());
+        CreateRecipeDTO recipeDTO = new CreateRecipeDTO(savedRecipe.getId());
 
         return ResponseEntity.ok(recipeDTO);
     }
