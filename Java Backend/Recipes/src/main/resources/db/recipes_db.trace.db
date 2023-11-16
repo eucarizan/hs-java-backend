@@ -1,6 +1,0 @@
-2023-11-09 23:05:02 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RECIPE" not found (this database is empty); SQL statement:
-select r1_0.id,r1_0.description,r1_0.directions,r1_0.ingredients,r1_0.name from recipe r1_0 where r1_0.id=? [42104-220]
-2023-11-09 23:07:54 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RECIPE" not found (this database is empty); SQL statement:
-select r1_0.id,r1_0.description,r1_0.directions,r1_0.ingredients,r1_0.name from recipe r1_0 where r1_0.id=? [42104-220]

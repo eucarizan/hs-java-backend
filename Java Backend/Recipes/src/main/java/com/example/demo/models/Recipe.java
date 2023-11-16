@@ -1,38 +1,39 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Entity
-@Table
+@Table(name = "recipe")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Recipe {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.TABLE)
     Long id;
 
-    @Builder.Default
-    String name = "Fresh Mint Tea";
+    @Column
+    @NonNull
+    String name;
 
-    @Builder.Default
-    String description = "Light, aromatic and refreshing beverage, ...";
+    @Column
+    @NonNull
+    String description;
 
     @Singular
-    List<String> ingredients = Arrays.asList("boiled water", "honey", "fresh mint leaves");
+    @Column
+    @NonNull
+    List<String> ingredients;
 
     @Singular
-    List<String> directions = Arrays.asList("Boil water", "Pour boiling hot water into a mug",
-            "Add fresh mint leaves", "Mix and let the mint leaves seep for 3-5 minutes", "Add honey and mix again");
+    @Column
+    @NonNull
+    List<String> directions;
 }
