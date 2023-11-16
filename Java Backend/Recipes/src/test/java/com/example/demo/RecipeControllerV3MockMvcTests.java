@@ -17,11 +17,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,17 +39,14 @@ public class RecipeControllerV3MockMvcTests {
     @Test
     @DisplayName("GET /api/recipe/1 returns 200 OK and a valid JSON")
     void shouldFindRecipeWhenGivenValidID() throws Exception {
-        Recipe mockRecipe = Recipe.builder()
-                .name("Flying Dutchman")
-                .description("Ordinary Drink")
-                .ingredient("Gin")
-                .ingredient("Triple sec")
-                .direction("In an old-fashioned glass almost filled with ice cubes")
-                .direction("combine the gin and triple sec")
-                .direction("Stir well")
-                .build();
+        String name = "Flying Dutchman";
+        String description = "Ordinary Drink";
+        List<String> ingredient = List.of("Gin", "Triple sec");
+        List<String> direction = List.of("In an old-fashioned glass almost filled with ice cubes", "combine the gin and triple sec", "Stir well");
 
-        when(recipeService.findById(1)).thenReturn(Optional.ofNullable(mockRecipe));
+        Recipe mockRecipe = new Recipe(null, name, description, ingredient, direction);
+
+        when(recipeService.findById(1)).thenReturn(Optional.of(mockRecipe));
 
         RequestBuilder getRequest = get("/api/recipe/1");
 
@@ -79,13 +77,13 @@ public class RecipeControllerV3MockMvcTests {
     @Test
     @DisplayName("POST /api/recipe/new returns 200 OK and a valid JSON")
     void shouldCreateANewRecipe() throws Exception {
-        Recipe post = Recipe.builder()
-                .name("Brain Fart")
-                .description("Punch / Party Drink")
-                .ingredients(Arrays.asList("Everclear", "Vodka", "Mountain Dew", "Surge", "Lemon juice", "Rum"))
-                .directions(Arrays.asList("Mix all ingredients together", "Slowly and gently",
-                        "Works best if ice is added to punch bowl and soda's are very cold"))
-                .build();
+        String name = "Brain Fart";
+        String description = "Punch / Party Drink";
+        List<String> ingredients = List.of("Everclear", "Vodka", "Mountain Dew", "Surge", "Lemon juice", "Rum");
+        List<String> directions = List.of("Mix all ingredients together", "Slowly and gently",
+                "Works best if ice is added to punch bowl and soda's are very cold");
+
+        Recipe post = new Recipe(null, name, description, ingredients, directions);
 
         CreateRecipeDTO recipeDTO = new CreateRecipeDTO(1);
 
@@ -99,8 +97,8 @@ public class RecipeControllerV3MockMvcTests {
                             "directions": [%s]
                         }
                         """,
-                post.getName(),
-                post.getDescription(),
+                post.name(),
+                post.description(),
                 "\"Everclear\", \"Vodka\", \"Mountain Dew\", \"Surge\", \"Lemon juice\", \"Rum\"",
                 "\"Mix all ingredients together\", \"Slowly and gently\", " +
                         "\"Works best if ice is added to punch bowl and soda's are very cold\"");

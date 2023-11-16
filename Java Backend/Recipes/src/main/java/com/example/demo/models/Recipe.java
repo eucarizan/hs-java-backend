@@ -1,39 +1,19 @@
 package com.example.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.util.List;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "recipe")
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Recipe {
-
+public record Recipe(
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id,
+    String name,
+    String description,
+    List<String> ingredients,
+    List<String> directions
+) {
 
-    @Column
-    @NonNull
-    String name;
-
-    @Column
-    @NonNull
-    String description;
-
-    @Singular
-    @Column
-    @NonNull
-    List<String> ingredients;
-
-    @Singular
-    @Column
-    @NonNull
-    List<String> directions;
 }
