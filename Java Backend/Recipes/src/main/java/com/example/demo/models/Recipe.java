@@ -8,8 +8,9 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -27,8 +28,15 @@ public class Recipe {
     @NotBlank(message = "Name is required")
     String name;
 
+    @NotBlank(message = "Category is required")
+    String category;
+
     @NotBlank(message = "Description is required")
-    @NonNull String description;
+    String description;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @UpdateTimestamp
+    LocalDateTime date;
 
     @NotNull(message = "Ingredients should not be null")
     @Size(min = 1, message = "Should have at least 1 ingredient")
