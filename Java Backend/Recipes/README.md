@@ -101,8 +101,8 @@ The new structure of a recipe includes the same 4 fields, but the type of two of
    "name": "Warming Ginger Tea",
    "description": "Ginger tea is a warming drink for cool weather, ...",
    "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
-   "directions": ["Place all ingredients in a mug and fill with warm water
-      (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+   "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)",
+   "Steep for 5-10 minutes", "Drink and enjoy"]
 }
 ```
 
@@ -182,7 +182,12 @@ To complete the stage you need to add the following functionality:
    "name": "Warming Ginger Tea",
    "description": "Ginger tea is a warming drink for cool weather, ...",
    "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+<<<<<<< HEAD
    "directions": ["Place all ingredients in a mug and fill with warm water\n (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+=======
+   "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)",
+   "Steep for 5-10 minutes", "Drink and enjoy"]
+>>>>>>> recipe3
 }
 ```
 
@@ -199,7 +204,12 @@ Response:
    "name": "Warming Ginger Tea",
    "description": "Ginger tea is a warming drink for cool weather, ...",
    "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+<<<<<<< HEAD
    "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+=======
+   "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)",
+   "Steep for 5-10 minutes", "Drink and enjoy"]
+>>>>>>> recipe3
 }
 ```
 

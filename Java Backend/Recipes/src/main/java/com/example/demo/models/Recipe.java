@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
@@ -9,19 +10,35 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 =======
 import com.fasterxml.jackson.annotation.JsonIgnore;
 >>>>>>> recipe-stage3
+=======
+import com.fasterxml.jackson.annotation.JsonProperty;
+>>>>>>> recipe3
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+<<<<<<< HEAD
 
 import java.util.List;
 
 <<<<<<< HEAD
 @Builder
 @Getter
+=======
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+import java.util.List;
+
+@Data
+>>>>>>> recipe3
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "recipe")
+<<<<<<< HEAD
 @JsonDeserialize(builder = Recipe.RecipeBuilder.class)
 @JsonIncludeProperties({"name", "description", "ingredients", "directions"})
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -35,17 +52,25 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 <<<<<<< HEAD
+=======
+public class Recipe {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+>>>>>>> recipe3
     Long id;
 
-    @Column
-    @NonNull String name;
+    @NotBlank(message = "Name is required")
+    String name;
 
-    @Column
+    @NotBlank(message = "Description is required")
     @NonNull String description;
 =======
     @JsonIgnore
     Long id;
 
+<<<<<<< HEAD
     @Column
     @NotNull
     @NotBlank
@@ -130,4 +155,15 @@ public class Recipe {
         this.directions = directions;
 >>>>>>> recipe-stage3
     }
+=======
+    @NotNull(message = "Ingredients should not be null")
+    @Size(min = 1, message = "Should have at least 1 ingredient")
+    @ElementCollection
+    List<String> ingredients;
+
+    @NotNull(message = "Directions should not be null")
+    @Size(min = 1, message = "Should have at least 1 direction")
+    @ElementCollection
+    List<String> directions;
+>>>>>>> recipe3
 }
