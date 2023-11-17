@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -18,23 +19,28 @@ public class Recipe {
 
     @Column
     @NotNull
+    @NotBlank
     String name;
 
     @Column
     @NotNull
+    @NotBlank
     String description;
 
     @Column
     @NotNull
     @Size(min = 1)
+    @ElementCollection
     List<String> ingredients;
 
     @Column
     @NotNull
     @Size(min = 1)
+    @ElementCollection
     List<String> directions;
 
-    public Recipe() {}
+    public Recipe() {
+    }
 
     public Recipe(Long id, String name, String description, List<String> ingredients, List<String> directions) {
         this.id = id;

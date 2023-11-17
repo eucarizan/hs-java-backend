@@ -13,6 +13,10 @@
       - [2.1 Description](#21-description)
       - [2.2 Objectives](#22-objectives)
       - [2.3 Examples](#23-examples)
+    - [3: Store a recipe](#3-store-a-recipe)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Examples](#33-examples)
 
 ## Learning outcomes
 Get to know the backend development. Use Spring Boot to complete this project. Learn about JSON, REST API, Spring Boot Security, H2 database, LocalDateTime, Project Lombok, and other concepts useful for the backend.
@@ -34,8 +38,7 @@ A recipe includes 4 fields: `name` , `description`, `ingredients`, `directions`.
    "name": "Fresh Mint Tea",
    "description": "Light, aromatic and refreshing beverage, ...",
    "ingredients": "boiled water, honey, fresh mint leaves",
-   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves.
-      4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
+   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves. 4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
 }
 ```
 
@@ -72,8 +75,7 @@ The initial recipe can have any form.
    "name": "Fresh Mint Tea",
    "description": "Light, aromatic and refreshing beverage, ...",
    "ingredients": "boiled water, honey, fresh mint leaves",
-   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves.
-      4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
+   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves. 4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
 }
 ```
 
@@ -83,8 +85,7 @@ The initial recipe can have any form.
    "name": "Fresh Mint Tea",
    "description": "Light, aromatic and refreshing beverage, ...",
    "ingredients": "boiled water, honey, fresh mint leaves",
-   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves.
-      4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
+   "directions": "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves. 4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
 }
 ```
 <hr/>
@@ -148,3 +149,76 @@ Response:
 Status code: `404 (Not found)`
 
 <hr/>
+
+### 3: Store a recipe
+#### 3.1 Description
+In the previous stage, we have improved our service, so it can handle a lot of recipes. But when we close our program, it deletes all recipes. In this stage, you'll implement one of the main features of the service – connect the service to a database and store the recipes there. No more lost recipes!
+
+You will also need a new endpoint that will allow deleting a recipe by the recipe `id`. Make sure that the service accepts only valid recipes – recipes without directions or ingredients are frustrating. We won't change the recipe structure in this stage.
+
+#### 3.2 Objectives
+First of all, include all necessary dependencies and configurations in the `build.gradle` and `application.properties` files.
+
+For testing reasons, the `application.properties` file should contain the following line with the database name:
+```
+spring.datasource.url=jdbc:h2:file:../recipes_db
+```
+
+The service should support the same endpoints as in the previous stage:
+
+- `POST /api/recipe/new` receives a recipe as a JSON object and returns a JSON object with one `id` field;
+- `GET /api/recipe/{id}` returns a recipe with a specified `id` as a JSON object.
+
+To complete the stage you need to add the following functionality:
+
+- Store all recipes permanently in a database: after a server restart, all added recipes should be available to a user;
+- Implement a new `DELETE /api/recipe/{id}` endpoint. It deletes a recipe with a specified `{id}`. The server should respond with the `204 (No Content)` status code. If a recipe with a specified id does not exist, the server should return `404 (Not found)`;
+- The service should accept only valid recipes – all fields are obligatory, `name` and `description` shouldn't be blank, and JSON arrays should contain at least one item. If a recipe doesn't meet these requirements, the service should respond with the `400 (Bad Request)` status code.
+
+#### 3.3 Examples
+**Example 1**: `POST /api/recipe/new` request
+```json
+{
+   "name": "Warming Ginger Tea",
+   "description": "Ginger tea is a warming drink for cool weather, ...",
+   "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+   "directions": ["Place all ingredients in a mug and fill with warm water\n (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+}
+```
+
+Response:
+```json
+{
+   "id": 1
+}
+```
+
+**Example 2**: Response for the `GET /api/recipe/1` request
+```json
+{
+   "name": "Warming Ginger Tea",
+   "description": "Ginger tea is a warming drink for cool weather, ...",
+   "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+   "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+}
+```
+
+**Example 3**:
+
+`DELETE /api/recipe/1` request
+
+Status code: `204 (No Content)`
+
+`DELETE /api/recipe/1` request
+
+Status code: `404 (Not found)`
+
+**Example 4**:
+
+`GET /api/recipe/1` request
+
+Status code: `404 (Not found)`
+
+<hr/>
+
+<!-- ### 4:  -->
