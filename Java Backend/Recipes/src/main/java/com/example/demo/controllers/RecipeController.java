@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/recipe")
 public class RecipeController {
@@ -32,4 +34,16 @@ public class RecipeController {
         return recipeService.deleteRecipe(id);
     }
 
+    @GetMapping(value = "/search", params = "name")
+    public ResponseEntity<List<Recipe>> getRecipesByName(@RequestParam String name) {
+        return recipeService.getRecipesByName(name);
+    }
+
+    @GetMapping(value = "/search", params = "category")
+    public ResponseEntity<List<Recipe>> getRecipesByCategory(@RequestParam String category) {
+        return recipeService.getRecipesByCategory(category);
+    }
+
+    // TODO: put mapping
+    // TODO: extra - create data.sql to insert data to DB
 }
