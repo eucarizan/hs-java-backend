@@ -30,4 +30,15 @@ public class RecipeService {
 
         return ResponseEntity.ok(recipeDTO);
     }
+
+    public ResponseEntity<Void> deleteRecipe(long id) {
+        var recipe = recipeRepository.findById(id);
+
+        if (recipe.isPresent()) {
+            recipeRepository.delete(recipe.get());
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
+    }
 }
