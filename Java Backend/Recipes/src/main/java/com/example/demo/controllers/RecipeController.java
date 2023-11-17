@@ -45,5 +45,10 @@ public class RecipeController {
     }
 
     // TODO: put mapping
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe) {
+        return recipeService.updateRecipe(id, recipe);
+    }
+
     // TODO: extra - create data.sql to insert data to DB
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +35,7 @@ public class RecipeService {
     }
 
     public ResponseEntity<Void> deleteRecipe(long id) {
-        var recipe = recipeRepository.findById(id);
+        var recipe = findById(id);
 
         if (recipe.isPresent()) {
             recipeRepository.delete(recipe.get());
@@ -49,5 +51,23 @@ public class RecipeService {
 
     public ResponseEntity<List<Recipe>> getRecipesByCategory(String category) {
         return ResponseEntity.ok(recipeRepository.findByCategoryIgnoreCaseContainsOrderByDateDesc(category));
+    }
+
+    public ResponseEntity<Void> updateRecipe(long id, Recipe recipeUpdate) {
+        var recipe = findById(id);
+
+        if (recipe.isPresent()) {
+            var updatedRecipe = new Recipe(recipe.get().getId(),
+                    recipeUpdate.getName(),
+                    recipeUpdate.getCategory(),
+                    recipeUpdate.getDescription(),
+                    LocalDateTime.now(),
+                    recipeUpdate.getIngredients(),
+                    recipeUpdate.getDirections());
+            recipeRepository.save(updatedRecipe);
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }
