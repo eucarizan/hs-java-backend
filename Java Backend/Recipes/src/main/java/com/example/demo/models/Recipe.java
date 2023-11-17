@@ -1,45 +1,42 @@
 package com.example.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.List;
 
-@Builder
-@Getter
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "recipe")
-@JsonDeserialize(builder = Recipe.RecipeBuilder.class)
-@JsonIncludeProperties({"name", "description", "ingredients", "directions"})
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties({ "id" })
 public class Recipe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     Long id;
 
-    @Column
-    @NonNull String name;
+    @NotBlank(message = "Name is required")
+    String name;
 
-    @Column
+    @NotBlank(message = "Description is required")
     @NonNull String description;
 
-    @Singular
-    @Column
-    @NonNull List<String> ingredients;
+    @NotNull(message = "Ingredients should not be null")
+    @Size(min = 1, message = "Should have at least 1 ingredient")
+    @ElementCollection
+    List<String> ingredients;
 
-    @Singular
-    @Column
-    @NonNull List<String> directions;
-
-    @JsonPOJOBuilder(withPrefix = "")
-    public static final class RecipeBuilder {
-    }
+    @NotNull(message = "Directions should not be null")
+    @Size(min = 1, message = "Should have at least 1 direction")
+    @ElementCollection
+    List<String> directions;
 }
