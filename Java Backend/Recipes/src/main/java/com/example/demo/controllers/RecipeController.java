@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/recipe")
@@ -24,14 +25,23 @@ public class RecipeController {
         return ResponseEntity.of(recipeService.findById(id));
     }
 
+//    @PostMapping("/new")
+//    public ResponseEntity<CreateRecipeDTO> createRecipe(@Valid @RequestBody Recipe recipe) {
+//        return recipeService.createRecipe(recipe);
+//    }
+
     @PostMapping("/new")
-    public ResponseEntity<CreateRecipeDTO> createRecipe(@Valid @RequestBody Recipe recipe) {
-        return recipeService.createRecipe(recipe);
+    public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe) {
+        return Map.of("id", recipeService.add(recipe));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRecipe(@PathVariable long id) {
-        return recipeService.deleteRecipe(id);
+//        return recipeService.deleteRecipe(id);
+        boolean status = recipeService.deleteById(id);
+        return status ?
+                ResponseEntity.noContent().build() :
+                ResponseEntity.notFound().build();
     }
 
     @GetMapping(value = "/search", params = "name")
@@ -46,7 +56,11 @@ public class RecipeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe) {
-        return recipeService.updateRecipe(id, recipe);
+//        return recipeService.updateRecipe(id, recipe);
+        boolean status = recipeService.updateById(id, recipe);
+        return status ?
+                ResponseEntity.noContent().build() :
+                ResponseEntity.notFound().build();
     }
 
     // TODO: extra - create data.sql to insert data to DB

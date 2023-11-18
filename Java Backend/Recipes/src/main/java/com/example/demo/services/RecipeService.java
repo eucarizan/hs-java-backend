@@ -25,23 +25,35 @@ public class RecipeService {
         return recipeRepository.findById(id);
     }
 
-    public ResponseEntity<CreateRecipeDTO> createRecipe(Recipe recipe) {
-        Recipe savedRecipe = recipeRepository.save(recipe);
+//    public ResponseEntity<CreateRecipeDTO> createRecipe(Recipe recipe) {
+//        Recipe savedRecipe = recipeRepository.save(recipe);
+//
+//        CreateRecipeDTO recipeDTO = new CreateRecipeDTO(savedRecipe.getId());
+//
+//        return ResponseEntity.ok(recipeDTO);
+//    }
 
-        CreateRecipeDTO recipeDTO = new CreateRecipeDTO(savedRecipe.getId());
-
-        return ResponseEntity.ok(recipeDTO);
+    public long add(Recipe recipe) {
+        return recipeRepository.save(recipe).getId();
     }
 
-    public ResponseEntity<Void> deleteRecipe(long id) {
-        var recipe = findById(id);
+//    public ResponseEntity<Void> deleteRecipe(long id) {
+//        var recipe = recipeRepository.findById(id);
+//
+//        if (recipe.isPresent()) {
+//            recipeRepository.delete(recipe.get());
+//            return ResponseEntity.noContent().build();
+//        }
+//
+//        return ResponseEntity.notFound().build();
+//    }
 
-        if (recipe.isPresent()) {
-            recipeRepository.delete(recipe.get());
-            return ResponseEntity.noContent().build();
+    public boolean deleteById(long id) {
+        if (recipeRepository.existsById(id)) {
+            recipeRepository.deleteById(id);
+            return true;
         }
-
-        return ResponseEntity.notFound().build();
+        return false;
     }
 
     public ResponseEntity<List<Recipe>> getRecipesByName(String name) {
@@ -52,21 +64,34 @@ public class RecipeService {
         return ResponseEntity.ok(recipeRepository.findByCategoryIgnoreCaseOrderByDateDesc(category));
     }
 
-    public ResponseEntity<Void> updateRecipe(long id, Recipe recipeUpdate) {
-        var recipe = findById(id);
+//    public ResponseEntity<Void> updateRecipe(long id, Recipe recipeUpdate) {
+//        var recipe = findById(id);
+//
+//        if (recipe.isPresent()) {
+//            var updatedRecipe = new Recipe(recipe.get().getId(),
+//                    recipeUpdate.getName(),
+//                    recipeUpdate.getCategory(),
+//                    recipeUpdate.getDescription(),
+//                    LocalDateTime.now(),
+//                    recipeUpdate.getIngredients(),
+//                    recipeUpdate.getDirections());
+//            recipeRepository.save(updatedRecipe);
+//            return ResponseEntity.noContent().build();
+//        }
+//
+//        return ResponseEntity.notFound().build();
+//    }
 
-        if (recipe.isPresent()) {
-            var updatedRecipe = new Recipe(recipe.get().getId(),
-                    recipeUpdate.getName(),
-                    recipeUpdate.getCategory(),
-                    recipeUpdate.getDescription(),
-                    LocalDateTime.now(),
-                    recipeUpdate.getIngredients(),
-                    recipeUpdate.getDirections());
-            recipeRepository.save(updatedRecipe);
-            return ResponseEntity.noContent().build();
+    public boolean updateById(long id, Recipe recipe) {
+        var recipeToUpdate = findById(id);
+
+        if (recipeToUpdate.isPresent()) {
+            Recipe oldRecipe = recipeToUpdate.get();
+            oldRecipe.copyOf(recipe);
+            recipeRepository.save(oldRecipe);
+            return true;
         }
 
-        return ResponseEntity.notFound().build();
+        return false;
     }
 }
