@@ -44,7 +44,6 @@ public class RecipeController {
         return recipeService.getRecipesByCategory(category);
     }
 
-    // TODO: put mapping
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe) {
         return recipeService.updateRecipe(id, recipe);

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +49,7 @@ public class RecipeService {
     }
 
     public ResponseEntity<List<Recipe>> getRecipesByCategory(String category) {
-        return ResponseEntity.ok(recipeRepository.findByCategoryIgnoreCaseContainsOrderByDateDesc(category));
+        return ResponseEntity.ok(recipeRepository.findByCategoryIgnoreCaseOrderByDateDesc(category));
     }
 
     public ResponseEntity<Void> updateRecipe(long id, Recipe recipeUpdate) {
