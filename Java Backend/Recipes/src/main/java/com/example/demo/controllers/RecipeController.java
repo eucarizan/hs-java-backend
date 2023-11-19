@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Recipe;
+import com.example.demo.models.User;
 import com.example.demo.services.RecipeService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,13 @@ public class RecipeController {
                 ResponseEntity.notFound().build();
     }
 
-    // TODO: add register endpoint
+    @PostMapping("/register")
+    public ResponseEntity<Void> addUser(@Valid @RequestBody User user) {
+        boolean status = recipeService.registerUser(user);
+        return status ?
+                ResponseEntity.ok().build() :
+                ResponseEntity.badRequest().build();
+    }
+
     // TODO: extra - create data.sql to insert data to DB
 }

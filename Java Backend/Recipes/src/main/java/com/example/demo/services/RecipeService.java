@@ -1,9 +1,12 @@
 package com.example.demo.services;
 
 import com.example.demo.models.Recipe;
+import com.example.demo.models.User;
 import com.example.demo.repositories.RecipeRepository;
+import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +16,14 @@ import java.util.Optional;
 public class RecipeService {
 
     private final RecipeRepository recipeRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository) {
+    public RecipeService(RecipeRepository recipeRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.recipeRepository = recipeRepository;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public Optional<Recipe> findById(long id) {
@@ -53,6 +60,15 @@ public class RecipeService {
             return true;
         }
 
+        return false;
+    }
+
+    public boolean registerUser(User user) {
+        if (!userRepository.existsByEmail(user.getEmail())) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(user);
+            return true;
+        }
         return false;
     }
 }

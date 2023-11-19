@@ -45,6 +45,9 @@ public class Recipe {
     @ElementCollection
     List<String> directions;
 
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    User user;
 
     public void copyOf(Recipe recipe) {
         name = recipe.name;
