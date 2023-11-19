@@ -5,29 +5,31 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
+        http
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers(HttpMethod.POST, "/api/register").permitAll()
-//                        .requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers("/api/recipe/?").authenticated()
-                                .requestMatchers("/error").anonymous()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h2/**")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.POST, "/api/register")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/api/recipe/**")).authenticated()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/error")).anonymous()
                 )
+                .csrf(AbstractHttpConfigurer::disable)
+                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .httpBasic(Customizer.withDefaults())
-                .csrf(CsrfConfigurer::disable)
-//                .headers((headers) ->
-//                        headers
-//                                .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
-                .build();
+        ;
+
+        return http.build();
     }
 
     @Bean
