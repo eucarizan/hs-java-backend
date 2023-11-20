@@ -33,11 +33,8 @@ public class RecipeController {
     }
 
     @DeleteMapping("/recipe/{id}")
-    public ResponseEntity<Void> deleteRecipe(@PathVariable long id) {
-        boolean status = recipeService.deleteById(id);
-        return status ?
-                ResponseEntity.noContent().build() :
-                ResponseEntity.notFound().build();
+    public ResponseEntity<Void> deleteRecipe(@PathVariable long id, @AuthenticationPrincipal UserDetails user) {
+        return recipeService.deleteById(id, user);
     }
 
     @GetMapping(value = "/recipe/search", params = "name")

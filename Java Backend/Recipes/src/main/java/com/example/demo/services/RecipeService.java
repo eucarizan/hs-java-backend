@@ -5,6 +5,7 @@ import com.example.demo.models.User;
 import com.example.demo.repositories.RecipeRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,12 +39,16 @@ public class RecipeService {
         return recipeRepository.save(recipe).getId();
     }
 
-    public boolean deleteById(long id) {
-        if (recipeRepository.existsById(id)) {
-            recipeRepository.deleteById(id);
-            return true;
+    public ResponseEntity<Void> deleteById(long id, UserDetails user) {
+        var recipe = findById(id);
+        if (recipe.isPresent()) {
+            if (recipe.get().getEmail().equals(user.getUsername())) {
+                recipeRepository.deleteById(id);
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-        return false;
+        return ResponseEntity.notFound().build();
     }
 
     public ResponseEntity<List<Recipe>> getRecipesByName(String name) {
