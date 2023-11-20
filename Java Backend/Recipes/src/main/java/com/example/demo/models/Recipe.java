@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -45,9 +46,12 @@ public class Recipe {
     @ElementCollection
     List<String> directions;
 
-    @ManyToOne
-    @JoinColumn(name = "users_id")
-    User user;
+//    @ManyToOne
+//    @JoinColumn(name = "users_id")
+//    User user;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    String email;
 
     public void copyOf(Recipe recipe) {
         name = recipe.name;

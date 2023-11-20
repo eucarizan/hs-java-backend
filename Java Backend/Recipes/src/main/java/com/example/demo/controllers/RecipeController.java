@@ -5,6 +5,8 @@ import com.example.demo.models.User;
 import com.example.demo.services.RecipeService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +28,8 @@ public class RecipeController {
     }
 
     @PostMapping("/recipe/new")
-    public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe) {
-        return Map.of("id", recipeService.add(recipe));
+    public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe, @AuthenticationPrincipal UserDetails user) {
+        return Map.of("id", recipeService.add(recipe, user));
     }
 
     @DeleteMapping("/recipe/{id}")
