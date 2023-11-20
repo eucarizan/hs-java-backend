@@ -30,7 +30,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2/**")).permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/actuator/shutdown/**")).permitAll()
-                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.POST, "/api/register")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/register", "POST")).permitAll()
+//                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.POST, "/api/register")).permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.POST, "/api/recipe/new")).authenticated()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/api/recipe/**")).authenticated()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/error")).anonymous()

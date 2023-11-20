@@ -2,10 +2,12 @@ package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Setter;
 
 @Data
 @Entity
@@ -18,7 +20,8 @@ public class User {
     @JsonIgnore
     private Long id;
 
-    @Email
+    //    @Email
+    @Pattern(regexp = ".+@.+\\..+")
     @NotBlank(message = "Email is required")
     String email;
 
