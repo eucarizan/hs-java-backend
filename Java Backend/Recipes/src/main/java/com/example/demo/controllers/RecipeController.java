@@ -48,11 +48,11 @@ public class RecipeController {
     }
 
     @PutMapping("/recipe/{id}")
-    public ResponseEntity<Void> updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe) {
-        boolean status = recipeService.updateById(id, recipe);
-        return status ?
-                ResponseEntity.noContent().build() :
-                ResponseEntity.notFound().build();
+    public ResponseEntity<Void> updateRecipe(
+            @PathVariable long id,
+            @Valid @RequestBody Recipe recipe,
+            @AuthenticationPrincipal UserDetails user) {
+        return recipeService.updateById(id, recipe, user);
     }
 
     @PostMapping("/register")

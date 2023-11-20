@@ -59,17 +59,20 @@ public class RecipeService {
         return ResponseEntity.ok(recipeRepository.findByCategoryIgnoreCaseOrderByDateDesc(category));
     }
 
-    public boolean updateById(long id, Recipe recipe) {
+    public ResponseEntity<Void> updateById(long id, Recipe recipe, UserDetails user) {
         var recipeToUpdate = findById(id);
 
         if (recipeToUpdate.isPresent()) {
             Recipe oldRecipe = recipeToUpdate.get();
-            oldRecipe.copyOf(recipe);
-            recipeRepository.save(oldRecipe);
-            return true;
+            if (oldRecipe.getEmail().equals(user.getUsername())) {
+                oldRecipe.copyOf(recipe);
+                recipeRepository.save(oldRecipe);
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
 
-        return false;
+        return ResponseEntity.notFound().build();
     }
 
     public boolean registerUser(User user) {
