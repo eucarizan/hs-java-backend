@@ -1,9 +1,9 @@
-package com.example.demo.web;
+package dev.njeu.web;
 
-import com.example.demo.models.Recipe;
-import com.example.demo.models.User;
-import com.example.demo.service.RecipeService2;
-import com.example.demo.web.mapper.RecipeMapper;
+import dev.njeu.entities.Recipe;
+import dev.njeu.entities.User;
+import dev.njeu.service.RecipeService2;
+import dev.njeu.web.mapper.RecipeMapper;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

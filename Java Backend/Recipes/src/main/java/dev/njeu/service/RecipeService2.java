@@ -1,9 +1,9 @@
-package com.example.demo.service;
+package dev.njeu.service;
 
-import com.example.demo.models.Recipe;
-import com.example.demo.models.User;
-import com.example.demo.repositories.RecipeRepository;
-import com.example.demo.repositories.UserRepository;
+import dev.njeu.entities.Recipe;
+import dev.njeu.entities.User;
+import dev.njeu.repositories.RecipeRepository;
+import dev.njeu.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

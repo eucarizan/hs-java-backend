@@ -1,63 +1,46 @@
-package com.example.demo.models;
+package dev.njeu.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
-import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
+@Accessors(chain = true)
 @Entity
 public class Recipe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Setter(AccessLevel.NONE)
-    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     Long id;
 
-    @NotBlank(message = "Name is required")
-    String name;
+    @Column(nullable = false)
+    private String name;
 
-    @NotBlank(message = "Category is required")
-    String category;
-
-    @NotBlank(message = "Description is required")
-    String description;
+    @Column(nullable = false)
+    private String category;
 
     @UpdateTimestamp
-    LocalDateTime date;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private LocalDateTime dateTime;
 
-    @NotEmpty(message = "Ingredients can not be empty")
-    @Size(min = 1, message = "Should have at least 1 ingredient")
+    private String description;
+
     @ElementCollection
-    List<String> ingredients;
+    private List<String> ingredients;
 
-    @NotEmpty(message = "Directions cannot be empty")
-    @Size(min = 1, message = "Should have at least 1 direction")
     @ElementCollection
-    List<String> directions;
+    private List<String> directions;
 
-//    @ManyToOne
-//    @JoinColumn(name = "users_id")
-//    User user;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    String email;
-
-    public void copyOf(Recipe recipe) {
-        name = recipe.name;
-        category = recipe.category;
-        description = recipe.description;
-        ingredients = recipe.ingredients;
-        directions = recipe.directions;
-    }
+    @ManyToOne(optional = false)
+    private User creator;
 }

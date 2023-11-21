@@ -1,8 +1,7 @@
-package com.example.demo.service;
+package dev.njeu.service;
 
-import com.example.demo.models.User;
-import com.example.demo.models.UserAdapter;
-import com.example.demo.repositories.UserRepository;
+import dev.njeu.entities.User;
+import dev.njeu.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +19,7 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository
-                .findByEmail(username)
+                .findByUsername(username)
                 .orElseThrow();
         return new UserAdapter(user);
     }

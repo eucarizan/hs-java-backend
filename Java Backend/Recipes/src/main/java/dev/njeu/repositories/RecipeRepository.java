@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package dev.njeu.repositories;
 
-import com.example.demo.models.Recipe;
+import dev.njeu.entities.Recipe;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
