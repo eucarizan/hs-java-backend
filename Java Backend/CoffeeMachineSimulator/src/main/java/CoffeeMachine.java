@@ -1,14 +1,7 @@
 public class CoffeeMachine {
-    public static String makeCoffee() {
-        return """
-                Starting to make a coffee
-                Grinding coffee beans
-                Boiling water
-                Mixing boiled water with crushed coffee beans
-                Pouring coffee into the cup
-                Pouring some milk into the cup
-                Coffee is ready!
-                """;
+    public static String makeCoffee(int cups) {
+        Coffee coffee = new Coffee(cups);
+        return coffee.toString();
     }
 
 }
