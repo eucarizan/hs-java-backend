@@ -1,6 +1,6 @@
 //package com.example.demo;
 //
-//import com.example.demo.controllers.RecipeController;
+//import com.example.demo.web.RecipeController;
 //import com.example.demo.dtos.CreateRecipeDTO;
 //import com.example.demo.exceptions.RecipeNotFoundException;
 //import com.example.demo.models.Recipe;

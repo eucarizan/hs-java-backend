@@ -23,7 +23,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Tagger](./README.md) `⭐4.4` `4 hr`
   - [ ] [Last Pencil (Java)](README.md) `⭐4.1` `9 hr`
   - [ ] [Traffic Light (Java)](README.md) `⭐4.1` `14 hr`
-  - [ ] [Coffee Machine (Java)](./README.md) `⭐4.4` `14 hr`
+  - [ ] [Coffee Machine (Java)](./CoffeeMachineSimulator/README.md) `⭐4.4` `14 hr`
 - Medium
   - [ ] [Car Sharing](./README.md) `⭐3.9` `32 hr`
   - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `29 hr`
@@ -41,7 +41,7 @@ Become a Java Backend Developer and unlock the world of web application developm
 - Challenging
   - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
-  - [ ] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
+  - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
   - [ ] [Web Quiz Engine (Java)](./README.md) `⭐4.4` `51 hr`
 
 ### Track Overview

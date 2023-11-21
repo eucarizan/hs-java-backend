@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.example.demo.service;
 
 import com.example.demo.models.Recipe;
 import com.example.demo.models.User;
@@ -15,14 +15,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RecipeService {
+public class RecipeService2 {
 
     private final RecipeRepository recipeRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public RecipeService2(RecipeRepository recipeRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.recipeRepository = recipeRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;

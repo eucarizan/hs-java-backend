@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.example.demo.service;
 
 import com.example.demo.models.User;
 import com.example.demo.models.UserAdapter;

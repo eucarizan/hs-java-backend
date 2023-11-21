@@ -1,8 +1,9 @@
-package com.example.demo.controllers;
+package com.example.demo.web;
 
 import com.example.demo.models.Recipe;
 import com.example.demo.models.User;
-import com.example.demo.services.RecipeService;
+import com.example.demo.service.RecipeService2;
+import com.example.demo.web.mapper.RecipeMapper;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,23 +14,25 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/recipe")
 public class RecipeController {
 
-    private final RecipeService recipeService;
+    private final RecipeService2 recipeService;
+    private final RecipeMapper recipeMapper;
 
-    public RecipeController(RecipeService recipeService) {
+    public RecipeController(RecipeService2 recipeService, RecipeMapper recipeMapper) {
         this.recipeService = recipeService;
+        this.recipeMapper = recipeMapper;
     }
 
-    @GetMapping("/recipe/{id}")
-    public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
-        return ResponseEntity.of(recipeService.findById(id));
-    }
-
-    @PostMapping("/recipe/new")
+    @PostMapping("/new")
     public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe, @AuthenticationPrincipal UserDetails user) {
         return Map.of("id", recipeService.add(recipe, user));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
+        return ResponseEntity.of(recipeService.findById(id));
     }
 
     @DeleteMapping("/recipe/{id}")

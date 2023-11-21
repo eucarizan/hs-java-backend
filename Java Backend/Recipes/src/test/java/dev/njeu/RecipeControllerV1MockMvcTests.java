@@ -1,6 +1,6 @@
 //package com.example.demo;
 //
-//import com.example.demo.controllers.RecipeController;
+//import com.example.demo.web.RecipeController;
 //import com.example.demo.models.Recipe;
 //import com.example.demo.services.RecipeService;
 //import org.junit.jupiter.api.BeforeEach;

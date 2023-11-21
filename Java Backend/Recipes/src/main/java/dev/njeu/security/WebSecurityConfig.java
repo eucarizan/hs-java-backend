@@ -1,6 +1,6 @@
-package com.example.demo.configs;
+package dev.njeu.security;
 
-import com.example.demo.services.UserService;
+import dev.njeu.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
