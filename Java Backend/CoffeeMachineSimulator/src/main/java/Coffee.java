@@ -4,20 +4,38 @@ public class Coffee {
     private final int coffeeBeans;
     private final int cups;
 
-    public Coffee(int cups) {
+    public Coffee(int water, int milk, int coffeeBeans, int cups) {
+        this.water = water;
+        this.milk = milk;
+        this.coffeeBeans = coffeeBeans;
         this.cups = cups;
-        water = 200 * cups;
-        milk = 50 * cups;
-        coffeeBeans = 15 * cups;
+    }
+
+    private int totalCups() {
+        int totalWater = water % 200;
+        int totalMilk = milk % 50;
+        int totalCoffeeBeans = coffeeBeans % 15;
+
+        return Math.min(totalWater, Math.min(totalMilk, totalCoffeeBeans));
+    }
+
+    private String canMakeCoffee() {
+        StringBuilder sb = new StringBuilder();
+        int totalCups = totalCups();
+        if (cups == totalCups) {
+            sb.append("Yes, I can make that amount of coffee");
+        } else if (cups <= totalCups) {
+            sb.append("Yes, I can make that amount of coffee");
+            sb.append(String.format(" (and even %d more than that)", totalCups - cups));
+        } else {
+            sb.append(String.format("No, I can make only %d cup(s) of coffee", totalCups - cups));
+        }
+
+        return sb.toString();
     }
 
     @Override
     public String toString() {
-        return String.format("""
-                For %s cups of coffee you will need:
-                %d ml of water
-                %d ml of milk
-                %d g of coffee beans
-                """, cups, water, milk, coffeeBeans);
+        return canMakeCoffee();
     }
 }
