@@ -12,9 +12,9 @@ public class Coffee {
     }
 
     private int totalCups() {
-        int totalWater = water % 200;
-        int totalMilk = milk % 50;
-        int totalCoffeeBeans = coffeeBeans % 15;
+        int totalWater = water / 200;
+        int totalMilk = milk / 50;
+        int totalCoffeeBeans = coffeeBeans / 15;
 
         return Math.min(totalWater, Math.min(totalMilk, totalCoffeeBeans));
     }
@@ -28,7 +28,7 @@ public class Coffee {
             sb.append("Yes, I can make that amount of coffee");
             sb.append(String.format(" (and even %d more than that)", totalCups - cups));
         } else {
-            sb.append(String.format("No, I can make only %d cup(s) of coffee", totalCups - cups));
+            sb.append(String.format("No, I can make only %d cup(s) of coffee", totalCups));
         }
 
         return sb.toString();
