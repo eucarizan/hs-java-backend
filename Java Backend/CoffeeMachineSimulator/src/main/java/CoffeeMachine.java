@@ -1,41 +1,74 @@
 public class CoffeeMachine {
-    private final int water;
-    private final int milk;
-    private final int coffeeBeans;
-    private final int cups;
+    private int water;
+    private int milk;
+    private int beans;
+    private int cups;
+    private int money;
 
-    public CoffeeMachine(int water, int milk, int coffeeBeans, int cups) {
-        this.water = water;
-        this.milk = milk;
-        this.coffeeBeans = coffeeBeans;
-        this.cups = cups;
+    public CoffeeMachine() {
+        this.water = 400;
+        this.milk = 540;
+        this.beans = 120;
+        this.cups = 9;
+        this.money = 550;
     }
 
-    private int totalCups() {
-        int totalWater = water / 200;
-        int totalMilk = milk / 50;
-        int totalCoffeeBeans = coffeeBeans / 15;
-
-        return Math.min(totalWater, Math.min(totalMilk, totalCoffeeBeans));
+    public int getWater() {
+        return water;
     }
 
-    private String canMakeCoffee() {
-        StringBuilder sb = new StringBuilder();
-        int totalCups = totalCups();
-        if (cups == totalCups) {
-            sb.append("Yes, I can make that amount of coffee");
-        } else if (cups <= totalCups) {
-            sb.append("Yes, I can make that amount of coffee");
-            sb.append(String.format(" (and even %d more than that)", totalCups - cups));
-        } else {
-            sb.append(String.format("No, I can make only %d cup(s) of coffee", totalCups));
-        }
+    public void setWater(int water) {
+        this.water += water;
+    }
 
-        return sb.toString();
+    public int getMilk() {
+        return milk;
+    }
+
+    public void setMilk(int milk) {
+        this.milk += milk;
+    }
+
+    public int getBeans() {
+        return beans;
+    }
+
+    public void setBeans(int beans) {
+        this.beans += beans;
+    }
+
+    public int getCups() {
+        return cups;
+    }
+
+    public void setCups(int cups) {
+        this.cups += cups;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money += money;
+    }
+
+    public void updateMachine(int water, int milk, int beans, int cups, int money) {
+        setWater(water);
+        setMilk(milk);
+        setBeans(beans);
+        setCups(cups);
+        setMoney(money);
     }
 
     @Override
     public String toString() {
-        return canMakeCoffee();
+        return String.format("""
+                The coffee machine has:
+                %d ml of water
+                %d ml of milk
+                %d g of coffee beans
+                %d disposable cups
+                $%d of money""", water, milk, beans, cups, money);
     }
 }
