@@ -42,12 +42,13 @@ public class CoffeeMaker {
     }
 
     private static CoffeeType getCoffeeType(int num) {
-        return switch (num) {
-            case 1 -> CoffeeType.ESPRESSO;
-            case 2 -> CoffeeType.LATTE;
-            case 3 -> CoffeeType.CAPPUCCINO;
-            default -> throw new IllegalStateException("Unexpected value: " + num);
-        };
+        CoffeeType type = CoffeeType.findByNum(num);
+
+        if (type != null) {
+            return type;
+        }
+
+        throw new IllegalStateException("Unexpected value: " + num);
     }
 
 }
