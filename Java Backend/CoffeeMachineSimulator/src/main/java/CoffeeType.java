@@ -2,7 +2,6 @@ public enum CoffeeType {
     ESPRESSO(1, 250, 0, 16, 1, 4),
     LATTE(2, 350, 75, 20, 1, 7),
     CAPPUCCINO(3, 200, 100, 12, 1, 6);
-    ;
 
     private final int num;
     private final int water;

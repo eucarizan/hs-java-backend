@@ -24,6 +24,10 @@
       - [5.1 Description](#51-description)
       - [5.2 Objectives](#52-objectives)
       - [5.3 Example](#53-example)
+    - [6: Brush up your code](#6-brush-up-your-code)
+      - [6.1 Description](#61-description)
+      - [6.2 Objective](#62-objective)
+      - [6.3 Example](#63-example)
   - [Tags](#tags)
   - [Code](#code)
 
@@ -417,15 +421,134 @@ Write action (buy, fill, take, remaining, exit):
 
 <hr/>
 
+### 6: Brush up your code
+#### 6.1 Description
+Let's redesign our program and write a class that represents a coffee machine. The class should have a method that takes a string as input. Every time the user inputs a string to the console, the program invokes this method with one argument: the line that the user inputs to the console. This system simulates pretty accurately how real-world electronic devices work. External components (like buttons on the coffee machine or tapping on the screen) generate events that pass into the single interface of the program.
+
+The class should not use system input at all; it will only handle the input that comes to it via this method and its string argument.
+
+The first problem that comes to mind: how to write that method in a way that it represents all that coffee machine can do? If the user inputs a single number, how can the method determine what that number is: a variant of coffee chosen by the user or the number of the disposable cups that a special worker added into the coffee machine?
+
+The right solution to this problem is to store the current state of the machine. The coffee machine has several states it can be in. For example, the state could be "choosing an action" or "choosing a type of coffee". Every time the user inputs something and a program passes that line to the method, the program determines how to interpret this line using the information about the current state. After processing this line, the state of the coffee machine can be changed or can stay the same.
+
+Remember, that:
+
+- For the espresso, the coffee machine needs 250 ml of water and 16 g of coffee beans. It costs $4.
+- For the latte, the coffee machine needs 350 ml of water, 75 ml of milk, and 20 g of coffee beans. It costs $7.
+- And for the cappuccino, the coffee machine needs 200 ml of water, 100 ml of milk, and 12 g of coffee. It costs $6.
+
+#### 6.2 Objective
+Your final task is to refactor the program. Make it so that you can communicate with the coffee machine through a single method.
+
+#### 6.3 Example
+Your coffee machine should have the same initial resources as in the example (*400 ml* of water, *540 ml* of milk, *120 g* of coffee beans, *9* disposable cups, *$550* in cash).
+The greater-than symbol followed by a space (`> `) represents the user input. Note that it's not part of the input.
+```
+Write action (buy, fill, take, remaining, exit):
+> remaining
+
+The coffee machine has:
+400 ml of water
+540 ml of milk
+120 g of coffee beans
+9 disposable cups
+$550 of money
+
+Write action (buy, fill, take, remaining, exit):
+> buy
+
+What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:
+> 2
+I have enough resources, making you a coffee!
+
+Write action (buy, fill, take, remaining, exit):
+> remaining
+
+The coffee machine has:
+50 ml of water
+465 ml of milk
+100 g of coffee beans
+8 disposable cups
+$557 of money
+
+Write action (buy, fill, take, remaining, exit):
+> buy
+
+What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:
+> 2
+Sorry, not enough water!
+
+Write action (buy, fill, take, remaining, exit):
+> fill
+
+Write how many ml of water you want to add:
+> 1000
+Write how many ml of milk you want to add:
+> 0
+Write how many grams of coffee beans you want to add:
+> 0
+Write how many disposable cups you want to add:
+> 0
+
+Write action (buy, fill, take, remaining, exit):
+> remaining
+
+The coffee machine has:
+1050 ml of water
+465 ml of milk
+100 g of coffee beans
+8 disposable cups
+$557 of money
+
+Write action (buy, fill, take, remaining, exit):
+> buy
+
+What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:
+> 2
+I have enough resources, making you a coffee!
+
+Write action (buy, fill, take, remaining, exit):
+> remaining
+
+The coffee machine has:
+700 ml of water
+390 ml of milk
+80 g of coffee beans
+7 disposable cups
+$564 of money
+
+Write action (buy, fill, take, remaining, exit):
+> take
+
+I gave you $564
+
+Write action (buy, fill, take, remaining, exit):
+> remaining
+
+The coffee machine has:
+700 ml of water
+390 ml of milk
+80 g of coffee beans
+7 disposable cups
+$0 of money
+
+Write action (buy, fill, take, remaining, exit):
+> exit
+```
+
+<hr/>
+
 ## Tags
-`strings` `characters` `printing data` `types and variables` `integer types and operations` `comments` `naming variables`
-`reading user's input with scanner` `arithmetic operations` `basic terms: jvm, jre, jdk` `write, compile, and run`
-`increment and decrement` `command line overview` `parameters and options` `coding style conventions` `conditional statement`
-`boolean` `relational operators` `break` `continue` `switch` `for-loop` `while and do-while loops` `ternary operator`
-`intellij idea`
+`strings` `characters` `printing data` `types and variables` `integer types and operations` `naming variables`
+`reading user's input with scanner` `arithmetic operations` `write, compile, and run` `parameters and options`
+`coding style conventions` `conditional statement` `boolean` `relational operators` `switch` `for-loop` `while and do-while loops`
+`intellij idea` `array` `switch expression` `initializing new instances. constructor` `getters and setters` `acces modifiers`
+`iterating over arrays` `arrays as parameters` `defining classes` `instance methods` `what is object-orientend programming`
+`errors in programs` `primitive and reference types` `constants. final variables` `functional decomposition` `calling methods`
+`declaring methods` `combining constants with enum`
 
 ## Code
-- [solution class](./src/main/java/CoffeeMachine.java)
+- [solution class](./src/main/java/CoffeeMaker.java)
 - [unit tests](./src/test/java/CoffeeMachineTest.java)
 
 [<<](../README.md)
