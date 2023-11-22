@@ -1,47 +1,43 @@
 import java.util.Arrays;
 
 public class CoffeeMaker {
-    CoffeeMachine coffeeMachine;
+    CoffeeMachine coffeeMachine =  new CoffeeMachine();
 
     public String takeOrder(String command) {
-        coffeeMachine = new CoffeeMachine();
         String[] parts = command.split(", ");
-        int[] refill = Arrays.stream(parts).skip(1).mapToInt(Integer::parseInt).toArray();
 
         Order order = Order.valueOf(parts[0].toUpperCase());
         return switch (order) {
             case BUY -> buy(getCoffeeType(Integer.parseInt(parts[1])));
-            case FILL -> fill(refill[0], refill[1], refill[2], refill[3]);
+            case FILL -> {
+                int[] refill = Arrays.stream(parts).skip(1).mapToInt(Integer::parseInt).toArray();
+                yield fill(refill[0], refill[1], refill[2], refill[3]);
+            }
             case TAKE -> take();
+            case REMAINING -> coffeeMachine.toString();
         };
     }
 
     private String buy(CoffeeType type) {
-        coffeeMachine.updateMachine(
-                -1 * type.getWater(),
-                -1 * type.getMilk(),
-                -1 * type.getBeans(),
-                -1 * type.getCups(),
+        return coffeeMachine.updateMachine("BUY",
+                type.getWater(),
+                type.getMilk(),
+                type.getBeans(),
+                type.getCups(),
                 type.getCost());
-        return coffeeMachine.toString();
     }
 
     private String fill(int water, int milk, int beans, int cups) {
-        coffeeMachine.updateMachine(water, milk, beans, cups, 0);
-        return coffeeMachine.toString();
+        return coffeeMachine.updateMachine("FILL" ,water, milk, beans, cups, 0);
     }
 
     private String take() {
         int money = coffeeMachine.getMoney();
-        coffeeMachine.setMoney(-1 * money);
-        return String.valueOf(money);
+        coffeeMachine.setMoney(0);
+        return String.format("I gave you $%d", money);
     }
 
-    public String afterTake() {
-        return coffeeMachine.toString();
-    }
-
-    private static CoffeeType getCoffeeType(int num) {
+    private CoffeeType getCoffeeType(int num) {
         CoffeeType type = CoffeeType.findByNum(num);
 
         if (type != null) {
@@ -54,5 +50,5 @@ public class CoffeeMaker {
 }
 
 enum Order {
-    BUY, FILL, TAKE
+    BUY, FILL, TAKE, REMAINING
 }

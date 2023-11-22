@@ -13,36 +13,36 @@ public class CoffeeMachine {
         this.money = 550;
     }
 
-    public int getWater() {
+    private int getWater() {
         return water;
     }
 
-    public void setWater(int water) {
-        this.water += water;
+    private void setWater(int water) {
+        this.water = water;
     }
 
-    public int getMilk() {
+    private int getMilk() {
         return milk;
     }
 
-    public void setMilk(int milk) {
-        this.milk += milk;
+    private void setMilk(int milk) {
+        this.milk = milk;
     }
 
-    public int getBeans() {
+    private int getBeans() {
         return beans;
     }
 
-    public void setBeans(int beans) {
-        this.beans += beans;
+    private void setBeans(int beans) {
+        this.beans = beans;
     }
 
-    public int getCups() {
+    private int getCups() {
         return cups;
     }
 
-    public void setCups(int cups) {
-        this.cups += cups;
+    private void setCups(int cups) {
+        this.cups = cups;
     }
 
     public int getMoney() {
@@ -50,15 +50,48 @@ public class CoffeeMachine {
     }
 
     public void setMoney(int money) {
-        this.money += money;
+        this.money = money;
     }
 
-    public void updateMachine(int water, int milk, int beans, int cups, int money) {
-        setWater(water);
-        setMilk(milk);
-        setBeans(beans);
-        setCups(cups);
-        setMoney(money);
+    public String updateMachine(String order, int water, int milk, int beans, int cups, int money) {
+        return switch (order) {
+            case "BUY" -> {
+                String canMakeCoffee = canMakeCoffee(water, milk, beans, cups);
+                if ("ok".equals(canMakeCoffee)) {
+                    setWater(getWater() - water);
+                    setMilk(getMilk() - milk);
+                    setBeans(getBeans() - beans);
+                    setCups(getCups() - cups);
+                    setMoney(getMoney() + money);
+                    yield "I have enough resources, making you a coffee!";
+                }
+                yield String.format("Sorry, not enough %s!", canMakeCoffee);
+            }
+            case "FILL" -> {
+                setWater(getWater() + water);
+                setMilk(getMilk() + milk);
+                setBeans(getBeans() + beans);
+                setCups(getCups() + cups);
+                yield "filled";
+            }
+            default -> "wrong";
+        };
+    }
+
+    private String canMakeCoffee(int waterReq, int milkReq, int beansReq, int cupsReq) {
+        if (this.water - waterReq < 0) {
+            return "water";
+        }
+        if (this.milk - milkReq < 0) {
+            return "milk";
+        }
+        if (this.beans - beansReq < 0) {
+            return "beans";
+        }
+        if (this.cups - cupsReq < 0) {
+            return "cups";
+        }
+        return "ok";
     }
 
     @Override
