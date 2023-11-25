@@ -34,7 +34,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Simple Search Engine (Java)](./README.md) `⭐4.4` `21 hr`
   - [ ] [Smart Calculator (Java)](./README.md) `⭐4.3` `24 hr`
   - [ ] [Minesweeper (Java)](./README.md) `⭐4.3` `20 hr`
-  - [ ] [Budget Manager](./README.md) `⭐4.0` `22 hr`
+  - [ ] [Budget Manager](./BudgetManager/README.md) `⭐4.0` `22 hr`
 - Hard
   - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
