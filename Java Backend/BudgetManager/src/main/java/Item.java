@@ -1,4 +1,4 @@
-public record Item(String name, double price) {
+public record Item(String name, double price, Category category) {
 
     @Override
     public String toString() {

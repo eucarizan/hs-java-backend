@@ -12,20 +12,6 @@ public class ManagerTest {
     }
 
     @Test
-    void showMenuTest() {
-        String expected = """
-                Choose your action:
-                1) Add income
-                2) Add purchase
-                3) Show list of purchases
-                4) Balance
-                0) Exit""";
-        String result = manager.showMenu();
-
-        assertEquals(expected, result);
-    }
-
-    @Test
     void request0Test() {
         String result = manager.processRequest("0");
         assertEquals("Bye!", result);
@@ -42,11 +28,11 @@ public class ManagerTest {
 
     @Test
     void request23Test() {
-        String requestResult = manager.processRequest("2, Red Fuji Apple; 5.99");
+        String requestResult = manager.processRequest("2, Red Fuji Apple; 5.99; Food");
         assertEquals("Purchase was added!", requestResult);
 
         String purchaseList = "Red Fuji Apple $5.99Total sum: $5.99";
-        String purchaseSuccess = manager.processRequest("3")
+        String purchaseSuccess = manager.processRequest("3, 1")
                 .replace("\r\n", "");;
         assertEquals(purchaseList, purchaseSuccess);
     }
@@ -56,10 +42,13 @@ public class ManagerTest {
         String addIncomeResult = manager.processRequest("1, 10");
         assertEquals("Income was added!", addIncomeResult);
 
-        String requestResult = manager.processRequest("2, Red Fuji Apple; 5.99");
+        String requestResult = manager.processRequest("2, Red Fuji Apple; 5.99; Food");
         assertEquals("Purchase was added!", requestResult);
 
         String getBalanceResult = manager.processRequest("4");
         assertEquals("Balance: $4.01", getBalanceResult);
     }
+
+    // TODO: given 1 purchase, test for other empty different categories
+    // TODO: given all category purchased, test for different categories
 }

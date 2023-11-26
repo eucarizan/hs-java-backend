@@ -8,16 +8,23 @@ public class Basket {
         cart.add(item);
     }
 
-    public String showCart() {
-        if (cart.isEmpty()) {
+    public String showCart(String categoryStr) {
+        Category category = Category.valueOf(categoryStr);
+
+        if (cart.stream().noneMatch(s -> s.category().equals(category))) {
             return "The purchase list is empty";
         }
 
         StringBuilder sb = new StringBuilder();
 
-        cart.forEach(s -> sb.append(String.format("%s%n", s)));
+        cart
+                .stream()
+                .filter(s -> s.category().equals(category))
+                .forEach(s -> sb.append(String.format("%s%n", s)));
 
-        Double amt = cart.stream()
+        Double amt = cart
+                .stream()
+                .filter(s -> s.category().equals(category))
                 .map(Item::price)
                 .reduce(0.0, Double::sum);
 

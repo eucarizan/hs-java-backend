@@ -15,8 +15,8 @@ public class Person {
         basket.addToCart(item);
     }
 
-    public String showPurchase() {
-        return basket.showCart();
+    public String showPurchase(String category) {
+        return basket.showCart(category);
     }
 
 }
