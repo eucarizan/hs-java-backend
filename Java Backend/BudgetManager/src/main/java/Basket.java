@@ -9,13 +9,18 @@ public class Basket {
     }
 
     public String showCart(String categoryStr) {
-        Category category = Category.valueOf(categoryStr);
+        if ("all".equalsIgnoreCase(categoryStr)) {
+            return showAllCart();
+        }
+
+        Category category = Category.valueOf(categoryStr.toUpperCase());
 
         if (cart.stream().noneMatch(s -> s.category().equals(category))) {
             return "The purchase list is empty";
         }
 
-        StringBuilder sb = new StringBuilder();
+        String cat = categoryStr.substring(0, 1).toUpperCase() + categoryStr.substring(1);
+        StringBuilder sb = new StringBuilder(cat + ":\n");
 
         cart
                 .stream()
@@ -25,6 +30,19 @@ public class Basket {
         Double amt = cart
                 .stream()
                 .filter(s -> s.category().equals(category))
+                .map(Item::price)
+                .reduce(0.0, Double::sum);
+
+        return sb.append(String.format("Total sum: $%.2f", amt)).toString();
+    }
+
+    private String showAllCart() {
+        StringBuilder sb = new StringBuilder("All:\n");
+        cart
+                .forEach(s -> sb.append(String.format("%s%n", s)));
+
+        Double amt = cart
+                .stream()
                 .map(Item::price)
                 .reduce(0.0, Double::sum);
 

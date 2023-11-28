@@ -70,7 +70,7 @@ public class Manager {
             default -> throw new IllegalStateException("Unexpected value: " + category);
         };
 
-        return person.showPurchase(categoryStr.toUpperCase());
+        return person.showPurchase(categoryStr);
     }
 
     private String showBalance() {
