@@ -39,10 +39,11 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
 - Challenging
+  - [ ] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
+  - [ ] [Web Quiz Engine (Java)](./README.md) `⭐4.4` `51 hr`
+  - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
   - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
-  - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
-  - [ ] [Web Quiz Engine (Java)](./README.md) `⭐4.4` `51 hr`
 
 ### Track Overview
 - 160 hours for all learning activities
