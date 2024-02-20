@@ -2,12 +2,15 @@ package dev.nj.qrcode.web;
 
 import dev.nj.qrcode.service.QRCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.image.BufferedImage;
+import java.util.Map;
 
 @RestController
 public class QRCodeController {
@@ -25,10 +28,22 @@ public class QRCodeController {
     }
 
     @GetMapping("/qrcode")
-    public ResponseEntity<BufferedImage> getImage() {
+    public ResponseEntity<BufferedImage> getImage(@RequestParam int size, @RequestParam String type) {
+        MediaType mediaType = qrCodeService.getType(type);
+        if (mediaType == null) {
+            return ResponseEntity
+                    .badRequest()
+                    .build();
+        }
+
+        BufferedImage image = qrCodeService.getImage(size);
+        if (image == null) {
+            return new ResponseEntity("Image size must be between 150 and 350 pixels", HttpStatus.BAD_REQUEST);
+        }
+
         return ResponseEntity
                 .ok()
-                .contentType(MediaType.IMAGE_PNG)
-                .body(qrCodeService.getImage(250, "png"));
+                .contentType(mediaType)
+                .body(image);
     }
 }

@@ -11,6 +11,10 @@
       - [2.1 Description](#21-description)
       - [2.2 Objectives](#22-objectives)
       - [2.3 Examples](#23-examples)
+    - [3: Image parameters](#3-image-parameters)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Examples](#33-examples)
 
 ## Learning outcomes
 In this projec, master handling HTTP requests and parameters, image processing in Java, learn how to generate QR codes using the ZXing library, understand HTTP status codes and response content types, and practice serving files in different formats
@@ -53,7 +57,7 @@ QR codes are square-shaped patterns comprised of black squares on a white backgr
 
 In this stage, you must create a 250x250 pixel image filled with white color. You can accomplish this using the `java.awt.image.BufferedImage` class, which allows for image data manipulation. Here's an example:
 
-```
+```java
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -129,5 +133,62 @@ _Response header_: `Content-Type: image/png`
 _Response body_: byte array
 
 <hr/>
+
+### 3: Image parameters
+#### 3.1 Description
+In this stage, your task is to add versatility to the QR code service by allowing it to handle different request parameters. This will enable the generation of QR code images with various sizes and formats, as opposed to the same image every time.
+
+Clients may need images in different formats and sizes, which requires the modification of the `GET /api/qrcode` endpoint to accept two request parameters:
+
+- `size`: this parameter, measured in pixels, should be within a reasonable range. If the value is less than 150 pixels or exceeds 350 pixels, the endpoint should respond with the status code `400 BAD REQUEST`, accompanied by a JSON containing the `error` field and a suitable error message.
+
+- `type`: the image can be in _PNG_, _JPEG_, or _GIF_ format. The endpoint should return the generated image in the requested format, including setting the appropriate `Content-Type` header. If the parameter value doesn't match these three formats, the endpoint should respond with the status code `400 BAD REQUEST` and a JSON containing the `error` field and a suitable error message.
+
+Both parameters are mandatory. However, you don't need to account for missing parameters; the default Spring Boot behavior will suffice.
+
+#### 3.2 Objectives
+- Modify the `GET /api/qrcode` endpoint to accept the `size` request parameter. If the parameter value ranges between 150 and 350 pixels (inclusive), return the status code `200 OK` and the image of the requested size. Bear in mind that QR code images are square! If the parameter value is outside this range, return the status code `400 BAD REQUEST` along with a JSON-formatted request body containing the following:
+  ```json
+  {
+    "error": "Image size must be between 150 and 350 pixels"
+  }
+  ```
+
+- Modify the `GET /api/qrcode` endpoint to accept the `type` request parameter. If the parameter value is either `png`, `jpeg`, or `gif`, return the status code `200 OK` and the image in the requested format. Don't forget to set the correct `Content-Type` header in the response! If the parameter value doesn't match any of the three accepted types, return the status code `400 BAD REQUEST`, along with a JSON-formatted request body containing the following:
+  ```json
+  {
+    "error": "Only png, jpeg and gif image types are supported"
+  }
+  ```
+
+- If both the `size` and the `type` parameters are invalid, return the error message related to the `size` parameter.
+- Aside from these modifications, the image generation and serialization process remains unchanged.
+
+#### 3.3 Examples
+**Example 1**. *a GET request to /api/qrcode with the correct size and type parameters*:
+*Request*: `GET /api/qrcode?size=250&type=png`
+*Response code*: `200 OK`
+*Response header*: `Content-Type: image/png`
+*Response body*: byte array
+
+**Example 2**. *a GET request to /api/qrcode with an incorrect size parameter*:
+*Request*: `GET /api/qrcode?size=100&type=png`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Image size must be between 150 and 350 pixels"
+}
+```
+
+**Example 3**. *a GET request to /api/qrcode with an incorrect type parameter*:
+*Request*: `GET /api/qrcode?size=250&type=tiff`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Only png, jpeg and gif image types are supported"
+}
+```
 
 [<<](../README.md)
