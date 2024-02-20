@@ -17,12 +17,20 @@ public class QRCodeServiceImpl implements QRCodeService {
 
     @Override
     public BufferedImage getImage(int size) {
+        if (size < 150 || size > 350) {
+            return null;
+        }
+
         return createImage(size);
     }
 
     @Override
     public MediaType getType(String type) {
-        return MediaType.parseMediaType("image/"+type);
+        if ("png".equalsIgnoreCase(type) || "jpeg".equalsIgnoreCase(type) || "gif".equalsIgnoreCase(type)) {
+            return MediaType.parseMediaType("image/"+type);
+        }
+
+        return null;
     }
 
     private static BufferedImage createImage(int size) {

@@ -29,16 +29,14 @@ public class QRCodeController {
 
     @GetMapping("/qrcode")
     public ResponseEntity<BufferedImage> getImage(@RequestParam int size, @RequestParam String type) {
-        MediaType mediaType = qrCodeService.getType(type);
-        if (mediaType == null) {
-            return ResponseEntity
-                    .badRequest()
-                    .build();
-        }
-
         BufferedImage image = qrCodeService.getImage(size);
         if (image == null) {
-            return new ResponseEntity("Image size must be between 150 and 350 pixels", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(Map.of("error", "Image size must be between 150 and 350 pixels"), HttpStatus.BAD_REQUEST);
+        }
+
+        MediaType mediaType = qrCodeService.getType(type);
+        if (mediaType == null) {
+            return new ResponseEntity(Map.of("error", "Only png, jpeg and gif image types are supported"), HttpStatus.BAD_REQUEST);
         }
 
         return ResponseEntity
