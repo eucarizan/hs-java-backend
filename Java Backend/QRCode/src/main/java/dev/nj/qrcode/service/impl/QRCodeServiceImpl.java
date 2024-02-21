@@ -1,10 +1,14 @@
 package dev.nj.qrcode.service.impl;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import dev.nj.qrcode.service.QRCodeService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 @Service
@@ -16,30 +20,31 @@ public class QRCodeServiceImpl implements QRCodeService {
     }
 
     @Override
-    public BufferedImage getImage(int size) {
+    public BufferedImage getImage(int size, String contents) {
         if (size < 150 || size > 350) {
             return null;
         }
 
-        return createImage(size);
+        return createImage(size, contents);
     }
 
     @Override
     public MediaType getType(String type) {
         if ("png".equalsIgnoreCase(type) || "jpeg".equalsIgnoreCase(type) || "gif".equalsIgnoreCase(type)) {
-            return MediaType.parseMediaType("image/"+type);
+            return MediaType.parseMediaType("image/" + type);
         }
 
         return null;
     }
 
-    private static BufferedImage createImage(int size) {
-        BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = image.createGraphics();
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, size, size);
-        g.dispose();
+    private static BufferedImage createImage(int size, String contents) {
+        QRCodeWriter writer = new QRCodeWriter();
 
-        return image;
+        try {
+            BitMatrix bitMatrix = writer.encode(contents, BarcodeFormat.QR_CODE, size, size);
+            return MatrixToImageWriter.toBufferedImage(bitMatrix);
+        } catch (WriterException e) {
+            return null;
+        }
     }
 }

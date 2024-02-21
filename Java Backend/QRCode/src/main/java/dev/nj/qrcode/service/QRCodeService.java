@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 public interface QRCodeService {
     String getHealth();
 
-    BufferedImage getImage(int size);
+    BufferedImage getImage(int size, String contents);
 
     MediaType getType(String type);
 }

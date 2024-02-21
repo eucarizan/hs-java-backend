@@ -15,6 +15,10 @@
       - [3.1 Description](#31-description)
       - [3.2 Objectives](#32-objectives)
       - [3.3 Examples](#33-examples)
+    - [4: Zebra crossing](#4-zebra-crossing)
+      - [4.1 Description](#41-description)
+      - [4.2 Objectives](#42-objectives)
+      - [4.3 Examples](#43-examples)
 
 ## Learning outcomes
 In this projec, master handling HTTP requests and parameters, image processing in Java, learn how to generate QR codes using the ZXing library, understand HTTP status codes and response content types, and practice serving files in different formats
@@ -190,5 +194,89 @@ Both parameters are mandatory. However, you don't need to account for missing pa
     "error": "Only png, jpeg and gif image types are supported"
 }
 ```
+
+### 4: Zebra crossing
+#### 4.1 Description
+Now that you've completed all the necessary preparations, let's start generating QR codes. QR codes, or Quick Response codes, are square-shaped patterns of black squares on a white background. The specific arrangement of these squares encodes information, which could be in the form of text, a URL, geolocation, or other data types.
+
+Don't worry; you won't be implementing the data encoding algorithm from scratch. Use the [ZXing open-source library](https://github.com/zxing/zxing) for this purpose.
+
+First, add these dependencies to the `build.gradle` file:
+```
+dependencies {
+    // Spring Boot starters
+    // ...
+
+    implementation 'com.google.zxing:core:3.5.2'
+    implementation 'com.google.zxing:javase:3.5.2'
+}
+```
+
+To generate a `BufferedImage` from a `String` representing some data, you can use the following code:
+```java
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+class SomeClass {
+    QRCodeWriter writer = new QRCodeWriter();
+    try {
+        BitMatrix bitMatrix = writer.encode(data, BarcodeFormat.QR_CODE, width, height);
+        BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+    } catch (WriterException e) {
+        // handle the WriterException
+    }
+}
+```
+
+Initialize a QRCodeWriter object, a part of the ZXing library, to generate a QR code from the provided data. Then, encode the data into a bit matrix by invoking the `encode` method of the `QRCodeWriter` object. This method takes three parameters: the data you want to encode in the QR code (in the `String` format), the specific format of the barcode (in this case, `BarcodeFormat.QR_CODE` for QR codes), and the desired width and height of the resulting image. The `encode` method transforms the input data into a `BitMatrix` object, essentially a 2D array representing the QR code in binary format (black and white squares). Finally, convert the bit matrix to a BufferedImage by using the `toBufferedImage` method of the `MatrixToImageWriter` class.
+
+You'll need to update the `GET /api/qrcode` endpoint to accept `contents` as another request parameter. This is a mandatory parameter because you need something to encode, and it cannot be empty or blank. If a client submits valid `contents`, `size`, and `type` request parameters, the QR code service should return the status code `200 OK` and a QR code of the specified size, with the encoded contents in the specified format. If the `contents` is not valid, the service should respond with the status code `400 BAD REQUEST` and a JSON with the `error` field and an appropriate error message.
+
+All previous requirements for request parameter handling remain in effect. If any of the parameters is invalid, the service should respond with the status code `400 BAD REQUEST` and the appropriate error message. If multiple parameters are not valid, the error messages should follow this priority order:
+
+invalid contents > invalid size > invalid type
+
+#### 4.2 Objectives
+- Modify the `GET /api/qrcode` endpoint to accept `contents` as a new request parameter, in addition to the others.
+- If the `contents` is a non-empty and non-blank string, generate a QR code from the `contents` string and encode it into an image of the size specified by the `size` parameter and in the format specified by the `type` parameter. Return the status code `200 OK` and the generated QR code image in the response body. Don't forget to set the correct `Content-Type` header in the response.
+- If the `contents` is empty or blank, the endpoint should return the status code `400 BAD REQUEST` and a request body in the JSON format with the following contents:
+  ```json
+  {
+      "error": "Contents cannot be null or blank"
+  }
+  ```
+- The error for invalid `contents` should have the highest priority. The requirements for handling the other request parameters remain unchanged.
+
+#### 4.3 Examples
+**Example 1**. *a GET request to /api/qrcode with the correct contents, size and type parameters*:
+*Request*: `GET /api/qrcode?contents=abcdef&size=250&type=png`
+*Response code*: `200 OK`
+*Response header*: `Content-Type: image/png`
+*Response body*: byte array
+
+**Example 2**. *a GET request to /api/qrcode with an incorrect contents parameter*:
+*Request*: `GET /api/qrcode?contents=&size=200&type=png`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Contents cannot be null or blank"
+}
+```
+
+**Example 3**. *a GET request to /api/qrcode with incorrect contents, and type parameter*:
+*Request*: `GET /api/qrcode?contents=&size=250&type=tiff`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Contents cannot be null or blank"
+}
+```
+
+<hr/>
 
 [<<](../README.md)
