@@ -19,6 +19,10 @@
       - [4.1 Description](#41-description)
       - [4.2 Objectives](#42-objectives)
       - [4.3 Examples](#43-examples)
+    - [5: Foolproof API](#5-foolproof-api)
+      - [5.1 Description](#51-description)
+      - [5.2 Objectives](#52-objectives)
+      - [5.3 Examples](#53-examples)
 
 ## Learning outcomes
 In this projec, master handling HTTP requests and parameters, image processing in Java, learn how to generate QR codes using the ZXing library, understand HTTP status codes and response content types, and practice serving files in different formats
@@ -195,6 +199,8 @@ Both parameters are mandatory. However, you don't need to account for missing pa
 }
 ```
 
+<hr/>
+
 ### 4: Zebra crossing
 #### 4.1 Description
 Now that you've completed all the necessary preparations, let's start generating QR codes. QR codes, or Quick Response codes, are square-shaped patterns of black squares on a white background. The specific arrangement of these squares encodes information, which could be in the form of text, a URL, geolocation, or other data types.
@@ -274,6 +280,103 @@ invalid contents > invalid size > invalid type
 ```json
 {
     "error": "Contents cannot be null or blank"
+}
+```
+
+<hr/>
+
+### 5: Foolproof API
+#### 5.1 Description
+QR codes have four error correction levels, determining how much code can be damaged or obscured while still readable. These levels are:
+
+- **Level L (Low)**: The QR code can withstand up to approximately 7% damage.
+- **Level M (Medium)**: The QR code can withstand up to approximately 15% damage.
+- **Level Q (Quartile)**: The QR code can withstand up to approximately 25% damage.
+- **Level H (High)**: The QR code can withstand up to approximately 30% damage.
+
+These levels provide a trade-off between data capacity and resilience. Higher error correction levels require more space, reducing the amount of data that can be stored in the QR code. In this stage, the service should be able to handle a new request parameter, `correction` that defines the error correction level desired by the client. The accepted `correction` values should be `L`, `M`, `Q` and `H`. If a client specifies an incorrect correction level, the service should respond with the status code `400 BAD REQUEST` and a JSON with the `error` field and an appropriate error message.
+
+If a request contains multiple invalid parameters, the error messages should have the following priority:
+
+invalid contents > invalid size > invalid correction > invalid type
+
+To implement different error correction levels, use the overloaded version of the `encode` method of the `QRCodeWriter` class. Besides the contents, barcode format, width, and height, it accepts encoder hints represented by a `Map` where keys are constants of the `EncodeHintType` and values are appropriate objects. It may sound confusing, but don't worry, we will explore a practical example. In our case, we need the specific `EncodeHintType` as key, which is the `EncodeHintType.ERROR_CORRECTION`. As a value, we will have to use the constants of the `ErrorCorrectionLevel` enum, namely `ErrorCorrectionLevel.L`, `ErrorCorrectionLevel.M`, `ErrorCorrectionLevel.Q` or `ErrorCorrectionLevel.H`. Here is the updated version of the QR code generation:
+```java
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
+QRCodeWriter writer = new QRCodeWriter();
+Map<EncodeHintType, ?> hints = Map.of(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+try {
+    BitMatrix bitMatrix = writer.encode(contents, BarcodeFormat.QR_CODE, width, height, hints);
+    BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+} catch (WriterException e) {
+    // handle the WriterException
+}
+```
+
+In addition to the parameters, we have created the `Map` of encode hints and set the error correction level to `H` (high). To set the medium error correction level, you will need to replace `ErrorCorrectionLevel.H` with the relevant value. That's it!
+
+In addition, let's make the QR code API more user-friendly. Now, all parameters except for `contents` should be optional and should have default values. If a client does not specify a particular request parameter, apply the corresponding default value:
+
+- default `size` is `250`
+- default `correction` is `L`
+- default `type` is `png`
+
+If a client specifies an invalid value for an optional parameter, the service should respond with the status code `400 BAD REQUEST`, a JSON with the `error` field, and an appropriate error message. The exact requirements as in the previous stage apply.
+
+#### 5.2 Objectives
+- Modify the `GET /api/qrcode` endpoint to accept a new parameter, `correction`, which represents the desired QR code error correction level and can only have values `L`, `M`, `Q` or `H`.
+- Generate a QR code from the provided content, applying parameters from the request, including the error correction level.
+- If the provided `correction` is not valid, the endpoint should return the status code `400 BAD REQUEST` and a request body in the JSON format with the following contents:
+  ```json
+  {
+      "error": "Permitted error correction levels are L, M, Q, H"
+  }
+  ```
+- The requirements for handling the other request parameters remain unchanged. If a request contains multiple invalid parameters, the error messages should have the following priority: invalid contents => invalid size => invalid correction => invalid type.
+- All request parameters except for the contents should be optional and have the following default values: default `size` is `250`, default `correction` is `L` , and default `type` is `png`.
+
+
+#### 5.3 Examples
+**Example 1**. *a GET request to /api/qrcode with a correct contents and default other parameters*:
+*Request*: `GET /api/qrcode?contents=abcdef`
+*Response code*: `200 OK`
+*Response header*: `Content-Type: image/png`
+*Response body*: byte array
+
+**Example 2**. *a GET request to /api/qrcode with an incorrect correction parameter*:
+*Request*: `GET /api/qrcode?contents=abcde&correction=S`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Permitted error correction levels are L, M, Q, H"
+}
+```
+
+**Example 3**. *a GET request to /api/qrcode with incorrect contents and correction parameters*:
+*Request*: `GET /api/qrcode?contents=&correction=S`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Contents cannot be null or blank"
+}
+```
+
+**Example 4**. *a GET request to /api/qrcode with an incorrect correction and type parameters*:
+*Request*: `GET /api/qrcode?contents=abcde&correction=S&type=tiff`
+*Response code*: `400 BAD REQUEST`
+*Response body*:
+```json
+{
+    "error": "Permitted error correction levels are L, M, Q, H"
 }
 ```
 
