@@ -42,7 +42,7 @@ Create `GET /api/quiz` endpoint that returns a quiz object in JSON format. The q
 }
 ```
 
-In your API, the names of the attributes must be exactly as specified above (`title`, `text`, `options`) but you can assign them any values of the appropriate type. The quiz should contain four items in the `options` array. The correct answer must be the **third option**, which means that since the indexes in in the array start from zero, the **index of the correct anwer must be 2**.
+In your API, the names of the attributes must be exactly as specified above (`title`, `text`, `options`) but you can assign them any values of the appropriate type. The quiz should contain four items in the `options` array. The correct answer must be the **third option**, which means that since the indexes in the array start from zero, the **index of the correct answer must be 2**.
 
 > There is no need to force your server to respond a JSON with line breaks and additional spaces. This is used only to demonstrate the response in a human-readable format. Actually, your server returns a long single-line JSON: `{"title":"The Java Logo","text":"What is depicted on the Java logo?","options":["Robot","Tea leaf","Cup of coffee","Bug"]}`.
 
