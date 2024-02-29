@@ -35,29 +35,46 @@ public class RecipeServiceImpl implements RecipeService {
     public void delete(long id, String username) throws RecipeNotFoundException, NotOwnerException {
         repository.findById(id)
                 .ifPresentOrElse(recipe -> executeIfOwnerOrThrow(recipe, repository::delete, username),
-                        () -> { throw createNotFoundException(id);});
+                        () -> {
+                            throw createNotFoundException(id);
+                        });
     }
 
     @Override
-    public void update(long id, Recipe recipe, String sessionUsername) throws RecipeNotFoundException, NotOwnerException {
-
+    public void update(long id, Recipe updateRecipe, String sessionUsername) throws RecipeNotFoundException, NotOwnerException {
+        repository.findById(id)
+                .ifPresentOrElse(recipe -> executeIfOwnerOrThrow(recipe, getUpdateAction(updateRecipe), sessionUsername),
+                        () -> {
+                            throw createNotFoundException(id);
+                        });
     }
 
     @Override
     public List<Recipe> searchByCategory(String searchText) {
-        return null;
+        return repository.findAllByCategoryEqualsIgnoreCaseOrderByDateTimeDesc(searchText);
     }
 
     @Override
     public List<Recipe> searchByName(String searchText) {
-        return null;
+        return repository.findAllByNameContainsIgnoreCaseOrderByDateTimeDesc(searchText);
     }
 
     private void executeIfOwnerOrThrow(Recipe recipe, Consumer<Recipe> action, String username) throws NotOwnerException {
-        if (recipe.getEmail())
+        if (recipe.getCreator().getUsername().equals(username)) {
+            action.accept(recipe);
+        } else {
+            throw new NotOwnerException();
+        }
     }
 
     private RecipeNotFoundException createNotFoundException(long id) {
         return new RecipeNotFoundException("recipe with id %d not found".formatted(id));
+    }
+
+    private Consumer<Recipe> getUpdateAction(Recipe updateRecipe) {
+        return recipe -> {
+            updateRecipe.setId(recipe.getId());
+            repository.save(updateRecipe);
+        };
     }
 }

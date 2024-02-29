@@ -1,69 +1,70 @@
 package dev.njeu.web;
 
-import dev.njeu.entities.Recipe;
 import dev.njeu.entities.User;
-import dev.njeu.service.RecipeService2;
+import dev.njeu.service.RecipeService;
+import dev.njeu.web.dto.RecipeDto;
 import dev.njeu.web.mapper.RecipeMapper;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/recipe")
 public class RecipeController {
 
-    private final RecipeService2 recipeService;
-    private final RecipeMapper recipeMapper;
+    private final RecipeService service;
+    private final RecipeMapper mapper;
 
-    public RecipeController(RecipeService2 recipeService, RecipeMapper recipeMapper) {
-        this.recipeService = recipeService;
-        this.recipeMapper = recipeMapper;
+    @Autowired
+    public RecipeController(RecipeService recipeService, RecipeMapper recipeMapper) {
+        this.service = recipeService;
+        this.mapper = recipeMapper;
     }
 
     @PostMapping("/new")
-    public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe, @AuthenticationPrincipal UserDetails user) {
-        return Map.of("id", recipeService.add(recipe, user));
+    public ResponseEntity<Map<String, Long>> addRecipe(@Valid @RequestBody RecipeDto recipeDto,
+                                                       @AuthenticationPrincipal User user) {
+        var saved = service.add(mapper.toEntity(recipeDto, user));
+        return ResponseEntity.ok(Collections.singletonMap("id", saved.getId()));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
-        return ResponseEntity.of(recipeService.findById(id));
+    public ResponseEntity<RecipeDto> getRecipe(@PathVariable long id) {
+        return ResponseEntity.ok(mapper.toDto(service.getById(id)));
     }
 
-    @DeleteMapping("/recipe/{id}")
-    public ResponseEntity<Void> deleteRecipe(@PathVariable long id, @AuthenticationPrincipal UserDetails user) {
-        return recipeService.deleteById(id, user);
+    @GetMapping(value = "/search", params = "name")
+    public ResponseEntity<RecipeDto[]> getRecipesByName(@RequestParam String name) {
+        var foundRecipes = service.searchByName(name);
+        return ResponseEntity.ok(foundRecipes.stream().map(mapper::toDto).toArray(RecipeDto[]::new));
     }
 
-    @GetMapping(value = "/recipe/search", params = "name")
-    public ResponseEntity<List<Recipe>> getRecipesByName(@RequestParam String name) {
-        return recipeService.getRecipesByName(name);
+    @GetMapping(value = "/search", params = "category")
+    public ResponseEntity<RecipeDto[]> getRecipesByCategory(@RequestParam String category) {
+        var foundRecipes = service.searchByCategory(category);
+        return ResponseEntity.ok(foundRecipes.stream().map(mapper::toDto).toArray(RecipeDto[]::new));
     }
 
-    @GetMapping(value = "/recipe/search", params = "category")
-    public ResponseEntity<List<Recipe>> getRecipesByCategory(@RequestParam String category) {
-        return recipeService.getRecipesByCategory(category);
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRecipe(@PathVariable long id,
+                                             @AuthenticationPrincipal User user) {
+        service.delete(id, user.getUsername());
+        return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/recipe/{id}")
-    public ResponseEntity<Void> updateRecipe(
-            @PathVariable long id,
-            @Valid @RequestBody Recipe recipe,
-            @AuthenticationPrincipal UserDetails user) {
-        return recipeService.updateById(id, recipe, user);
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<Void> addUser(@Valid @RequestBody User user) {
-        boolean status = recipeService.registerUser(user);
-        return status ?
-                ResponseEntity.ok().build() :
-                ResponseEntity.badRequest().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateRecipe(@PathVariable long id,
+                                             @Valid @RequestBody RecipeDto recipeDto,
+                                             @AuthenticationPrincipal User user) {
+        service.update(id, mapper.toEntity(recipeDto, user), user.getUsername());
+        return ResponseEntity.noContent().build();
     }
 
     // TODO: extra - create data.sql to insert data to DB
