@@ -8,12 +8,16 @@
       - [1.1 Description](#11-description)
       - [1.2 Objectives](#12-objectives)
       - [1.3 Examples](#13-examples)
+    - [2: Lots of quizzes](#2-lots-of-quizzes)
+      - [2.1 Description](#21-description)
+      - [2.2 Objectives](#22-objectives)
+      - [2.3 Examples](#23-examples)
 
 ## Learning outcomes
 Create a collaborative web tool for making and solving quizzes, helping you learn backend development and modern tech integration effectively.
 
 ## About
-In the Internet, you can often find sites where you need to answer some questions. It can be educational sites, sites with psychological tests, job search services, or just entertaining sites like web quests. The common thing for them is the ability to answer questions (or quizzes) and then see some results. In this project, you will create a complex web service and learn about REST API, an embedded database, security, and other technologies. If you would like to continue the project, you could develop a web or mobile client for this web service on your own. 
+In the Internet, you can often find sites where you need to answer some questions. It can be educational sites, sites with psychological tests, job search services, or just entertaining sites like web quests. The common thing for them is the ability to answer questions (or quizzes) and then see some results. In this project, you will create a complex web service and learn about REST API, an embedded database, security, and other technologies. If you would like to continue the project, you could develop a web or mobile client for this web service on your own.
 
 ## Stages
 ### 1: Solving a simple quiz
@@ -101,5 +105,207 @@ You can write any other strings in the `feedback` field, but the names of the fi
 ```
 
 <hr/>
+
+### 2: Lots of quizzes
+#### 2.1 Description
+At this stage, you will improve the web service to create, get and solve lots of quizzes, not just a single one. All quizzes should be stored in the service's memory, without an external storage.
+
+The format of requests and responses will be similar to the first stage, but you will make the API more REST-friendly and extendable. You will add four operations:
+
+- `POST` `/api/quizzes` to create a new quiz;
+- `GET` `/api/quizzes/{id}` to get a quiz by its id;
+- `GET` `/api/quizzes` to get all available quizzes; and
+- `POST` `/api/quizzes/{id}/solve?answer={index}` to solve a specific quiz.
+
+Each of these operations are described below in detail.
+
+#### 2.2 Objectives
+- Create the `POST` `/api/quizzes` endpoint for adding a new quiz. The client needs to send a JSON as the request's body that should contain the four fields: `title` (a string), `text` (a string), `options` (an array of strings) and `answer` (integer index of the correct option). At this moment, all the keys are optional:
+```json
+{
+  "title": "<string>",
+  "text": "<string>",
+  "options": ["<string 1>","<string 2>","<string 3>", ...],
+  "answer": <integer>
+}
+```
+
+If `answer` equals `2`, it corresponds to the third item from the `options` array (i.e. `"<string 3>"`).
+
+The server response is a JSON with four fields: `id`, `title`, `text` and `options`:
+```json
+{
+  "id": <integer>,
+  "title": "<string>",
+  "text": "<string>",
+  "options": ["<string 1>","<string 2>","<string 3>", ...]
+}
+```
+
+The `id` field is a generated unique integer identifier for the quiz. Also, the response may or may not include the `answer` field depending on your wishes. This is not very important for this operation.
+
+At this moment, it is admissible if a creation request does not contain some quiz data. In the next stages, we will improve the service to avoid some server errors.
+
+- Create the `GET` `/api/quizzes/{id}` endpoint to get a quiz by `id`. The server must response with a JSON in the following format:
+```json
+{
+  "id": <integer>,
+  "title": "<string>",
+  "text": "<string>",
+  "options": ["<string 1>","<string 2>","<string 3>", ...]
+}
+```
+
+>The response **must not** include the `answer` field, otherwise, any user will be able to find the correct answer for any quiz.
+
+If a quiz with the specified id does not exist, the server should return the `404 (Not found)` status code.
+
+- Create the `GET` `/api/quizzes` endpoint to get all existing quizzes in the service. The response contains a JSON array of quizzes like the following:
+```json
+[
+  {
+    "id": <integer>,
+    "title": "<string>",
+    "text": "<string>",
+    "options": ["<string 1>","<string 2>","<string 3>", ...]
+  },
+  {
+    "id": <integer>,
+    "title": "<string>",
+    "text": "<string>",
+    "options": ["<string 1>","<string 2>", ...]
+  }
+]
+```
+
+>The response **must not** include the `answer` field, otherwise, any user will be able to find the correct answer for any quiz.
+
+If there are no quizzes, the service returns an empty JSON array: `[]`.
+
+In both cases, the status code is `200 (OK)`.
+
+- Create the `POST` `/api/quizzes/{id}/solve?answer={index}` endpoint to solve a quiz by its id. The client passes the `answer` request parameter which is the index of a chosen option from `options` array. As before, it starts from zero.
+
+The service returns a JSON with two fields: `success` (`true` or `false`) and `feedback` (just a string).
+
+If the passed answer is correct, e.g., `POST` to `/api/quizzes/1/solve?answer=2`:
+```json
+{
+  "success": true,
+  "feedback": "Congratulations, you're right!"
+}
+```
+
+If the answer is incorrect e.g., `POST` to `/api/quizzes/1/solve?answer=1`:
+```json
+{
+  "success": false,
+  "feedback": "Wrong answer! Please, try again."
+}
+```
+
+If a quiz with the specified id does not exist, the server returns the `404 (Not found)` status code.
+
+You can write any other strings in the `feedback` field, but the names of fields and the `true`/`false` values must match this example.
+
+#### 2.3 Examples
+**Example 1**: *creating a new quiz:*
+
+*Request* `POST /api/quizzes`
+
+*Request body*
+```json
+{
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
+  "answer": 2
+}
+```
+
+*Response body*
+```json
+{
+  "id": 1,
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+}
+```
+
+**Example 2**: *getting an existing quiz by id:*
+
+*Request* `GET /api/quizzes/1`
+
+*Response body*
+```json
+{
+  "id": 1,
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+}
+```
+
+**Example 3**: *getting a non-existing quiz by id:*
+
+*Request* `GET /api/quizzes/15`
+
+*Response*: `404 NOT FOUND`
+
+**Example 4**: *getting all quizzes:*
+
+*Request* `GET /api/quizzes`
+
+*Response body*
+```json
+[
+  {
+    "id": 1,
+    "title": "The Java Logo",
+    "text": "What is depicted on the Java logo?",
+    "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+  },
+  {
+    "id": 2,
+    "title": "The Ultimate Question",
+    "text": "What is the answer to the Ultimate Question of Life, the Universe and Everything?",
+    "options": ["Everything goes right","42","2+2=4","11011100"]
+  }
+]
+```
+
+**Example 5**: *solving an existing quiz with a correct answer:*
+
+*Request* `POST /api/quizzes/1/solve?answer=2`
+
+*Response body*
+```json
+{
+  "success": true,
+  "feedback": "Congratulations, you're right!"
+}
+```
+
+**Example 6**: *solving an existing quiz with a wrong answer:*
+
+*Request* `POST /api/quizzes/1/solve?answer=1`
+
+*Response body*
+```json
+{
+  "success": false,
+  "feedback": "Wrong answer! Please, try again."
+}
+```
+
+**Example 7**: *solving an non-existing quiz:*
+
+*Request* `POST /api/quizzes/15/solve?answer=1`
+
+*Response*: `404 NOT FOUND`
+
+<hr/>
+
 
 [<<](../README.md)

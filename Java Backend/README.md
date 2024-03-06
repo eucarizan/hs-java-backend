@@ -40,7 +40,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
 - Challenging
   - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
-  - [ ] [Web Quiz Engine (Java)](./README.md) `⭐4.4` `51 hr`
+  - [ ] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
   - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
   - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
