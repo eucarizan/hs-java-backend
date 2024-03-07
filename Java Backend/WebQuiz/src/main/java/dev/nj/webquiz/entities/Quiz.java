@@ -1,19 +1,31 @@
 package dev.nj.webquiz.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 
-@Component
+@Entity
+@Table(name = "quizzes")
 public class Quiz {
-    private String title;
-    private String text;
-    private String[] options;
 
-    @JsonIgnore
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
+    private String title;
+    @Column
+    private String text;
+    @Column
+    private String[] options;
+    @Column
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private int answer;
 
     public Quiz() {
-        createQuiz();
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -30,12 +42,5 @@ public class Quiz {
 
     public int getAnswer() {
         return answer;
-    }
-
-    public void createQuiz() {
-        this.title = "The Java Logo";
-        this.text = "What is depicted on the Java logo?";
-        this.options = new String[]{"Robot", "Tea leaf", "Cup of coffee", "Bug"};
-        this.answer = 2;
     }
 }
