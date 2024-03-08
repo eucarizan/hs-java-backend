@@ -12,6 +12,10 @@
       - [2.1 Description](#21-description)
       - [2.2 Objectives](#22-objectives)
       - [2.3 Examples](#23-examples)
+    - [3: Making quizzes more interesting](#3-making-quizzes-more-interesting)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Examples](#33-examples)
 
 ## Learning outcomes
 Create a collaborative web tool for making and solving quizzes, helping you learn backend development and modern tech integration effectively.
@@ -302,6 +306,214 @@ You can write any other strings in the `feedback` field, but the names of fields
 **Example 7**: *solving an non-existing quiz:*
 
 *Request* `POST /api/quizzes/15/solve?answer=1`
+
+*Response*: `404 NOT FOUND`
+
+<hr/>
+
+### 3: Making quizzes more interesting
+#### 3.1 Description
+Currently, your service allows creating new quizzes, but there may be problems if the client didn't provide all the quiz data. In such cases, the service will create an incorrect unsolvable quiz which is very frustrating for those who are trying to solve it.
+
+At this stage, you should fix this so that the service does not accept incorrect quizzes. Another task is to make quizzes more interesting by supporting the arbitrary number of correct options (from zero to all). It means that to solve a quiz, the client needs to send all correct options at once, or zero if all options are wrong.
+
+You may add this dependency to your build.gradle file to enable Spring validation:
+```
+implementation "org.springframework.boot:spring-boot-starter-validation"
+```
+
+There are only two modified operations for creating and solving quizzes. All other operations should not be changed or deleted.
+
+#### 3.2 Objectives
+1. Update handing of `POST` requests sent a the `/api/quizzes` endpoint. The requests must contain a JSON as the request's body with the four fields:
+
+- `title`: a string, **required**;
+- `text`: a string, **required**;
+- `options`: an array of strings, required, should contain at least **2** items;
+- `answer`: an array of integer indexes of correct options, can be absent or empty if all options are wrong.
+
+Here is the new structure of the request body:
+```json
+{
+  "title": "<string, not null, not empty>",
+  "text": "<string, <not null, not empty>",
+  "options": ["<string 1>","<string 2>","<string 3>", ...],
+  "answer": [<integer>,<integer>, ...]
+}
+```
+
+For example, if `answer` equals to `[0,2]` it means that the first and the third item from the `options` array (`"<string 1>"` and `"<string 3>"`) are correct.
+
+The server response is a JSON with four fields: `id`, `title`, `text` and `options`. Here is an example:
+```json
+{
+  "id": <integer>,
+  "title": "<string>",
+  "text": "<string>",
+  "options": ["<string 1>","<string 2>","<string 3>", ...]
+}
+```
+
+The `id` field is a generated unique integer identifier for the quiz. Also, the response may or may not include the `answer` field depending on your wishes. This is not very important for this operation.
+
+If the request JSON does not contain `title` or `text`, or they are empty strings (`""`), then the server should respond with the `400 (Bad request)` status code. If the number of options in the quiz is less than 2, the server returns the same status code.
+
+2. Update handling of `POST` requests to the `/api/quizzes/{id}/solve` endpoint. To solve a quiz, the client sends the a JSON that contains the single key `"answer"` which value is and array of indexes of all chosen options as the answer:
+```json
+{
+  "answer": [<integer>, <integer>, ...]
+}
+```
+
+As before, indexes start from zero. It is also possible to send an empty array `[]` since some quizzes may not have correct options.
+
+The service returns a JSON with two fields: `success` (`true` or `false`) and `feedback` (just a string). There are three possible responses.
+
+- If the passed answer is correct:
+```json
+{
+  "success":true,
+  "feedback":"Congratulations, you're right!"
+}
+```
+
+- If the answer is incorrect:
+```json
+{
+  "success":false,
+  "feedback":"Wrong answer! Please, try again."
+}
+```
+
+- If the specified quiz does not exist, the server returns the `404 NOT FOUND` status code.
+
+You can write any other strings in the `feedback` field, but the names of fields and the `true`/`false` values must match this example.
+
+Follow these recommendations to avoid problems during implementing the stage:
+
+- Use @NotBlankbean validation annotations to validate the content oftitle and text.
+- Use @NotNull and @Size annotations to validate the size of options.
+
+#### 3.3 Examples
+**Example 1**: *creating a new quiz with a valid request body*:
+
+*Request* `POST /api/quizzes`
+
+*Request body*
+```json
+{
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
+  "answer": [2]
+}
+```
+
+*Response body*
+```json
+{
+  "id": 1,
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+}
+```
+
+**Example 2**: *creating a new quiz with a missing title*:
+
+*Request* `POST /api/quizzes`
+
+*Request body*
+```json
+{
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
+  "answer": [2]
+}
+```
+
+Response: 400 BAD REQUEST
+
+**Example 3**: *creating a new quiz with an empty title*:
+
+*Request* `POST /api/quizzes`
+
+*Request body*
+```json
+{
+  "title": "",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
+  "answer": [2]
+}
+```
+
+*Response*: `400 BAD REQUEST`
+
+**Example 4**: *creating a new quiz with an empty options array*:
+
+*Request* `POST /api/quizzes`
+
+*Request body*
+```json
+{
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": [],
+  "answer": [2]
+}
+```
+
+Response: `400 BAD REQUEST`
+
+**Example 5**: *solving an existing quiz with a correct answer*:
+
+*Request* `POST /api/quizzes/1/solve`
+
+*Request body*
+```json
+{
+  "answer": [2]
+}
+```
+
+*Response body*
+```json
+{
+  "success": true,
+  "feedback": "Congratulations, you're right!"
+}
+```
+
+**Example 6**: *solving an existing quiz with a wrong answer*:
+
+*Request* `POST /api/quizzes/1/solve`
+
+*Request body*
+```json
+{
+  "answer": [0]
+}
+```
+
+*Response body*
+```json
+{
+  "success": false,
+  "feedback": "Wrong answer! Please, try again."
+}
+```
+
+**Example 7**: *solving an non-existing quiz*:
+
+*Request* `POST /api/quizzes/15/solve`
+
+*Request body*
+```json
+{
+  "answer": [2]
+}
+```
 
 *Response*: `404 NOT FOUND`
 
