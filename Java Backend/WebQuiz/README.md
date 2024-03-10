@@ -18,6 +18,10 @@
       - [3.3 Examples](#33-examples)
     - [4: Moving quizzes to DB](#4-moving-quizzes-to-db)
       - [4.1 Description](#41-description)
+    - [5: User authorization](#5-user-authorization)
+      - [5.1 Description](#51-description)
+      - [5.2 Objectives](#52-objectives)
+      - [5.3 Examples](#53-examples)
 
 ## Learning outcomes
 Create a collaborative web tool for making and solving quizzes, helping you learn backend development and modern tech integration effectively.
@@ -571,6 +575,142 @@ Follow these recommendations to avoid problems during implementing the stage:
 
 - Use `@ElementCollection(fetch = FetchType.EAGER)` on collections in entities.
 - Use `@Fetch(value = FetchMode.SUBSELECT)` either on answer or options in the quiz entity.
+
+<hr/>
+
+### 5: User authorization
+#### 5.1 Description
+Your service already has a well-designed API and stores all the quizzes in the database. At this stage, you will improve the service to support users and the authorization process. This will allow you to provide different privileges to the users and understand what do they do in the service.
+
+Here are two operations to be added:
+
+- **register a new user**, which accepts an email as the login and a password;
+- **deleting a quiz** created by the current user.
+
+All the previously developed operations should not be changed. As before, when creating a new quiz, the service checks the following rules: the fields `title` and `text` exist and they are not empty, and the `options` array has two or more items. If at least one of these conditions is not satisfied, the service returns the `400 (BAD REQUEST)` status code. As before, server responses for getting quizzes should not include answers for the quizzes.
+
+Add Spring Security starter to your build.gradle file to protect the secure endpoints:
+```
+implementation 'org.springframework.boot:spring-boot-starter-security'
+```
+
+>For the testing reasons, make `POST /actuator/shutdown` endpoint accessible without authentication.
+
+The main change is the accessibility of these operations. Now, to perform any operations with quizzes (**create**, **solve**, **get one**, **get all**, **delete**), the user has to be registered and then authorized via **HTTP Basic Auth** by sending their email and password for each request. Otherwise, the service returns the `401 (UNAUTHORIZED)` status code. Thus, the only operation that does not require authorization is the registration.
+
+>Do not store the actual password in the database! Instead, configure password encryption using `BCrypt` or some other algorithm via Spring Security.
+
+#### 5.2 Objectives
+1. Create the `POST` `/api/register` endpoint. To register a new user, the client needs to send a JSON to this endpoint in the following format:
+```json
+{
+  "email": "<username>@<domain>.<extension>",
+  "password": "<string, at least 5 characters long>"
+}
+```
+
+The service returns `200 (OK)` status code if the registration has been completed successfully.
+
+If the `email` is already taken by another user, the service will return the `400 (BAD REQUEST)` status code.
+
+Here are some additional restrictions to the format of user credentials:
+
+- the email must have a valid format (with `@` and `.`);
+- the password must have **at least five** characters.
+
+If any of them is not satisfied, the service must also return the `400 (BAD REQUEST)` status code.
+
+All the following operations need a registered user to be successfully completed.
+
+2. Create the `DELETE` request to `/api/quizzes/{id}` to allow a user to delete their quiz.
+
+If the operation was successful, the service returns the `204 (NO CONTENT)` status code without any content.
+
+If the specified quiz does not exist, the server returns `404 (NOT FOUND)`. If the specified user is not the author of this quiz, the response is the `403 (FORBIDDEN)` status code.
+
+**Additional ideas**
+If you would like your service to support more operations, add `PUT` or `PATCH` to update existing quizzes in the similar way as `DELETE`. Our tests will not verify these operations..
+
+#### 5.3 Examples
+**Example 1**: *registering a new user with a valid request body:*
+
+*Request*: `POST /api/register`
+
+*Request body*:
+```json
+{
+  "email": "test@mail.org",
+  "password": "strongpassword"
+}
+```
+
+*Response*: `200 OK`
+
+**Example 2**: *registering a new user with a valid request body but the email address is already taken:*
+
+*Request*: `POST /api/register`
+
+*Request body*:
+```json
+{
+  "email": "test@mail.org",
+  "password": "strongpassword"
+}
+```
+
+*Response*: `400 BAD REQUEST`
+
+**Example 3**: *registering a new user with an invalid email:*
+
+*Request*: `POST /api/register`
+
+*Request body*:
+```json
+{
+  "email": "test@mailorg",
+  "password": "strongpassword"
+}
+```
+
+*Response*: `400 BAD REQUEST`
+
+**Example 4**: *registering a new user with a too short password:*
+
+*Request*: `POST /api/register`
+
+*Request body*:
+```json
+{
+  "email": "test@mail.org",
+  "password": "123"
+}
+```
+
+*Response*: `400 BAD REQUEST`
+
+**Example 5**: *requesting a list of quizzes without providing a valid authentication:*
+
+*Request*: `GET /api/quizzes`
+
+*Response*: `401 UNAUTHORIZED`
+
+**Example 6**: *deleting a quiz created by the same user, providing a valid authentication: email=test@mail.org and password=strongpassword.*
+
+*Request*: `DELETE /api/quizzes/2`
+
+*Response*: `204 NO CONTENT`
+
+**Example 6**: *deleting a non-existing quiz, providing a valid authentication: email=test@mail.org and password=strongpassword:*
+
+*Request*: `DELETE /api/quizzes/20`
+
+*Response*: `404 NOT FOUND`
+
+**Example 6**: *deleting a quiz created by another user, providing a valid authentication: email=test@mail.org and password=strongpassword:*
+
+*Request*: `DELETE /api/quizzes/5`
+
+*Response*: `403 UNAUTHORIZED`
 
 <hr/>
 
