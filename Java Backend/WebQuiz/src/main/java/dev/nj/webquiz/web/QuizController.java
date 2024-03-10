@@ -3,6 +3,8 @@ package dev.nj.webquiz.web;
 import dev.nj.webquiz.entities.Quiz;
 import dev.nj.webquiz.entities.Result;
 import dev.nj.webquiz.services.QuizService;
+import dev.nj.webquiz.web.dto.AnswerDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,12 +31,12 @@ public class QuizController {
     }
 
     @PostMapping
-    public ResponseEntity<Quiz> createQuiz(@RequestBody Quiz quiz) {
+    public ResponseEntity<Quiz> createQuiz(@RequestBody @Valid Quiz quiz) {
         return ResponseEntity.ok(quizService.createQuiz(quiz));
     }
 
     @PostMapping("/{id}/solve")
-    public ResponseEntity<Result> answerQuiz(@PathVariable("id") Long quiz, @RequestParam int answer) {
+    public ResponseEntity<Result> answerQuiz(@PathVariable("id") Long quiz, @RequestBody AnswerDto answer) {
         return ResponseEntity.ok(quizService.answerQuiz(quiz, answer));
     }
 }

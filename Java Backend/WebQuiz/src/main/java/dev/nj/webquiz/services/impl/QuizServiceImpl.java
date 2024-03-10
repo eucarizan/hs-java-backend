@@ -5,8 +5,11 @@ import dev.nj.webquiz.entities.Result;
 import dev.nj.webquiz.exceptions.QuizNotFoundException;
 import dev.nj.webquiz.repositories.QuizRepository;
 import dev.nj.webquiz.services.QuizService;
+import dev.nj.webquiz.web.dto.AnswerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 
 @Service
 public class QuizServiceImpl implements QuizService {
@@ -24,9 +27,12 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public Result answerQuiz(long index, int answer) throws QuizNotFoundException{
+    public Result answerQuiz(long index, AnswerDto answer) throws QuizNotFoundException{
         Quiz quiz = getQuiz(index);
-        return new Result(answer == quiz.getAnswer());
+        boolean isCorrect = Arrays.equals(
+                Arrays.stream(answer.answer()).sorted().toArray(),
+                Arrays.stream(quiz.getAnswer()).sorted().toArray());
+        return new Result(isCorrect);
     }
 
     @Override
