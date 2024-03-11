@@ -1,12 +1,6 @@
 package dev.nj.webquiz.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
-import java.util.List;
 
 @Entity
 @Table(name = "quizzes")
@@ -16,20 +10,25 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    @NotBlank
     private String title;
     @Column
-    @NotBlank
     private String text;
     @Column
-    @NotNull
-    @Size(min = 2)
     private String[] options;
     @Column
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private int[] answer = new int[0];
 
+    @ManyToOne(optional = false)
+    private User creator;
+
     public Quiz() {
+    }
+
+    public Quiz(String text, String[] options, int[] answer, User user) {
+        this.text = text;
+        this.options = options;
+        this.answer = answer;
+        this.creator = user;
     }
 
     public long getId() {
@@ -50,5 +49,9 @@ public class Quiz {
 
     public int[] getAnswer() {
         return answer;
+    }
+
+    public User getCreator() {
+        return creator;
     }
 }
