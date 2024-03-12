@@ -1,2 +1,4 @@
 /build/
 /.gradle/
+quizdb.mv.db
+quizdb.trace.db
