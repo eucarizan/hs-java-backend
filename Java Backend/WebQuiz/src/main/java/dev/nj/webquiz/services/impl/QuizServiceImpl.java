@@ -46,6 +46,9 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Result answer(long id, AnswerDto answer) throws QuizNotFoundException {
         Quiz quiz = getById(id);
+        if (quiz.getAnswer() == null) {
+            return new Result(answer.answer().length == 0);
+        }
         boolean isCorrect = Arrays.equals(
                 Arrays.stream(answer.answer()).sorted().toArray(),
                 Arrays.stream(quiz.getAnswer()).sorted().toArray());

@@ -12,7 +12,7 @@ public record QuizDto(
         @NotBlank
         String text,
         @NotNull
-        @Size(min = 2)
+        @Size(min = 2, message = "At least 2 options are required")
         String[] options,
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         int[] answer
