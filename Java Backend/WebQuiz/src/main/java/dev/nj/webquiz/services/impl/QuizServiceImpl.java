@@ -28,7 +28,6 @@ public class QuizServiceImpl implements QuizService {
         this.mapper = mapper;
     }
 
-//    @Override
 //    public Quiz getQuiz(long index, User user) throws QuizNotFoundException, NotOwnerException {
 //        Quiz quiz = repository.findById(index).orElseThrow(QuizNotFoundException::new);
 //
@@ -38,14 +37,15 @@ public class QuizServiceImpl implements QuizService {
 //
 //        return quiz;
 //    }
+
     @Override
-    public Quiz getQuiz(long index) throws QuizNotFoundException {
-        return repository.findById(index).orElseThrow(QuizNotFoundException::new);
+    public Quiz getById(long id) throws QuizNotFoundException {
+        return repository.findById(id).orElseThrow(QuizNotFoundException::new);
     }
 
     @Override
-    public Result answerQuiz(long index, AnswerDto answer) throws QuizNotFoundException{
-        Quiz quiz = getQuiz(index);
+    public Result answer(long id, AnswerDto answer) throws QuizNotFoundException {
+        Quiz quiz = getById(id);
         boolean isCorrect = Arrays.equals(
                 Arrays.stream(answer.answer()).sorted().toArray(),
                 Arrays.stream(quiz.getAnswer()).sorted().toArray());
@@ -53,13 +53,22 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
-    public Quiz createQuiz(QuizDto quizDto, User user) {
+    public Quiz create(QuizDto quizDto, User user) {
         return repository.save(mapper.toEntity(quizDto, user));
     }
 
     @Override
-    public Iterable<Quiz> getQuizzes() {
+    public Iterable<Quiz> getAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public void delete(long id, String username) {
+        repository.findById(id)
+                .ifPresentOrElse(quiz -> executeIfOwnerOrThrow(quiz, repository::delete, username),
+                        () -> {
+                            throw new QuizNotFoundException();
+                        });
     }
 
     private void executeIfOwnerOrThrow(Quiz quiz, Consumer<Quiz> action, String username) throws NotOwnerException {
