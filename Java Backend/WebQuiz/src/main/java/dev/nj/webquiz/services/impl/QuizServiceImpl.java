@@ -11,6 +11,9 @@ import dev.nj.webquiz.web.dto.AnswerDto;
 import dev.nj.webquiz.web.dto.QuizDto;
 import dev.nj.webquiz.web.mapper.QuizMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -39,6 +42,15 @@ public class QuizServiceImpl implements QuizService {
 //    }
 
     @Override
+    public Page<QuizDto> findAll(Pageable pageable) {
+        return repository.findAll(
+                PageRequest.of(
+                        pageable.getPageNumber(),
+                        10
+                )).map(mapper::toDto);
+    }
+
+    @Override
     public Quiz getById(long id) throws QuizNotFoundException {
         return repository.findById(id).orElseThrow(QuizNotFoundException::new);
     }
@@ -58,11 +70,6 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Quiz create(QuizDto quizDto, User user) {
         return repository.save(mapper.toEntity(quizDto, user));
-    }
-
-    @Override
-    public Iterable<Quiz> getAll() {
-        return repository.findAll();
     }
 
     @Override

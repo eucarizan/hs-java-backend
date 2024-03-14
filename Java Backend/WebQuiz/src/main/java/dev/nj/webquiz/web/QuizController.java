@@ -11,6 +11,8 @@ import dev.nj.webquiz.web.mapper.QuizMapper;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,8 +23,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @RestController
 @RequestMapping("/api/quizzes")
@@ -38,11 +38,8 @@ public class QuizController {
     }
 
     @GetMapping
-    public ResponseEntity<List<QuizDto>> getQuizzes() {
-        return ResponseEntity.ok(
-                StreamSupport.stream(quizService.getAll().spliterator(), false)
-                        .map(mapper::toDto)
-                        .collect(Collectors.toList()));
+    public ResponseEntity<Page<QuizDto>> getAllQuiz(Pageable pageable) {
+        return ResponseEntity.ok(quizService.findAll(pageable));
     }
 
     @GetMapping("/{id}")

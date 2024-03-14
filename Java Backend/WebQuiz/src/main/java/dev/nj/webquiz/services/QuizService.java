@@ -7,6 +7,8 @@ import dev.nj.webquiz.exceptions.NotOwnerException;
 import dev.nj.webquiz.exceptions.QuizNotFoundException;
 import dev.nj.webquiz.web.dto.AnswerDto;
 import dev.nj.webquiz.web.dto.QuizDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface QuizService {
 
@@ -22,7 +24,7 @@ public interface QuizService {
     /**
      * find a quiz with the given id and solve with the given answer
      *
-     * @param id quiz id
+     * @param id     quiz id
      * @param answer answer/s to the quiz
      * @return the result if answer is correct or not
      * @throws QuizNotFoundException if no quiz with id is found
@@ -33,7 +35,7 @@ public interface QuizService {
      * save a given quiz to the repository
      *
      * @param quizDto quiz details
-     * @param user creator of the quiz
+     * @param user    creator of the quiz
      * @return the quiz with its id
      */
     Quiz create(QuizDto quizDto, User user);
@@ -41,17 +43,19 @@ public interface QuizService {
     /**
      * delete the quiz with the given id only when logged-in user is the quiz's creator
      *
-     * @param id quiz id
+     * @param id       quiz id
      * @param username logged-in User
      * @throws QuizNotFoundException if no quiz with id is found
-     * @throws NotOwnerException if the authenticated session user is not the owner of the quiz
+     * @throws NotOwnerException     if the authenticated session user is not the owner of the quiz
      */
     void delete(long id, String username) throws QuizNotFoundException, NotOwnerException;
 
+
     /**
-     * find all quiz
+     * find quizzes with the given page, default size of page is 10
      *
-     * @return all quiz
+     * @param pageable page
+     * @return paginated list of quizzes
      */
-    Iterable<Quiz> getAll();
+    Page<QuizDto> findAll(Pageable pageable);
 }
