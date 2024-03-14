@@ -24,7 +24,8 @@ public class Quiz {
     public Quiz() {
     }
 
-    public Quiz(String text, String[] options, int[] answer, User user) {
+    public Quiz(String title, String text, String[] options, int[] answer, User user) {
+        this.title = title;
         this.text = text;
         this.options = options;
         this.answer = answer;

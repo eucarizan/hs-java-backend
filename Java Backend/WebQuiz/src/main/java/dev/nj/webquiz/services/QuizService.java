@@ -4,14 +4,15 @@ import dev.nj.webquiz.entities.Quiz;
 import dev.nj.webquiz.entities.Result;
 import dev.nj.webquiz.entities.User;
 import dev.nj.webquiz.web.dto.AnswerDto;
+import dev.nj.webquiz.web.dto.QuizDto;
 
 public interface QuizService {
 
-    Quiz getQuiz(long index, User user);
+    Quiz getQuiz(long index);
 
-    Result answerQuiz(long index, AnswerDto answer, User user);
+    Result answerQuiz(long index, AnswerDto answer);
 
-    Quiz createQuiz(Quiz quiz, User user);
+    Quiz createQuiz(QuizDto quizDto, User user);
 
-    Iterable<Quiz> getQuizzes(User user);
+    Iterable<Quiz> getQuizzes();
 }

@@ -1,4 +1,4 @@
-package dev.nj.webquiz.services;
+package dev.nj.webquiz.services.impl;
 
 import dev.nj.webquiz.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService {
 
     private final UserRepository repository;
 
     @Autowired
-    public UserService(UserRepository repository) {
+    public UserServiceImpl(UserRepository repository) {
         this.repository = repository;
     }
 

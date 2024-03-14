@@ -1,7 +1,6 @@
 package dev.nj.webquiz.config;
 
-import dev.nj.webquiz.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.nj.webquiz.services.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -16,9 +15,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class WebSecurityConfig {
 
-    private final UserService service;
+    private final UserServiceImpl service;
 
-    public WebSecurityConfig(UserService service) {
+    public WebSecurityConfig(UserServiceImpl service) {
         this.service = service;
     }
 
@@ -30,7 +29,7 @@ public class WebSecurityConfig {
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/actuator/shutdown/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/register", "POST")).permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/api/quizzes")).authenticated()
-//                        .requestMatchers(AntPathRequestMatcher.antMatcher("/api/quizzes/**")).authenticated()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/api/quizzes/**")).authenticated()
                 )
                 .userDetailsService(service)
                 .csrf(AbstractHttpConfigurer::disable)

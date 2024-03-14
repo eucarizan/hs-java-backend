@@ -18,6 +18,7 @@ public class QuizMapper {
 
     public Quiz toEntity(QuizDto quizDto, User user) {
         return new Quiz(
+                quizDto.title(),
                 quizDto.text(),
                 quizDto.options(),
                 quizDto.answer(),
