@@ -7,6 +7,7 @@ import dev.nj.webquiz.exceptions.QuizNotFoundException;
 import dev.nj.webquiz.services.QuizService;
 import dev.nj.webquiz.web.dto.AnswerDto;
 import dev.nj.webquiz.web.dto.QuizDto;
+import dev.nj.webquiz.web.dto.SuccessDto;
 import dev.nj.webquiz.web.mapper.QuizMapper;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -55,8 +55,9 @@ public class QuizController {
 
     @PostMapping("/{id}/solve")
     public ResponseEntity<Result> answerQuiz(@PathVariable("id") Long quiz,
-                                             @RequestBody AnswerDto answer) {
-        return ResponseEntity.ok(quizService.answer(quiz, answer));
+                                             @RequestBody AnswerDto answer,
+                                             @AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(quizService.answer(quiz, answer, user));
     }
 
     @Transactional
@@ -65,6 +66,12 @@ public class QuizController {
                                            @AuthenticationPrincipal User user) {
         quizService.delete(id, user.getUsername());
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/completed")
+    public ResponseEntity<Page<SuccessDto>> getCompletedQuiz(Pageable pageable,
+                                                             @AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(quizService.getCompletion(pageable, user));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

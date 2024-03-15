@@ -7,6 +7,7 @@ import dev.nj.webquiz.exceptions.NotOwnerException;
 import dev.nj.webquiz.exceptions.QuizNotFoundException;
 import dev.nj.webquiz.web.dto.AnswerDto;
 import dev.nj.webquiz.web.dto.QuizDto;
+import dev.nj.webquiz.web.dto.SuccessDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -29,7 +30,7 @@ public interface QuizService {
      * @return the result if answer is correct or not
      * @throws QuizNotFoundException if no quiz with id is found
      */
-    Result answer(long id, AnswerDto answer) throws QuizNotFoundException;
+    Result answer(long id, AnswerDto answer, User user) throws QuizNotFoundException;
 
     /**
      * save a given quiz to the repository
@@ -58,4 +59,6 @@ public interface QuizService {
      * @return paginated list of quizzes
      */
     Page<QuizDto> findAll(Pageable pageable);
+
+    Page<SuccessDto> getCompletion(Pageable pageable, User user);
 }
