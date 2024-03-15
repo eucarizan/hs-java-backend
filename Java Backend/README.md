@@ -25,7 +25,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Traffic Light (Java)](README.md) `⭐4.1` `14 hr`
   - [x] [Coffee Machine (Java)](./CoffeeMachineSimulator/README.md) `⭐4.4` `14 hr`
 - Medium
-  - [ ] [Car Sharing](./README.md) `⭐3.9` `32 hr`
+  - [ ] [Car Sharing](./Carsharing/README.md) `⭐3.9` `32 hr`
   - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `29 hr`
   - [ ] [Number Base Converter (Java)](./README.md) `⭐4.2` `21 hr`
   - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`
@@ -40,7 +40,7 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
 - Challenging
   - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
-  - [ ] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
+  - [x] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
   - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
   - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`

@@ -60,7 +60,7 @@ public class QuizController {
         return ResponseEntity.ok(quizService.answer(quiz, answer, user));
     }
 
-    @Transactional
+    @Transactional(rollbackOn = {QuizNotFoundException.class, NotOwnerException.class})
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteQuiz(@PathVariable("id") long id,
                                            @AuthenticationPrincipal User user) {
