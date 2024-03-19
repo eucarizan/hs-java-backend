@@ -2,8 +2,11 @@ package dev.nj;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbClient {
     private final DataSource dataSource;
@@ -20,5 +23,25 @@ public class DbClient {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    public List<Company> selectForList(String query) {
+        List<Company> companies = new ArrayList<>();
+
+        try (Connection con = dataSource.getConnection();
+            Statement statement = con.createStatement();
+             ResultSet resultSetItem = statement.executeQuery(query)) {
+            while (resultSetItem.next()) {
+                int id = resultSetItem.getInt("id");
+                String name = resultSetItem.getString("name");
+                Company company = new Company(id, name);
+                companies.add(company);
+            }
+            return companies;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return companies;
     }
 }
