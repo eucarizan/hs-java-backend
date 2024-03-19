@@ -1,10 +1,8 @@
 package dev.nj;
 
-import org.h2.jdbcx.JdbcDataSource;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println(App.start(getDatabaseFileName(args)));
+        App.start(getDatabaseFileName(args));
     }
 
     private static String getDatabaseFileName(String[] args) {

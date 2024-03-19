@@ -25,7 +25,7 @@ public class DbClient {
         }
     }
 
-    public List<Company> selectForList(String query) {
+    public List<Company> selectForCompanyList(String query) {
         List<Company> companies = new ArrayList<>();
 
         try (Connection con = dataSource.getConnection();
@@ -43,5 +43,26 @@ public class DbClient {
         }
 
         return companies;
+    }
+
+    public List<Car> selectForCarList(String query) {
+        List<Car> cars = new ArrayList<>();
+
+        try (Connection con = dataSource.getConnection();
+             Statement statement = con.createStatement();
+             ResultSet resultSetItem = statement.executeQuery(query)) {
+            while (resultSetItem.next()) {
+                int id = resultSetItem.getInt("id");
+                String name = resultSetItem.getString("name");
+                int comp_id = resultSetItem.getInt("company_id");
+                Car car = new Car(id, name, comp_id);
+                cars.add(car);
+            }
+            return cars;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return cars;
     }
 }

@@ -1,13 +1,10 @@
 package dev.nj;
 
-import org.h2.jdbcx.JdbcDataSource;
-
 import java.util.List;
 
 public class DbCompanyDao implements CompanyDao {
-    static final String DB_URL = "jdbc:h2:./src/carsharing/db/";
-    private static final String DROP_DB = "DROP TABLE IF EXISTS COMPANY;";
-    private static final String CREATE_DB =
+    public static final String DROP_DB = "DROP TABLE IF EXISTS COMPANY;";
+    public static final String CREATE_DB =
             "CREATE TABLE COMPANY(" +
                     "id INTEGER AUTO_INCREMENT PRIMARY KEY," +
                     "name VARCHAR_IGNORECASE(50) NOT NULL UNIQUE" +
@@ -17,19 +14,13 @@ public class DbCompanyDao implements CompanyDao {
 
     private final DbClient dbClient;
 
-    public DbCompanyDao(String args) {
-        String url = DB_URL + args;
-        JdbcDataSource dataSource = new JdbcDataSource();
-        dataSource.setUrl(url);
-
-        dbClient = new DbClient(dataSource);
-        dbClient.run(DROP_DB);
-        dbClient.run(CREATE_DB);
+    public DbCompanyDao(DbClient dbClient) {
+        this.dbClient = dbClient;
     }
 
     @Override
     public List<Company> findAll() {
-        return dbClient.selectForList(SELECT_ALL);
+        return dbClient.selectForCompanyList(SELECT_ALL);
     }
 
     @Override
