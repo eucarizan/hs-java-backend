@@ -11,6 +11,10 @@
       - [2.1 Description](#21-description)
       - [2.2 Objectives](#22-objectives)
       - [2.3 Examples](#23-examples)
+    - [3: Relationship](#3-relationship)
+      - [3.1 Description](#31-description)
+      - [3.2 Objectives](#32-objectives)
+      - [3.3 Examples](#33-examples)
 
 ## Learning outcomes
 Car-sharing is becoming a more and more popular green alternative to owning a car. Let's create a program that manages a car-sharing service allowing companies to rent out their cars and find customers.
@@ -142,6 +146,193 @@ Company list:
 1. Super company
 2. Another company
 3. One more company
+
+1. Company list
+2. Create a company
+0. Back
+> 0
+
+1. Log in as a manager
+0. Exit
+> 0
+```
+
+<hr/>
+
+### 3: Relationship
+#### 3.1 Description
+One of the features of relational databases is, quite obviously, the relations between the tables. Let's create a table `CAR` that relates to a particular company. The data in this table should be linked to the `COMPANY` table with a foreign key.
+
+Since one company can have more than one car but one car can only belong to one company, the appropriate [table relation](https://medium.com/@emekadc/how-to-implement-one-to-one-one-to-many-and-many-to-many-relationships-when-designing-a-database-9da2de684710) model is One to Many.
+
+#### 3.2 Objectives
+Create another table named `CAR` with the following columns:
+
+- `ID` column should be `PRIMARY KEY` and `AUTO_INCREMENT` with the type `INT`.
+- `NAME` column should be `UNIQUE` and `NOT NULL` with the type `VARCHAR`.
+- `COMPANY_ID` column should be `NOT NULL` with the type `INT`. This column should be a `FOREIGN KEY` referring to the `ID` column of the table `COMPANY`.
+- `COMPANY` table should be the same as in the previous stage.
+
+Update the option `Company list` in the manager menu. Now, after showing the list of companies the program should prompt the user to choose one of them (remember to give the user a `Back` **option to return to the previous menu**):
+```
+Choose a company:
+1. First company name
+2. Second company name
+3. Third company name
+4. Back
+```
+
+Once the user has chosen a company, print the company menu:
+```
+'Company name' company:
+1. Car list
+2. Create a car
+0. Back
+```
+
+If the user chose the option `Car list`, the program should print the list of cars that belong to the chosen company. If the car list is empty, print the message `The car list is empty!`. Otherwise, print the cars ordered by their ID column. Their indexes should start from **1**, for example:
+```
+'Company name' cars:
+1. First car name
+2. Second car name
+3. Third car name
+```
+
+After printing the car list, print the company menu again. If the option `Create a car` was chosen, the program should prompt the user for the car name and save it in the database. The `COMPANY_ID` column of that car should refer to the company where it was created.
+
+If the `Back` option was chosen, go back and print the manager menu.
+
+Note that a list numeration should always start with 1.
+
+>To pass the tests, you have to enable the auto-commit mode so that all changes are automatically saved in the database file. To do that, call the method `connection.setAutoCommit(true)` of the `Connection` object.
+
+#### 3.3 Examples
+The greater-than symbol followed by a space `> ` represents the user input. Note that it's not part of the input.
+```
+1. Log in as a manager
+0. Exit
+> 1
+
+1. Company list
+2. Create a company
+0. Back
+> 2
+
+Enter the company name:
+> Car To Go
+The company was created!
+
+1. Company list
+2. Create a company
+0. Back
+> 2
+
+Enter the company name:
+> Drive Now
+The company was created!
+
+1. Company list
+2. Create a company
+0. Back
+> 1
+
+Choose the company:
+1. Car To Go
+2. Drive Now
+0. Back
+> 0
+
+1. Company list
+2. Create a company
+0. Back
+> 1
+
+Choose the company:
+1. Car To Go
+2. Drive Now
+0. Back
+> 1
+
+'Car To Go' company
+1. Car list
+2. Create a car
+0. Back
+> 1
+
+The car list is empty!
+
+1. Car list
+2. Create a car
+0. Back
+> 2
+
+Enter the car name:
+> Hyundai Venue
+The car was added!
+
+1. Car list
+2. Create a car
+0. Back
+> 2
+
+Enter the car name:
+> Maruti Suzuki Dzire
+The car was added!
+
+1. Car list
+2. Create a car
+0. Back
+> 1
+
+Car list:
+1. Hyundai Venue
+2. Maruti Suzuki Dzire
+
+1. Car list
+2. Create a car
+0. Back
+> 0
+
+1. Company list
+2. Create a company
+0. Back
+> 1
+
+Choose the company:
+1. Car To Go
+2. Drive Now
+0. Back
+> 2
+
+'Drive Now' company
+1. Car list
+2. Create a car
+0. Back
+> 1
+
+The car list is empty!
+
+1. Car list
+2. Create a car
+0. Back
+> 2
+
+Enter the car name:
+> Lamborghini Urraco
+The car was added!
+
+1. Car list
+2. Create a car
+0. Back
+> 1
+
+Car list:
+1. Lamborghini Urraco
+
+1. Car list
+2. Create a car
+0. Back
+> 0
 
 1. Company list
 2. Create a company
