@@ -41,5 +41,5 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-src/carsharing/db/carsharing.mv.db
+../../WebIDE/Car Sharing/Car Sharing/task/src/carsharing/db/carsharing.mv.db
 src/carsharing/db/carsharing.trace.db

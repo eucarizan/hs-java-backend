@@ -36,8 +36,9 @@ Become a Java Backend Developer and unlock the world of web application developm
   - [ ] [Minesweeper (Java)](./README.md) `⭐4.3` `20 hr`
   - [ ] [Budget Manager](./BudgetManager/README.md) `⭐4.0` `22 hr`
 - Hard
-  - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
+  - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
+  - [ ] [Web Calendar](./WebCalendar/README.md) `⭐4.7` `26 hr`
 - Challenging
   - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
   - [x] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
