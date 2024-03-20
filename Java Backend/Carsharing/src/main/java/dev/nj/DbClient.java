@@ -65,4 +65,25 @@ public class DbClient {
 
         return cars;
     }
+
+    public List<Customer> selectForCustomerList(String query) {
+        List<Customer> customers = new ArrayList<>();
+
+        try (Connection con = dataSource.getConnection();
+             Statement statement = con.createStatement();
+             ResultSet resultSetItem = statement.executeQuery(query)) {
+            while (resultSetItem.next()) {
+                int id = resultSetItem.getInt("id");
+                String name = resultSetItem.getString("name");
+                int rented_car_id = resultSetItem.getInt("rented_car_id");
+                Customer customer = new Customer(id, name, rented_car_id);
+                customers.add(customer);
+            }
+            return customers;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return customers;
+    }
 }
