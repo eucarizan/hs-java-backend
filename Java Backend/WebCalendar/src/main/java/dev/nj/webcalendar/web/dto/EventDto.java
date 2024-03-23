@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public record EventDto(
-        @NotBlank(message = "Event name is required.")
+        @NotBlank(message = "Event event is required.")
         String event,
         //TODO: custom validator
         @NotNull(message = "Event date is required.")

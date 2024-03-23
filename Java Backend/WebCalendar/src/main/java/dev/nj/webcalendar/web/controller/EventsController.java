@@ -12,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +24,20 @@ public class EventsController {
     @Autowired
     EventsService eventsService;
 
-    @GetMapping("/today")
-    public ResponseEntity<List<CalendarEvent>> getEventsToday() {
-        return ResponseEntity.ok(eventsService.getAllCalendarEvent());
+    @GetMapping
+    public ResponseEntity<List<CalendarEvent>> getEvents() {
+        List<CalendarEvent> events = eventsService.getAllCalendarEvent();
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
     }
 
-    // TODO: POST method - create event
+    @GetMapping("/today")
+    public ResponseEntity<List<CalendarEvent>> getEventsToday() {
+        return ResponseEntity.ok(eventsService.getAllEventsToday(LocalDate.now()));
+    }
+
     @PostMapping
     public ResponseEntity<SavedEventDto> saveEvent(@RequestBody @Valid EventDto dto) {
         return ResponseEntity.ok(eventsService.save(dto));

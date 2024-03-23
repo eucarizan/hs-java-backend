@@ -63,7 +63,7 @@ If a user sends the correct response, display the following message: `The event 
 ```json
 {
     "message": "The event has been added!",
-    "event": "Client event name",
+    "event": "Client event event",
     "date": "Client date"
 }
 ```

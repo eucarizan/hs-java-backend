@@ -11,14 +11,14 @@ public class EventMapper {
     public SavedEventDto toDto(CalendarEvent event, String message) {
         return new SavedEventDto(
                 message,
-                event.name(),
-                event.localDate()
+                event.getEvent(),
+                event.getDate()
         );
     }
 
-    public CalendarEvent toEntity(int id, EventDto dto) {
+    public CalendarEvent toEntity(EventDto dto) {
         return new CalendarEvent(
-                id,
+                -1,
                 dto.event(),
                 dto.date()
         );
