@@ -1,9 +1,9 @@
 package dev.nj.webcalendar.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public record CalendarEvent(
         int id,
         String name,
-        LocalDateTime dateTime) {
+        LocalDate localDate) {
 }
