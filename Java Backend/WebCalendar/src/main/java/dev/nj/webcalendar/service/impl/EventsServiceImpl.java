@@ -1,6 +1,7 @@
 package dev.nj.webcalendar.service.impl;
 
 import dev.nj.webcalendar.entities.CalendarEvent;
+import dev.nj.webcalendar.exceptions.EventNotFound;
 import dev.nj.webcalendar.repositories.EventRepository;
 import dev.nj.webcalendar.service.EventsService;
 import dev.nj.webcalendar.web.dto.EventDto;
@@ -31,9 +32,31 @@ public class EventsServiceImpl implements EventsService {
     }
 
     @Override
+    public List<CalendarEvent> getAllEventsBetween(LocalDate startDate, LocalDate endDate) {
+        List<CalendarEvent> events = repo.findAllByDateBetween(startDate, endDate);
+        if (events.isEmpty()) {
+            return repo.findAll();
+        }
+        return events;
+    }
+
+    @Override
+    public CalendarEvent getById(long id) throws EventNotFound {
+        return repo.findById(id)
+                .orElseThrow(() -> new EventNotFound("The event doesn't exist!"));
+    }
+
+    @Override
     public SavedEventDto save(EventDto dto) {
         CalendarEvent event = mapper.toEntity(dto);
         repo.save(event);
         return mapper.toDto(event, "The event has been added!");
+    }
+
+    @Override
+    public CalendarEvent delete(long id) throws EventNotFound {
+        CalendarEvent event = getById(id);
+        repo.delete(event);
+        return event;
     }
 }
