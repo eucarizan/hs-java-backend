@@ -1,19 +1,16 @@
 package dev.nj;
 
+import dev.nj.controller.CarSharing;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        App.start(getDatabaseFileName(args));
-    }
-
-    private static String getDatabaseFileName(String[] args) {
-        StringBuilder out = new StringBuilder();
-        for (int i = 0; i < args.length; i++) {
-            if ("-databaseFileName".equals(args[i])) {
-                if (i + 1 < args.length) {
-                    out.append(args[i + 1]);
-                }
-            }
-        }
-        return out.toString();
+        List<String> arguments = Arrays.asList(args);
+        int i = arguments.indexOf("-databaseFileName");
+        String dbName = i == -1 ? "CarSharingDb" : arguments.get(i + 1);
+        CarSharing carSharing = new CarSharing(dbName);
+        carSharing.start();
     }
 }
