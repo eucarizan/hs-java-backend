@@ -38,12 +38,12 @@ Become a Java Backend Developer and unlock the world of web application developm
 - Hard
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
   - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
-  - [ ] [Web Calendar](./WebCalendar/README.md) `⭐4.7` `26 hr`
+  - [x] [Web Calendar](./WebCalendar/README.md) `⭐4.7` `26 hr`
 - Challenging
   - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
   - [x] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
   - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
-  - [ ] [Account Service (Java)](./README.md) `⭐4.4` `56 hr`
+  - [ ] [Account Service (Java)](./AccountService/README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
 
 ### Track Overview
