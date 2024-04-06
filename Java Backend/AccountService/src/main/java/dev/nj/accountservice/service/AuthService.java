@@ -1,8 +1,8 @@
 package dev.nj.accountservice.service;
 
 import dev.nj.accountservice.web.dto.SignUpDto;
-import dev.nj.accountservice.web.dto.SignUpResponseDto;
+import dev.nj.accountservice.web.dto.UserResponseDto;
 
 public interface AuthService {
-    SignUpResponseDto register(SignUpDto signUpDto);
+    UserResponseDto register(SignUpDto signUpDto);
 }

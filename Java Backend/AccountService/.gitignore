@@ -32,4 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-./service_db.mv.db
+service_db.mv.db

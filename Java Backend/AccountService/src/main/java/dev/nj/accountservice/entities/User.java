@@ -34,6 +34,9 @@ public class User implements UserDetails {
         this.password = password;
         this.username = email;
     }
+    public long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

@@ -2,7 +2,7 @@ package dev.nj.accountservice.web.controller;
 
 import dev.nj.accountservice.service.AuthService;
 import dev.nj.accountservice.web.dto.SignUpDto;
-import dev.nj.accountservice.web.dto.SignUpResponseDto;
+import dev.nj.accountservice.web.dto.UserResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<SignUpResponseDto> registerUser(@RequestBody @Valid SignUpDto signUpDto) {
+    public ResponseEntity<UserResponseDto> registerUser(@RequestBody @Valid SignUpDto signUpDto) {
         return ResponseEntity.ok(authService.register(signUpDto));
     }
 }

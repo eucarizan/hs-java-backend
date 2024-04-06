@@ -1,10 +1,12 @@
 package dev.nj.accountservice.service.impl;
 
 import dev.nj.accountservice.entities.User;
+import dev.nj.accountservice.exceptions.UserExistException;
+import dev.nj.accountservice.repositories.UserRepository;
 import dev.nj.accountservice.service.AuthService;
 import dev.nj.accountservice.web.dto.SignUpDto;
-import dev.nj.accountservice.web.dto.SignUpResponseDto;
-import dev.nj.accountservice.web.mapper.SignUpMapper;
+import dev.nj.accountservice.web.dto.UserResponseDto;
+import dev.nj.accountservice.web.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,19 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     @Autowired
-    SignUpMapper mapper;
+    UserMapper mapper;
+    @Autowired
+    UserRepository repository;
 
     @Override
-    public SignUpResponseDto register(SignUpDto signUpDto) {
+    public UserResponseDto register(SignUpDto signUpDto) throws UserExistException {
         User user = mapper.toEntity(signUpDto);
+
+        if (repository.findByUsername(user.getEmail()).isPresent()) {
+            throw new UserExistException();
+        }
+
+        repository.save(user);
         return mapper.toResponseDto(user);
     }
 }

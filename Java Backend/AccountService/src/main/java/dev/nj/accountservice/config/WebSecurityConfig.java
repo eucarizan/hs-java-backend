@@ -21,16 +21,10 @@ public class WebSecurityConfig {
     UserServiceImpl service;
     @Autowired
     RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-//    @Autowired
-//    CustomAccessDeniedHandler customAccessDeniedHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-//                .httpBasic(httpBasic -> httpBasic
-//                        .authenticationEntryPoint(restAuthenticationEntryPoint))
-//                .exceptionHandling(ex -> ex
-//                        .accessDeniedHandler(customAccessDeniedHandler))
                 .httpBasic(Customizer.withDefaults())
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(restAuthenticationEntryPoint))
@@ -41,7 +35,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                                 .requestMatchers(HttpMethod.POST, "/api/auth/signup").permitAll()
                                 .requestMatchers("/h2/**", "/actuator/shutdown/**").permitAll()
-//                        .anyRequest().authenticated()
+                                .requestMatchers(HttpMethod.GET, "/api/empl/payment").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .sessionManagement(sessions -> sessions
