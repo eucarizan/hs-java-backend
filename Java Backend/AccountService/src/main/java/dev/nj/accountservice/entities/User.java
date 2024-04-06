@@ -20,6 +20,8 @@ public class User implements UserDetails {
     @Column
     String email;
     @Column
+    String username;
+    @Column
     String password;
 
     public User() {
@@ -30,6 +32,7 @@ public class User implements UserDetails {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.username = email;
     }
 
     public String getName() {
@@ -55,7 +58,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override

@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+./service_db.mv.db
