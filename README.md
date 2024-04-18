@@ -1,55 +1,63 @@
-# [Hyperskill](https://hi.hyperskill.org/) Projects
+# Java Backend Developer Track
+- [Java Backend Developer Track](#java-backend-developer-track)
+    - [Projects](#projects)
+    - [Learnings](#learnings)
+    - [Topics](#topics)
 
-- [Hyperskill Projects](#hyperskill-projects)
-  - [Tracks](#tracks)
-  - [Hyperskill](#hyperskill)
-  - [Hyperskill Manifesto](#hyperskill-manifesto)
-  - [The skills and abilities you'll develop](#the-skills-and-abilities-youll-develop)
-  - [The learning principles we're building on](#the-learning-principles-were-building-on)
-    - [Active learning](#active-learning)
-    - [Knowledge transfer](#knowledge-transfer)
-    - [Extensive practice](#extensive-practice)
-    - [Project-based learning](#project-based-learning)
-    - [Social learning](#social-learning)
-    - [Driven by practical goals](#driven-by-practical-goals)
+<!-- move each project to its own repository -->
 
-## Tracks
-- [Java Backend Developer](./Java%20Backend/README.md)
+### Projects
+- Easy
+  - [x] [Simple Chat Bot (Java)](./ChattyBot/ChattyBot/README.md) `⭐4.4` `3hr`
+  - [x] [Remo](./Remo/README.md) `⭐3.9` `2hr`
+  - [x] [Dolly](./Dolly/README.md) `⭐4.2` `2 hr`
+  - [x] [Zookeeper (Java)](./Zookeeper/README.md) `⭐4.2` `4 hr`
+  - [x] [Cinema Room Manager](./CinemaRoomManager/README.md) `⭐4.3` `9 hr`
+  - [x] [Rock, Paper, Scissors (Java)](./RockPaperScissors/README.md) `⭐4.0` `13 hr`
+  - [x] [Bulls and Cows](./BullsAndCows/README.md) `⭐4.2` `12 hr`
+  - [x] [Chuck Norris Cipher Encoder (Java)](./ChuckNorrisCipherEncoder/README.md) `⭐4.1` `11 hr`
+  - [x] [Amazing Numbers](./AmazingNumbers/README.md) `⭐4.0` `18 hr`
+  - [ ] [Tagger](./README.md) `⭐4.4` `4 hr`
+  - [ ] [Last Pencil (Java)](README.md) `⭐4.1` `9 hr`
+  - [ ] [Traffic Light (Java)](README.md) `⭐4.1` `14 hr`
+  - [x] [Coffee Machine (Java)](./CoffeeMachineSimulator/README.md) `⭐4.4` `14 hr`
+- Medium
+  - [x] [Car Sharing](./Carsharing/README.md) `⭐3.9` `32 hr`
+  - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `29 hr`
+  - [ ] [Number Base Converter (Java)](./README.md) `⭐4.2` `21 hr`
+  - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`
+  - [ ] [Music Advisor](./README.md) `⭐3.9` `24 hr`
+  - [ ] [Sorting Tool (Java)](./README.md) `⭐4.1` `27 hr`
+  - [ ] [Simple Search Engine (Java)](./README.md) `⭐4.4` `21 hr`
+  - [ ] [Smart Calculator (Java)](./README.md) `⭐4.3` `24 hr`
+  - [ ] [Minesweeper (Java)](./README.md) `⭐4.3` `20 hr`
+  - [ ] [Budget Manager](./BudgetManager/README.md) `⭐4.0` `22 hr`
+- Hard
+  - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
+  - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
+  - [x] [Web Calendar](./WebCalendar/README.md) `⭐4.7` `26 hr`
+- Challenging
+  - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
+  - [x] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
+  - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
+  - [ ] [Account Service (Java)](./AccountService/README.md) `⭐4.4` `56 hr`
+  - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
 
-## Hyperskill
-Level up your tech skills and advance your career
+### Learnings
+The track includes Java fundamentals, basic algorithms, and all must-haves for creating a runnable web application using the Spring Boot framework. With our educational projects, you'll get the experience of working with modern tools and OS internals step by step. Here are some of the things you’ll do:
+- learn basic syntax of Java;
+- get familiar with object-oriented programming;
+- deal with generics and collections;
+- learn how to store data in files and databases;
+- create web applications using Spring Boot;
+- learn basics of HTML, CSS, and JavaScript programming;
+- investigate the basic algorithms that will help you to solve different tasks;
+- learn how to work with Gradle, IDE, the command line, Git, and many more;
+- learn how to interact with members of the team working under the same project.
 
-- Wide range of tracks in popular programming languages and development frameworks
-- Focus on practice and real-world experience
-- AI-powered personalized study plan
+### Topics
+`Code organization` `Essentials` `Backend` `Algorithms and structures` `SQL and Databases` `Basics` `System administration and DevOps` `Additional instruments` `Errorless code` `JVM` `Working with data` `Java internals` `Dev tools` `Frontend` `Math`
 
-## Hyperskill Manifesto
-We believe that learning to program is not only about knowing specific tools and concepts but also about acquiring a set of mental skills that can help you solve complex problems.We also believe that it's important to develop these skills in a setting that resembles the process of real software development.
-
-## The skills and abilities you'll develop
-- Applying concepts and tools of a programming language and basic CS
-- Decomposing complex problems
-- Searching for the information needed to solve a problem
-- Overcoming frustration when your solution doesn't work and debugging efficiently
-- Using professional tools for development and familiarity with processes of complex projects development
-- Creating and updating your own portfolio
-
-## The learning principles we're building on
-### Active learning
-Skills are developed by trying out and applying concepts right away to real-life problems. That's why each theoretical piece you read is always followed by practical assignments. Reading or watching educational content without applying it right away has proved to be enjoyable but ineffective.
-
-### Knowledge transfer
-What we're really after is the knowledge transfer - your ability to use what you've learned on Hyperskill in different contexts. This is why we make a big emphasis on learning the tools and the processes of actual development.
-
-### Extensive practice
-First you solve a few similar problems in each topic so that you fully master the concept and automate the cases discussed in the topic to the point of getting bored. As a result, when you need to apply that concept in your project, you can solely focus on using your knowledge in a different context without having to remember the theory behind it.
-
-### Project-based learning
-Your learning is driven by a specific challenge posed by the project. This way you get to experience context when a certain tool or concept is applicable.
-A project is a big and complex problem, that's why we broke it up in stages and decomposed it for you.
-
-### Social learning
-We'd love to build a community of active learners who help each other succeed. Working with others and solving problems together is an invaluable skill for your career as a software developer, or any career for that matter.
-
-### Driven by practical goals
-The projects offered by the platform range from simple introductory programs to full swing working apps. We believe that the best kind of motivation stems from your desire to build something real and something that matters to you. That's why at some point you can pick and choose things you can build and focus on something that sparks your interest, be it back-end development, app development or something else.
+<!-- <details>
+<summary>Track Overview</summary>
+</details> -->
