@@ -1,0 +1,3 @@
+[submodule "task-management-system"]
+	path = task-management-system
+	url = git@github.com:eucarizan/task-mgt-system.git
