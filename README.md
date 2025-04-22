@@ -19,11 +19,10 @@
   - [x] [Amazing Numbers](./AmazingNumbers/README.md) `⭐4.0` `18 hr`
   - [ ] [Tagger](./README.md) `⭐4.4` `4 hr`
   - [ ] [Last Pencil (Java)](README.md) `⭐4.1` `9 hr`
-  - [ ] [Traffic Light (Java)](README.md) `⭐4.1` `14 hr`
   - [x] [Coffee Machine (Java)](./CoffeeMachineSimulator/README.md) `⭐4.4` `14 hr`
+  - [ ] [Simple Tic-Tac-Toe (Java)](./README.md) `⭐4.3` `14 hr`
 - Medium
-  - [x] [Car Sharing](./Carsharing/README.md) `⭐3.9` `32 hr`
-  - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `29 hr`
+  - [ ] [Traffic Light (Java)](README.md) `⭐4.1` `14 hr`
   - [ ] [Number Base Converter (Java)](./README.md) `⭐4.2` `21 hr`
   - [ ] [Tic-Tac-Toe with AI (Java)](./README.md) `⭐4.5` `17 hr`
   - [ ] [Music Advisor](./README.md) `⭐3.9` `24 hr`
@@ -32,16 +31,44 @@
   - [ ] [Smart Calculator (Java)](./README.md) `⭐4.3` `24 hr`
   - [ ] [Minesweeper (Java)](./README.md) `⭐4.3` `20 hr`
   - [ ] [Budget Manager](./BudgetManager/README.md) `⭐4.0` `22 hr`
+  - [ ] [ASCII Mirror](./README.md) `⭐4.1` `23 hr`
+  - [ ] [HyperCollections](./README.md) `⭐3.9` `29 hr`
+  - [ ] [JSON Database with Java](./README.md) `⭐4.1` `38 hr`
+  - [ ] [Battleship with Java](./README.md) `⭐4.4` `22 hr`
+  - [ ] [File Server](./README.md) `⭐4.2` `37 hr`
+  - [ ] [Tetris with Java](./README.md) `⭐4.4` `27 hr`
+  - [ ] [Phone Book with Java](./README.md) `⭐4.2` `30 hr`
+  - [ ] [Honest Calculator](./README.md) `⭐3.9` `20 hr`
+  - [ ] [Readability Score (Java)](./README.md) `⭐4.2` `21 hr`
+  - [ ] [Simple Banking System](./README.md) `⭐4.4` `25 hr`
+  - [ ] [Desktop Connect Four](./README.md) `⭐4.3` `30 hr`
+  - [ ] [Desktop Calculator](./README.md) `⭐4.1` `32 hr`
+  - [ ] [Maze Runner (Java)](./README.md) `⭐4.3` `34 hr`
 - Hard
   - [x] [Cinema Room REST Service (Java)](./CinemaRoomREST/README.md) `⭐4.3` `33 hr`
   - [ ] [Learning Process Tracker (Java)](./README.md) `⭐4.4` `33 hr`
   - [x] [Web Calendar](./WebCalendar/README.md) `⭐4.7` `26 hr`
-- Challenging
   - [x] [QRCode Service](./QRCode/README.md) `⭐4.6` `28 hr`
+  - [x] [Car Sharing](./Carsharing/README.md) `⭐3.9` `32 hr`
+  - [ ] [Meal Planner (Java)](./README.md) `⭐4.4` `29 hr`
+  - [ ] [Transaction Aggregator](./README.md) `⭐4.5` `36 hr`
+  - [ ] [Desktop Tic-Tac-Toe](./README.md) `⭐4.4` `41 hr`
+  - [ ] [Password Hacker (Java)](./README.md) `⭐4.4` `36 hr`
+  - [ ] [BugBusters](./README.md) `⭐4.1` `37 hr`
+  - [ ] [Customer Feedback Service](./README.md) `⭐4.6` `37 hr`
+- Challenging
   - [x] [Web Quiz Engine (Java)](./WebQuiz/README.md) `⭐4.4` `51 hr`
-  - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
+  - [ ] Task Management System [[v1](https://github.com/eucarizan/task-mgt-system/blob/main/README.md)|[v2](https://github.com/eucarizan/task-mgt-app-v1/blob/main/README.md)] `⭐4.7` `45 hr`
   - [ ] [Account Service (Java)](./AccountService/README.md) `⭐4.4` `56 hr`
   - [ ] [Anti-Fraud System](./README.md) `⭐4.2` `52 hr`
+  - [ ] [Recipe Management System](./README.md) `⭐4.4` `65 hr`
+  - [ ] [Fitness Tracker API](./README.md) `⭐4.9` `48 hr`
+  - [ ] [Run Docker Run](./README.md) `⭐4.2` `8 hr`
+  - old
+    - [x] [Recipes](./Recipes/README.md#recipes) `⭐4.4` `54 hr`
+<!--
+  - [ ] [](./README.md) `⭐4.2` `52 hr`
+-->
 
 ### Learnings
 The track includes Java fundamentals, basic algorithms, and all must-haves for creating a runnable web application using the Spring Boot framework. With our educational projects, you'll get the experience of working with modern tools and OS internals step by step. Here are some of the things you’ll do:
